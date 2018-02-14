@@ -1,0 +1,6 @@
+---
+#
+# Note this file must be encrypted with ansible-vault!
+
+drupal_db_password: supersecret
+varnish_control_key: secret-random-string

@@ -1,0 +1,21 @@
+[dev]
+
+[stage]
+
+[prod-db]
+
+[prod-lb]
+
+[prod-front]
+
+# Add all groups here which need http/https ports to be open in UpCloud firewall
+[firewall_web:children]
+dev
+stage
+prod-lb
+
+[prod:children]
+prod-lb
+prod-front
+prod-db
+
