@@ -27,7 +27,10 @@
         "drupal/config_installer": "~1.0",
         "drupal/warden": "*",
         "drupal/simplei": "^1.0",
-        "wunderio/drupal-ping": "^1.0"
+        "wunderio/drupal-ping": "^1.0",
+        "drupal/admin_toolbar": "^1.23",
+        "drupal/token": "^1.1",
+        "drupal/pathauto": "^1.0"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
