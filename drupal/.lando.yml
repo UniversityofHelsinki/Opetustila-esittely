@@ -1,4 +1,4 @@
-name: wunderlando
+name: tilat
 recipe: drupal8
 config:
   webroot: web
@@ -14,12 +14,12 @@ tooling:
     cmd:
       - ./build.sh
 
-services:  
+services:
   mailhog:
     type: mailhog
     hogfrom:
       - appserver
-  
+
   appserver:
     extras:
       - "apt-get update -y"
@@ -41,4 +41,3 @@ events:
   # Clear caches after a database import
   post-db-import:
     - appserver: cd $LANDO_WEBROOT && drush cr -y
-
