@@ -1,0 +1,151 @@
+---
+# Example site.yml
+
+# The default environment is our local development environment.
+# Note that the the default site is used as a base for all sites, so whatever you define here are inherited to
+# other site definitions.
+default:
+
+  aliases: local
+
+  drupal_version: d8
+
+  # In development environments we usually want to use symlinks, note the settings.php linking
+  link:
+    - files: web/sites/default/files
+    - conf/settings.local.php: web/sites/default/settings.local.php
+
+  local_commands:
+    new:
+      - shell: echo "Use the 'create' command to create a new project and the 'reset' command to join an existing one."
+
+    create:
+      - verify: "Type yes to verify you want to create a new installation: "
+      - make
+      - shell: composer drupal-scaffold
+      - drush: site-install standard
+      - drush: cex -y
+      - shell: echo "New installation is complete and configuration has been exported. Please commit it."
+      - cleanup
+
+    reset:
+      - verify: "Type yes to verify you want to reset your local environment: "
+      - make
+      - drush: site-install config_installer
+      - cleanup
+
+    # Basic site update functionality
+    update:
+      - backup:
+         ignore:
+          - builds
+      - make
+      - drush: updb -y
+      - drush: cim -y
+      - drush: entup -y
+      - cleanup
+      - shell:
+        - vendor/bin/codecept clean -c web/codeception.yml
+        - vendor/bin/codecept run -c web/codeception.yml
+
+    test:
+      - shell:
+        - vendor/bin/codecept clean -c web/codeception.yml
+        - vendor/bin/codecept run -c web/codeception.yml
+
+# Allow doing minimal builds first in Travis CI
+# These can then be deployed to servers
+ci:
+  aliases: travis
+
+  local_commands:
+    build:
+      - make
+      - shell: chmod -R a+w web
+
+# Test environment:
+test:
+
+  aliases: stage
+
+  # Test environment only symlinks files
+  link:
+    - /var/www/site.domain.tld/files: web/sites/default/files
+
+
+  # You can use copy to put some custom files in place if needed
+  #copy:
+    #- conf/_ping.php: web/_ping.php
+
+  # We can provide local commands or override global ones.
+  local_commands:
+    create:
+      - shell: echo "Creating a new installation should only be done in local environments."
+
+    reset:
+      - verify: "Type yes to verify you want to reset your local environment: "
+      - backup:
+         ignore:
+          - builds
+      - make
+      - drush: site-install config_installer
+      - cleanup
+
+    # Basic site update functionality
+    build:
+      - make
+
+    update:
+      - drush: updb -y
+      - drush: cim -y
+      - drush: entup -y
+      - cleanup
+      - shell: chmod -R a-w web
+      - shell: sudo systemctl restart nginx php-fpm varnish
+      - shell:
+        - vendor/bin/codecept clean -c web/codeception.yml
+        - vendor/bin/codecept run -c web/codeception.yml --env test
+
+
+# Production environment:
+production:
+
+  aliases: prod
+
+  # Prod environment only symlinks files
+  link:
+    - /var/www/site.domain.tld/files: web/sites/default/files
+
+  local_commands:
+    create:
+      - shell: echo "Creating a new installation should only be done in local environments."
+
+    reset:
+      - verify: "Type yes to verify you want to reset your local environment: "
+      - backup:
+         ignore:
+          - builds
+      - make
+      - drush: site-install config_installer
+      - cleanup
+
+
+    # Basic site update functionality
+    build:
+      - backup:
+         ignore:
+          - builds
+          - web/sites/default/files
+      - make
+      #- shell: rsync --delete -az -e ssh web www-admin@[front2_ip]:/var/www/[domain.tld]/
+
+    update:
+      - drush: updb -y
+      - drush: cim -y
+      - drush: entup -y
+      - cleanup
+      - shell: chmod -R a-w current
+      - shell: sudo systemctl restart nginx php-fpm varnish
+      #- shell: sudo systemctl -H [front2_ip] restart php-fpm nginx
+      #- shell: sudo systemctl -H [lb_ip] restart varnish
+
