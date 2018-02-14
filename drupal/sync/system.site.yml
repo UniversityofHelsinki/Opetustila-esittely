@@ -1,0 +1,14 @@
+uuid: dec29d73-f931-4b82-8da7-85a2fd4eb9f4
+name: Tilat
+mail: example@example.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
