@@ -1,6 +1,6 @@
 project:
-  name: wundertools
-  file_sync_url: https://www.example1.com
+  name: tilat
+  file_sync_url: https://www.tilat.fi
 ansible:
   remote: git@github.com:wunderio/WunderMachina.git
   branch: master
@@ -18,4 +18,3 @@ drush:
   alias_path: drupal/drush
 wundersecrets:
   remote: git@github.com:wunderio/WunderSecrets.git
-
