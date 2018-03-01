@@ -1,8 +1,5 @@
 ---
 
-# Setup servers and firewalls using upcloud api
-- include: upcloud.yml
-
 # Example of standard single server setup without production services (monitoring, logging etc.)
 - hosts: stage
   become: false
@@ -21,6 +18,7 @@
    - { role: php-fpm, tags: [ 'php-fpm' ] }
    - { role: drush, tags: [ 'drush' ] }
    - { role: drupal-log, tags: [ 'drupal-log' ] }
+   - { role: elasticsearch, tags: [ 'elasticsearch' ] }
    - { role: newrelic-infra, tags: [ 'newrelic-infra' ] }
    - { role: newrelic-sysmon, tags: [ 'newrelic-sysmon' ] }
 
@@ -53,7 +51,7 @@
 
     # You can set custom variables if the same value is used in multiple places so it can be easily changed here
     # You can use it anywhere after this using " {{ variable_name }}"
-    domain_name: stage.example.com
+    domain_name: tilat.hy.stage.wunder.io
 
     # This is used in cronjob and varnish and nginx configs
     drupal_web_root: "/var/www/{{ domain_name }}/current/web"
@@ -154,7 +152,6 @@
     monit_check_varnish: True
 
     # Which ever you are using
-    #monit_check_solr: True
     monit_check_elasticsearch: True
 
     ## Papertrail ##
