@@ -18,7 +18,6 @@
    - { role: php-fpm, tags: [ 'php-fpm' ] }
    - { role: drush, tags: [ 'drush' ] }
    - { role: drupal-log, tags: [ 'drupal-log' ] }
-   - { role: elasticsearch, tags: [ 'elasticsearch' ] }
    - { role: newrelic-infra, tags: [ 'newrelic-infra' ] }
    - { role: newrelic-sysmon, tags: [ 'newrelic-sysmon' ] }
 
@@ -51,7 +50,7 @@
 
     # You can set custom variables if the same value is used in multiple places so it can be easily changed here
     # You can use it anywhere after this using " {{ variable_name }}"
-    domain_name: tilat.hy.stage.wunder.io
+    domain_name: opetustila-staging.it.helsinki.fi
 
     # This is used in cronjob and varnish and nginx configs
     drupal_web_root: "/var/www/{{ domain_name }}/current/web"
@@ -74,8 +73,8 @@
 
     # On dev and stage it's good idea to protect the site with htauth
     basicauth_enabled: True
-    basicauth_username: wunder
-    basicauth_password: tools
+    basicauth_username: opetustila
+    basicauth_password: stickinesss-Spenglerian-chastise-advocated
     # Basic auth can also be disabled for certain ip's
     basicauth_ip:
       - address: 84.20.132.177
@@ -150,9 +149,6 @@
     monit_check_memcached: True
     monit_check_php_fpm: True
     monit_check_varnish: True
-
-    # Which ever you are using
-    monit_check_elasticsearch: True
 
     ## Papertrail ##
     papertrail_enabled: True

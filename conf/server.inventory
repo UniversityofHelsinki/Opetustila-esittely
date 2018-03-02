@@ -1,21 +1,16 @@
 [dev]
+128.214.237.168
 
 [stage]
+128.214.237.193
 
-[prod-db]
-
-[prod-lb]
-
-[prod-front]
+[prod]
+128.214.237.192
 
 # Add all groups here which need http/https ports to be open in UpCloud firewall
 [firewall_web:children]
 dev
 stage
-prod-lb
+prod
 
-[prod:children]
-prod-lb
-prod-front
-prod-db
 
