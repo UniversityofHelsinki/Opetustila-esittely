@@ -1,0 +1,39 @@
+{
+  "name": "uh_spaces",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "browserslist": [
+    "> 1%",
+    "IE 10",
+    "IE 9"
+  ],
+  "scripts": {
+    "watch": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "breakpoint-sass": "^2.7.0",
+    "css-loader": "^0.28.4",
+    "file-loader": "^1.1.6",
+    "image-webpack-loader": "^4.0.0",
+    "inert-polyfill": "^0.2.5",
+    "normalize.css": "^3.0.0",
+    "postcss": "^6.0.1",
+    "postcss-discard-comments": "^2.0.4",
+    "postcss-loader": "^2.0.6",
+    "tabbable": "^1.1.1",
+    "webpack-cli": "^2.0.9"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.17",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "node-sass": "^4.7.2",
+    "node-sass-glob-importer": "^5.1.0",
+    "sass-loader": "^6.0.7",
+    "webpack": "^4.1.0"
+  }
+}
