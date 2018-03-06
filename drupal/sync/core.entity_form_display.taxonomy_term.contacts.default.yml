@@ -1,0 +1,76 @@
+uuid: 0b5b724f-a709-4e76-abd9-99e81c5fb49d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.contacts.field_email
+    - field.field.taxonomy_term.contacts.field_phone_number
+    - field.field.taxonomy_term.contacts.field_role
+    - taxonomy.vocabulary.contacts
+  module:
+    - path
+    - telephone
+    - text
+id: taxonomy_term.contacts.default
+targetEntityType: taxonomy_term
+bundle: contacts
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_email:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_phone_number:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_role:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 5
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

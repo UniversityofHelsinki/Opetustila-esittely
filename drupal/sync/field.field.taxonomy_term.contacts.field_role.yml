@@ -1,0 +1,19 @@
+uuid: b9fd681e-f6c5-4e62-8eec-6fc8fcd3806c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_role
+    - taxonomy.vocabulary.contacts
+id: taxonomy_term.contacts.field_role
+field_name: field_role
+entity_type: taxonomy_term
+bundle: contacts
+label: Role
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
