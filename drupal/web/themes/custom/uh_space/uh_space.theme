@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements template_preprocess_taxonomy_term().
+ */
+function uh_space_preprocess_taxonomy_term(&$vars) {
+  $bundle = $vars['term']->bundle();
+  $bundle_class = \Drupal\Component\Utility\Html::getClass($bundle);
+
+  $vars['attributes']['class'][] = 'taxonomy-term';
+  $vars['attributes']['class'][] = "taxonomy-term--{$bundle_class}";
+}
