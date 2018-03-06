@@ -1,0 +1,16 @@
+uuid: 16b6cc52-4c31-4a04-a839-8eddb999aa0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.price_categories
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.price_categories
+target_entity_type_id: taxonomy_term
+target_bundle: price_categories
+default_langcode: site_default
+language_alterable: false
