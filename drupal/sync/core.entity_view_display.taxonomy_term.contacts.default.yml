@@ -1,0 +1,47 @@
+uuid: 2deb49da-dd74-4071-b54d-9388803dfed9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.contacts.field_email
+    - field.field.taxonomy_term.contacts.field_phone_number
+    - field.field.taxonomy_term.contacts.field_role
+    - taxonomy.vocabulary.contacts
+  module:
+    - text
+id: taxonomy_term.contacts.default
+targetEntityType: taxonomy_term
+bundle: contacts
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_email:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_phone_number:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_role:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true
