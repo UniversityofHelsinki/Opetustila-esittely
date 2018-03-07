@@ -1,16 +1,17 @@
 ---
 
 # Example of standard single server setup without production services (monitoring, logging etc.)
-- hosts: develop
-  become: false
+- hosts: dev
+  become: true
   become_method: sudo
-  user: root
+  user: lu_jslin
   roles:
    - { role: base, tags: [ 'base' ] }
    - { role: papertrail, tags: [ 'papertrail' ] }
    - { role: dbserver, tags: [ 'dbserver' ] }
    - { role: drupal-db, tags: [ 'drupal-db' ] }
-   - { role: certbot, tags: [ 'certbot' ] }
+     #- { role: certbot, tags: [ 'certbot' ] }
+   - { role: selfencrypt, tags: [ 'selfencrypt' ] }
    - { role: sslterminator, tags: [ 'sslterminator' ] }
    - { role: varnish, tags: [ 'varnish' ] }
    - { role: monit, tags: [ 'monit' ] }
@@ -69,6 +70,8 @@
     certbot_email: "{{ support_email }}"
     certbot_domains:
       - "{{ domain_name }}"
+    letsencrypt_domains:
+      - "{{ domain_name }}"
     certbot_renewal_docroot: /var/www/letsencrypt-auto
 
     # On dev and stage it's good idea to protect the site with htauth
@@ -113,8 +116,10 @@
     # Use https for this host
     sslterminators:
       - server_name: "{{ domain_name }}"
-        ssl_certificate: "/etc/letsencrypt/live/{{ domain_name }}/fullchain.pem"
-        ssl_certificate_key: "/etc/letsencrypt/live/{{ domain_name }}/privkey.pem"
+        #ssl_certificate: "/etc/letsencrypt/live/{{ domain_name }}/fullchain.pem"
+        #ssl_certificate_key: "/etc/letsencrypt/live/{{ domain_name }}/privkey.pem"
+        ssl_certificate: "/etc/nginx/certificate.crt"
+        ssl_certificate_key: "/etc/nginx/ssl/certificate.key"
         use_dhparam: True
         backends:
           - 127.0.0.1:8081 # Pass it to local varnish
