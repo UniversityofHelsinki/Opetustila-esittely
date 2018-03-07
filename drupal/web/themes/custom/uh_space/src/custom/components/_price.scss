@@ -1,0 +1,16 @@
+.price-category__price,
+.price-category__vat_excl,
+.price-category__name {
+  > .field {
+    display: inline;
+  }
+}
+
+.price-category__price {
+  @extend h4;
+  @include font-weight-bold;
+}
+
+.price-category__extra {
+  @extend small;
+}

@@ -1,16 +1,17 @@
-uuid: 39d07f1d-95b9-4edd-bade-8b99612a0b33
+uuid: 8d6aaf7c-b4d5-4174-b6e3-492dcec85768
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.taxonomy_term.minimal
     - field.field.taxonomy_term.price_categories.field_price_per_unit
     - field.field.taxonomy_term.price_categories.field_price_unit
     - field.field.taxonomy_term.price_categories.field_vat_rate
     - taxonomy.vocabulary.price_categories
-id: taxonomy_term.price_categories.default
+id: taxonomy_term.price_categories.minimal
 targetEntityType: taxonomy_term
 bundle: price_categories
-mode: default
+mode: minimal
 content:
   field_price_per_unit:
     weight: 0
@@ -31,17 +32,7 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_vat_rate:
-    weight: 2
-    label: hidden
-    settings:
-      thousand_separator: ''
-      decimal_separator: ','
-      scale: 0
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_decimal
-    region: content
 hidden:
   description: true
+  field_vat_rate: true
   langcode: true

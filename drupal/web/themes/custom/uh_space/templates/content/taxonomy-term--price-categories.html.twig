@@ -28,6 +28,15 @@
     {{ content.field_price_per_unit }}{{ content.field_price_unit }}
   </div>
 
-  {{ content.field_vat_rate }}
-  {{ name }}
+  <div class="price-category__extra">
+    <div class="price-category__name">
+      {{ "Price Category: " | trans }}
+      {{ name }}
+    </div>
+    {% if content.field_vat_rate %}
+      <div class="price-category__vat_excl">
+        {{ "Excl." | trans }}
+        {{ content.field_vat_rate }}
+      </div>
+    {% endif %}
 </div>
