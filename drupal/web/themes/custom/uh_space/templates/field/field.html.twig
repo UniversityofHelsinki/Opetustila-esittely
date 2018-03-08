@@ -1,0 +1,57 @@
+{%
+  set classes = [
+    'field',
+    'field--type-' ~ field_type|clean_class,
+    'field--name-' ~ field_name|clean_class,
+    'field--label-' ~ label_display,
+  ]
+%}
+{#
+The field template is divided into 4 different variations all depending
+on how the field is configured.
+We create 4 variations of the markup to prevent divits & make it easier to
+modify later on
+* Label & multiple fields
+*
+#}
+{% if not label_hidden %}
+{# The field has a label. #}
+  {% if multiple %}
+    {# Multiple items field with a label #}
+    <div{{ attributes.addClass(classes) }}>
+      <div{{ title_attributes.addClass('field__label') }}>{{ label }}</div>
+      <div{{ content_attributes.addClass('field__items') }}>
+      {% for item in items %}
+        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+      {% endfor %}
+      </div>
+    </div>
+
+  {% else %}
+    {# Single item field with a label #}
+    <div{{ attributes.addClass(classes) }}>
+      <div{{ title_attributes.addClass('field__label') }}>{{ label }}</div>
+      {% for item in items %}
+        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+{% else %}
+{# The field has no label. #}
+  {% if multiple %}
+    {# Multiple items field with no label #}
+    <div{{ attributes.addClass(classes).addClass('field__items') }}>
+      {% for item in items %}
+      <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+      {% endfor %}
+    </div>
+
+  {% else %}
+    {# single item field with no label #}
+    {% for item in items %}
+      <div{{ item.attributes.addClass(classes).addClass('field__item') }}>{{ item.content }}</div>
+    {% endfor %}
+  {% endif %}
+
+{% endif %}

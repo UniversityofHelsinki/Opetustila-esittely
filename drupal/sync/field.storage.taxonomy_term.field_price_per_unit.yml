@@ -1,0 +1,20 @@
+uuid: f6abfa17-57dd-4ec9-83b6-0fcc000e5c7d
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_price_per_unit
+field_name: field_price_per_unit
+entity_type: taxonomy_term
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

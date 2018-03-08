@@ -14,10 +14,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: ExtractCSSPlugin.extract({
           use: [{
             loader: "css-loader"
+          }, {
+            loader: "postcss-loader"
           }, {
             loader: "sass-loader",
             options: {
@@ -28,8 +30,6 @@ module.exports = {
                 "node_modules/normalize.css"
               ]
             }
-          }, {
-            loader: "postcss-loader"
           }]
         })
       },
