@@ -1,19 +1,17 @@
 ---
 
-# Setup servers and firewalls using upcloud api
-- include: upcloud.yml
-
 # Example of standard single server setup without production services (monitoring, logging etc.)
 - hosts: stage
-  become: false
+  become: true
   become_method: sudo
-  user: root
+  user: lu_jslin
   roles:
    - { role: base, tags: [ 'base' ] }
    - { role: papertrail, tags: [ 'papertrail' ] }
    - { role: dbserver, tags: [ 'dbserver' ] }
    - { role: drupal-db, tags: [ 'drupal-db' ] }
-   - { role: certbot, tags: [ 'certbot' ] }
+     #- { role: certbot, tags: [ 'certbot' ] }
+   - { role: selfencrypt, tags: [ 'selfencrypt' ] }
    - { role: sslterminator, tags: [ 'sslterminator' ] }
    - { role: varnish, tags: [ 'varnish' ] }
    - { role: monit, tags: [ 'monit' ] }
@@ -53,7 +51,7 @@
 
     # You can set custom variables if the same value is used in multiple places so it can be easily changed here
     # You can use it anywhere after this using " {{ variable_name }}"
-    domain_name: stage.example.com
+    domain_name: opetustila-staging.it.helsinki.fi
 
     # This is used in cronjob and varnish and nginx configs
     drupal_web_root: "/var/www/{{ domain_name }}/current/web"
@@ -72,12 +70,14 @@
     certbot_email: "{{ support_email }}"
     certbot_domains:
       - "{{ domain_name }}"
+    letsencrypt_domains:
+      - "{{ domain_name }}"
     certbot_renewal_docroot: /var/www/letsencrypt-auto
 
     # On dev and stage it's good idea to protect the site with htauth
     basicauth_enabled: True
-    basicauth_username: wunder
-    basicauth_password: tools
+    basicauth_username: opetustila
+    basicauth_password: stickinesss-Spenglerian-chastise-advocated
     # Basic auth can also be disabled for certain ip's
     basicauth_ip:
       - address: 84.20.132.177
@@ -116,8 +116,10 @@
     # Use https for this host
     sslterminators:
       - server_name: "{{ domain_name }}"
-        ssl_certificate: "/etc/letsencrypt/live/{{ domain_name }}/fullchain.pem"
-        ssl_certificate_key: "/etc/letsencrypt/live/{{ domain_name }}/privkey.pem"
+        #ssl_certificate: "/etc/letsencrypt/live/{{ domain_name }}/fullchain.pem"
+        #ssl_certificate_key: "/etc/letsencrypt/live/{{ domain_name }}/privkey.pem"
+        ssl_certificate: "/etc/nginx/certificate.crt"
+        ssl_certificate_key: "/etc/nginx/ssl/certificate.key"
         use_dhparam: True
         backends:
           - 127.0.0.1:8081 # Pass it to local varnish
@@ -152,10 +154,6 @@
     monit_check_memcached: True
     monit_check_php_fpm: True
     monit_check_varnish: True
-
-    # Which ever you are using
-    #monit_check_solr: True
-    monit_check_elasticsearch: True
 
     ## Papertrail ##
     papertrail_enabled: True

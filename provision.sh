@@ -109,8 +109,8 @@ fi
 
 export wundersecrets_path=$ROOT/secrets
 
-self_update
-
+#self_update
+echo -e '\033[0;31mNOTICE: This project uses overridden provision.sh!\033[0m'
 OPTIND=1
 ANSIBLE_TAGS=""
 EXTRA_OPTS=""
@@ -219,14 +219,16 @@ if [ $FIRST_RUN ]; then
   if [ -z $MYSQL_ROOT_PASS ]; then
     ansible-playbook $EXTRA_OPTS $PLAYBOOKPATH $WUNDER_SECRETS -c ssh -i $INVENTORY -e "@$EXTRA_VARS"  -e "first_run=True" --vault-password-file=$VAULT_FILE $ANSIBLE_TAGS
   else
-    ansible-playbook $EXTRA_OPTS $PLAYBOOKPATH $WUNDER_SECRETS -c ssh -i $INVENTORY -e "@$EXTRA_VARS"  -e "change_db_root_password=True mariadb_root_password=$MYSQL_ROOT_PASS first_run=True" --vault-password-file=$VAULT_FILE $ANSIBLE_TAGS
+    ansible-playbook $EXTRA_OPTS $PLAYBOOKPATH $WUNDER_SECRETS -c ssh -i $INVENTORY -e "@$EXTRA_VARS"  -e "change_db_root_password=True mariadb_root_password=$MYSQL_ROOT_PASS first_run=True" --vault-password-file=$VAULT_FILE $ANSIBLE_TAGS --ask-sudo-pass
   fi
 else
   if [ $ANSIBLE_TAGS ]; then
-    ansible-playbook $EXTRA_OPTS $VAGRANT_CREDENTIALS $PLAYBOOKPATH $WUNDER_SECRETS -c ssh -i $INVENTORY -e "@$EXTRA_VARS" --vault-password-file=$VAULT_FILE --tags "common,$ANSIBLE_TAGS"
+    ansible-playbook $EXTRA_OPTS $VAGRANT_CREDENTIALS $PLAYBOOKPATH $WUNDER_SECRETS -c ssh -i $INVENTORY -e "@$EXTRA_VARS" --vault-password-file=$VAULT_FILE --tags "common,$ANSIBLE_TAGS" --ask-sudo-pass
+
   elif [ $ANSIBLE_SKIP_TAGS ]; then
     ansible-playbook $EXTRA_OPTS $VAGRANT_CREDENTIALS $PLAYBOOKPATH $WUNDER_SECRETS -c ssh -i $INVENTORY -e "@$EXTRA_VARS" --vault-password-file=$VAULT_FILE --skip-tags "$ANSIBLE_SKIP_TAGS"
   else
-   ansible-playbook $EXTRA_OPTS $VAGRANT_CREDENTIALS $PLAYBOOKPATH $WUNDER_SECRETS -c ssh -i $INVENTORY -e "@$EXTRA_VARS" --vault-password-file=$VAULT_FILE
+   ansible-playbook $EXTRA_OPTS $VAGRANT_CREDENTIALS $PLAYBOOKPATH $WUNDER_SECRETS -c ssh -i $INVENTORY -e "@$EXTRA_VARS" --vault-password-file=$VAULT_FILE --ask-sudo-pass
+
   fi
 fi
