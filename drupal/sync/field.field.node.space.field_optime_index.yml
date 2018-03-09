@@ -1,0 +1,23 @@
+uuid: 4fa17a00-b866-4746-9972-eb576d2d29bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_optime_index
+    - node.type.space
+id: node.space.field_optime_index
+field_name: field_optime_index
+entity_type: node
+bundle: space
+label: 'Optime Index'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

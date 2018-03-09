@@ -1,0 +1,21 @@
+uuid: d3862ed9-96f5-4b68-8e0d-f72455f57924
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_contact_details
+    - taxonomy.vocabulary.building
+  module:
+    - text
+id: taxonomy_term.building.field_contact_details
+field_name: field_contact_details
+entity_type: taxonomy_term
+bundle: building
+label: 'Contact details'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

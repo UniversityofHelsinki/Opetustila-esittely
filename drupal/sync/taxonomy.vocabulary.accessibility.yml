@@ -1,0 +1,9 @@
+uuid: 1681001f-ab31-4d5c-8e0d-7c0a68a5a6a2
+langcode: und
+status: true
+dependencies: {  }
+name: Accessibility
+vid: accessibility
+description: 'Is the space easily accessible for everyone.'
+hierarchy: 0
+weight: 0

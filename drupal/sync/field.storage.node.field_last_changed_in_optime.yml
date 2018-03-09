@@ -1,0 +1,20 @@
+uuid: 8d370e39-b0e5-42e1-8447-2cbc1d3bbd6e
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_last_changed_in_optime
+field_name: field_last_changed_in_optime
+entity_type: node
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,6 +1,6 @@
 uuid: c6206482-b3a6-46ad-b88c-33e87829b46d
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,8 +10,8 @@ _core:
   default_config_hash: fRKXNB91UxDvEMkzCR8ZBsawfC6Fqbme2gtobei3gu4
 id: stark_branding
 theme: stark
-region: header
-weight: 0
+region: sidebar_first
+weight: null
 provider: null
 plugin: system_branding_block
 settings:

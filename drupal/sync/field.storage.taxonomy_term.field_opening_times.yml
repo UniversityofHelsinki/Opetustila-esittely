@@ -1,0 +1,19 @@
+uuid: d53b3ce4-cdab-4188-8b7e-0408956d191f
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - text
+id: taxonomy_term.field_opening_times
+field_name: field_opening_times
+entity_type: taxonomy_term
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

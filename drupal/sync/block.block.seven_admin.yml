@@ -1,6 +1,6 @@
 uuid: e6d8421e-efa5-44f8-a9e2-d3c5e45142af
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.admin
@@ -12,8 +12,8 @@ _core:
   default_config_hash: DWAB7HaAfAJerAmyT8B2K-6qxicu9n0PcKVpDr--N4c
 id: seven_admin
 theme: seven
-region: header
-weight: 1
+region: null
+weight: null
 provider: null
 plugin: 'system_menu_block:admin'
 settings:

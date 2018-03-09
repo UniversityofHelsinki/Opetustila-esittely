@@ -1,0 +1,9 @@
+uuid: 0ec043f4-c871-44cb-bebf-ee21ae61ee71
+langcode: und
+status: true
+dependencies: {  }
+name: Buildings
+vid: building
+description: 'A building belonging to a campus.'
+hierarchy: 0
+weight: 0

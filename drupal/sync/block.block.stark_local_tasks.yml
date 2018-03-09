@@ -1,6 +1,6 @@
 uuid: c31f5442-6054-4841-b579-5cd2e78712a6
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - stark
@@ -8,8 +8,8 @@ _core:
   default_config_hash: c-06bbElRY5sKmglk74ppgTW93Et4-EJFyNiUZMb8JY
 id: stark_local_tasks
 theme: stark
-region: content
-weight: -20
+region: sidebar_first
+weight: null
 provider: null
 plugin: local_tasks_block
 settings:

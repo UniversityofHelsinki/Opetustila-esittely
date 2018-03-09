@@ -1,0 +1,29 @@
+uuid: d5abd869-e516-4123-a2bd-33e6f4402144
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_building
+    - node.type.space
+    - taxonomy.vocabulary.building
+id: node.space.field_building
+field_name: field_building
+entity_type: node
+bundle: space
+label: Building
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      building: building
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

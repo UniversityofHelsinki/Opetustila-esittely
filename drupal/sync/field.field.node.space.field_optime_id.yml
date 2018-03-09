@@ -1,0 +1,19 @@
+uuid: 73536530-298b-4145-8eab-a79ae461cd21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_optime_id
+    - node.type.space
+id: node.space.field_optime_id
+field_name: field_optime_id
+entity_type: node
+bundle: space
+label: 'Optime ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,16 @@
+uuid: 63a0a5c1-d356-4d27-9047-0ad605989f16
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.space
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.space
+target_entity_type_id: node
+target_bundle: space
+default_langcode: fi
+language_alterable: true

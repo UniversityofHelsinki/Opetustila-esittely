@@ -1,0 +1,19 @@
+uuid: 3ca20c12-d7b4-4507-9858-28e44cffd825
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - text
+id: taxonomy_term.field_reservation_instructions
+field_name: field_reservation_instructions
+entity_type: taxonomy_term
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

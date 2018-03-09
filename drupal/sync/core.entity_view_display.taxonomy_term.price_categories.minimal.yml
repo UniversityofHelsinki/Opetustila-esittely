@@ -4,10 +4,18 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.taxonomy_term.minimal
+    - field.field.taxonomy_term.price_categories.field_internal_price
     - field.field.taxonomy_term.price_categories.field_price_per_unit
     - field.field.taxonomy_term.price_categories.field_price_unit
     - field.field.taxonomy_term.price_categories.field_vat_rate
     - taxonomy.vocabulary.price_categories
+  module:
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 id: taxonomy_term.price_categories.minimal
 targetEntityType: taxonomy_term
 bundle: price_categories
@@ -34,5 +42,6 @@ content:
     region: content
 hidden:
   description: true
+  field_internal_price: true
   field_vat_rate: true
   langcode: true

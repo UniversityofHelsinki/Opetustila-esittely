@@ -1,0 +1,16 @@
+uuid: b9d7b162-b3ea-49e4-a919-e9e87214671f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.campus
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.campus
+target_entity_type_id: taxonomy_term
+target_bundle: campus
+default_langcode: fi
+language_alterable: true

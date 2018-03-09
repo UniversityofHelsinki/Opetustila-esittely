@@ -1,6 +1,6 @@
 uuid: 2ff46a2a-fe6e-41bd-bbae-f3a3f8575308
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,8 +10,8 @@ _core:
   default_config_hash: 5MNdk3fpMKx_xxBTcz2T11DL4XEU1H5SgHl8BsYdFsA
 id: stark_messages
 theme: stark
-region: highlighted
-weight: 0
+region: sidebar_first
+weight: null
 provider: null
 plugin: system_messages_block
 settings:
