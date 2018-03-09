@@ -8,6 +8,7 @@ dependencies:
     - field.field.taxonomy_term.building.field_city
     - field.field.taxonomy_term.building.field_contact_details
     - field.field.taxonomy_term.building.field_contacts
+    - field.field.taxonomy_term.building.field_equipment_information
     - field.field.taxonomy_term.building.field_images
     - field.field.taxonomy_term.building.field_navigation_link
     - field.field.taxonomy_term.building.field_opening_times
@@ -73,6 +74,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_equipment_information:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_images:
     weight: 5

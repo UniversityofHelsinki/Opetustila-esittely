@@ -5,11 +5,14 @@ dependencies:
   config:
     - field.field.node.space.body
     - field.field.node.space.field_accessibility
+    - field.field.node.space.field_accessible_entry
     - field.field.node.space.field_building
     - field.field.node.space.field_building_id
     - field.field.node.space.field_campus
     - field.field.node.space.field_capacity
     - field.field.node.space.field_equipment
+    - field.field.node.space.field_equipment_information
+    - field.field.node.space.field_floor
     - field.field.node.space.field_images
     - field.field.node.space.field_last_changed_in_optime
     - field.field.node.space.field_legacy_url
@@ -62,6 +65,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: first
+  field_accessible_entry:
+    weight: 138
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: first
   field_building:
     weight: 127
     settings:
@@ -103,6 +114,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: first
+  field_equipment_information:
+    weight: 139
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: first
+  field_floor:
+    weight: 137
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: first
   field_images:
     weight: 122
