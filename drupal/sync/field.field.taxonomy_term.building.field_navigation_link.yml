@@ -1,0 +1,23 @@
+uuid: 948702ab-19b5-466e-bd88-a1f7d5b44243
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_navigation_link
+    - taxonomy.vocabulary.building
+  module:
+    - link
+id: taxonomy_term.building.field_navigation_link
+field_name: field_navigation_link
+entity_type: taxonomy_term
+bundle: building
+label: 'Navigation link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

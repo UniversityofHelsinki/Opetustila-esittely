@@ -1,6 +1,6 @@
 uuid: 1fd1f93a-7ef6-4c25-9e11-8e4ed16302cd
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.tools
@@ -13,7 +13,7 @@ _core:
 id: stark_tools
 theme: stark
 region: sidebar_first
-weight: 0
+weight: null
 provider: null
 plugin: 'system_menu_block:tools'
 settings:

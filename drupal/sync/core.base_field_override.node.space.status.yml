@@ -1,0 +1,22 @@
+uuid: 6414aa02-f5fe-41a0-9a16-0e4393126e06
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.space
+id: node.space.status
+field_name: status
+entity_type: node
+bundle: space
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

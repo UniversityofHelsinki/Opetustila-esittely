@@ -1,0 +1,29 @@
+uuid: 40a1bb78-31a4-40df-8d75-10ef7c0fefaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accessibility
+    - node.type.space
+    - taxonomy.vocabulary.accessibility
+id: node.space.field_accessibility
+field_name: field_accessibility
+entity_type: node
+bundle: space
+label: Accessibility
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      accessibility: accessibility
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,20 @@
+uuid: d657f28e-9115-4ceb-81a3-1ad738583390
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_optime_index
+field_name: field_optime_index
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

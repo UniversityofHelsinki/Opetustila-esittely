@@ -9,7 +9,7 @@ id: taxonomy_term.price_categories.field_price_per_unit
 field_name: field_price_per_unit
 entity_type: taxonomy_term
 bundle: price_categories
-label: 'Price per Unit'
+label: 'External price'
 description: ''
 required: true
 translatable: false

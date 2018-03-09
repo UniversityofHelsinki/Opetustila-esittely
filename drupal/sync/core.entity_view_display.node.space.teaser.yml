@@ -1,0 +1,65 @@
+uuid: c3019ab7-5c40-46de-8f9a-16310d8d3f11
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.space.body
+    - field.field.node.space.field_accessibility
+    - field.field.node.space.field_building
+    - field.field.node.space.field_building_id
+    - field.field.node.space.field_campus
+    - field.field.node.space.field_capacity
+    - field.field.node.space.field_equipment
+    - field.field.node.space.field_images
+    - field.field.node.space.field_last_changed_in_optime
+    - field.field.node.space.field_legacy_url
+    - field.field.node.space.field_optime_comments
+    - field.field.node.space.field_optime_id
+    - field.field.node.space.field_optime_index
+    - field.field.node.space.field_price_category
+    - field.field.node.space.field_reservation_link
+    - field.field.node.space.field_room_type
+    - node.type.space
+  module:
+    - field_layout
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: node.space.teaser
+targetEntityType: node
+bundle: space
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_accessibility: true
+  field_building: true
+  field_building_id: true
+  field_campus: true
+  field_capacity: true
+  field_equipment: true
+  field_images: true
+  field_last_changed_in_optime: true
+  field_legacy_url: true
+  field_optime_comments: true
+  field_optime_id: true
+  field_optime_index: true
+  field_price_category: true
+  field_reservation_link: true
+  field_room_type: true
+  langcode: true

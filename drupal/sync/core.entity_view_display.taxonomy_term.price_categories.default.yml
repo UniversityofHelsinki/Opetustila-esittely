@@ -3,15 +3,36 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.price_categories.field_internal_price
     - field.field.taxonomy_term.price_categories.field_price_per_unit
     - field.field.taxonomy_term.price_categories.field_price_unit
     - field.field.taxonomy_term.price_categories.field_vat_rate
     - taxonomy.vocabulary.price_categories
+  module:
+    - field_layout
+    - layout_discovery
+    - link
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 id: taxonomy_term.price_categories.default
 targetEntityType: taxonomy_term
 bundle: price_categories
 mode: default
 content:
+  field_internal_price:
+    weight: 3
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
   field_price_per_unit:
     weight: 0
     label: hidden

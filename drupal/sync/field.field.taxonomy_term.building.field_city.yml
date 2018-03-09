@@ -1,0 +1,21 @@
+uuid: 6fdea25e-8c1b-4209-85c7-d630a00daf7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_city
+    - taxonomy.vocabulary.building
+id: taxonomy_term.building.field_city
+field_name: field_city
+entity_type: taxonomy_term
+bundle: building
+label: City
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: Helsinki
+default_value_callback: ''
+settings: {  }
+field_type: string
