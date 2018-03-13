@@ -22,14 +22,9 @@ dependencies:
     - field.field.node.space.field_room_type
     - node.type.space
   module:
-    - field_layout
     - layout_discovery
     - text
     - user
-third_party_settings:
-  field_layout:
-    id: layout_onecol
-    settings: {  }
 id: node.space.teaser
 targetEntityType: node
 bundle: space

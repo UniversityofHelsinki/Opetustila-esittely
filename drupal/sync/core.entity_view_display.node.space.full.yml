@@ -1,8 +1,9 @@
-uuid: f5aa16cf-33bc-433f-a0e7-f29b48baded4
+uuid: 2c2eb582-c5ad-409a-a8be-2d8cec73dbe8
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.space.body
     - field.field.node.space.field_accessibility
     - field.field.node.space.field_accessible_entry
@@ -53,6 +54,8 @@ dependencies:
         - links
         - field_reservation_link
         - field_images
+        - group_key_information
+        - group_equipment
         - group_test
       left:
         - field_capacity
@@ -64,21 +67,21 @@ dependencies:
       right:
         - field_floor
         - field_accessible_entry
-id: node.space.default
+id: node.space.full
 targetEntityType: node
 bundle: space
-mode: default
+mode: full
 content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 5
+    weight: 8
     settings:
       trim_length: 600
     third_party_settings: {  }
     region: left
   field_accessibility:
-    weight: 4
+    weight: 7
     label: inline
     settings:
       link: true
@@ -87,14 +90,14 @@ content:
     type: entity_reference_entity_view
     region: left
   field_accessible_entry:
-    weight: 10
+    weight: 13
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: right
   field_capacity:
-    weight: 3
+    weight: 6
     label: inline
     settings:
       thousand_separator: ''
@@ -103,7 +106,7 @@ content:
     type: number_integer
     region: left
   field_equipment:
-    weight: 8
+    weight: 11
     label: hidden
     settings:
       link: false
@@ -112,14 +115,14 @@ content:
     type: entity_reference_entity_view
     region: left
   field_equipment_information:
-    weight: 6
+    weight: 9
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: left
   field_floor:
-    weight: 9
+    weight: 12
     label: above
     settings:
       link_to_entity: false
@@ -136,7 +139,7 @@ content:
     type: image
     region: header
   field_price_category:
-    weight: 7
+    weight: 10
     label: inline
     settings:
       view_mode: default
