@@ -1,20 +1,20 @@
-uuid: 408347a7-7303-4361-99f1-7052e15cd74d
-langcode: en
+uuid: 4487783a-54d3-4597-a794-96b18b606383
+langcode: fi
 status: true
 dependencies:
   module:
     - field_permissions
-    - link
     - node
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_reservation_link
-field_name: field_reservation_link
+id: node.field_equipment_information
+field_name: field_equipment_information
 entity_type: node
-type: link
-settings: {  }
-module: link
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

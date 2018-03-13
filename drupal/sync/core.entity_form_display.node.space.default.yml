@@ -5,11 +5,14 @@ dependencies:
   config:
     - field.field.node.space.body
     - field.field.node.space.field_accessibility
+    - field.field.node.space.field_accessible_entry
     - field.field.node.space.field_building
     - field.field.node.space.field_building_id
     - field.field.node.space.field_campus
     - field.field.node.space.field_capacity
     - field.field.node.space.field_equipment
+    - field.field.node.space.field_equipment_information
+    - field.field.node.space.field_floor
     - field.field.node.space.field_images
     - field.field.node.space.field_last_changed_in_optime
     - field.field.node.space.field_legacy_url
@@ -40,7 +43,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 121
+    weight: 4
     settings:
       rows: 9
       summary_rows: 3
@@ -49,12 +52,12 @@ content:
     region: first
   created:
     type: datetime_timestamp
-    weight: 10
-    region: first
+    weight: 25
+    region: bottom
     settings: {  }
     third_party_settings: {  }
   field_accessibility:
-    weight: 128
+    weight: 11
     settings:
       match_operator: CONTAINS
       size: 60
@@ -62,8 +65,16 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: first
+  field_accessible_entry:
+    weight: 15
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: first
   field_building:
-    weight: 127
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
@@ -72,7 +83,7 @@ content:
     type: entity_reference_autocomplete
     region: first
   field_building_id:
-    weight: 135
+    weight: 17
     settings:
       size: 60
       placeholder: ''
@@ -80,7 +91,7 @@ content:
     type: string_textfield
     region: first
   field_campus:
-    weight: 126
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
@@ -89,14 +100,14 @@ content:
     type: entity_reference_autocomplete
     region: first
   field_capacity:
-    weight: 125
+    weight: 8
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: first
   field_equipment:
-    weight: 123
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -104,8 +115,24 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: first
+  field_equipment_information:
+    weight: 16
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: first
+  field_floor:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: first
   field_images:
-    weight: 122
+    weight: 5
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -113,21 +140,21 @@ content:
     type: image_image
     region: first
   field_last_changed_in_optime:
-    weight: 136
+    weight: 20
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: first
   field_legacy_url:
-    weight: 131
+    weight: 26
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
-    region: first
+    region: bottom
   field_optime_comments:
-    weight: 132
+    weight: 21
     settings:
       rows: 5
       placeholder: ''
@@ -135,7 +162,7 @@ content:
     type: text_textarea
     region: first
   field_optime_id:
-    weight: 129
+    weight: 18
     settings:
       size: 60
       placeholder: ''
@@ -143,14 +170,14 @@ content:
     type: string_textfield
     region: first
   field_optime_index:
-    weight: 130
+    weight: 19
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: first
   field_price_category:
-    weight: 134
+    weight: 13
     settings:
       match_operator: CONTAINS
       size: 60
@@ -159,7 +186,7 @@ content:
     type: entity_reference_autocomplete
     region: first
   field_reservation_link:
-    weight: 124
+    weight: 7
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -167,7 +194,7 @@ content:
     type: link_default
     region: first
   field_room_type:
-    weight: 133
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60
@@ -177,58 +204,58 @@ content:
     region: first
   langcode:
     type: language_select
-    weight: 2
-    region: first
+    weight: 1
+    region: top
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
-    region: first
+    weight: 27
+    region: bottom
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
-    region: first
+    weight: 24
+    region: bottom
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 120
+    weight: 3
     region: first
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
-    region: first
+    weight: 23
+    region: bottom
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
-    region: first
+    weight: 2
+    region: top
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 10
-    region: first
+    weight: 0
+    region: top
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 22
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
-    region: first
+    region: bottom
     third_party_settings: {  }
 hidden: {  }
