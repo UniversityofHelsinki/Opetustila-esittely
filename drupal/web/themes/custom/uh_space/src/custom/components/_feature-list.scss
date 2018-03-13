@@ -1,0 +1,23 @@
+%feature-list {
+  display: block;
+  margin-bottom: $vert-spacing-unit;
+}
+
+%feature-list__item {
+  border-top: 1px solid $silver;
+  display: block;
+  padding: $line / 2 0;
+
+  &:last-child {
+    border-bottom: 1px solid $silver;
+  }
+
+  &:before {
+    @include icon("\EA0B");
+    @include font-size(24px);
+    color: $blue;
+    padding: 0 $line / 2;
+    position: relative;
+    top: 0.1rem;
+  }
+}

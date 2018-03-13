@@ -1,0 +1,39 @@
+.field--name-field-reservation-link {
+  display: inline-block;
+
+  a {
+    @extend .icon--date;
+    @extend %button--action-before;
+  }
+}
+
+.field--name-field-images {
+  display: flex;
+
+  .field__item {
+    margin-right: $line / 2;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.field--name-body {
+  p {
+    margin: 0;
+    line-height: inherit;
+  }
+}
+
+.field--name-field-equipment {
+  @extend %feature-list;
+
+  .field__item {
+    @extend %feature-list__item;
+  }
+}

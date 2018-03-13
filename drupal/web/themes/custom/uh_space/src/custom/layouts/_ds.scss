@@ -1,0 +1,25 @@
+.ds-2col-stacked-fluid {
+  @include container;
+  display: flex;
+  flex-wrap: wrap;
+  left: -($line);
+  position: relative;
+
+  > * {
+    margin-left: $line;
+  }
+
+  .group-top,
+  .group-bottom {
+    flex-basis: 100%;
+  }
+
+  .group-left {
+    flex-basis: 28rem;
+    flex-grow: 6;
+  }
+  .group-right {
+    flex-basis: 28rem;
+    flex-grow: 0.5;
+  }
+}
