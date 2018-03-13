@@ -40,7 +40,7 @@
         "drupal/migrate_plus": "^2.0",
         "drupal/libraries": "^3.0@alpha",
         "drupal/field_permissions": "^1.0@beta",
-        "drupal/field_group": "^1.0"
+        "drupal/field_group": "3.0-beta1"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
