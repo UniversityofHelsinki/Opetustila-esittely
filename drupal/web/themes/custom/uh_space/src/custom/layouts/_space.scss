@@ -11,6 +11,7 @@
         padding: 0;
       }
     }
+
     .field--name-field-reservation-link {
       align-items: center;
       display: flex;
@@ -18,17 +19,26 @@
       justify-content: flex-end;
       margin: 0;
     }
+
+    .field--name-dynamic-token-fieldnode-referenced-address {
+      flex-basis: 100%;
+      margin: 0;
+    }
   }
 
   h3 {
     left: -0.075em;
+    margin-top: 0;
+    padding-top: $line;
     position: relative;
+
+    + .field {
+      margin-top: 0;
+    }
   }
 }
 
 .space__guidance {
-  padding-top: $line;
-
   .field {
     margin: 0;
   }

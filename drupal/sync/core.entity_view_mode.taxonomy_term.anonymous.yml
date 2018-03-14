@@ -1,0 +1,10 @@
+uuid: cbe7eae6-70eb-4c34-a745-d31d0d15730d
+langcode: fi
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.anonymous
+label: Anonymous
+targetEntityType: taxonomy_term
+cache: true

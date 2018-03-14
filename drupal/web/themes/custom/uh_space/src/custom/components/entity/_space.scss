@@ -33,10 +33,14 @@
   }
 }
 
-.field--name-field-equipment {
+.equipment-list {
   @extend %feature-list;
 
-  .field__item {
+  .equipment-list__item {
     @extend %feature-list__item;
+
+    .field {
+      display: inline-block;
+    }
   }
 }
