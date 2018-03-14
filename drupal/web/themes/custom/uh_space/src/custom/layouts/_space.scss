@@ -1,0 +1,35 @@
+.node--type-space.node--view-mode-full {
+  .group-header {
+    display: flex;
+    flex-wrap: wrap;
+
+    .field--name-node-title {
+      flex-basis: 40rem;
+
+      h1 {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    .field--name-field-reservation-link {
+      align-items: center;
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+      margin: 0;
+    }
+  }
+
+  h3 {
+    left: -0.075em;
+    position: relative;
+  }
+}
+
+.space__guidance {
+  padding-top: $line;
+
+  .field {
+    margin: 0;
+  }
+}

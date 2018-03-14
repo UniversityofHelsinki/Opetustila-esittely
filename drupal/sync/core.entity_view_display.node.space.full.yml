@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.space.field_price_category
     - field.field.node.space.field_reservation_link
     - field.field.node.space.field_room_type
+    - image.style.large
     - node.type.space
   module:
     - ds
@@ -58,14 +59,15 @@ third_party_settings:
         - field_images
       left:
         - field_equipment_information
-        - group_key_information
         - field_equipment
-        - field_capacity
+        - group_key_information
         - group_equipment
+        - field_capacity
         - field_accessibility
         - body
         - field_price_category
       right:
+        - group_guidance
         - field_floor
         - field_accessible_entry
     fields:
@@ -118,6 +120,25 @@ third_party_settings:
         classes: space__equipment
       label: Equipment
       region: hidden
+    group_guidance:
+      children:
+        - field_floor
+        - field_accessible_entry
+      parent_name: ''
+      weight: 6
+      format_type: html_element
+      format_settings:
+        label: Guidance
+        element: aside
+        show_label: true
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: space__guidance
+      label: Guidance
+      region: hidden
 id: node.space.full
 targetEntityType: node
 bundle: space
@@ -140,7 +161,7 @@ content:
     third_party_settings: {  }
   field_accessible_entry:
     type: basic_string
-    weight: 7
+    weight: 8
     region: right
     label: hidden
     settings: {  }
@@ -173,7 +194,7 @@ content:
     third_party_settings: {  }
   field_floor:
     type: string
-    weight: 6
+    weight: 7
     region: right
     label: hidden
     settings:
@@ -185,9 +206,11 @@ content:
     region: header
     label: hidden
     settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
+      image_style: large
+      image_link: file
+    third_party_settings:
+      ds:
+        ds_limit: ''
   field_price_category:
     type: entity_reference_entity_view
     weight: 8
