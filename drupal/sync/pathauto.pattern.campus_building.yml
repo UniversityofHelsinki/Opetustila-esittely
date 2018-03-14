@@ -1,0 +1,23 @@
+uuid: a698a6db-6bd0-4d41-9051-7ba6c3b7d1b6
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: campus_building
+label: Campus->Building
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:field_campus]/[term:name]'
+selection_criteria:
+  14ccbf8b-1c66-445c-813b-96c63c339bc3:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      building: building
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 14ccbf8b-1c66-445c-813b-96c63c339bc3
+selection_logic: and
+weight: -9
+relationships: {  }
