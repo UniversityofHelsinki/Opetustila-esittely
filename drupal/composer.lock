@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9edf9fa6015f70d81a68c973bfbff73",
+    "content-hash": "1599211f17b06054bfea5799584d1aa1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2366,6 +2366,54 @@
                 "source": "http://git.drupal.org/project/ds.git",
                 "issues": "https://www.drupal.org/project/issues/ds",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/ds_chains",
+            "version": "1.0.0-alpha4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/ds_chains",
+                "reference": "8.x-1.0-alpha4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ds_chains-8.x-1.0-alpha4.zip",
+                "reference": "8.x-1.0-alpha4",
+                "shasum": "163b434152d7e7bf1ce206b0b31cf9ea64498f75"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/ds": "^3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha4",
+                    "datestamp": "1518989580",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                }
+            ],
+            "description": "Allows you to place fields from referenced entities with Display suite",
+            "homepage": "https://www.drupal.org/project/ds_chains",
+            "support": {
+                "source": "http://cgit.drupalcode.org/ds_chains"
             }
         },
         {
@@ -8290,7 +8338,8 @@
     "stability-flags": {
         "drupal/webform": 5,
         "drupal/libraries": 15,
-        "drupal/field_permissions": 10
+        "drupal/field_permissions": 10,
+        "drupal/ds_chains": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
