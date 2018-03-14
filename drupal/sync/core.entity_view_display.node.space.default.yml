@@ -25,6 +25,7 @@ dependencies:
     - node.type.space
   module:
     - ds
+    - ds_chains
     - field_group
     - image
     - link
@@ -106,6 +107,9 @@ third_party_settings:
         classes: space__equipment
       label: Equipment
       region: hidden
+  ds_chains:
+    fields:
+      field_building: field_building
 id: node.space.default
 targetEntityType: node
 bundle: space
