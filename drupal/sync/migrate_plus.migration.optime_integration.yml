@@ -1,0 +1,62 @@
+uuid: be5afa86-d266-4144-bcc7-f45d755599a1
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module: {  }
+_core:
+  default_config_hash: 5QnAurLGG9HuEn-sH_Qmldhra2YGE9ZoVofepAtbumM
+id: optime_integration
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: optime
+label: 'JSON import of spaces and related metadata from Optime'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  urls: 'http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json'
+  item_selector: 1
+  fields:
+    -
+      name: source_id
+      label: 'Unique identifier containing building and space (optime)'
+      selector: id
+    -
+      name: source_building_description
+      label: 'Building description including address, added to title'
+      selector: buildingDescription
+    -
+      name: source_equipment
+      label: 'Equipment terms'
+      selector: equipment
+    -
+      name: source_campus
+      label: 'Campus term'
+      selector: campus
+  ids:
+    source_id:
+      type: string
+process:
+  optime_id: source_id
+  title: building_description
+  field_campus:
+    plugin: entity_generate
+    source: campus
+    value_key: name
+    bundle: campus
+    entity_type: taxonomy_term
+    ignore_case: true
+  field_equipment:
+    plugin: entity_generate
+    source: equipment
+    value_key: name
+    bundle: equipment
+    entity_type: taxonomy_term
+    ignore_case: true
+destination:
+  plugin: 'entity:node'
+  default_bundle: space
+migration_dependencies: {  }

@@ -27,6 +27,7 @@ module:
   locale: 0
   menu_ui: 0
   migrate: 0
+  migrate_optime_json: 0
   migrate_plus: 0
   migrate_tools: 0
   node: 0
