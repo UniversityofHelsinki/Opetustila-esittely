@@ -8,14 +8,9 @@ dependencies:
     - field.field.taxonomy_term.campus.field_reservation_instructions
     - taxonomy.vocabulary.campus
   module:
-    - field_layout
     - image
     - layout_discovery
     - text
-third_party_settings:
-  field_layout:
-    id: layout_onecol
-    settings: {  }
 id: taxonomy_term.campus.default
 targetEntityType: taxonomy_term
 bundle: campus

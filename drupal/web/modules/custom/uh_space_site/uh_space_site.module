@@ -1,0 +1,32 @@
+<?php
+
+use \Drupal\Core\Entity\EntityInterface;
+use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function uh_space_site_entity_extra_field_info() {
+  $extra_field = [];
+
+  $extra_field['node']['space']['display']['field_smart_equipment_information'] = [
+    'label' => t('Smart Equipment Information'),
+    'description' => t('Displays space equipment information and falls back to building equipment information.'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  return $extra_field;
+}
+
+/**
+ * Implements hook_ds_pre_render_alter().
+ */
+function uh_space_site_ds_pre_render_alter(&$layout_render_array, $context, &$vars) {
+  if ($context['bundle'] == 'space' && $context['view_mode'] == 'full') {
+    // Unset building equipment information if space equipment information is set.
+    if (!empty($layout_render_array['left']['group_equipment']['field_equipment_information']['#items'])) {
+      unset($layout_render_array['left']['group_equipment']['ds_chains:node/space/field_building/field_equipment_information']);
+    }
+  }
+}

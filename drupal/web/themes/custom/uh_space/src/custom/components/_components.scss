@@ -1,3 +1,7 @@
 @import "components/**/*.scss";
 
-@import "price";
+@import "fields";
+@import "blocks";
+@import "feature-list";
+
+@import "entity/**/*";
