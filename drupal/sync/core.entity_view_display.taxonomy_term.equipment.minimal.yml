@@ -1,0 +1,49 @@
+uuid: fee04d10-781b-4dd6-9eb2-f061cace5710
+langcode: fi
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.minimal
+    - taxonomy.vocabulary.equipment
+  module:
+    - ds
+    - ds_chains
+third_party_settings:
+  ds:
+    layout:
+      id: ds_reset
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - taxonomy_term_title
+    fields:
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: ''
+          class: equipment__name
+          link: false
+  ds_chains:
+    fields: {  }
+id: taxonomy_term.equipment.minimal
+targetEntityType: taxonomy_term
+bundle: equipment
+mode: minimal
+content: {  }
+hidden:
+  description: true
+  langcode: true
