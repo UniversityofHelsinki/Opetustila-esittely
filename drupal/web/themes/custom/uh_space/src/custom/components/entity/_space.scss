@@ -1,10 +1,3 @@
-.node--type-space {
-  h1 {
-    @include font-size(50px, 30px);
-    hyphens: auto;
-  }
-}
-
 .field--name-field-reservation-link {
   a {
     @extend .icon--date;
@@ -48,6 +41,51 @@
 
     .field {
       display: inline-block;
+    }
+  }
+}
+
+.node--type-space {
+  h1 {
+    @include font-size(50px, 30px);
+    hyphens: auto;
+  }
+
+  &.node--view-mode-card {
+    display: flex;
+    flex-wrap: wrap;
+
+    .field--name-field-images,
+    .field--name-title,
+    .field--name-dynamic-token-fieldnode-referenced-address {
+      flex-basis: 100%;
+    }
+
+    .field--name-field-price-category {
+      @extend h4;
+      font-weight: 700;
+    }
+
+    .space__key-information {
+      flex-basis: 12rem;
+      flex-grow: 1;
+    }
+
+    .space__pricing {
+      flex-basis: 8rem;
+      text-align: right;
+      text-transform: uppercase;
+
+      .field-group__label {
+        @extend h6;
+        font-weight: 400;
+        padding: 0;
+        text-transform: none;
+
+        &:after {
+          content: ':';
+        }
+      }
     }
   }
 }
