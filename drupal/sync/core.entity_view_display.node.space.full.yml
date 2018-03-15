@@ -54,29 +54,30 @@ third_party_settings:
           layout_class: {  }
     regions:
       header:
+        - group_header_main
+        - group_hj
         - node_title
-        - node_links
-        - links
         - field_reservation_link
-        - 'dynamic_token_field:node-referenced_address'
         - field_images
-      left:
-        - 'ds_chains:node/space/field_campus/field_reservation_instructions'
-        - field_capacity
-        - field_accessibility
-        - group_key_information
-        - body
-        - group_equipment
-        - 'ds_chains:node/space/field_building/field_contacts'
-        - group_rental
-        - 'ds_chains:node/space/field_building/field_equipment_information'
-        - field_price_category
-        - field_equipment_information
-        - 'dynamic_block_field:node-space_equipment_view'
+        - 'dynamic_token_field:node-referenced_address'
       right:
+        - 'dynamic_copy_field:node-referenced_address_clone'
         - field_floor
         - field_accessible_entry
         - group_guidance
+      left:
+        - 'ds_chains:node/space/field_campus/field_reservation_instructions'
+        - group_key_information
+        - group_equipment
+        - field_capacity
+        - group_rental
+        - field_accessibility
+        - body
+        - 'ds_chains:node/space/field_building/field_contacts'
+        - field_price_category
+        - 'ds_chains:node/space/field_building/field_equipment_information'
+        - field_equipment_information
+        - 'dynamic_block_field:node-space_equipment_view'
     fields:
       'ds_chains:node/space/field_building/field_contacts':
         plugin_id: 'ds_chains:node/space/field_building/field_contacts'
@@ -87,7 +88,7 @@ third_party_settings:
           view_mode: anonymous
       'ds_chains:node/space/field_building/field_equipment_information':
         plugin_id: 'ds_chains:node/space/field_building/field_equipment_information'
-        weight: 9
+        weight: 11
         label: hidden
         formatter: basic_string
       'ds_chains:node/space/field_campus/field_reservation_instructions':
@@ -97,22 +98,22 @@ third_party_settings:
         formatter: text_default
       'dynamic_block_field:node-space_equipment_view':
         plugin_id: 'dynamic_block_field:node-space_equipment_view'
-        weight: 11
+        weight: 13
+        label: hidden
+        formatter: default
+      'dynamic_copy_field:node-referenced_address_clone':
+        plugin_id: 'dynamic_copy_field:node-referenced_address_clone'
+        weight: 0
         label: hidden
         formatter: default
       'dynamic_token_field:node-referenced_address':
         plugin_id: 'dynamic_token_field:node-referenced_address'
-        weight: 4
-        label: hidden
-        formatter: default
-      node_links:
-        plugin_id: node_links
-        weight: 1
+        weight: 3
         label: hidden
         formatter: default
       node_title:
         plugin_id: node_title
-        weight: 0
+        weight: 2
         label: hidden
         formatter: default
         settings:
@@ -128,7 +129,7 @@ third_party_settings:
         - 'ds_chains:node/space/field_building/field_contacts'
         - field_price_category
       parent_name: ''
-      weight: 6
+      weight: 3
       format_type: html_element
       format_settings:
         id: ''
@@ -147,7 +148,7 @@ third_party_settings:
         - field_equipment_information
         - 'dynamic_block_field:node-space_equipment_view'
       parent_name: ''
-      weight: 7
+      weight: 4
       format_type: html_element
       format_settings:
         label: Equipment
@@ -163,10 +164,11 @@ third_party_settings:
       region: hidden
     group_guidance:
       children:
+        - 'dynamic_copy_field:node-referenced_address_clone'
         - field_floor
         - field_accessible_entry
       parent_name: ''
-      weight: 9
+      weight: 6
       format_type: html_element
       format_settings:
         label: Guidance
@@ -184,7 +186,7 @@ third_party_settings:
       children:
         - 'ds_chains:node/space/field_campus/field_reservation_instructions'
       parent_name: ''
-      weight: 8
+      weight: 5
       format_type: html_element
       format_settings:
         id: ''
@@ -196,6 +198,41 @@ third_party_settings:
         effect: none
         speed: fast
       label: 'Would you like to rent this space?'
+      region: hidden
+    group_header_main:
+      children:
+        - node_title
+        - 'dynamic_token_field:node-referenced_address'
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: space__header-main
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Header Main'
+      region: hidden
+    group_hj:
+      children:
+        - field_reservation_link
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: space__header-actions
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Header Actions'
       region: hidden
   ds_chains:
     fields:
@@ -223,7 +260,7 @@ content:
     third_party_settings: {  }
   field_accessible_entry:
     type: basic_string
-    weight: 8
+    weight: 2
     region: right
     label: hidden
     settings: {  }
@@ -239,14 +276,14 @@ content:
     third_party_settings: {  }
   field_equipment_information:
     type: basic_string
-    weight: 10
+    weight: 12
     region: left
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_floor:
     type: string
-    weight: 7
+    weight: 1
     region: right
     label: hidden
     settings:
@@ -254,7 +291,7 @@ content:
     third_party_settings: {  }
   field_images:
     type: image
-    weight: 5
+    weight: 2
     region: header
     label: hidden
     settings:
@@ -274,7 +311,7 @@ content:
     third_party_settings: {  }
   field_reservation_link:
     type: link
-    weight: 3
+    weight: 2
     region: header
     label: hidden
     settings:
@@ -283,11 +320,6 @@ content:
       url_plain: false
       rel: ''
       target: ''
-    third_party_settings: {  }
-  links:
-    weight: 2
-    region: header
-    settings: {  }
     third_party_settings: {  }
 hidden:
   field_building: true
@@ -300,4 +332,6 @@ hidden:
   field_optime_id: true
   field_optime_index: true
   field_room_type: true
+  field_smart_equipment_information: true
   langcode: true
+  links: true
