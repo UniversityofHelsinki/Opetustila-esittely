@@ -2,6 +2,11 @@
   .group-header {
     display: flex;
     flex-wrap: wrap;
+    margin-right: -($line);
+
+    > * {
+      padding-right: $line;
+    }
 
     .field {
       margin: 0;
