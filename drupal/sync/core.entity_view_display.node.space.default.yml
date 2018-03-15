@@ -24,121 +24,175 @@ dependencies:
     - field.field.node.space.field_room_type
     - node.type.space
   module:
-    - datetime
-    - field_layout
+    - ds
+    - ds_chains
+    - field_group
     - image
-    - layout_discovery
     - link
     - text
     - user
 third_party_settings:
-  field_layout:
-    id: layout_onecol
-    settings: {  }
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      header:
+        - links
+        - field_reservation_link
+        - field_images
+      left:
+        - field_equipment_information
+        - group_key_information
+        - field_equipment
+        - group_equipment
+        - field_capacity
+        - field_accessibility
+        - body
+        - field_price_category
+      right:
+        - field_floor
+        - field_accessible_entry
+  field_group:
+    group_key_information:
+      children:
+        - field_capacity
+        - field_accessibility
+        - body
+        - field_price_category
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: space__key-information
+        element: section
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Key Information'
+      region: hidden
+    group_equipment:
+      children:
+        - field_equipment_information
+        - field_equipment
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        label: Equipment
+        element: section
+        show_label: true
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: space__equipment
+      label: Equipment
+      region: hidden
+  ds_chains:
+    fields:
+      field_building: field_building
 id: node.space.default
 targetEntityType: node
 bundle: space
 mode: default
 content:
   body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
+    type: text_summary_or_trimmed
+    weight: 7
+    region: left
+    label: inline
+    settings:
+      trim_length: 600
     third_party_settings: {  }
-    region: content
   field_accessibility:
-    weight: 108
-    label: above
+    type: entity_reference_entity_view
+    weight: 6
+    region: left
+    label: inline
     settings:
-      link: true
+      view_mode: token
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_accessible_entry:
-    weight: 118
-    label: above
+    type: basic_string
+    weight: 6
+    region: right
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_building:
-    weight: 107
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_building_id:
-    weight: 115
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_campus:
-    weight: 106
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_capacity:
-    weight: 105
-    label: above
+    type: number_integer
+    weight: 5
+    region: left
+    label: inline
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
-    region: content
   field_equipment:
-    weight: 103
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_equipment_information:
-    weight: 119
-    label: above
+    type: entity_reference_entity_id
+    weight: 4
+    region: left
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_equipment_information:
     type: basic_string
-    region: content
+    weight: 3
+    region: left
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_floor:
-    weight: 117
-    label: above
+    type: string
+    weight: 5
+    region: right
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
-    region: content
   field_images:
-    weight: 102
-    label: above
+    type: image
+    weight: 2
+    region: header
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
-    type: image
-    region: content
-  field_last_changed_in_optime:
-    weight: 116
-    label: above
+  field_price_category:
+    type: entity_reference_entity_view
+    weight: 8
+    region: left
+    label: inline
     settings:
-      format_type: medium
-      timezone_override: ''
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_legacy_url:
-    weight: 111
-    label: above
+  field_reservation_link:
+    type: link
+    weight: 1
+    region: header
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -146,62 +200,19 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
-    region: content
-  field_optime_comments:
-    weight: 112
-    label: above
+  links:
+    weight: 0
+    region: header
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
-  field_optime_id:
-    weight: 109
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_optime_index:
-    weight: 110
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_price_category:
-    weight: 114
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_reservation_link:
-    weight: 104
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
-  field_room_type:
-    weight: 113
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  links:
-    weight: 100
-    region: content
 hidden:
+  field_building: true
+  field_building_id: true
+  field_campus: true
+  field_last_changed_in_optime: true
+  field_legacy_url: true
+  field_optime_comments: true
+  field_optime_id: true
+  field_optime_index: true
+  field_room_type: true
   langcode: true

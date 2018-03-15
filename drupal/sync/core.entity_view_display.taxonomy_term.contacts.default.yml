@@ -8,13 +8,8 @@ dependencies:
     - field.field.taxonomy_term.contacts.field_role
     - taxonomy.vocabulary.contacts
   module:
-    - field_layout
-    - layout_discovery
+    - telephone
     - text
-third_party_settings:
-  field_layout:
-    id: layout_onecol
-    settings: {  }
 id: taxonomy_term.contacts.default
 targetEntityType: taxonomy_term
 bundle: contacts
@@ -37,9 +32,10 @@ content:
   field_phone_number:
     weight: 2
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
-    type: basic_string
+    type: telephone_link
     region: content
   field_role:
     weight: 1

@@ -1,0 +1,53 @@
+uuid: 5fe9d343-07a4-4148-8ee8-1b6519c26248
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.anonymous
+    - field.field.taxonomy_term.contacts.field_email
+    - field.field.taxonomy_term.contacts.field_phone_number
+    - field.field.taxonomy_term.contacts.field_role
+    - taxonomy.vocabulary.contacts
+  module:
+    - ds
+    - ds_chains
+    - telephone
+third_party_settings:
+  ds:
+    layout:
+      id: ds_reset
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_phone_number
+  ds_chains:
+    fields: {  }
+id: taxonomy_term.contacts.anonymous
+targetEntityType: taxonomy_term
+bundle: contacts
+mode: anonymous
+content:
+  field_phone_number:
+    weight: 0
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: ds_content
+hidden:
+  description: true
+  field_email: true
+  field_role: true
+  langcode: true

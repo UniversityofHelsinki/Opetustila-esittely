@@ -26,16 +26,11 @@ dependencies:
     - node.type.space
   module:
     - datetime
-    - field_layout
     - image
     - layout_discovery
     - link
     - path
     - text
-third_party_settings:
-  field_layout:
-    id: layout_twocol
-    settings: {  }
 id: node.space.default
 targetEntityType: node
 bundle: space

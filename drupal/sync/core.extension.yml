@@ -12,10 +12,10 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
+  ds_chains: 0
   dynamic_page_cache: 0
   field: 0
   field_group: 0
-  field_layout: 0
   field_permissions: 0
   field_ui: 0
   file: 0
@@ -41,12 +41,14 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  uh_space_site: 0
   user: 0
   views_ui: 0
   webform: 0
   webform_node: 0
   webform_ui: 0
   contribute: 1
+  ds: 1
   menu_link_content: 1
   pathauto: 1
   content_translation: 10

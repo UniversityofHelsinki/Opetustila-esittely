@@ -1,0 +1,46 @@
+.field--name-field-reservation-link {
+  a {
+    @extend .icon--date;
+    @extend %button--action-before;
+    display: inline-block;
+  }
+}
+
+.field--name-field-images {
+  display: flex;
+  flex-basis: 100%;
+
+  .field__item {
+    flex-basis: 50%;
+    margin-right: $line / 2;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.field--name-body {
+  p {
+    @include font-size(16px);
+    margin: 0;
+    line-height: inherit;
+  }
+}
+
+.equipment-list {
+  @extend %feature-list;
+
+  .equipment-list__item {
+    @extend %feature-list__item;
+
+    .field {
+      display: inline-block;
+    }
+  }
+}

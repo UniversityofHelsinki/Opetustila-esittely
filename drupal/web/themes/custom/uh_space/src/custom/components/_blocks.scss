@@ -1,0 +1,19 @@
+#block-tabs {
+  @include container;
+  margin-bottom: $line;
+  margin-top: $line;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  li {
+    display: block;
+    margin: $line / 8;
+  }
+
+  a {
+    @extend .button;
+  }
+}
