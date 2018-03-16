@@ -1,0 +1,4 @@
+administer migrate_optime_json configuration:
+  title: 'Administer migrate_optime_json configuration'
+  description: 'Optional description.'
+  restrict access: true

@@ -1,0 +1,94 @@
+# This migration is for importing JSON data from Optime to HY Drupal sites.
+# It's partially based on migrate_plus example migration "wine_role_json".
+id: optime_integration
+label: JSON import of spaces and related metadata from Optime
+migration_group: optime
+source:
+  # We use the JSON source plugin.
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  #headers:
+  #  Accept: 'application/json; charset=utf-8'
+  #  Content-Type: 'application/json'
+  # Normally, this is one or more fully-qualified URLs or file paths. Because
+  # we can't hardcode your local URL, we provide a relative path here which
+  # hook_install() will rewrite to a full URL for the current site.
+  # Currently hardcoded to test url.
+  # urls: /modules/custom/migrate_optime_json/data/locations11_example.json
+  urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json
+  item_selector: 1
+  # Under 'fields', we list the data items to be imported. The first level keys
+  # are the source field names we want to populate (the names to be used as
+  # sources in the process configuration below). For each field we're importing,
+  # we provide a label (optional - this is for display in migration tools) and
+  # an xpath for retrieving that value. It's important to note that this xpath
+  # is relative to the elements retrieved by item_xpath.
+  fields:
+    -
+      name: source_id
+      label: 'Unique identifier containing building and space (optime)'
+      selector: id
+    -
+      name: source_building_description
+      label: 'Building description including address, added to title'
+      selector: buildingDescription
+    -
+      name: source_equipment
+      label: 'Equipment terms'
+      selector: equipment
+    -
+      name: source_campus
+      label: 'Campus term'
+      selector: campus
+  # Under 'ids', we identify source fields populated above which will uniquely
+  # identify each imported item. The 'type' makes sure the migration map table
+  # uses the proper schema type for stored the IDs.
+  #ids:
+  #  source_id:
+  #    type: string
+
+process:
+  # Note that the source field names here were
+  # defined by the 'fields' configuration for the source plugin above.
+  optime_id: source_id
+
+  title: building_description
+
+  field_campus:
+    # Above: taxonomy_term reference field to populate
+    # Plugin to use
+    plugin: entity_generate
+    # Field from source configuration
+    source: campus
+    # Value to compare in the bundle
+    value_key: name
+    # Bundle key value
+    # If you get errors consider using only bundle
+    #bundle_key: vid
+    # Bundle machine name
+    bundle: campus
+    # Type of entity
+    entity_type: taxonomy_term
+    # Set to true to ignore case on lookup
+    ignore_case: true
+
+  field_equipment:
+    # See Above: taxonomy_term reference field to populate
+    plugin: entity_generate
+    source: equipment
+    value_key: name
+    bundle: equipment
+    entity_type: taxonomy_term
+    ignore_case: true
+
+destination:
+  plugin: entity:node
+  default_bundle: space
+
+migration_dependencies: {}
+
+dependencies:
+  enforced:
+    module: {}
+    #  - migrate_example_advanced
