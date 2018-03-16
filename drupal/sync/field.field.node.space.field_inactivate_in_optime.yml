@@ -1,0 +1,23 @@
+uuid: 06c1d758-adb6-4418-ba0f-60a8a86e278b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inactivate_in_optime
+    - node.type.space
+id: node.space.field_inactivate_in_optime
+field_name: field_inactivate_in_optime
+entity_type: node
+bundle: space
+label: 'Inactivated in Optime'
+description: 'If a space is disabled in the Optime system, it is imported but will stay inactive, unpublished.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Inactivated
+  off_label: 'Not set'
+field_type: boolean

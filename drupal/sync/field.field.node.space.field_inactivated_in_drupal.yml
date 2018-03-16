@@ -1,0 +1,23 @@
+uuid: 23f1b995-22a0-4301-b573-32ae6785bf11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inactivated_in_drupal
+    - node.type.space
+id: node.space.field_inactivated_in_drupal
+field_name: field_inactivated_in_drupal
+entity_type: node
+bundle: space
+label: 'Inactivated in Drupal'
+description: 'If checked, the space will always stay unpublished in Drupal, regardless of the inactivated value of Drupal.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Inactivated
+  off_label: 'Not set'
+field_type: boolean
