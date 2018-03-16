@@ -1,0 +1,10 @@
+.space-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, max-content));
+  margin-left: -($line / 2);
+  margin-right: -($line / 2);
+}
+
+.space-list__row {
+  padding: 0 $line / 2;
+}

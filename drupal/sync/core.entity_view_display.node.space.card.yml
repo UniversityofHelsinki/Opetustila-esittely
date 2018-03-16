@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.space.field_price_category
     - field.field.node.space.field_reservation_link
     - field.field.node.space.field_room_type
+    - image.style.large
     - node.type.space
   module:
     - ds
@@ -158,9 +159,11 @@ content:
     region: ds_content
     label: hidden
     settings:
-      image_style: ''
+      image_style: large
       image_link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ds_limit: '1'
   field_price_category:
     type: entity_reference_entity_view
     weight: 5

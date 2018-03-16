@@ -56,8 +56,8 @@ third_party_settings:
         - field_reservation_link
         - field_images
       left:
-        - field_equipment_information
         - group_key_information
+        - field_equipment_information
         - field_equipment
         - group_equipment
         - field_capacity
