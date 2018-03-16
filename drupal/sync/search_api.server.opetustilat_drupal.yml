@@ -1,0 +1,17 @@
+uuid: 0bb7fb2b-d451-40e7-a291-d41f6b68bfc8
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: opetustilat_drupal
+name: opetustilat-drupal
+description: 'Local site default database.'
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 2
+  partial_matches: true
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true
