@@ -12,4 +12,8 @@ permissions:
   - 'access content'
   - 'administer nodes'
   - 'view field_accessibility'
+  - 'view field_inactivate_in_optime'
+  - 'view field_street_address'
   - 'view own field_accessibility'
+  - 'view own field_inactivate_in_optime'
+  - 'view own field_street_address'
