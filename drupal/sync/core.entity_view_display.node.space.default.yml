@@ -14,6 +14,8 @@ dependencies:
     - field.field.node.space.field_equipment_information
     - field.field.node.space.field_floor
     - field.field.node.space.field_images
+    - field.field.node.space.field_inactivate_in_optime
+    - field.field.node.space.field_inactivated_in_drupal
     - field.field.node.space.field_last_changed_in_optime
     - field.field.node.space.field_legacy_url
     - field.field.node.space.field_optime_comments
@@ -22,6 +24,7 @@ dependencies:
     - field.field.node.space.field_price_category
     - field.field.node.space.field_reservation_link
     - field.field.node.space.field_room_type
+    - field.field.node.space.field_street_address
     - node.type.space
   module:
     - ds
@@ -179,6 +182,26 @@ content:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
+  field_inactivate_in_optime:
+    weight: 102
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_inactivated_in_drupal:
+    weight: 103
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_price_category:
     type: entity_reference_entity_view
     weight: 8
@@ -200,6 +223,17 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+  field_smart_equipment_information:
+    weight: 100
+    region: content
+  field_street_address:
+    weight: 101
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   links:
     weight: 0
     region: header

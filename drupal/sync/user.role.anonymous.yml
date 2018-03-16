@@ -5,8 +5,14 @@ dependencies: {  }
 _core:
   default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
 id: anonymous
-label: 'Anonymous user'
+label: 'Anonyymi käyttäjä'
 weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'administer nodes'
+  - 'view field_accessibility'
+  - 'view field_inactivate_in_optime'
+  - 'view field_street_address'
+  - 'view own field_inactivate_in_optime'
+  - 'view own field_street_address'

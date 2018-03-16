@@ -38,6 +38,9 @@ content:
       trim_length: 600
     third_party_settings: {  }
     region: content
+  field_smart_equipment_information:
+    weight: 100
+    region: content
   links:
     weight: 100
     region: content
