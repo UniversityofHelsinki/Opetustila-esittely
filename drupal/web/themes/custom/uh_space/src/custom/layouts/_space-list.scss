@@ -1,16 +1,10 @@
 // Shared styling.
 .space-list {
   @include container;
-
-  .view-content {
-    margin-left: -($line / 2);
-    margin-right: -($line / 2);
-  }
 }
 
 .space-list__item {
   margin-bottom: $line;
-  padding: 0 $line / 2;
 }
 
 // IE11, no Edge
@@ -18,15 +12,21 @@
 @media all and (min-width: $bp-medium) and (-ms-high-contrast: none)
 , (min-width: $bp-medium) and (-ms-high-contrast: active) {
   .space-list {
-    &:after {
-      content: "";
-      clear: both;
-      display: table;
+    .view-content {
+      margin-left: -($line / 2);
+      margin-right: -($line / 2);
+
+      &:after {
+        content: "";
+        clear: both;
+        display: table;
+      }
     }
   }
 
   .space-list__item {
     float: left;
+    padding: 0 $line / 2;
     width: 33.3%;
 
     &:nth-child(3n+1) {
@@ -42,6 +42,7 @@
     .view-content {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      grid-gap: $line;
     }
   }
 
