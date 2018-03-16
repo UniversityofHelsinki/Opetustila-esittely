@@ -1,0 +1,22 @@
+uuid: c83a753f-fee2-4aab-96d4-6ea55c5818a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: _campus_building_space
+label: ' Campus->Building->Space'
+type: 'canonical_entities:node'
+pattern: '[node:field_campus]/[node:field_building]/[node:title]'
+selection_criteria:
+  880e5eae-ef53-4211-a93a-6b6882afd751:
+    id: node_type
+    bundles:
+      space: space
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 880e5eae-ef53-4211-a93a-6b6882afd751
+selection_logic: and
+weight: -10
+relationships: {  }

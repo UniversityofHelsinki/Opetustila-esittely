@@ -1,0 +1,152 @@
+uuid: b2de49a7-9541-4366-bfdb-b8fbe78c9888
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_street_address
+    - field.storage.node.field_building
+    - field.storage.node.field_building_id
+    - field.storage.node.field_campus
+    - search_api.server.opetustilat_drupal
+  module:
+    - search_api
+    - node
+id: name_and_location
+name: 'Name and location (deprecated)'
+description: 'Separate index for limiting a search a location based on addresses and building names.'
+read_only: false
+field_settings:
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 13
+  field_street_address:
+    label: 'Street address'
+    datasource_id: 'entity:node'
+    property_path: field_street_address
+    type: text
+    boost: !!float 5
+    dependencies:
+      config:
+        - field.storage.node.field_street_address
+  field_building:
+    label: Building
+    datasource_id: 'entity:node'
+    property_path: field_building
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_building
+  field_building_id:
+    label: 'Building ID'
+    datasource_id: 'entity:node'
+    property_path: field_building_id
+    type: text
+    boost: !!float 3
+    dependencies:
+      config:
+        - field.storage.node.field_building_id
+  field_campus:
+    label: Campus
+    datasource_id: 'entity:node'
+    property_path: field_campus
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_campus
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+  status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+  uid:
+    label: null
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - space
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
+  highlight:
+    highlight: always
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 128
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  ignorecase:
+    all_fields: true
+    fields:
+      - title
+      - field_street_address
+      - field_building
+      - field_building_id
+      - field_campus
+      - type
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+  rendered_item: {  }
+  tokenizer:
+    all_fields: true
+    fields:
+      - title
+      - field_street_address
+      - field_building
+      - field_building_id
+      - field_campus
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+  type_boost:
+    boosts:
+      'entity:node':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          space: !!float 1
+    weights:
+      preprocess_index: 0
+tracker_settings:
+  default:
+    indexing_order: lifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: opetustilat_drupal

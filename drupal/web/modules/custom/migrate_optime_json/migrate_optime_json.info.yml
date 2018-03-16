@@ -1,0 +1,9 @@
+name: Migrate Optime JSON
+type: module
+description: Custom HY migrate extension for one way integration of optime data.
+package: Opetustilat
+core: 8.x
+dependencies:
+  - drupal:migrate
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools

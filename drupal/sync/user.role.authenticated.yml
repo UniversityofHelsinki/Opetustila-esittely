@@ -5,8 +5,15 @@ dependencies: {  }
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
-label: 'Authenticated user'
+label: 'Sisäänkirjautunut käyttäjä'
 weight: 1
 is_admin: false
 permissions:
   - 'access content'
+  - 'administer nodes'
+  - 'view field_accessibility'
+  - 'view field_inactivate_in_optime'
+  - 'view field_street_address'
+  - 'view own field_accessibility'
+  - 'view own field_inactivate_in_optime'
+  - 'view own field_street_address'

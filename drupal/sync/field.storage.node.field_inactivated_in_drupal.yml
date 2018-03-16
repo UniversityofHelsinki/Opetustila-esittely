@@ -1,20 +1,18 @@
-uuid: e9942062-caa9-43d5-af29-c9e73b1b5dfb
+uuid: a2ce195c-d3d6-496a-9ce2-e6603739d42a
 langcode: en
 status: true
 dependencies:
   module:
     - field_permissions
     - node
-    - taxonomy
 third_party_settings:
   field_permissions:
-    permission_type: custom
-id: node.field_accessibility
-field_name: field_accessibility
+    permission_type: public
+id: node.field_inactivated_in_drupal
+field_name: field_inactivated_in_drupal
 entity_type: node
-type: entity_reference
-settings:
-  target_type: taxonomy_term
+type: boolean
+settings: {  }
 module: core
 locked: false
 cardinality: 1

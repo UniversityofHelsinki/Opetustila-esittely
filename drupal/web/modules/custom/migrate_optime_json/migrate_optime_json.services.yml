@@ -1,0 +1,6 @@
+services:
+  migrate_optime_json.event_subscriber:
+    class: Drupal\migrate_optime_json\EventSubscriber\MigrateOptimeJsonSubscriber
+    arguments: ['@current_user']
+    tags:
+      - { name: event_subscriber }
