@@ -1,10 +1,52 @@
+// Shared styling.
 .space-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, max-content));
-  margin-left: -($line / 2);
-  margin-right: -($line / 2);
+  @include container;
+
+  .view-content {
+    margin-left: -($line / 2);
+    margin-right: -($line / 2);
+  }
 }
 
-.space-list__row {
+.space-list__item {
+  margin-bottom: $line;
   padding: 0 $line / 2;
+}
+
+// IE11, no Edge
+// https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-high-contrast
+@media all and (min-width: $bp-medium) and (-ms-high-contrast: none)
+, (min-width: $bp-medium) and (-ms-high-contrast: active) {
+  .space-list {
+    &:after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  }
+
+  .space-list__item {
+    float: left;
+    width: 33.3%;
+
+    &:nth-child(3n+1) {
+      clear: left;
+    }
+  }
+}
+
+// Grid version.
+@supports (display: grid) {
+
+  .space-list {
+    .view-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+  }
+
+  .space-list__item {
+    min-width: 20rem;
+  }
+
 }
