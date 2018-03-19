@@ -40,18 +40,18 @@
   {{ title }}
   {{ title_suffix }}
 
-  {% if header %}
-    <header>
-      {{ header }}
-    </header>
-  {% endif %}
-
   {{ exposed }}
+
+  {% if header %}
+    <div class="view__header">
+      {{ header }}
+    </div>
+  {% endif %}
 
   {{ attachment_before }}
 
   {% if rows %}
-    <div class="view-content">
+    <div class="view__content">
       {{ rows }}
     <div>
   {% endif %}

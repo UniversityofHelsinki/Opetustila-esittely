@@ -1,6 +1,19 @@
 // Shared styling.
 .space-list {
   @include container;
+
+  .view__header {
+    margin-top: $line * 2;
+
+    h3 {
+      @extend h2;
+      text-align: center;
+    }
+  }
+
+  .view__content {
+    margin-top: $line;
+  }
 }
 
 .space-list__item {
@@ -12,7 +25,7 @@
 @media all and (min-width: $bp-medium) and (-ms-high-contrast: none)
 , (min-width: $bp-medium) and (-ms-high-contrast: active) {
   .space-list {
-    .view-content {
+    .view__content {
       margin-left: -($line / 2);
       margin-right: -($line / 2);
 
@@ -39,7 +52,7 @@
 @supports (display: grid) {
 
   .space-list {
-    .view-content {
+    .view__content {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       grid-gap: $line;
