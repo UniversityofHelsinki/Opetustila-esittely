@@ -6,7 +6,8 @@ require('./main.scss');
     attach: function (context, settings) {
       // Multiselect with Select2.
       $('select[multiple="multiple"]').select2({
-        theme: 'default'
+        theme: 'default',
+        width: '100%'
       });
     }
   };

@@ -1,5 +1,12 @@
-.space-search-form {
-  @include breakpoint($bp-medium) {
+// Box styling.
+@include breakpoint($bp-medium) {
+  .space-list {
+    .views-exposed-form {
+      @include container;
+    }
+  }
+
+  .space-search-form {
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.15);
   }
@@ -46,8 +53,9 @@
   .form-item-field-equipment {
     flex-basis: 100%;
 
-    select {
-      max-width: 43.5rem;
+    select,
+    .select2 {
+      max-width: 41.5rem;
     }
   }
 }

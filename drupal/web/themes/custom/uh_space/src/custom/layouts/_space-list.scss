@@ -1,7 +1,5 @@
 // Shared styling.
 .space-list {
-  @include container;
-
   .view__header {
     margin-top: $line * 2;
 
@@ -12,6 +10,7 @@
   }
 
   .view__content {
+    @include container;
     margin-top: $line;
   }
 }

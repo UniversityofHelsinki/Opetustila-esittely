@@ -78,7 +78,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Require application style\n__webpack_require__(/*! ./main.scss */ \"./main.scss\");\n\n(function ($, Drupal) {\n  Drupal.behaviors.uhMultiselect = {\n    attach: function (context, settings) {\n      // Multiselect with Select2.\n      $('select[multiple=\"multiple\"]').select2({\n        theme: 'default'\n      });\n    }\n  };\n})(jQuery, Drupal);\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("// Require application style\n__webpack_require__(/*! ./main.scss */ \"./main.scss\");\n\n(function ($, Drupal) {\n  Drupal.behaviors.uhMultiselect = {\n    attach: function (context, settings) {\n      // Multiselect with Select2.\n      $('select[multiple=\"multiple\"]').select2({\n        theme: 'default',\n        width: '100%'\n      });\n    }\n  };\n})(jQuery, Drupal);\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 

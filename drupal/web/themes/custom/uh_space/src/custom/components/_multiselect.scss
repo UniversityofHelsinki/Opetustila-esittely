@@ -14,11 +14,12 @@
 
     .select2-selection__choice {
       border: 1px solid $blue;
+      border-radius: 0;
       background: none;
       display: flex;
       line-height: $line;
       margin: $line / 8;
-      padding: $line / 8 $line / 4;
+      padding: $line / 10 $line / 6;
 
       .select2-selection__choice__remove {
         color: $blue;
