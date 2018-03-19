@@ -22,3 +22,14 @@ function uh_space_preprocess_field(&$vars, $hook) {
     }
   }
 }
+
+/**
+ * Implements template_preprocess_views_exposed_form().
+ */
+function uh_space_preprocess_views_exposed_form(&$vars) {
+  if ($vars['theme_hook_original'] == 'views_exposed_form__space_search__main') {
+    $space_search = Drupal\views\Views::getView('space_search');
+    $main = $space_search->getDisplay('main');
+    $vars['title'] = $main->options['title'];
+  }
+}

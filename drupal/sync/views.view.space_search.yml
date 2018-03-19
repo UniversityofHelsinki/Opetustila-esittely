@@ -504,7 +504,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: 'What kind of space are you looking for?'
+      title: 'What kind of space do you need?'
       header:
         result:
           id: result
@@ -513,7 +513,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
+          empty: false
           content: '<h3>Found @total suitable spaces</h3>'
           plugin_id: result
       footer: {  }
@@ -944,7 +944,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'administer nodes'
     cache_metadata:
       max-age: -1
       contexts:

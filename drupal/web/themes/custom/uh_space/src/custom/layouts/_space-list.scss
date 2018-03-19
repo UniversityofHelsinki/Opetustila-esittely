@@ -50,7 +50,6 @@
 
 // Grid version.
 @supports (display: grid) {
-
   .space-list {
     .view__content {
       display: grid;
@@ -58,9 +57,4 @@
       grid-gap: $line;
     }
   }
-
-  .space-list__item {
-    min-width: 20rem;
-  }
-
 }

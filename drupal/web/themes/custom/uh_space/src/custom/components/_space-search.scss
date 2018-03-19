@@ -1,35 +1,79 @@
-.space-list {
-  .views-exposed-form {
-    align-items: flex-end;
-    background: $white;
-    display: flex;
-    flex-wrap: wrap;
-    padding: $line ($line - $line / 2);
+.space-search-form {
+  @include breakpoint($bp-medium) {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.15);
+  }
+}
 
-    @include breakpoint($bp-medium) {
-      box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.15);
-      padding: $line * 2 ($line * 2 - $line / 2);
-      padding-top: $line;
-    }
+.space-search-form__filters,
+.space-search-form__footer {
+  padding: $line ($line - $line / 2);
+
+  @include breakpoint($bp-medium) {
+    padding: $line * 2 ($line * 2 - $line / 2);
+    padding-top: $line;
+  }
+
+  .form-item,
+  .form-wrapper {
+    flex-basis: 12rem;
+    flex-grow: 1;
+    margin-left: $line / 2;
+    margin-right: $line / 2;
+    margin-top: $line;
+  }
+}
+
+.space-search-form__filters {
+  align-items: flex-end;
+  background: $white;
+  display: flex;
+  flex-wrap: wrap;
+
+  h2 {
+    @extend h3;
+    flex-basis: 100%;
+    margin-left: $line / 2;
+    margin-right: $line / 2;
+    margin-top: $line / 2;
+    padding: 0;
   }
 
   label {
     display: block;
   }
 
-  .form-item {
-    flex-basis: 12rem;
-    flex-grow: 1;
-    margin-left: $line / 2;
-    margin-right: $line / 2;
-    margin-top: $line;
+  .form-item-field-equipment {
+    flex-basis: 100%;
 
-    &.form-item-field-equipment {
-      flex-basis: 100%;
-
-      select {
-        max-width: 30rem;
-      }
+    select {
+      max-width: 43.5rem;
     }
+  }
+}
+
+.space-search-form__footer {
+  background: $lightsilver;
+  display: flex;
+  flex-wrap: wrap;
+
+  .form-item {
+    flex-grow: 1;
+    margin-top: 0;
+
+    label {
+      display: block;
+    }
+
+    input {
+      display: block;
+      max-width: 20rem;
+    }
+  }
+
+  .form-actions {
+    align-self: flex-end;
+    flex-basis: auto;
+    flex-grow: 0;
   }
 }
