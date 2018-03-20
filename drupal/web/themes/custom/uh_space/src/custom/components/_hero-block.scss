@@ -1,0 +1,32 @@
+.hero-big--overflow {
+  height: auto;
+  overflow: visible;
+  padding-top: $line * 3;
+  position: relative;
+  z-index: -1;
+
+  .hero-big__top {
+    margin-bottom: 0;
+  }
+
+  .hero-big__background {
+    background: #000;
+    box-sizing: content-box;
+    height: 100%;
+    left: 0;
+    padding-bottom: $line * 10;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .hero-big__background__image {
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    opacity: 0.33;
+    top: 0;
+    width: 100%;
+  }
+}

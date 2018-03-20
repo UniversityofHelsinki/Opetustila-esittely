@@ -182,6 +182,8 @@ hidden:
   field_equipment: true
   field_equipment_information: true
   field_floor: true
+  field_inactivate_in_optime: true
+  field_inactivated_in_drupal: true
   field_last_changed_in_optime: true
   field_legacy_url: true
   field_optime_comments: true
@@ -190,5 +192,6 @@ hidden:
   field_reservation_link: true
   field_room_type: true
   field_smart_equipment_information: true
+  field_street_address: true
   langcode: true
   links: true
