@@ -1,3 +1,10 @@
+# Some config auto-added by core.
+status: true
+dependencies:
+  enforced:
+    module: {  }
+#_core:
+#  default_config_hash: 5QnAurLGG9HuEn-sH_Qmldhra2YGE9ZoVofepAtbumM
 # This migration is for importing JSON data from Optime to HY Drupal sites.
 # It's partially based on migrate_plus example migration "wine_role_json".
 id: optime_integration
@@ -8,7 +15,9 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: json
-  #headers:
+  # We can include the original JSON for more dynamic mapping.
+  include_raw_data: true
+  # headers <-- not set for now
   #  Accept: 'application/json; charset=utf-8'
   #  Content-Type: 'application/json'
   # Normally, this is one or more fully-qualified URLs or file paths. Because
@@ -16,8 +25,16 @@ source:
   # hook_install() will rewrite to a full URL for the current site.
   # Currently hardcoded to test url.
   # urls: /modules/custom/migrate_optime_json/data/locations11_example.json
-  urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json
-  item_selector: 1
+  #urls: '/modules/custom/migrate_optime_json/data/locations11_example.json'
+
+  # JSON temporarily placed on another HY server files folder, to avoid very time consuming
+  # problems relating to local lando (cant wget itself successfully) and
+  # because Opetustilat dev/stage/prod are not functional.
+  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test.json'
+  #urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json
+  # We might not need item selector.
+  # item_selector: ''
+  #item_selector: /response/variety
   # Under 'fields', we list the data items to be imported. The first level keys
   # are the source field names we want to populate (the names to be used as
   # sources in the process configuration below). For each field we're importing,
@@ -26,34 +43,39 @@ source:
   # is relative to the elements retrieved by item_xpath.
   fields:
     -
-      name: source_id
+      name: optime_id
       label: 'Unique identifier containing building and space (optime)'
       selector: id
     -
-      name: source_building_description
+      name: building_description
       label: 'Building description including address, added to title'
       selector: buildingDescription
     -
-      name: source_equipment
+      name: equipment
       label: 'Equipment terms'
       selector: equipment
     -
-      name: source_campus
-      label: 'Campus term'
+      name: campus
+      label: 'Campus term (required)'
       selector: campus
+    -
+      name: building
+      label: 'Bulding term (required)'
+      selector: building
   # Under 'ids', we identify source fields populated above which will uniquely
   # identify each imported item. The 'type' makes sure the migration map table
   # uses the proper schema type for stored the IDs.
-  #ids:
-  #  source_id:
-  #    type: string
+  ids:
+    optime_id:
+      type: string
 
 process:
   # Note that the source field names here were
   # defined by the 'fields' configuration for the source plugin above.
-  optime_id: source_id
+  #optime_id: optime_id
 
   title: building_description
+  field_optime_id: optime_id
 
   field_campus:
     # Above: taxonomy_term reference field to populate
@@ -73,6 +95,15 @@ process:
     # Set to true to ignore case on lookup
     ignore_case: true
 
+  field_building:
+    # See Above: taxonomy_term reference field to populate
+    plugin: entity_generate
+    source: building
+    value_key: name
+    bundle: building
+    entity_type: taxonomy_term
+    ignore_case: true
+
   field_equipment:
     # See Above: taxonomy_term reference field to populate
     plugin: entity_generate
@@ -87,8 +118,3 @@ destination:
   default_bundle: space
 
 migration_dependencies: {}
-
-dependencies:
-  enforced:
-    module: {}
-    #  - migrate_example_advanced
