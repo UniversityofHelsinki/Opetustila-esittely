@@ -5,6 +5,11 @@
   position: relative;
   z-index: -1;
 
+  // Overflow style uses its own darken element.
+  &:after {
+    opacity: 0;
+  }
+
   .hero-big__top {
     margin-bottom: 0;
   }
