@@ -2,12 +2,10 @@
   @include container;
   display: flex;
   flex-wrap: wrap;
-  left: -($line / 2);
-  padding: 0 $line / 2;
-  position: relative;
+  padding: 0;
 
   > * {
-    margin-left: $line;
+    padding: 0 $line / 2;
   }
 
   .group-top,
@@ -16,11 +14,11 @@
   }
 
   .group-left {
-    flex-basis: 30rem;
-    flex-grow: 6;
+    flex-basis: 32rem;
+    flex-grow: 1;
   }
   .group-right {
-    flex-basis: 20rem;
-    flex-grow: 0.5;
+    flex-basis: 16rem;
+    flex-grow: 1;
   }
 }

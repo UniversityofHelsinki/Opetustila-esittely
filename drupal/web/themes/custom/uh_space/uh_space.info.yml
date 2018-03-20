@@ -16,3 +16,4 @@ regions:
   hidden: 'Hidden'
 libraries:
   - uh_space/global
+  - uh_space/select2

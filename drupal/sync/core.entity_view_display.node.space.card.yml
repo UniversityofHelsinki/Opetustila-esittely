@@ -1,0 +1,197 @@
+uuid: 89c27757-ea4f-4e31-8a7d-0f9be5a4169a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.space.body
+    - field.field.node.space.field_accessibility
+    - field.field.node.space.field_accessible_entry
+    - field.field.node.space.field_building
+    - field.field.node.space.field_building_id
+    - field.field.node.space.field_campus
+    - field.field.node.space.field_capacity
+    - field.field.node.space.field_equipment
+    - field.field.node.space.field_equipment_information
+    - field.field.node.space.field_floor
+    - field.field.node.space.field_images
+    - field.field.node.space.field_last_changed_in_optime
+    - field.field.node.space.field_legacy_url
+    - field.field.node.space.field_optime_comments
+    - field.field.node.space.field_optime_id
+    - field.field.node.space.field_optime_index
+    - field.field.node.space.field_price_category
+    - field.field.node.space.field_reservation_link
+    - field.field.node.space.field_room_type
+    - image.style.large
+    - node.type.space
+  module:
+    - ds
+    - ds_chains
+    - field_group
+    - image
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_images
+        - node_title
+        - 'dynamic_token_field:node-referenced_address'
+        - group_key_information
+        - group_pricing
+        - field_capacity
+        - field_price_category
+        - field_accessibility
+    fields:
+      'dynamic_token_field:node-referenced_address':
+        plugin_id: 'dynamic_token_field:node-referenced_address'
+        weight: 2
+        label: hidden
+        formatter: default
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: card__title
+  field_group:
+    group_key_information:
+      children:
+        - field_capacity
+        - field_accessibility
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        label: 'Key Information'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: space__key-information
+      label: 'Key Information'
+      region: hidden
+    group_equipment:
+      children:
+        - field_equipment
+        - field_equipment_information
+      parent_name: ''
+      weight: 32
+      format_type: html_element
+      format_settings:
+        label: Equipment
+        element: section
+        show_label: true
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: space__equipment
+      label: Equipment
+      region: hidden
+    group_pricing:
+      children:
+        - field_price_category
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        label: 'Rental Price'
+        element: div
+        show_label: true
+        label_element: h4
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: space__pricing
+      label: 'Rental Price'
+      region: hidden
+  ds_chains:
+    fields: {  }
+id: node.space.card
+targetEntityType: node
+bundle: space
+mode: card
+content:
+  field_accessibility:
+    type: entity_reference_label
+    weight: 5
+    region: ds_content
+    label: visually_hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_capacity:
+    type: number_integer
+    weight: 4
+    region: ds_content
+    label: visually_hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+  field_images:
+    type: image
+    weight: 0
+    region: ds_content
+    label: hidden
+    settings:
+      image_style: large
+      image_link: ''
+    third_party_settings:
+      ds:
+        ds_limit: '1'
+  field_price_category:
+    type: entity_reference_entity_view
+    weight: 5
+    region: ds_content
+    label: visually_hidden
+    settings:
+      view_mode: minimal
+      link: false
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_accessible_entry: true
+  field_building: true
+  field_building_id: true
+  field_campus: true
+  field_equipment: true
+  field_equipment_information: true
+  field_floor: true
+  field_inactivate_in_optime: true
+  field_inactivated_in_drupal: true
+  field_last_changed_in_optime: true
+  field_legacy_url: true
+  field_optime_comments: true
+  field_optime_id: true
+  field_optime_index: true
+  field_reservation_link: true
+  field_room_type: true
+  field_smart_equipment_information: true
+  field_street_address: true
+  langcode: true
+  links: true
