@@ -1,0 +1,81 @@
+[
+    {
+        "accessibility": "Esteet\u00f6n",
+        "building": "K01407",
+        "buildingDescription": "Athena, Siltavuorenpenger 3 A",
+        "campus": "Siltavuorenpenger",
+        "capacity": "122",
+        "changeDate": 1487077873000,
+        "comments": "esteet\u00f6n kulku saliin Minervan kautta (alikulkutunneli + hissi), 122 p\u00f6yt\u00e4paikkaa/150 paikkaa yhteens\u00e4, ikkunallinen, pimennysverhot, liitutaulu, useampia mikrofoneja",
+        "description": "Athena, sali 107",
+        "equipment": [
+            "mikrofoni",
+            "induktiosilmukka",
+            "Unitube",
+            "\u00e4\u00e4nentoisto"
+        ],
+        "id": "K01407-107",
+        "inactive": "0",
+        "inactiveDate": null,
+        "optimeIndex": "1",
+        "roomType": "15",
+        "roomTypeDescription": "Auditorio",
+        "url": "http://www.helsinki.fi/teknos/opetustilat/keskusta/s3a%20Athena/aud107.htm"
+    },
+    {
+        "accessibility": null,
+        "building": "K01407",
+        "buildingDescription": "Athena, Siltavuorenpenger 3 A",
+        "campus": "Siltavuorenpenger",
+        "capacity": "18",
+        "changeDate": 1510316415000,
+        "comments": "",
+        "description": "Athena, sali 144",
+        "equipment": [],
+        "id": "K01407-144",
+        "inactive": "0",
+        "inactiveDate": null,
+        "optimeIndex": "3",
+        "roomType": "14",
+        "roomTypeDescription": "Muu erityistila",
+        "url": ""
+    },
+    {
+        "accessibility": "Esteet\u00f6n",
+        "building": "K01407",
+        "buildingDescription": "Athena, Siltavuorenpenger 3 A",
+        "campus": "Siltavuorenpenger",
+        "capacity": "48",
+        "changeDate": 1480954603000,
+        "comments": "ikkunallinen",
+        "description": "Athena, sali 166",
+        "equipment": [
+            "\u00e4\u00e4nentoisto"
+        ],
+        "id": "K01407-166",
+        "inactive": "0",
+        "inactiveDate": null,
+        "optimeIndex": "4",
+        "roomType": "8",
+        "roomTypeDescription": "Luentosali",
+        "url": "http://www.helsinki.fi/teknos/opetustilat/keskusta/s3a%20Athena/sh166.htm"
+    },
+    {
+        "accessibility": "Esteet\u00f6n",
+        "building": "K02201",
+        "buildingDescription": "Hammasklinikka, Kyt\u00f6suontie 9",
+        "campus": "Meilahti",
+        "capacity": "0",
+        "changeDate": 1510562077000,
+        "comments": "",
+        "description": "Hammasklinikka, aula",
+        "equipment": [],
+        "id": "K02201-2000",
+        "inactive": "0",
+        "inactiveDate": null,
+        "optimeIndex": "529",
+        "roomType": "14",
+        "roomTypeDescription": "Muu erityistila",
+        "url": ""
+    }
+]

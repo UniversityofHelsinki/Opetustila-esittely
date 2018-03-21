@@ -2,7 +2,8 @@
 status: true
 dependencies:
   enforced:
-    module: {  }
+    module:
+      - migrate_plus
 #_core:
 #  default_config_hash: 5QnAurLGG9HuEn-sH_Qmldhra2YGE9ZoVofepAtbumM
 # This migration is for importing JSON data from Optime to HY Drupal sites.
@@ -33,7 +34,8 @@ source:
   urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test.json'
   #urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json
   # We might not need item selector.
-  # item_selector: ''
+  item_selector: 0
+  # See http://agileadam.com/2017/09/extending-the-migrate-plus-json-parser-in-drupal-8/
   #item_selector: /response/variety
   # Under 'fields', we list the data items to be imported. The first level keys
   # are the source field names we want to populate (the names to be used as
@@ -46,6 +48,10 @@ source:
       name: optime_id
       label: 'Unique identifier containing building and space (optime)'
       selector: id
+    -
+      name: space_description
+      label: 'Name or description of space, added to title'
+      selector: description
     -
       name: building_description
       label: 'Building description including address, added to title'
@@ -60,7 +66,7 @@ source:
       selector: campus
     -
       name: building
-      label: 'Bulding term (required)'
+      label: 'Building term (required)'
       selector: building
   # Under 'ids', we identify source fields populated above which will uniquely
   # identify each imported item. The 'type' makes sure the migration map table
@@ -73,48 +79,78 @@ process:
   # Note that the source field names here were
   # defined by the 'fields' configuration for the source plugin above.
   #optime_id: optime_id
-
-  title: building_description
+  type:
+    plugin: default_value
+    default_value: space
+  title:
+    plugin: concat
+    source:
+      - building_description
+      - space_description
+    delimiter: ' / '
+  uid:
+    plugin: default_value
+    default_value: 1
   field_optime_id: optime_id
-
   field_campus:
-    # Above: taxonomy_term reference field to populate
-    # Plugin to use
-    plugin: entity_generate
-    # Field from source configuration
-    source: campus
-    # Value to compare in the bundle
-    value_key: name
-    # Bundle key value
-    # If you get errors consider using only bundle
-    #bundle_key: vid
-    # Bundle machine name
-    bundle: campus
-    # Type of entity
-    entity_type: taxonomy_term
-    # Set to true to ignore case on lookup
-    ignore_case: true
+    -
+      # Above: taxonomy_term reference field to populate
+      # Plugin to use, see EntityGenerate.php.
+      plugin: entity_generate
+      # Field from source configuration
+      source: campus
+      # Value to compare in the bundle
+      value_key: name
+      # Bundle key value
+      # If you get errors consider using only bundle
+      bundle_key: vid
+      # Bundle machine name
+      bundle: campus
+      # Type of entity
+      entity_type: taxonomy_term
+      # Set to true to ignore case on lookup
+      ignore_case: true
+      # Default, should used only for testing.
+      #default_values:
+        #name: "Test campus"
+        # description: "Test campus description"
+        #bundle: campus
+  #-
+  #  plugin: default_value
+  #  default_value: 'Test campus'
 
   field_building:
-    # See Above: taxonomy_term reference field to populate
-    plugin: entity_generate
-    source: building
-    value_key: name
-    bundle: building
-    entity_type: taxonomy_term
-    ignore_case: true
+    - # See Above: taxonomy_term reference field to populate
+      plugin: entity_generate
+      source: building_description
+      value_key: name
+      bundle: building
+      entity_type: taxonomy_term
+      ignore_case: true
+      #default_values:
+      #  name: "Building A"
+      #  bundle: building
+  #-
+  #  plugin: default_value
+  #  default_value: 'building A'
 
   field_equipment:
-    # See Above: taxonomy_term reference field to populate
-    plugin: entity_generate
-    source: equipment
-    value_key: name
-    bundle: equipment
-    entity_type: taxonomy_term
-    ignore_case: true
+    -
+      # See Above: taxonomy_term reference field to populate
+      plugin: entity_generate
+      source: equipment
+      value_key: name
+      bundle: equipment
+      entity_type: taxonomy_term
+      ignore_case: true
+  #    default_values:
+  #-
+  #  plugin: default_value
+  #  default_value: ''
 
 destination:
-  plugin: entity:node
+  plugin: 'entity:node'
   default_bundle: space
+  bundle: space
 
 migration_dependencies: {}
