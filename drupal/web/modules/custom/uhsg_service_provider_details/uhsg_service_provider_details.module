@@ -41,9 +41,6 @@ function uhsg_service_provider_details_form_system_site_information_settings_alt
     '#default_value' => $service_provider_details_settings->get('contact_info'),
   ];
 
-  // Spaces.
-  $spaces_details_settings = \Drupal::config('uhsg_spaces_details.settings');
-
   $form['spaces'] = [
     '#title' => t('Spaces settings'),
     '#type' => 'details',
@@ -52,7 +49,7 @@ function uhsg_service_provider_details_form_system_site_information_settings_alt
   $form['spaces']['spaces_contact_info'] = [
     '#type' => 'textarea',
     '#title' => t('Contact information'),
-    '#default_value' => $spaces_details_settings->get('contact_info'),
+    '#default_value' => $service_provider_details_settings->get('spaces_contact_info'),
   ];
 
   // Theme this form as a config form.
