@@ -1,0 +1,20 @@
+uuid: d254faf4-eaba-46ec-92fa-bee41b473e5a
+langcode: fi
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - uh_space
+id: languageswitcher
+theme: uh_space
+region: header
+weight: 0
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  id: 'language_block:language_interface'
+  label: 'Language switcher'
+  provider: language
+  label_display: '0'
+visibility: {  }

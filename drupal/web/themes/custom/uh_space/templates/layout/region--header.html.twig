@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+<div class="l-top-bar l-top-bar--small">
+  <div class="l-top-bar__left">
+    <div class="links theme-plain">
+      <a class="links__link" href="https://www.helsinki.fi">Helsingin yliopisto</a>
+    </div>
+  </div>
+  <div class="l-top-bar__right">
+    <div class="links theme-plain">
+      {{ elements.languageswitcher }}
+    </div>
+  </div>
+</div>
+
+<div class="l-header-bar {{ header_class }}">
+  <div class="l-header-bar__top">
+    <div class="l-header-bar__left">
+      {% if logo_path and logo_text %}
+        <a href="{{ logo_path }}" class="logo">
+          <p class="logo__sitename">{{ logo_text }}</p>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
