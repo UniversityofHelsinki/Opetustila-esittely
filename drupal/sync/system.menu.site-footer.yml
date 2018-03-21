@@ -1,0 +1,8 @@
+uuid: 5976a9cb-b23e-4df2-943b-a34063c9fb44
+langcode: fi
+status: true
+dependencies: {  }
+id: site-footer
+label: 'Site Footer'
+description: ''
+locked: false
