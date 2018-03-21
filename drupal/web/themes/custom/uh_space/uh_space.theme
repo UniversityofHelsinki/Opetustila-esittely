@@ -68,7 +68,7 @@ function uh_space_preprocess_region(&$variables) {
       $variables['contact_info'] = \Drupal::config('uhsg_service_provider_details.settings')->get('contact_info');
       break;
     case 'footer_site':
-      $variables['contact_info'] = \Drupal::config('uhsg_spaces_details.settings')->get('contact_info');
+      $variables['spaces_contact_info'] = \Drupal::config('uhsg_service_provider_details.settings')->get('spaces_contact_info');
       break;
   }
 }

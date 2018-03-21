@@ -6,6 +6,21 @@
   &.is-visible {
     display: block;
   }
+
+  .logo-block__content {
+    p {
+      color: $black;
+    }
+
+    a {
+      color: $blue;
+
+      &:hover,
+      &:focus {
+        color: $darkblue;
+      }
+    }
+  }
 }
 
 .l-info-footer {
