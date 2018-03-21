@@ -1,20 +1,18 @@
 @import "components/**/*.scss";
 
 // Drupal stuff.
-@import "fields";
-@import "blocks";
+@import "drupal/**/*";
 
 // Features.
-@import "space-search";
-@import "hero-block";
+@import "features/**/*";
+
+// Overrides.
+@import "overrides/**/*";
 
 // Components.
 @import "multiselect";
 @import "card";
 @import "feature-list";
-@import "throbber";
-@import "header";
-@import "footer";
 
 // Entity styling.
 @import "entity/**/*";
