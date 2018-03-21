@@ -1,5 +1,7 @@
 ignored_config_entities:
   0: 'webform.webform.*'
   2: 'devel.*'
+  4: system.site
+  6: uhsg_service_provider_details.settings
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
