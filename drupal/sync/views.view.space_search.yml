@@ -84,7 +84,7 @@ display:
         options:
           view_modes:
             'entity:node':
-              space: teaser
+              space: card
             'entity:taxonomy_term':
               accessibility: ''
               building: default
@@ -504,8 +504,18 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: 'What kind of space are you looking for?'
-      header: {  }
+      title: 'What kind of space do you need?'
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: '<h3>Found @total suitable spaces</h3>'
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships:
@@ -548,31 +558,9 @@ display:
         - user
         - user.permissions
       tags: {  }
-  block_1:
-    display_plugin: block
-    id: block_1
-    display_title: 'Search Block'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      display_description: ''
-      block_description: 'Space search block'
-      block_category: 'Space Search (Views)'
-      allow:
-        items_per_page: true
-      block_hide_empty: false
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user
-        - user.permissions
-      tags: {  }
-  page_1:
+  admin_page:
     display_plugin: page
-    id: page_1
+    id: admin_page
     display_title: 'Space Search Admin Page'
     position: 2
     display_options:
@@ -957,6 +945,28 @@ display:
         type: perm
         options:
           perm: 'administer nodes'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.permissions
+      tags: {  }
+  main:
+    display_plugin: block
+    id: main
+    display_title: 'Search Block'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      block_description: 'Space search block'
+      block_category: 'Space Search (Views)'
+      allow:
+        items_per_page: true
+      block_hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:

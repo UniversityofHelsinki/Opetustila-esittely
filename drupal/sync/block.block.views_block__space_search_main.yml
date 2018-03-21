@@ -1,6 +1,6 @@
-uuid: a3a24f7f-8fce-4d58-b3bd-1d0f0372a8b6
+uuid: 93e09684-1853-4f53-a51e-99bcc2a4e893
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - views.view.space_search
@@ -9,17 +9,17 @@ dependencies:
     - views
   theme:
     - uh_space
-id: views_block__space_search_block_1
+id: views_block__space_search_main
 theme: uh_space
-region: content
-weight: 0
+region: content_top
+weight: 1
 provider: null
-plugin: 'views_block:space_search-block_1'
+plugin: 'views_block:space_search-main'
 settings:
-  id: 'views_block:space_search-block_1'
+  id: 'views_block:space_search-main'
   label: ''
   provider: views
-  label_display: visible
+  label_display: '0'
   views_label: ''
   items_per_page: none
 visibility:

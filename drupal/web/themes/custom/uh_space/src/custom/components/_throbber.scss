@@ -1,0 +1,43 @@
+.ajax-progress-fullscreen {
+  background: rgba(0, 0, 0, 0.95);
+  border-radius: 0;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  &:before,
+  &:after {
+    animation: spin 1s ease-in-out 0s infinite;
+    box-sizing: border-box;
+    content: ' ';
+    height: 5%;
+    width: 5%;
+    position: absolute;
+    border-width: 1vw !important;
+  }
+  &:before {
+    transform-origin: 100% 100%;
+    top: 45%;
+    left: 45%;
+    border-left: 20px solid #fff;
+    border-top: 20px solid #fff;
+  }
+  &:after {
+    transform-origin: 0% 0%;
+    bottom: 45%;
+    right: 45%;
+    border-right: 20px solid #fff;
+    border-bottom: 20px solid #fff;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -25,3 +25,9 @@
     flex-basis: 28rem;
   }
 }
+
+.field--label-visually_hidden {
+  .field__label {
+    @extend .visually-hidden;
+  }
+}

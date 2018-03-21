@@ -1,0 +1,16 @@
+uuid: 44f21c7a-f52d-4607-a1db-4aaabf82d697
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.page
+target_entity_type_id: node
+target_bundle: page
+default_langcode: fi
+language_alterable: false

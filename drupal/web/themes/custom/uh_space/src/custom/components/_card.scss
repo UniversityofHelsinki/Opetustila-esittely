@@ -1,0 +1,16 @@
+[class*="view-mode-card"] {
+  .field {
+    margin: 0;
+  }
+}
+
+.card__title {
+  @extend h5;
+  margin-bottom: 0;
+  margin-top: $line;
+  padding: 0;
+
+  a {
+    @extend a;
+  }
+}

@@ -14,3 +14,9 @@
 .price-category__extra {
   @extend small;
 }
+
+.taxonomy-term--type-price-categories.taxonomy-term--view-mode-minimal {
+  .field {
+    display: inline;
+  }
+}

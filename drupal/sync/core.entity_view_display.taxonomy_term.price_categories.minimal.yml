@@ -10,23 +10,46 @@ dependencies:
     - field.field.taxonomy_term.price_categories.field_vat_rate
     - taxonomy.vocabulary.price_categories
   module:
-    - layout_discovery
+    - ds
+    - ds_chains
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_price_per_unit
+        - field_price_unit
+  ds_chains:
+    fields: {  }
 id: taxonomy_term.price_categories.minimal
 targetEntityType: taxonomy_term
 bundle: price_categories
 mode: minimal
 content:
   field_price_per_unit:
+    type: number_decimal
     weight: 0
+    region: ds_content
     label: hidden
     settings:
       thousand_separator: ''
-      decimal_separator: ','
+      decimal_separator: .
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_decimal
-    region: content
   field_price_unit:
     weight: 1
     label: hidden
@@ -34,7 +57,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
+    region: ds_content
 hidden:
   description: true
   field_internal_price: true
