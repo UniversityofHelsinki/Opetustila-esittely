@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Provides information about service provider, that can be used for presenting
+ * common contact details.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the site information form.
+ */
+function uhsg_service_provider_details_form_system_site_information_settings_alter(&$form, &$form_state) {
+  // Service provider.
+  $service_provider_details_settings = \Drupal::config('uhsg_service_provider_details.settings');
+
+  $form['service_provider'] = [
+    '#title' => t('Service Provider settings'),
+    '#type' => 'details',
+    '#open' => TRUE,
+  ];
+  $form['service_provider']['logo_text'] = [
+    '#type' => 'textfield',
+    '#title' => t('Logo text'),
+    '#default_value' => $service_provider_details_settings->get('logo_text'),
+  ];
+  $form['service_provider']['logo_path'] = [
+    '#type' => 'textfield',
+    '#title' => t('Target path from logo link'),
+    '#default_value' => $service_provider_details_settings->get('logo_path'),
+  ];
+  $form['service_provider']['copyright_text'] = [
+    '#type' => 'textfield',
+    '#title' => t('Copyright text'),
+    '#default_value' => $service_provider_details_settings->get('copyright_text'),
+  ];
+  $form['service_provider']['contact_info'] = [
+    '#type' => 'textarea',
+    '#title' => t('Contact information'),
+    '#default_value' => $service_provider_details_settings->get('contact_info'),
+  ];
+
+  // Spaces.
+  $spaces_details_settings = \Drupal::config('uhsg_spaces_details.settings');
+
+  $form['spaces'] = [
+    '#title' => t('Spaces settings'),
+    '#type' => 'details',
+    '#open' => TRUE,
+  ];
+  $form['spaces']['spaces_logo_text'] = [
+    '#type' => 'textfield',
+    '#title' => t('Logo text'),
+    '#default_value' => $spaces_details_settings->get('logo_text'),
+  ];
+  $form['spaces']['spaces_logo_path'] = [
+    '#type' => 'textfield',
+    '#title' => t('Target path from logo link'),
+    '#default_value' => $spaces_details_settings->get('logo_path'),
+  ];
+  $form['spaces']['spaces_contact_info'] = [
+    '#type' => 'textarea',
+    '#title' => t('Contact information'),
+    '#default_value' => $spaces_details_settings->get('contact_info'),
+  ];
+
+  // Theme this form as a config form.
+  $form['#theme'] = 'system_config_form';
+
+  // Add submit callback.
+  $form['#submit'][] = 'uhsg_service_provider_details_settings_submit';
+
+}
+
+/**
+ * Form submission handler for site information form.
+ */
+function uhsg_service_provider_details_settings_submit(array $form, FormStateInterface $form_state) {
+  \Drupal::configFactory()->getEditable('uhsg_service_provider_details.settings')
+    ->set('logo_text', $form_state->getValue('logo_text'))
+    ->set('logo_path', $form_state->getValue('logo_path'))
+    ->set('copyright_text', $form_state->getValue('copyright_text'))
+    ->set('contact_info', $form_state->getValue('contact_info'))
+    ->save();
+
+  \Drupal::configFactory()->getEditable('uhsg_spaces_details.settings')
+    ->set('logo_text', $form_state->getValue('spaces_logo_text'))
+    ->set('logo_path', $form_state->getValue('spaces_logo_path'))
+    ->set('contact_info', $form_state->getValue('spaces_contact_info'))
+    ->save();
+}

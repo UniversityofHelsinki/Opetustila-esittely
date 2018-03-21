@@ -1,0 +1,14 @@
+.l-header-bar {
+  &.l-header-bar--transparent {
+    background: none;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+// Set h1 styling explicitly. Remove p margin.
+.logo__sitename {
+  line-height: 1.15em;
+  margin: 0;
+  text-transform: uppercase;
+}

@@ -1,5 +1,94 @@
 <?php
 
+use Drupal\Component\Render\FormattableMarkup;
+
+/**
+ * Implements template_preprocess_menu().
+ */
+function uh_space_preprocess_menu(&$vars) {
+  $link_class = false;
+  $menu_class = false;
+
+  switch ($vars['menu_name']) {
+    case 'footer':
+      $link_class = 'list-of-links__link button--action icon--arrow-right theme-transparent-alt';
+      $menu_class = 'list-of-links--condensed theme-footer';
+      break;
+    case 'site-footer':
+      $link_class = 'list-of-links__link button--action icon--arrow-right theme-transparent-alt';
+      $menu_class = 'list-of-links--condensed theme-info-footer';
+      break;
+  }
+
+  if ($menu_class) {
+    $vars['attributes']['class'][] = $menu_class;
+  }
+
+  if ($link_class) {
+    foreach ($vars['items'] as &$item) {
+      $item['attributes']->addClass($link_class);
+
+      // we want a different active-class than what drupal provides.
+      $current_path = \Drupal::request()->getRequestUri();
+
+      if ($item['url']->toString() == $current_path) {
+        $item['is_active'] = TRUE;
+      }
+
+      $item_has_children = !empty($item['below']);
+
+      if ($item_has_children) {
+        $item['attributes']->addClass('is-expandable');
+
+        if (isset($item['is_active'])) {
+          $item['attributes']->addClass('is-open');
+        }
+      }
+
+      foreach ($item['below'] as &$child_item) {
+        $child_item['attributes']->addClass('is-lvl2 menu-item');
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for Region templates.
+ */
+function uh_space_preprocess_region(&$variables) {
+  switch ($variables['region']) {
+    case 'header':
+      $variables['logo_path'] = \Drupal::config('uhsg_service_provider_details.settings')->get('logo_path');
+      $variables['logo_text'] = \Drupal::config('uhsg_service_provider_details.settings')->get('logo_text');
+      break;
+    case 'footer':
+      $variables['logo_path'] = \Drupal::config('uhsg_service_provider_details.settings')->get('logo_path');
+      $variables['logo_text'] = \Drupal::config('uhsg_service_provider_details.settings')->get('logo_text');
+      $variables['copyright_text'] = \Drupal::config('uhsg_service_provider_details.settings')->get('copyright_text');
+      $variables['contact_info'] = \Drupal::config('uhsg_service_provider_details.settings')->get('contact_info');
+      break;
+    case 'footer_site':
+      $variables['contact_info'] = \Drupal::config('uhsg_spaces_details.settings')->get('contact_info');
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for language links.
+ */
+function uh_space_preprocess_links__language_block(&$variables) {
+  foreach ($variables['links'] as $langcode => &$link) {
+    // add classes for theming
+    $link['link']['#options']['attributes']['class'][] = 'links__link theme-language';
+    $link['link']['#title'] = new FormattableMarkup('<abbr title="@title">@langcode</abbr>', array('@title' => $link['link']['#title'], '@langcode' => $langcode ));
+    // hide active language
+    $active_language = Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($active_language == $langcode) {
+      unset($variables['links'][$langcode]);
+    }
+  }
+}
+
 /**
  * Implements template_preprocess_taxonomy_term().
  */

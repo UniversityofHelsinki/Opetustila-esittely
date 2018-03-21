@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+
+<div class="l-info-footer-wrapper">
+  <div class="l-info-footer is-visible">
+    <div class="l-region l-region--info-footer">
+      <div class="logo-block">
+        {% if contact_info %}
+          <div class="logo-block__content">
+            {{ contact_info|raw }}
+          </div>
+        {% endif %}
+      </div>
+
+      {{ elements.sitefooter }}
+
+    </div>
+  </div>
+</div>

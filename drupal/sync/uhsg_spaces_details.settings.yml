@@ -1,0 +1,8 @@
+logo_text: Spaces
+logo_path: 'https://www.helsinki.fi/'
+home_path: 'https://www.helsinki.fi/opetustilat/'
+copyright_text: '<p>© University of Helsinki 2017</p>'
+contact_info: '<p class="logo-block__sitename">Uni­versity of Hel­sinki</p><p>P.O. Box 3 (Fabianinkatu 33) 00014 University of Helsinki</p><p>Switchboard: <a class="is-tel" href="tel:+3582941911">+358 (0) 2941 911</a></p>'
+langcode: en
+_core:
+  default_config_hash: xc65ODqeRxYDQ5LfpXpPlq7w-f47nXrWtTYn5wXUMh0

@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+
+<div class="l-footer">
+  <div class="l-footer__subregion">
+    <div class="l-footer__column theme-sub">
+      <div class="logo-block">
+        {% if logo_path %}
+          <div class="logo-block__logo">
+            {{ link('', logo_path, { 'class':['logo theme-big'], 'aria-label': logo_text }) }}
+          </div>
+        {% endif %}
+        {% if contact_info %}
+          <div class="logo-block__content">
+            {{ contact_info|raw }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="l-footer__column">
+      {{ elements.footerlinksfi }}
+      {{ elements.footerlinksen }}
+      {{ elements.footerlinkssv }}
+    </div>
+    <div class="l-footer__column theme-center">
+      {{ elements.somelinksblock }}
+    </div>
+  </div>
+  {% if copyright_text %}
+    <div class="l-footer__copyright">
+      {{ copyright_text|raw }}
+    </div>
+  {% endif %}
+</div>

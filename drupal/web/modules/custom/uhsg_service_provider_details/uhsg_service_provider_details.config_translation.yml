@@ -1,0 +1,6 @@
+system.site_information_settings:
+  title: 'System information'
+  base_route_name: system.site_information_settings
+  names:
+    - system.site
+    - uhsg_service_provider_details.settings
