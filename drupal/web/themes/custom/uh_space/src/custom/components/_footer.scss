@@ -7,18 +7,22 @@
     display: block;
   }
 
-  .logo-block__content {
-    p {
-      color: $black;
-    }
+  .logo-block__sitename {
+    @extend h5;
+    @include font-weight-bold;
+    text-transform: uppercase;
+  }
 
-    a {
-      color: $blue;
+  p {
+    color: $black;
+  }
 
-      &:hover,
-      &:focus {
-        color: $darkblue;
-      }
+  a {
+    color: $blue;
+
+    &:hover,
+    &:focus {
+      color: $darkblue;
     }
   }
 }
