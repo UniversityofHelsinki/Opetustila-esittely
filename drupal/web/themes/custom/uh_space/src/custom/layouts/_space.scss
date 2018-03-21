@@ -1,0 +1,57 @@
+.node--type-space.node--view-mode-full {
+  .group-header {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -($line / 2);
+    margin-right: -($line / 2);
+
+    > * {
+      padding: 0 $line / 2;
+    }
+
+    .field {
+      margin: 0;
+    }
+
+    .space__header-main {
+      flex-basis: 44rem;
+      flex-grow: 1;
+
+      h1 {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .space__header-actions {
+      align-items: flex-start;
+      display: flex;
+
+      .field {
+        margin: $line/3 0 $line 0;
+      }
+    }
+
+    .field--name-dynamic-token-fieldnode-referenced-address {
+      flex-basis: 100%;
+      margin: $line/2 0 $line 0;
+    }
+  }
+
+  h3 {
+    left: -0.075em;
+    margin-top: 0;
+    padding-top: $line;
+    position: relative;
+
+    + .field {
+      margin-top: 0;
+    }
+  }
+}
+
+.space__guidance {
+  .field {
+    margin: 0;
+  }
+}

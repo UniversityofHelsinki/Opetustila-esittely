@@ -1,0 +1,61 @@
+uuid: 5cb9ba68-a697-4924-ad40-5cff9a6a0b38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.price_categories.field_internal_price
+    - field.field.taxonomy_term.price_categories.field_price_per_unit
+    - field.field.taxonomy_term.price_categories.field_price_unit
+    - field.field.taxonomy_term.price_categories.field_vat_rate
+    - taxonomy.vocabulary.price_categories
+  module:
+    - layout_discovery
+    - link
+id: taxonomy_term.price_categories.default
+targetEntityType: taxonomy_term
+bundle: price_categories
+mode: default
+content:
+  field_internal_price:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_price_per_unit:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_price_unit:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_vat_rate:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  translation: true

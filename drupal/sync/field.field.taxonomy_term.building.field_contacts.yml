@@ -1,0 +1,29 @@
+uuid: c676eee5-0bb3-4072-817a-28ec508cdfbb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_contacts
+    - taxonomy.vocabulary.building
+    - taxonomy.vocabulary.contacts
+id: taxonomy_term.building.field_contacts
+field_name: field_contacts
+entity_type: taxonomy_term
+bundle: building
+label: Contacts
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      contacts: contacts
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

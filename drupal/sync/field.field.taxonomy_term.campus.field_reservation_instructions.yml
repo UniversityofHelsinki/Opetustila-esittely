@@ -1,0 +1,21 @@
+uuid: 0e23284b-a378-4330-9322-957e93a3f6f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_reservation_instructions
+    - taxonomy.vocabulary.campus
+  module:
+    - text
+id: taxonomy_term.campus.field_reservation_instructions
+field_name: field_reservation_instructions
+entity_type: taxonomy_term
+bundle: campus
+label: 'Reservation Instructions'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

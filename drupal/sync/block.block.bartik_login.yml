@@ -1,6 +1,6 @@
 uuid: b3341eb5-c1f3-42c6-915f-b71b70b7d57d
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - user
@@ -10,8 +10,8 @@ _core:
   default_config_hash: 4QlSnWBcxxKMIFRM8sbu_MjSkcp3NjGgnVrc-lynQHI
 id: bartik_login
 theme: bartik
-region: sidebar_first
-weight: 0
+region: header
+weight: null
 provider: null
 plugin: user_login_block
 settings:

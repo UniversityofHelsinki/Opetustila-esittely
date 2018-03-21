@@ -3,9 +3,13 @@ session:
 url:
   source: path_prefix
   prefixes:
-    en: ''
+    en: en
+    sv: sv
+    fi: fi
   domains:
     en: ''
+    sv: ''
+    fi: ''
 selected_langcode: site_default
 _core:
   default_config_hash: uEePITI9tV6WqzmsTb7MfPCi5yPWXSxAN1xeLcYFQbM

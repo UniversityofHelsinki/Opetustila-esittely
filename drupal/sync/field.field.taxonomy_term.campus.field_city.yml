@@ -1,0 +1,21 @@
+uuid: b1ff357e-44e6-4c09-9e51-2527e306b5f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_city
+    - taxonomy.vocabulary.campus
+id: taxonomy_term.campus.field_city
+field_name: field_city
+entity_type: taxonomy_term
+bundle: campus
+label: City
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: Helsinki
+default_value_callback: ''
+settings: {  }
+field_type: string

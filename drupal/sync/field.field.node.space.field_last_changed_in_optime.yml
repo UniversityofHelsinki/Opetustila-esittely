@@ -1,0 +1,21 @@
+uuid: 345d4285-2119-40ce-8be5-1b6496a5078e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_changed_in_optime
+    - node.type.space
+  module:
+    - datetime
+id: node.space.field_last_changed_in_optime
+field_name: field_last_changed_in_optime
+entity_type: node
+bundle: space
+label: 'Last changed in optime'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

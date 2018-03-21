@@ -1,0 +1,9 @@
+uuid: 1b42c244-cd6c-4f52-972e-a4210978b797
+langcode: und
+status: true
+dependencies: {  }
+name: Campus
+vid: campus
+description: 'Top hierarchy level above buildings and spaces.'
+hierarchy: 0
+weight: 0

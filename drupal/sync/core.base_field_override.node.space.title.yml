@@ -1,0 +1,18 @@
+uuid: 34c040dc-dcf7-4e1e-b278-b3a06db00d58
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.space
+id: node.space.title
+field_name: title
+entity_type: node
+bundle: space
+label: 'Name or title of space'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

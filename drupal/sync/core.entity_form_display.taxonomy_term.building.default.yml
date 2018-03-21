@@ -1,0 +1,143 @@
+uuid: c92188a0-0bb8-49fc-8436-34749e3aab0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.building.field_building_id
+    - field.field.taxonomy_term.building.field_campus
+    - field.field.taxonomy_term.building.field_city
+    - field.field.taxonomy_term.building.field_contact_details
+    - field.field.taxonomy_term.building.field_contacts
+    - field.field.taxonomy_term.building.field_equipment_information
+    - field.field.taxonomy_term.building.field_images
+    - field.field.taxonomy_term.building.field_navigation_link
+    - field.field.taxonomy_term.building.field_opening_times
+    - field.field.taxonomy_term.building.field_street_address
+    - image.style.thumbnail
+    - taxonomy.vocabulary.building
+  module:
+    - image
+    - layout_discovery
+    - link
+    - path
+    - text
+id: taxonomy_term.building.default
+targetEntityType: taxonomy_term
+bundle: building
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_building_id:
+    weight: 34
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_campus:
+    weight: 37
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_city:
+    weight: 36
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_contact_details:
+    weight: 32
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_contacts:
+    weight: 33
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_equipment_information:
+    weight: 40
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_images:
+    weight: 35
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_navigation_link:
+    weight: 39
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_opening_times:
+    weight: 31
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_street_address:
+    weight: 38
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+hidden: {  }

@@ -1,0 +1,22 @@
+uuid: de5a39ba-40e6-4345-9101-9e87df04ff6c
+langcode: fi
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.equipment
+  module:
+    - text
+id: taxonomy_term.equipment.default
+targetEntityType: taxonomy_term
+bundle: equipment
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

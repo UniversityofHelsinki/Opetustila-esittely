@@ -1,0 +1,18 @@
+uuid: 5254c749-c234-445e-97d9-912fa103fa41
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - footer
+    parent: 'footer:'
+name: Page
+type: page
+description: 'A basic page with text content and header fields.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

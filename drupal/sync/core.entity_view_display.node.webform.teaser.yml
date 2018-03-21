@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.webform.webform
     - node.type.webform
   module:
+    - layout_discovery
     - text
     - user
 _core:

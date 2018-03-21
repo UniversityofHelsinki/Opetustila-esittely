@@ -1,0 +1,34 @@
+uuid: 770a0f9a-af8c-47eb-a494-b5133c122f20
+langcode: fi
+status: true
+dependencies:
+  module:
+    - ctools
+    - system
+    - uh_space_site
+  theme:
+    - uh_space
+id: heroblock
+theme: uh_space
+region: content_top
+weight: 0
+provider: null
+plugin: hero_block
+settings:
+  id: hero_block
+  label: 'Hero Block'
+  provider: uh_space_site
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

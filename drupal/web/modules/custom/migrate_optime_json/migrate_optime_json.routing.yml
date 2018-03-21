@@ -1,0 +1,15 @@
+#migrate_optime_json.example:
+#  path: '/admin/migrate-optime/example'
+#  defaults:
+#    _title: 'Migrate Optime'
+#    _controller: '\Drupal\migrate_optime_json\Controller\MigrateOptimeJsonController::build'
+#  requirements:
+#    _permission: 'access content'
+
+migrate_optime_json.settings_form:
+  path: '/admin/config/system/migrate-optime-json'
+  defaults:
+    _title: 'Migrate Optime JSON settings'
+    _form: 'Drupal\migrate_optime_json\Form\SettingsForm'
+  requirements:
+    _permission: 'administer migrate_optime_json configuration'

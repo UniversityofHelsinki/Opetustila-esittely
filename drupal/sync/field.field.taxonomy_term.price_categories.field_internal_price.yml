@@ -1,0 +1,23 @@
+uuid: a7a0784f-4b6a-4451-979b-c5cbdb17b475
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_internal_price
+    - taxonomy.vocabulary.price_categories
+  module:
+    - link
+id: taxonomy_term.price_categories.field_internal_price
+field_name: field_internal_price
+entity_type: taxonomy_term
+bundle: price_categories
+label: 'Internal price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

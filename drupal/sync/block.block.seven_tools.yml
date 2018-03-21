@@ -13,7 +13,7 @@ _core:
 id: seven_tools
 theme: seven
 region: header
-weight: 0
+weight: null
 provider: null
 plugin: 'system_menu_block:tools'
 settings:

@@ -1,0 +1,10 @@
+uuid: 988480d4-306e-4f5c-98b2-a44dc80700f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.minimal
+label: Minimal
+targetEntityType: taxonomy_term
+cache: true

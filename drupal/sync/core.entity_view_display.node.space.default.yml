@@ -1,0 +1,252 @@
+uuid: f5aa16cf-33bc-433f-a0e7-f29b48baded4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.space.body
+    - field.field.node.space.field_accessibility
+    - field.field.node.space.field_accessible_entry
+    - field.field.node.space.field_building
+    - field.field.node.space.field_building_id
+    - field.field.node.space.field_campus
+    - field.field.node.space.field_capacity
+    - field.field.node.space.field_equipment
+    - field.field.node.space.field_equipment_information
+    - field.field.node.space.field_floor
+    - field.field.node.space.field_images
+    - field.field.node.space.field_inactivate_in_optime
+    - field.field.node.space.field_inactivated_in_drupal
+    - field.field.node.space.field_last_changed_in_optime
+    - field.field.node.space.field_legacy_url
+    - field.field.node.space.field_optime_comments
+    - field.field.node.space.field_optime_id
+    - field.field.node.space.field_optime_index
+    - field.field.node.space.field_price_category
+    - field.field.node.space.field_reservation_link
+    - field.field.node.space.field_room_type
+    - field.field.node.space.field_street_address
+    - node.type.space
+  module:
+    - ds
+    - ds_chains
+    - field_group
+    - image
+    - link
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      header:
+        - links
+        - field_reservation_link
+        - field_images
+      left:
+        - group_key_information
+        - field_equipment_information
+        - field_equipment
+        - group_equipment
+        - field_capacity
+        - field_accessibility
+        - body
+        - field_price_category
+      right:
+        - field_floor
+        - field_accessible_entry
+  field_group:
+    group_key_information:
+      children:
+        - field_capacity
+        - field_accessibility
+        - body
+        - field_price_category
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: space__key-information
+        element: section
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Key Information'
+      region: hidden
+    group_equipment:
+      children:
+        - field_equipment_information
+        - field_equipment
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        label: Equipment
+        element: section
+        show_label: true
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: space__equipment
+      label: Equipment
+      region: hidden
+  ds_chains:
+    fields:
+      field_building: field_building
+id: node.space.default
+targetEntityType: node
+bundle: space
+mode: default
+content:
+  body:
+    type: text_summary_or_trimmed
+    weight: 7
+    region: left
+    label: inline
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_accessibility:
+    type: entity_reference_entity_view
+    weight: 6
+    region: left
+    label: inline
+    settings:
+      view_mode: token
+      link: false
+    third_party_settings: {  }
+  field_accessible_entry:
+    type: basic_string
+    weight: 6
+    region: right
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_capacity:
+    type: number_integer
+    weight: 5
+    region: left
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+  field_equipment:
+    type: entity_reference_entity_id
+    weight: 4
+    region: left
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_equipment_information:
+    type: basic_string
+    weight: 3
+    region: left
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_floor:
+    type: string
+    weight: 5
+    region: right
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_images:
+    type: image
+    weight: 2
+    region: header
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_inactivate_in_optime:
+    weight: 102
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_inactivated_in_drupal:
+    weight: 103
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_price_category:
+    type: entity_reference_entity_view
+    weight: 8
+    region: left
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_reservation_link:
+    type: link
+    weight: 1
+    region: header
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_smart_equipment_information:
+    weight: 100
+    region: content
+  field_street_address:
+    weight: 101
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 0
+    region: header
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_building: true
+  field_building_id: true
+  field_campus: true
+  field_last_changed_in_optime: true
+  field_legacy_url: true
+  field_optime_comments: true
+  field_optime_id: true
+  field_optime_index: true
+  field_room_type: true
+  langcode: true

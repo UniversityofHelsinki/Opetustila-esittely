@@ -1,0 +1,45 @@
+uuid: c5be7d87-a3c0-4435-815c-743ff321c440
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_images
+    - taxonomy.vocabulary.building
+  module:
+    - content_translation
+    - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
+id: taxonomy_term.building.field_images
+field_name: field_images
+entity_type: taxonomy_term
+bundle: building
+label: Images
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

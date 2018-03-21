@@ -1,0 +1,16 @@
+uuid: 8cd6f9fc-15b3-43a3-82d5-fb047e6922ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.room_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.room_type
+target_entity_type_id: taxonomy_term
+target_bundle: room_type
+default_langcode: fi
+language_alterable: true

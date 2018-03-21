@@ -1,0 +1,9 @@
+uuid: 2824b99f-b2cf-41be-8158-857c9a9332f7
+langcode: und
+status: true
+dependencies: {  }
+name: Equipment
+vid: equipment
+description: 'Types of equipment available in rooms.'
+hierarchy: 0
+weight: 0

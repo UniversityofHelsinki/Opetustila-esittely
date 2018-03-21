@@ -1,0 +1,23 @@
+uuid: 8582b7e9-442a-4133-bddf-aac6f30572a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_capacity
+    - node.type.space
+id: node.space.field_capacity
+field_name: field_capacity
+entity_type: node
+bundle: space
+label: Capacity
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

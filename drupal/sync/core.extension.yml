@@ -12,20 +12,30 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
+  ds_chains: 0
   dynamic_page_cache: 0
   field: 0
+  field_group: 0
+  field_permissions: 0
   field_ui: 0
   file: 0
   filter: 0
   image: 0
   language: 0
+  layout_discovery: 0
   link: 0
   locale: 0
   menu_ui: 0
+  migrate: 0
+  migrate_optime_json: 0
+  migrate_plus: 0
+  migrate_tools: 0
   node: 0
   options: 0
   page_cache: 0
   path: 0
+  search_api: 0
+  search_api_db: 0
   simplei: 0
   system: 0
   taxonomy: 0
@@ -33,12 +43,14 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  uh_space_site: 0
   user: 0
   views_ui: 0
   webform: 0
   webform_node: 0
   webform_ui: 0
   contribute: 1
+  ds: 1
   menu_link_content: 1
   pathauto: 1
   content_translation: 10

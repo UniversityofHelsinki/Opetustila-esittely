@@ -1,6 +1,6 @@
 uuid: 5f909d77-7d80-49ec-9452-47bb9a353117
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - bartik
@@ -8,8 +8,8 @@ _core:
   default_config_hash: PffmQ-ABSz5tFjWmVsR7NesunDnEivvopnJnBjl8KNE
 id: bartik_local_actions
 theme: bartik
-region: content
-weight: -10
+region: header
+weight: null
 provider: null
 plugin: local_actions_block
 settings:

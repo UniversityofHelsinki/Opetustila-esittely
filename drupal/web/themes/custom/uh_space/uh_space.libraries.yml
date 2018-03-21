@@ -6,3 +6,13 @@ global:
   js:
     dist/app.js: {}
 
+select2:
+  version: 4.0.5
+  css:
+    base:
+      lib/select2-4.0.5/dist/css/select2.min.css: {}
+  js:
+    lib/select2-4.0.5/dist/js/select2.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once

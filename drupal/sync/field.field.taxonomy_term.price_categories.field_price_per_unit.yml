@@ -1,0 +1,23 @@
+uuid: 1f53d871-92d8-4751-9a6c-84f31c9fdffa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_price_per_unit
+    - taxonomy.vocabulary.price_categories
+id: taxonomy_term.price_categories.field_price_per_unit
+field_name: field_price_per_unit
+entity_type: taxonomy_term
+bundle: price_categories
+label: 'External price'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

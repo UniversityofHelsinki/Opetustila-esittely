@@ -1,0 +1,30 @@
+uuid: 93e09684-1853-4f53-a51e-99bcc2a4e893
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.space_search
+  module:
+    - system
+    - views
+  theme:
+    - uh_space
+id: views_block__space_search_main
+theme: uh_space
+region: content_top
+weight: 1
+provider: null
+plugin: 'views_block:space_search-main'
+settings:
+  id: 'views_block:space_search-main'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,16 @@
+uuid: 4ff7033f-3ba6-4c8b-9489-baf797abb8dd
+langcode: fi
+status: true
+dependencies: {  }
+id: local
+label: Local
+folder: ../conf/config_split/local
+module: {  }
+theme: {  }
+blacklist:
+  - core.extension.devel
+  - core.extension.kint
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

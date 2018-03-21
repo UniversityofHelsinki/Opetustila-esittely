@@ -1,0 +1,66 @@
+.select2-container.select2-container--default {
+  .select2-selection.select2-selection--multiple {
+    border-color: $silver;
+    border-radius: 0;
+    display: flex;
+
+    &:after {
+      @extend .icon--plus;
+      align-self: center;
+      color: $blue;
+      cursor: pointer;
+      margin: 0 $line / 4;
+    }
+
+    .select2-selection__choice {
+      border: 1px solid $blue;
+      border-radius: 0;
+      background: none;
+      display: flex;
+      line-height: $line;
+      margin: $line / 8;
+      padding: $line / 10 $line / 6;
+
+      .select2-selection__choice__remove {
+        color: $blue;
+        font-size: 1.5rem;
+        line-height: $line;
+        order: 2;
+        padding: 0 $line / 8 0 $line / 3;
+      }
+    }
+
+    .select2-selection__rendered {
+      display: block;
+      padding: 0;
+    }
+  }
+
+  .select2-search--inline {
+    .select2-search__field {
+      border: 1px solid transparent;
+      font-size: 1rem;
+      line-height: $line;
+      margin: $line / 4;
+      padding: 0;
+    }
+  }
+
+  .select2-results__option {
+    line-height: $default-line-height;
+    padding: $line / 4;
+
+    &.select2-results__option--highlighted[aria-selected] {
+      background: $blue;
+      color: $white;
+    }
+  }
+
+  &.select2-container--focus {
+    .select2-selection.select2-selection--multiple {
+      border-color: transparent;
+      outline: 2px solid $blue;
+      outline-offset: -2px;
+    }
+  }
+}

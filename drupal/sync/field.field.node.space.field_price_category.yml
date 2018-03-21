@@ -1,0 +1,29 @@
+uuid: e40b8d3e-7dde-401c-9c57-be2fc9ccefd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price_category
+    - node.type.space
+    - taxonomy.vocabulary.price_categories
+id: node.space.field_price_category
+field_name: field_price_category
+entity_type: node
+bundle: space
+label: 'Price category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      price_categories: price_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

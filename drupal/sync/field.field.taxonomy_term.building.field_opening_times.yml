@@ -1,0 +1,21 @@
+uuid: 29600f78-8418-404f-a2b1-2e4f82b3a1ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_opening_times
+    - taxonomy.vocabulary.building
+  module:
+    - text
+id: taxonomy_term.building.field_opening_times
+field_name: field_opening_times
+entity_type: taxonomy_term
+bundle: building
+label: 'Opening times'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

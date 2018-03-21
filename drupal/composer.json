@@ -21,7 +21,7 @@
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/console": "^1.0.2",
         "drupal/core": "8.4.*",
-        "drush/drush": "~8.0|^9.0.0-beta8",
+        "drush/drush": "^9.2",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
         "drupal/config_installer": "~1.0",
@@ -35,7 +35,16 @@
         "drupal/config_filter": "^1.1",
         "drupal/ctools": "^3.0",
         "drupal/webform": "^5.0@RC",
-        "drupal/config_ignore": "^2.1"
+        "drupal/config_ignore": "^2.1",
+        "drupal/migrate_tools": "4.0-beta3",
+        "drupal/migrate_plus": "4.0-beta3",
+        "drupal/libraries": "^3.0@alpha",
+        "drupal/field_permissions": "^1.0@beta",
+        "drupal/field_group": "3.0-beta1",
+        "drupal/ds": "3.1",
+        "drupal/ds_chains": "^1.0@alpha",
+        "drupal/search_api": "^1.7",
+        "drupal/devel": "^1.2"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
