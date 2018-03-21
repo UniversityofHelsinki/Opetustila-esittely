@@ -158,7 +158,7 @@ production:
 
   # Prod environment only symlinks files
   link:
-    - /var/www/site.domain.tld/files: web/sites/default/files
+    - /var/www/tilavaraus.helsinki.fi/files: web/sites/default/files
 
   local_commands:
     create:
