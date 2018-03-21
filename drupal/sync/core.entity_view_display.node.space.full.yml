@@ -15,6 +15,8 @@ dependencies:
     - field.field.node.space.field_equipment_information
     - field.field.node.space.field_floor
     - field.field.node.space.field_images
+    - field.field.node.space.field_inactivate_in_optime
+    - field.field.node.space.field_inactivated_in_drupal
     - field.field.node.space.field_last_changed_in_optime
     - field.field.node.space.field_legacy_url
     - field.field.node.space.field_optime_comments
@@ -23,14 +25,15 @@ dependencies:
     - field.field.node.space.field_price_category
     - field.field.node.space.field_reservation_link
     - field.field.node.space.field_room_type
-    - image.style.large
+    - field.field.node.space.field_street_address
     - node.type.space
+    - responsive_image.styles.space_image
   module:
     - ds
     - ds_chains
     - field_group
-    - image
     - link
+    - responsive_image
     - text
     - user
 third_party_settings:
@@ -56,9 +59,9 @@ third_party_settings:
       header:
         - group_header_main
         - group_hj
-        - node_title
         - field_reservation_link
         - field_images
+        - node_title
         - 'dynamic_token_field:node-referenced_address'
       right:
         - 'dynamic_copy_field:node-referenced_address_clone'
@@ -290,16 +293,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
   field_images:
-    type: image
+    type: responsive_image
     weight: 2
     region: header
     label: hidden
     settings:
-      image_style: large
-      image_link: file
+      responsive_image_style: space_image
+      image_link: content
     third_party_settings:
       ds:
-        ds_limit: ''
+        ds_limit: '2'
   field_price_category:
     type: entity_reference_entity_view
     weight: 9
@@ -326,6 +329,8 @@ hidden:
   field_building_id: true
   field_campus: true
   field_equipment: true
+  field_inactivate_in_optime: true
+  field_inactivated_in_drupal: true
   field_last_changed_in_optime: true
   field_legacy_url: true
   field_optime_comments: true
@@ -333,5 +338,6 @@ hidden:
   field_optime_index: true
   field_room_type: true
   field_smart_equipment_information: true
+  field_street_address: true
   langcode: true
   links: true

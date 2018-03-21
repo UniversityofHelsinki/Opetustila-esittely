@@ -1,0 +1,14 @@
+uuid: 84c08235-272a-4a3d-9fd8-5909b75087f1
+langcode: fi
+status: true
+dependencies: {  }
+name: space_image_full
+label: 'Space Image Full'
+effects:
+  5f9c7e67-80b8-4ef8-a435-017324772a1d:
+    uuid: 5f9c7e67-80b8-4ef8-a435-017324772a1d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1280
+      height: 852

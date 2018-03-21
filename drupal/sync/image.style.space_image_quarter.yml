@@ -1,0 +1,7 @@
+uuid: 74e2babe-27b0-4c00-8d78-917c86e9b68e
+langcode: fi
+status: true
+dependencies: {  }
+name: space_image_quarter
+label: 'Space Image Quarter'
+effects: {  }
