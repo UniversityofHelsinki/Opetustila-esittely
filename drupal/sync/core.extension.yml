@@ -34,6 +34,7 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  responsive_image: 0
   search_api: 0
   search_api_db: 0
   simplei: 0
