@@ -1,11 +1,12 @@
-uuid: be5afa86-d266-4144-bcc7-f45d755599a1
+uuid: 52b53f98-53bd-4915-9937-f19a43a2b790
 langcode: en
 status: true
 dependencies:
   enforced:
-    module: {  }
+    module:
+      - migrate_plus
 _core:
-  default_config_hash: 5QnAurLGG9HuEn-sH_Qmldhra2YGE9ZoVofepAtbumM
+  default_config_hash: sKp_pTf55ZgIg7OWhLEen92DfntR7ROZWaCj88EWsF4
 id: optime_integration
 class: null
 field_plugin_method: null
@@ -17,46 +18,78 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: json
-  urls: 'http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json'
-  item_selector: 1
+  include_raw_data: true
+  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test.json'
+  item_selector: 0
   fields:
     -
-      name: source_id
+      name: optime_id
       label: 'Unique identifier containing building and space (optime)'
       selector: id
     -
-      name: source_building_description
+      name: space_description
+      label: 'Name or description of space, added to title'
+      selector: description
+    -
+      name: building_description
       label: 'Building description including address, added to title'
       selector: buildingDescription
     -
-      name: source_equipment
+      name: equipment
       label: 'Equipment terms'
       selector: equipment
     -
-      name: source_campus
-      label: 'Campus term'
+      name: campus
+      label: 'Campus term (required)'
       selector: campus
+    -
+      name: building
+      label: 'Building term (required)'
+      selector: building
   ids:
-    source_id:
+    optime_id:
       type: string
 process:
-  optime_id: source_id
-  title: building_description
+  type:
+    plugin: default_value
+    default_value: space
+  title:
+    plugin: concat
+    source:
+      - building_description
+      - space_description
+    delimiter: ' / '
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_optime_id: optime_id
   field_campus:
-    plugin: entity_generate
-    source: campus
-    value_key: name
-    bundle: campus
-    entity_type: taxonomy_term
-    ignore_case: true
+    -
+      plugin: entity_generate
+      source: campus
+      value_key: name
+      bundle_key: vid
+      bundle: campus
+      entity_type: taxonomy_term
+      ignore_case: true
+  field_building:
+    -
+      plugin: entity_generate
+      source: building_description
+      value_key: name
+      bundle: building
+      entity_type: taxonomy_term
+      ignore_case: true
   field_equipment:
-    plugin: entity_generate
-    source: equipment
-    value_key: name
-    bundle: equipment
-    entity_type: taxonomy_term
-    ignore_case: true
+    -
+      plugin: entity_generate
+      source: equipment
+      value_key: name
+      bundle: equipment
+      entity_type: taxonomy_term
+      ignore_case: true
 destination:
   plugin: 'entity:node'
   default_bundle: space
+  bundle: space
 migration_dependencies: {  }

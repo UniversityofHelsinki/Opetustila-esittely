@@ -1,0 +1,23 @@
+uuid: 1e4543e4-7fdc-4eb0-b994-ab63891cb0d6
+langcode: fi
+status: true
+dependencies:
+  config:
+    - image.style.space_image_full
+    - image.style.space_image_half
+    - image.style.space_image_quarter
+id: space_image
+label: 'Space Image'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 1280px) 640px, (min-width: 800px) 480px, 220px'
+      sizes_image_styles:
+        - space_image_full
+        - space_image_half
+        - space_image_quarter
+breakpoint_group: responsive_image
+fallback_image_style: space_image_quarter

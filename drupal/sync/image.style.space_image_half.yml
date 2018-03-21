@@ -1,0 +1,14 @@
+uuid: 1f3c7e63-c387-4c6e-8754-89f5307b7738
+langcode: fi
+status: true
+dependencies: {  }
+name: space_image_half
+label: 'Space Image Half'
+effects:
+  fcf9a57b-5801-4603-b4f4-2c82079936bc:
+    uuid: fcf9a57b-5801-4603-b4f4-2c82079936bc
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 640
+      height: 426
