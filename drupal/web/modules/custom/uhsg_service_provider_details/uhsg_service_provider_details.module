@@ -49,16 +49,6 @@ function uhsg_service_provider_details_form_system_site_information_settings_alt
     '#type' => 'details',
     '#open' => TRUE,
   ];
-  $form['spaces']['spaces_logo_text'] = [
-    '#type' => 'textfield',
-    '#title' => t('Logo text'),
-    '#default_value' => $spaces_details_settings->get('logo_text'),
-  ];
-  $form['spaces']['spaces_logo_path'] = [
-    '#type' => 'textfield',
-    '#title' => t('Target path from logo link'),
-    '#default_value' => $spaces_details_settings->get('logo_path'),
-  ];
   $form['spaces']['spaces_contact_info'] = [
     '#type' => 'textarea',
     '#title' => t('Contact information'),
@@ -82,11 +72,6 @@ function uhsg_service_provider_details_settings_submit(array $form, FormStateInt
     ->set('logo_path', $form_state->getValue('logo_path'))
     ->set('copyright_text', $form_state->getValue('copyright_text'))
     ->set('contact_info', $form_state->getValue('contact_info'))
-    ->save();
-
-  \Drupal::configFactory()->getEditable('uhsg_spaces_details.settings')
-    ->set('logo_text', $form_state->getValue('spaces_logo_text'))
-    ->set('logo_path', $form_state->getValue('spaces_logo_path'))
-    ->set('contact_info', $form_state->getValue('spaces_contact_info'))
+    ->set('spaces_contact_info', $form_state->getValue('spaces_contact_info'))
     ->save();
 }
