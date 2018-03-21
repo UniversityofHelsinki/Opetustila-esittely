@@ -1,62 +1,256 @@
 ---
-# Gather all facts about all groups:
-# This is currently needed to check the private ip addresses of the front machines
-- name: Collect facts from machines
-  hosts: prod-lb:prod-front:prod-db
-  user: root
-  tasks: [ ]
 
-# Setup firewalls and using upcloud api
-- include: upcloud.yml
+- hosts: prod
+  become: true
+  become_method: sudo
+  user: lu_jslin
+  roles:
+   - { role: base, tags: [ 'base' ] }
+   - { role: papertrail, tags: [ 'papertrail' ] }
+   - { role: nginx, tags: [ 'nginx' ] }
+   - { role: varnish, tags: [ 'varnish' ] }
+   - { role: php-fpm, tags: [ 'php-fpm' ] }
+   - { role: memcached, tags: [ 'memcached' ] }
+   - { role: drush, tags: [ 'drush' ] }
+   - { role: drupal-log, tags: [ 'drupal-log' ] }
+   - { role: external-smtp, tags: [ 'external-smtp' ] }
+   - { role: monit, tags: [ 'monit' ] }
+   - { role: newrelic, tags: [ 'newrelic' ] }
+   - { role: newrelic-sysmon, tags: [ 'newrelic-sysmon' ] }
+   - { role: newrelic-infra, tags: [ 'newrelic-infra' ] }
+   - { role: backups, tags: [ 'backups' ] }
+   - { role: dbserver, tags: [ 'dbserver' ] }
+   - { role: drupal-db, tags: [ 'drupal-db' ] }
+   - { role: elasticsearch, tags: [ 'elasticsearch' ] }
 
-- name: Common
-  hosts: prod
-  user: root
 
   vars_files:
-    - prod-vars.yml
+  - prod-vars.yml
+
+  tasks:
+    # Disable email from cron
+    - name: "Disable emails from failed cronjobs for nginx user"
+      cron:
+        name: "MAILTO"
+        env: yes
+        value: ""
+        state: "present"
+        user: nginx
+      tags: ['cron']
+
+    # Set drupal cron to be run every minute and alternate between both servers
+    - name: "Run drupal cronjob with nginx user at even minutes"
+      cron:
+        name: "Run Drupal cronjobs with drush"
+        minute: "*/2"
+        job: "/usr/lib/composer/vendor/bin/drush --root={{ drupal_web_root }} cron"
+        state: "present"
+        user: nginx
+      tags: ['cron']
+
+    - name: assign www-admin to hysudo group
+      user:
+        name: www-admin
+        group: www-admin
+        state: present
+        groups: hysudo
+        append: yes
 
   vars:
-    ## Internal / helper vars ##
-    # Production specific
-    database:
+    wkv_site_env: prod
+    domain_name: tilavaraus.helsinki.fi
+    drupal_web_root: "/var/www/{{ domain_name }}/current/web"
+    project_name: opetustilat
+
+    memory_db: 1024 # In MB
+    memory_app: 2048 # In MB should be atleast 4x php_memory_limit
+
+
+    ## Nginx ##
+
+
+    # Apps I want to run on this server
+    apps:
+      - server_name: "{{ domain_name }}"
+        http_port: 8080
+        docroot: "{{ drupal_web_root }}"
+
+    # You can also define aliases with app_dir_aliases, see ansible/playbook/roles/nginx/templates/all_apps.conf.j2
+
+    # Automatically create docroot folders
+    create_docroot: True
+
+    nginx_real_ip: 127.0.0.1
+
+    # Extra nginx configs
+    nginx_conf:
+      - client_header_timeout: 10
+      - client_body_timeout: 120
+      - send_timeout: 120
+      - keepalive_timeout: "15 10"
+      - client_max_body_size: 100M
+      - client_body_buffer_size: 128k
+      - proxy_read_timeout: 60
+
+    # Define additional Content-Security-Policy headers
+    nginx_content_security: "; connect-src wss: https:"
+    # or disable them completely
+    #nginx_disable_content_security_policy: True
+    # Also affects sslterminator
+
+
+    # Lets keep basicauth up until release
+    basicauth_enabled: True
+    basicauth_username: opetustila
+    basicauth_password: stickinesss-Spenglerian-chastise-advocated
+    # Basic auth can also be disabled for certain ip's
+    basicauth_ip:
+      - address: 84.20.132.177
+      - address: 87.94.15.10
+      - address: 94.237.27.124
+      - address: 94.237.33.88
+      - address: 83.136.248.231
+
+    ## Sslterminator ##
+    # we only use https for this host
+    sslterminators:
+      - server_name: "{{ domain_name }}"
+        server_forwards: "www.{{ domain_name }}"  # we redirect to www subdomain
+        ssl_certificate: "/etc/pki/tls/certs/tilavaraus.helsinki.fi.crt"
+        ssl_certificate_key: "/etc/pki/tls/private/tilavaraus.helsinki.fi.key"
+        use_dhparam: True
+        backends:
+          - 127.0.0.1:8081
+
+    # Forward to www and https.
+    httpforwards:
+      - server_name: "{{ domain1_name }}"
+        forwarded_domains: "{{ domain1_name}}"
+    # You can also use extra_forwards and httpextraforwards to define additional domains to listen & forward
+    # See ansible/playbook/roles/sslterminator/templates/ssl_terminators.conf.j2 for reference.
+
+
+    ## Php-fpm ##
+
+    php_ini_file: /etc/php.d/zz_wundertools.ini
+
+    # You can set any php.ini variable like this:
+    #php_ini:
+    #  - section: [section]
+    #    options:
+    #      - key: [php variable]
+    #        val: "[value]"
+
+    # See ansible_playbook/roles/php-fpm/defaults/main.yml for examples
+
+    ## Memcached ##
+
+    #memcached_port: 11211
+    #memcached_maxconn: 1024
+    #memcached_cachesize: 256
+    #memcached_options: "-I 4M"
+
+    databases:
       - name: drupal
+        host: localhost
         user: drupal
-        # defined in prod-vars.yml
         pass: "{{ drupal_db_password }}"
-        host: "{{ db_ip }}"
         hosts:
           - "127.0.0.1"
           - "::1"
           - "localhost"
-          - "{{ front1_ip }}"
-          - "{{ front2_ip }}"
+
+    ## Varnish ##
+
+    # This server also acts as a load balancer
+    varnish:
+      port: 8081
+      memory: 1G
+      # Basic configuration for error pages
+      #error_header_cache_control: "no-cache, max-age: 0, must-revalidate"
+      error_header_x_site_name: "{{ project_name }}"
+      error_header_x_sitetitle: "{{ project_name }}"
+      error_header_x_ua: "insert_GA_code"
+      # It's possible to define custom error page template with
+      #custom_error_template:
+      # you can also set the control_key
+      control_key: "{{ varnish_control_key }}"
+      probe_resource_url: "_ping.php"
+      acl_internal:
+        - ip: 84.20.132.177
+        - ip: 87.94.15.10
+        - ip: 94.237.27.124
+        - ip: 94.237.33.88
+        - ip: 83.136.248.231
+      acl_purge:
+        - ip: 127.0.0.1
+      acl_upstream_proxy:
+        - ip: 127.0.0.1
+      directors:
+        - name: prod1
+          host: "{{ domain_name }}"
+          backends:
+            - name: prod1_http1
+              address: "127.0.0.1"
+              port: 8080
+
+    ## Drupal-log ##
+
+    drupal_log_path: /var/log/drupal.log
 
 
-  tasks:
-    - name: Set internal ip addresses
-      set_fact:
-        db_ip: "{{ groups['prod-db'] | map('extract', hostvars, ['ansible_eth1', 'ipv4', 'address']) | first }}"
-        lb_ip: "{{ groups['prod-lb'] | map('extract', hostvars, ['ansible_eth1', 'ipv4', 'address']) | first }}"
-        front1_ip: "{{ groups['prod-front'] | map('extract', hostvars, ['ansible_eth1', 'ipv4', 'address']) | first }}"
-        front2_ip: "{{ groups['prod-front'] | map('extract', hostvars, ['ansible_eth1', 'ipv4', 'address']) | list | last }}"
-      tags: ['common']
+    ## External-smtp ##
 
-    - name: Set common facts
-      set_fact:
-        domain1_name: "wundertools.prod.wunder.io"
-        domain2_name: "wunderools.com"
-        wkv_site_env: "prod"
-        databases: "{{ database }}"
-        varnish_control_key: "{{ varnish_control_key }}"
-      tags: ['common']
+    external_smtp_tls_security_level: 'encrypt'
+    external_smtp_relayhost: '[smtp.sparkpostmail.com]:587'
+    # external_smtp_sasl_password_maps value defined in prod-vars.yml
 
-    # this need to be separate as we are using another fact here
-    - name: Set drupal web root
-      set_fact:
-        drupal_web_root: "/var/www/{{ domain1_name }}/current/web"
-      tags: ['common']
+    ## Nfs-client ##
 
-- include: prod-lb.yml
-- include: prod-db.yml
-- include: prod-front.yml
+
+    ## Monit ##
+    monit_enabled: True
+    monit_alert_email_service_name: "{{ project_name }} front {{ ansible_nodename }}"
+    monit_alert_email_from: "{{ support_email }}"
+    monit_alert_email_to: "{{ support_email }}"
+    monit_check_sshd: True
+    monit_check_nginx: True
+    monit_check_memcached: True
+    monit_check_php_fpm: True
+    monit_check_remote_syslog: True
+    monit_check_cron: True
+    monit_check_mysql: True
+    monit_check_varnish: True
+
+    # Which ever you are using
+    #monit_check_solr: True
+    monit_check_elasticsearch: True
+
+
+    ## Papertrail ##
+    papertrail_enabled: True
+    papertrail_remote_syslog2_version: "0.16"
+    papertrail_conf: "/etc/log_files.yml"
+    papertrail_logs:
+      - /var/log/secure
+      - /var/log/maillog
+
+    # papertrail host and port defined in prod-vars.yml
+
+    # Define additional papertrail logs from nginx (from nginx role)
+    nginx_papertrail_follow:
+      - /var/log/nginx/http-*error.log
+
+    php_fpm_papertrail_follow:
+      - /var/log/php-fpm/www-error.log
+
+    # Define additional papertrail logs from sslterminator (from sslterminator role)
+    sslterminator_papertrail_follow:
+      - /var/log/nginx/ssl-*error.log
+
+    ## Newrelic ##
+    newrelic_enabled: True
+    newrelic_infra_enabled: True
+    # newrelic_license_key defined in prod_vars.yml
+    newrelic_appname: "{{ project_name }}"
+

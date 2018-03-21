@@ -70,6 +70,12 @@
 
   {{ page.footer_top }}
 
+  {% if page.footer_site %}
+    <footer role="contentinfo">
+      {{ page.footer_site }}
+    </footer>
+  {% endif %}
+
   {% if page.footer %}
     <footer role="contentinfo">
       {{ page.footer }}

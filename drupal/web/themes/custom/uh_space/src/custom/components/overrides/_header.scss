@@ -1,0 +1,25 @@
+.l-header-bar {
+  &.l-header-bar--transparent {
+    background: none;
+    position: absolute;
+    width: 100%;
+  }
+
+  &.l-header-bar--negative {
+    background: none;
+    color: $black;
+    padding: 0 $line / 2;
+
+    .logo__sitename,
+    .logo:before {
+      color: $black;
+    }
+  }
+}
+
+// Set h1 styling explicitly. Remove p margin.
+.logo__sitename {
+  line-height: 1.15em;
+  margin: 0;
+  text-transform: uppercase;
+}
