@@ -35,3 +35,11 @@
     }
   }
 }
+
+.l-footer,
+.l-info-footer {
+  h2 {
+    @extend h4;
+    text-transform: none;
+  }
+}
