@@ -10,7 +10,7 @@
    - { role: nginx, tags: [ 'nginx' ] }
    - { role: varnish, tags: [ 'varnish' ] }
    - { role: php-fpm, tags: [ 'php-fpm' ] }
-   #- { role: memcached, tags: [ 'memcached' ] }
+   - { role: memcached, tags: [ 'memcached' ] }
    - { role: drush, tags: [ 'drush' ] }
    - { role: drupal-log, tags: [ 'drupal-log' ] }
    - { role: external-smtp, tags: [ 'external-smtp' ] }
@@ -57,12 +57,13 @@
         append: yes
 
   vars:
-    wkv_site_env: stage
-    domain_name: opetustila-prod.it.helsinki.fi
+    wkv_site_env: prod
+    domain_name: tilavaraus.helsinki.fi
     drupal_web_root: "/var/www/{{ domain_name }}/current/web"
     project_name: opetustilat
 
-    memory_app: 4096 # In MB should be atleast 4x php_memory_limit
+    memory_db: 1024 # In MB
+    memory_app: 2048 # In MB should be atleast 4x php_memory_limit
 
 
     ## Nginx ##
@@ -115,18 +116,16 @@
     sslterminators:
       - server_name: "{{ domain_name }}"
         server_forwards: "www.{{ domain_name }}"  # we redirect to www subdomain
-        ssl_certificate: "/etc/letsencrypt/live/{{ domain_name }}/fullchain.pem"
-        ssl_certificate_key: "/etc/letsencrypt/live/{{ domain_name}}/privkey.pem"
+        ssl_certificate: "/etc/pki/tls/certs/tilavaraus.helsinki.fi.crt"
+        ssl_certificate_key: "/etc/pki/tls/private/tilavaraus.helsinki.fi.key"
         use_dhparam: True
         backends:
           - 127.0.0.1:8081
 
     # Forward to www and https.
     httpforwards:
-      - server_name: "www.{{ domain1_name }}"
-        forwarded_domains: "{{ domain1_name}} www.{{ domain1_name }}"
-      - server_name: "www.{{ domain2_name }}"
-        forwarded_domains: "{{ domain2_name}} www.{{ domain2_name }}"
+      - server_name: "{{ domain1_name }}"
+        forwarded_domains: "{{ domain1_name}}"
     # You can also use extra_forwards and httpextraforwards to define additional domains to listen & forward
     # See ansible/playbook/roles/sslterminator/templates/ssl_terminators.conf.j2 for reference.
 
@@ -254,5 +253,4 @@
     newrelic_infra_enabled: True
     # newrelic_license_key defined in prod_vars.yml
     newrelic_appname: "{{ project_name }}"
-
 
