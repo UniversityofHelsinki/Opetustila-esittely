@@ -39,6 +39,9 @@ source:
   item_selector: 0
   # See http://agileadam.com/2017/09/extending-the-migrate-plus-json-parser-in-drupal-8/
   #item_selector: /response/variety
+  constants:
+    reservation_link_base: 'https://optime.helsinki.fi/Timetables/Room/'
+
   # Under 'fields', we list the data items to be imported. The first level keys
   # are the source field names we want to populate (the names to be used as
   # sources in the process configuration below). For each field we're importing,
@@ -95,6 +98,10 @@ source:
       label: 'Room type (term reference)'
       selector: roomTypeDescription
     -
+      name: capacity
+      label: 'Room capacity (integer)'
+      selector: capacity
+    -
       name: street_address
       label: 'Street address (taken from building description, last part)'
       selector: buildingDescription
@@ -131,10 +138,37 @@ process:
   field_optime_id: optime_id
   field_optime_index: optime_index
   field_building_id: building_id
+  field_capacity: capacity
   field_last_changed_in_optime: last_changed_in_optime
   field_inactivate_in_optime: inactivate_in_optime
   field_optime_comments: optime_comments
-  field_legacy_url: legacy_url
+
+  # Links need uri and title, which are currently hardcoded / static.
+  field_legacy_url/uri: legacy_url
+  field_legacy_url/title:
+    plugin: default_value
+    default_value: 'Legacy url'
+
+  field_reservation_link/uri:
+      plugin: concat
+      source:
+        - constants/reservation_link_base
+        - optime_id
+      delimiter: ''
+  field_reservation_link/title:
+    plugin: default_value
+    default_value: 'Optime reservation'
+
+  field_reservation_link/uri:
+      plugin: concat
+      source:
+        - constants/reservation_link_base
+        - optime_id
+      delimiter: ''
+  field_reservation_link/title':
+    plugin: default_value
+    default_value: 'Optime reservation'
+
   # Needs to be exploded by "," to get address.
   field_street_address:
     -
