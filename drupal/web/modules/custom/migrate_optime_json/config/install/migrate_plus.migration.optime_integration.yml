@@ -31,8 +31,10 @@ source:
   # JSON temporarily placed on another HY server files folder, to avoid very time consuming
   # problems relating to local lando (cant wget itself successfully) and
   # because Opetustilat dev/stage/prod are not functional.
-  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test.json'
-  #urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json
+  # Can be overridden per environment in settings.local.php with:
+  #   $config['migrate_plus']['migration']['optime_integration']['urls'] = 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json';
+  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
+  # urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json
   # We might not need item selector.
   item_selector: 0
   # See http://agileadam.com/2017/09/extending-the-migrate-plus-json-parser-in-drupal-8/
@@ -73,14 +75,14 @@ source:
       label: 'Building ID (used in search)'
       selector: building
     -
-      name: optime_changed
+      name: last_changed_in_optime
       label: 'Last changed in optime (UNIX timestamp)'
       selector: changeDate
     -
       name: inactivate_in_optime
-      label: 'Inactive boolean (both optime and drupal have a boolean that can be used to disallow publishing))'
+      label: 'Inactive (boolean, both optime and drupal have a setting that can be used to disallow publishing))'
       selector: inactive
--
+    -
       name: optime_comments
       label: 'Comments from optime (unlikely to be shown directly in Drupal)'
       selector: comments
@@ -93,12 +95,8 @@ source:
       label: 'Room type (term reference)'
       selector: roomTypeDescription
     -
-      name: room_type
-      label: 'Room type'
-      selector: roomTypeDescription
-    -
       name: street_address
-      label: 'Street address (part only, taken from building description)'
+      label: 'Street address (taken from building description, last part)'
       selector: buildingDescription
   # Optime source fields which are currently ignored
   #  "inactiveDate" <-- no use
@@ -115,6 +113,7 @@ process:
   # Note that the source field names here were
   # defined by the 'fields' configuration for the source plugin above.
   #optime_id: optime_id
+  # A few basic node attributes. Status is undefined, determined in presave_hook.
   type:
     plugin: default_value
     default_value: space
@@ -123,11 +122,31 @@ process:
     source:
       - building_description
       - space_description
-    delimiter: ' / '
+    delimiter: ' - '
   uid:
     plugin: default_value
     default_value: 1
+
+ # Some simple 1:1 fields.
   field_optime_id: optime_id
+  field_optime_index: optime_index
+  field_building_id: building_id
+  field_last_changed_in_optime: last_changed_in_optime
+  field_inactivate_in_optime: inactivate_in_optime
+  field_optime_comments: optime_comments
+  field_legacy_url: legacy_url
+  # Needs to be exploded by "," to get address.
+  field_street_address:
+    -
+      plugin: explode
+      source: street_address
+      delimiter: ', '
+      strict: false
+    -
+      plugin: extract
+      index:
+        - 1
+
   field_campus:
     -
       # Above: taxonomy_term reference field to populate
@@ -175,6 +194,26 @@ process:
       # See Above: taxonomy_term reference field to populate
       plugin: entity_generate
       source: equipment
+      value_key: name
+      bundle: equipment
+      entity_type: taxonomy_term
+      ignore_case: true
+
+  field_room_type:
+    -
+      # See Above: taxonomy_term reference field to populate
+      plugin: entity_generate
+      source: room_type
+      value_key: name
+      bundle: room_type
+      entity_type: taxonomy_term
+      ignore_case: true
+
+  field_accessibility:
+    -
+      # See Above: taxonomy_term reference field to populate
+      plugin: entity_generate
+      source: accessibility
       value_key: name
       bundle: equipment
       entity_type: taxonomy_term

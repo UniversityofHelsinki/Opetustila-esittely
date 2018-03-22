@@ -1,4 +1,4 @@
-uuid: 52b53f98-53bd-4915-9937-f19a43a2b790
+uuid: 769dfcd3-0345-43b6-a73e-4c4b9ff231aa
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - migrate_plus
 _core:
-  default_config_hash: sKp_pTf55ZgIg7OWhLEen92DfntR7ROZWaCj88EWsF4
+  default_config_hash: ciI1HO0E93hQbthmFW7It0Yt0AbbdWKM3IOr-CZwSXU
 id: optime_integration
 class: null
 field_plugin_method: null
@@ -19,13 +19,17 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: json
   include_raw_data: true
-  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test.json'
+  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
   item_selector: 0
   fields:
     -
       name: optime_id
       label: 'Unique identifier containing building and space (optime)'
       selector: id
+    -
+      name: optime_index
+      label: 'Unique identifier containing building and space (optime)'
+      selector: optimeIndex
     -
       name: space_description
       label: 'Name or description of space, added to title'
@@ -36,16 +40,40 @@ source:
       selector: buildingDescription
     -
       name: equipment
-      label: 'Equipment terms'
+      label: 'Equipment terms (term references)'
       selector: equipment
     -
       name: campus
-      label: 'Campus term (required)'
+      label: 'Campus term (required term reference)'
       selector: campus
     -
-      name: building
-      label: 'Building term (required)'
+      name: building_id
+      label: 'Building ID (used in search)'
       selector: building
+    -
+      name: last_changed_in_optime
+      label: 'Last changed in optime (UNIX timestamp)'
+      selector: changeDate
+    -
+      name: inactivate_in_optime
+      label: 'Inactive (boolean, both optime and drupal have a setting that can be used to disallow publishing))'
+      selector: inactive
+    -
+      name: optime_comments
+      label: 'Comments from optime (unlikely to be shown directly in Drupal)'
+      selector: comments
+    -
+      name: legacy_url
+      label: 'Url in the old system, might be used for comparing data'
+      selector: url
+    -
+      name: room_type
+      label: 'Room type (term reference)'
+      selector: roomTypeDescription
+    -
+      name: street_address
+      label: 'Street address (taken from building description, last part)'
+      selector: buildingDescription
   ids:
     optime_id:
       type: string
@@ -58,11 +86,27 @@ process:
     source:
       - building_description
       - space_description
-    delimiter: ' / '
+    delimiter: ' - '
   uid:
     plugin: default_value
     default_value: 1
   field_optime_id: optime_id
+  field_optime_index: optime_index
+  field_building_id: building_id
+  field_last_changed_in_optime: last_changed_in_optime
+  field_inactivate_in_optime: inactivate_in_optime
+  field_optime_comments: optime_comments
+  field_legacy_url: legacy_url
+  field_street_address:
+    -
+      plugin: explode
+      source: street_address
+      delimiter: ', '
+      strict: false
+    -
+      plugin: extract
+      index:
+        - 1
   field_campus:
     -
       plugin: entity_generate
@@ -84,6 +128,22 @@ process:
     -
       plugin: entity_generate
       source: equipment
+      value_key: name
+      bundle: equipment
+      entity_type: taxonomy_term
+      ignore_case: true
+  field_room_type:
+    -
+      plugin: entity_generate
+      source: room_type
+      value_key: name
+      bundle: room_type
+      entity_type: taxonomy_term
+      ignore_case: true
+  field_accessibility:
+    -
+      plugin: entity_generate
+      source: accessibility
       value_key: name
       bundle: equipment
       entity_type: taxonomy_term
