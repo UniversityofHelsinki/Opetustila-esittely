@@ -1,4 +1,4 @@
-uuid: 769dfcd3-0345-43b6-a73e-4c4b9ff231aa
+uuid: ef0e543a-85e1-45ca-8772-45c5f4e0234e
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - migrate_plus
 _core:
-  default_config_hash: ciI1HO0E93hQbthmFW7It0Yt0AbbdWKM3IOr-CZwSXU
+  default_config_hash: UODJQimrvJ84qp5KTZxMgc9M_HnDimhpGFb64twEa_I
 id: optime_integration
 class: null
 field_plugin_method: null
@@ -21,6 +21,8 @@ source:
   include_raw_data: true
   urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
   item_selector: 0
+  constants:
+    reservation_link_base: 'https://optime.helsinki.fi/Timetables/Room/'
   fields:
     -
       name: optime_id
@@ -71,6 +73,10 @@ source:
       label: 'Room type (term reference)'
       selector: roomTypeDescription
     -
+      name: capacity
+      label: 'Room capacity (integer)'
+      selector: capacity
+    -
       name: street_address
       label: 'Street address (taken from building description, last part)'
       selector: buildingDescription
@@ -93,10 +99,26 @@ process:
   field_optime_id: optime_id
   field_optime_index: optime_index
   field_building_id: building_id
+  field_capacity: capacity
   field_last_changed_in_optime: last_changed_in_optime
   field_inactivate_in_optime: inactivate_in_optime
   field_optime_comments: optime_comments
-  field_legacy_url: legacy_url
+  field_legacy_url/uri: legacy_url
+  field_legacy_url/title:
+    plugin: default_value
+    default_value: 'Legacy url'
+  field_reservation_link/uri:
+    plugin: concat
+    source:
+      - constants/reservation_link_base
+      - optime_id
+    delimiter: ''
+  field_reservation_link/title:
+    plugin: default_value
+    default_value: 'Optime reservation'
+  'field_reservation_link/title''':
+    plugin: default_value
+    default_value: 'Optime reservation'
   field_street_address:
     -
       plugin: explode
