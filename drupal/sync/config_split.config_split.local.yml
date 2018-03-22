@@ -9,8 +9,8 @@ module:
   kint: 0
 theme: {  }
 blacklist:
-  - system.site
   - uhsg_service_provider_details.settings
+  - 'system.site.page.*'
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: true
