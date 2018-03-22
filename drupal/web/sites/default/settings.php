@@ -82,6 +82,12 @@ $settings['update_free_access'] = FALSE;
  */
 $settings['container_yamls'][] = __DIR__ . '/services.yml';
 
+
+// Override optime migration url. This can be put in local.settings.php
+// $config['migrate_plus']['migration']['optime_integration']['urls'] = 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json';
+
+
+
 /**
  * Environment specific override configuration, if available.
  */
