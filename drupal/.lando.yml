@@ -33,7 +33,8 @@ services:
       # Make sure our custom drush.yml is active either by copying or symlinking.
       # - "/bin/cp /app/web/sites/default/drush.yml /var/www/.drush/drush.yml"
       #- "ln -sf /app/web/sites/default/drush.yml ~/.drush/drush.yml"
-      - "ln -sf /app/web/sites/default/drush.yml /var/www/.drush/drush.yml"
+      #- "ln -sf /app/drush/drushrc.php /var/www/.drush/drushrc.php"
+      - "ln -sf /app/drush/drush.yml /var/www/.drush/drush.yml"
     overrides:
       services:
         environment:
