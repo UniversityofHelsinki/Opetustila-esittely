@@ -49,6 +49,10 @@ source:
       label: 'Unique identifier containing building and space (optime)'
       selector: id
     -
+      name: optime_index
+      label: 'Unique identifier containing building and space (optime)'
+      selector: optimeIndex
+    -
       name: space_description
       label: 'Name or description of space, added to title'
       selector: description
@@ -58,16 +62,48 @@ source:
       selector: buildingDescription
     -
       name: equipment
-      label: 'Equipment terms'
+      label: 'Equipment terms (term references)'
       selector: equipment
     -
       name: campus
-      label: 'Campus term (required)'
+      label: 'Campus term (required term reference)'
       selector: campus
     -
-      name: building
-      label: 'Building term (required)'
+      name: building_id
+      label: 'Building ID (used in search)'
       selector: building
+    -
+      name: optime_changed
+      label: 'Last changed in optime (UNIX timestamp)'
+      selector: changeDate
+    -
+      name: inactivate_in_optime
+      label: 'Inactive boolean (both optime and drupal have a boolean that can be used to disallow publishing))'
+      selector: inactive
+-
+      name: optime_comments
+      label: 'Comments from optime (unlikely to be shown directly in Drupal)'
+      selector: comments
+    -
+      name: legacy_url
+      label: 'Url in the old system, might be used for comparing data'
+      selector: url
+    -
+      name: room_type
+      label: 'Room type (term reference)'
+      selector: roomTypeDescription
+    -
+      name: room_type
+      label: 'Room type'
+      selector: roomTypeDescription
+    -
+      name: street_address
+      label: 'Street address (part only, taken from building description)'
+      selector: buildingDescription
+  # Optime source fields which are currently ignored
+  #  "inactiveDate" <-- no use
+  #  "roomType": "15" <-- we use the room description instead for autocreated terms.
+  # -----------------------------------------------------------
   # Under 'ids', we identify source fields populated above which will uniquely
   # identify each imported item. The 'type' makes sure the migration map table
   # uses the proper schema type for stored the IDs.
