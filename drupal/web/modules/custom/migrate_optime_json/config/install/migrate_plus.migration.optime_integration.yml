@@ -31,12 +31,17 @@ source:
   # JSON temporarily placed on another HY server files folder, to avoid very time consuming
   # problems relating to local lando (cant wget itself successfully) and
   # because Opetustilat dev/stage/prod are not functional.
-  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test.json'
-  #urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json
+  # Can be overridden per environment in settings.local.php with:
+  #   $config['migrate_plus']['migration']['optime_integration']['urls'] = 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json';
+  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
+  # urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json
   # We might not need item selector.
   item_selector: 0
   # See http://agileadam.com/2017/09/extending-the-migrate-plus-json-parser-in-drupal-8/
   #item_selector: /response/variety
+  constants:
+    reservation_link_base: 'https://optime.helsinki.fi/Timetables/Room/'
+
   # Under 'fields', we list the data items to be imported. The first level keys
   # are the source field names we want to populate (the names to be used as
   # sources in the process configuration below). For each field we're importing,
@@ -49,6 +54,10 @@ source:
       label: 'Unique identifier containing building and space (optime)'
       selector: id
     -
+      name: optime_index
+      label: 'Unique identifier containing building and space (optime)'
+      selector: optimeIndex
+    -
       name: space_description
       label: 'Name or description of space, added to title'
       selector: description
@@ -58,16 +67,48 @@ source:
       selector: buildingDescription
     -
       name: equipment
-      label: 'Equipment terms'
+      label: 'Equipment terms (term references)'
       selector: equipment
     -
       name: campus
-      label: 'Campus term (required)'
+      label: 'Campus term (required term reference)'
       selector: campus
     -
-      name: building
-      label: 'Building term (required)'
+      name: building_id
+      label: 'Building ID (used in search)'
       selector: building
+    -
+      name: last_changed_in_optime
+      label: 'Last changed in optime (UNIX timestamp)'
+      selector: changeDate
+    -
+      name: inactivate_in_optime
+      label: 'Inactive (boolean, both optime and drupal have a setting that can be used to disallow publishing))'
+      selector: inactive
+    -
+      name: optime_comments
+      label: 'Comments from optime (unlikely to be shown directly in Drupal)'
+      selector: comments
+    -
+      name: legacy_url
+      label: 'Url in the old system, might be used for comparing data'
+      selector: url
+    -
+      name: room_type
+      label: 'Room type (term reference)'
+      selector: roomTypeDescription
+    -
+      name: capacity
+      label: 'Room capacity (integer)'
+      selector: capacity
+    -
+      name: street_address
+      label: 'Street address (taken from building description, last part)'
+      selector: buildingDescription
+  # Optime source fields which are currently ignored
+  #  "inactiveDate" <-- no use
+  #  "roomType": "15" <-- we use the room description instead for autocreated terms.
+  # -----------------------------------------------------------
   # Under 'ids', we identify source fields populated above which will uniquely
   # identify each imported item. The 'type' makes sure the migration map table
   # uses the proper schema type for stored the IDs.
@@ -79,6 +120,7 @@ process:
   # Note that the source field names here were
   # defined by the 'fields' configuration for the source plugin above.
   #optime_id: optime_id
+  # A few basic node attributes. Status is undefined, determined in presave_hook.
   type:
     plugin: default_value
     default_value: space
@@ -87,11 +129,58 @@ process:
     source:
       - building_description
       - space_description
-    delimiter: ' / '
+    delimiter: ' - '
   uid:
     plugin: default_value
     default_value: 1
+
+ # Some simple 1:1 fields.
   field_optime_id: optime_id
+  field_optime_index: optime_index
+  field_building_id: building_id
+  field_capacity: capacity
+  field_last_changed_in_optime: last_changed_in_optime
+  field_inactivate_in_optime: inactivate_in_optime
+  field_optime_comments: optime_comments
+
+  # Links need uri and title, which are currently hardcoded / static.
+  field_legacy_url/uri: legacy_url
+  field_legacy_url/title:
+    plugin: default_value
+    default_value: 'Legacy url'
+
+  field_reservation_link/uri:
+      plugin: concat
+      source:
+        - constants/reservation_link_base
+        - optime_id
+      delimiter: ''
+  field_reservation_link/title:
+    plugin: default_value
+    default_value: 'Optime reservation'
+
+  field_reservation_link/uri:
+      plugin: concat
+      source:
+        - constants/reservation_link_base
+        - optime_id
+      delimiter: ''
+  field_reservation_link/title':
+    plugin: default_value
+    default_value: 'Optime reservation'
+
+  # Needs to be exploded by "," to get address.
+  field_street_address:
+    -
+      plugin: explode
+      source: street_address
+      delimiter: ', '
+      strict: false
+    -
+      plugin: extract
+      index:
+        - 1
+
   field_campus:
     -
       # Above: taxonomy_term reference field to populate
@@ -139,6 +228,26 @@ process:
       # See Above: taxonomy_term reference field to populate
       plugin: entity_generate
       source: equipment
+      value_key: name
+      bundle: equipment
+      entity_type: taxonomy_term
+      ignore_case: true
+
+  field_room_type:
+    -
+      # See Above: taxonomy_term reference field to populate
+      plugin: entity_generate
+      source: room_type
+      value_key: name
+      bundle: room_type
+      entity_type: taxonomy_term
+      ignore_case: true
+
+  field_accessibility:
+    -
+      # See Above: taxonomy_term reference field to populate
+      plugin: entity_generate
+      source: accessibility
       value_key: name
       bundle: equipment
       entity_type: taxonomy_term
