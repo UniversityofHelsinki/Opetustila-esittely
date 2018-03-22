@@ -56,6 +56,12 @@
     display: flex;
     flex-wrap: wrap;
 
+    // Make field image appear first in visual order, but not
+    // read order.
+    .field--name-field-images {
+      order: -1;
+    }
+
     .field--name-field-images,
     .field--name-title,
     .field--name-dynamic-token-fieldnode-referenced-address {

@@ -15,6 +15,8 @@ dependencies:
     - field.field.node.space.field_equipment_information
     - field.field.node.space.field_floor
     - field.field.node.space.field_images
+    - field.field.node.space.field_inactivate_in_optime
+    - field.field.node.space.field_inactivated_in_drupal
     - field.field.node.space.field_last_changed_in_optime
     - field.field.node.space.field_legacy_url
     - field.field.node.space.field_optime_comments
@@ -23,6 +25,7 @@ dependencies:
     - field.field.node.space.field_price_category
     - field.field.node.space.field_reservation_link
     - field.field.node.space.field_room_type
+    - field.field.node.space.field_street_address
     - image.style.large
     - node.type.space
   module:
@@ -49,8 +52,8 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
-        - field_images
         - node_title
+        - field_images
         - 'dynamic_token_field:node-referenced_address'
         - group_key_information
         - group_pricing
@@ -65,7 +68,7 @@ third_party_settings:
         formatter: default
       node_title:
         plugin_id: node_title
-        weight: 1
+        weight: 0
         label: hidden
         formatter: default
         settings:
@@ -97,7 +100,7 @@ third_party_settings:
         - field_equipment
         - field_equipment_information
       parent_name: ''
-      weight: 32
+      weight: 34
       format_type: html_element
       format_settings:
         label: Equipment
@@ -155,7 +158,7 @@ content:
     third_party_settings: {  }
   field_images:
     type: image
-    weight: 0
+    weight: 1
     region: ds_content
     label: hidden
     settings:
@@ -168,7 +171,7 @@ content:
     type: entity_reference_entity_view
     weight: 5
     region: ds_content
-    label: visually_hidden
+    label: hidden
     settings:
       view_mode: minimal
       link: false
