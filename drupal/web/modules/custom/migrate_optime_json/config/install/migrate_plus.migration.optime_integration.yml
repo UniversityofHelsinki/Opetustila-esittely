@@ -124,12 +124,13 @@ process:
   type:
     plugin: default_value
     default_value: space
-  title:
-    plugin: concat
-    source:
-      - building_description
-      - space_description
-    delimiter: ' - '
+  title: space_description
+  # Alternative, combined title.
+  #  plugin: concat
+  #  source:
+  #    - building_description
+  #    - space_description
+  #  delimiter: ' - '
   uid:
     plugin: default_value
     default_value: 1
@@ -140,6 +141,21 @@ process:
   field_building_id: building_id
   field_capacity: capacity
   field_last_changed_in_optime: last_changed_in_optime
+  #field_last_changed_in_optime:
+  # Convert millisecond timestamp to seconds
+  #  -
+  #    plugin: substr
+  #    source: last_changed_in_optime
+  #    start: 0
+  #    length: 10
+    # This length should be valid for about the next 400 years.
+  #  -
+  #    plugin: 'format_date'
+  #    from_format: 'U'
+  #    to_format: 'DATE_ISO8601'
+  #    from_timezone: 'UTC'
+  #    to_timezone: 'UTC'
+  # The API outputs there booleans as numeric strings ("0", "1").
   field_inactivate_in_optime: inactivate_in_optime
   field_optime_comments: optime_comments
 
@@ -169,7 +185,8 @@ process:
     plugin: default_value
     default_value: 'Optime reservation'
 
-  # Needs to be exploded by "," to get address.
+  # Needs to be split by "," to get address.
+  # There are a few cases without any "," in which case the full string is the address.
   field_street_address:
     -
       plugin: explode
@@ -180,6 +197,7 @@ process:
       plugin: extract
       index:
         - 1
+    # TODO: if key 1 is empty, just use full string. A few spaces are like that.
 
   field_campus:
     -
