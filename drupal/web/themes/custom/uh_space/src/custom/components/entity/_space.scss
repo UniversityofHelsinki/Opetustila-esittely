@@ -81,21 +81,19 @@
       }
     }
 
-    .field--name-field-capacity {
-      padding-left: $line;
-      position: relative;
-
-      &:after {
-        @extend .icon--people:after;
-        font-size: 1.2rem;
-        left: 0;
-        position: absolute;
-        top: 0;
-      }
-    }
-
+    .field--name-field-capacity,
     .field--name-field-accessibility {
+      align-content: center;
+      align-items: center;
+      display: flex;
 
+      .svg-icon {
+        margin-right: $line / 4;
+
+        path, polygon {
+          fill: $black;
+        }
+      }
     }
 
     .space__key-information {
