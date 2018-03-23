@@ -121,7 +121,16 @@ function uh_space_preprocess_field__ds_field_expert(&$vars) {
   foreach (['prefix', 'suffix'] as $sibling) {
     if (!empty($vars['settings'][$sibling]) && $sibling_content = $vars['settings'][$sibling]) {
       if ($icon_name = _uh_space_filter_icon_name($sibling_content)) {
-        $icon = file_get_contents(drupal_get_path('theme', 'uh_space') . "/lib/uh_styleguide/icons/src/{$icon_name}.svg");
+        $load_paths = [
+          drupal_get_path('theme', 'uh_space') . "/src/icons",
+          drupal_get_path('theme', 'uh_space') . "/lib/uh_styleguide/icons/src",
+        ];
+
+        foreach ($load_paths as $load_path) {
+          if ($icon = file_get_contents("{$load_path}/{$icon_name}.svg")) {
+            break;
+          }
+        }
 
         if ($icon) {
           // Remove XML definition.

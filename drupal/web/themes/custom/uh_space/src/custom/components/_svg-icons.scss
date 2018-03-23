@@ -1,5 +1,9 @@
 .svg-icon {
-  display: inline-block;
-  height: $base-font-size;
-  width: $base-font-size;
+  display: inline-flex;
+
+  svg {
+    align-self: center;
+    height: $base-font-size;
+    width: $base-font-size;
+  }
 }
