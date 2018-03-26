@@ -1,0 +1,26 @@
+.view--liftup-grid {
+  .view__content {
+    @extend .liftup-grid;
+  }
+
+  .liftup-grid__content {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    > * {
+      flex-basis: 100%;
+    }
+  }
+
+  &.view--campus-list {
+    .liftup-grid__item {
+      background: $black;
+    }
+  }
+}

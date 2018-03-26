@@ -1,0 +1,14 @@
+uuid: 062d5a05-f931-476d-a559-e8a5e0d89713
+langcode: fi
+status: true
+dependencies: {  }
+name: liftup_image_half
+label: 'Liftup Image Half'
+effects:
+  037d767f-9bef-42b0-b2da-f6377471b648:
+    uuid: 037d767f-9bef-42b0-b2da-f6377471b648
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 768

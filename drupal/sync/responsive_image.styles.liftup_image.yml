@@ -1,0 +1,24 @@
+uuid: ae2381dc-1d0d-44fd-a805-d778550ffa3a
+langcode: fi
+status: true
+dependencies:
+  config:
+    - image.style.liftup_image_full
+    - image.style.liftup_image_half
+    - image.style.liftup_image_quarter
+    - image.style.space_image_quarter
+id: liftup_image
+label: 'Liftup Image'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - liftup_image_full
+        - liftup_image_half
+        - liftup_image_quarter
+breakpoint_group: responsive_image
+fallback_image_style: space_image_quarter
