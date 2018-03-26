@@ -140,21 +140,25 @@ process:
   field_optime_index: optime_index
   field_building_id: building_id
   field_capacity: capacity
-  field_last_changed_in_optime: last_changed_in_optime
-  #field_last_changed_in_optime:
-  # Convert millisecond timestamp to seconds
-  #  -
-  #    plugin: substr
-  #    source: last_changed_in_optime
-  #    start: 0
-  #    length: 10
+  #field_last_changed_in_optime: last_changed_in_optime
+  field_last_changed_in_optime:
+  # Convert int to string, otherwise substr fails.
+    -
+      plugin: concat
+      source:
+        - last_changed_in_optime
+  # Convert millisecond timestamp to seconds (drop 000 at the end)
+    -
+      plugin: substr
+      start: 0
+      length: 10
     # This length should be valid for about the next 400 years.
-  #  -
-  #    plugin: 'format_date'
-  #    from_format: 'U'
-  #    to_format: 'DATE_ISO8601'
-  #    from_timezone: 'UTC'
-  #    to_timezone: 'UTC'
+    -
+      plugin: 'format_date'
+      from_format: 'U'
+      to_format: 'Y-m-d\TH:i:s'
+      from_timezone: 'UTC'
+      to_timezone: 'UTC'
   # The API outputs there booleans as numeric strings ("0", "1").
   field_inactivate_in_optime: inactivate_in_optime
   field_optime_comments: optime_comments
@@ -189,14 +193,18 @@ process:
   # There are a few cases without any "," in which case the full string is the address.
   field_street_address:
     -
-      plugin: explode
+      plugin: callback
+      callable: migrate_optime_json_get_address
       source: street_address
-      delimiter: ', '
-      strict: false
-    -
-      plugin: extract
-      index:
-        - 1
+    #-
+    #  plugin: explode
+    #  source: street_address
+    #  delimiter: ', '
+    #  strict: false
+    #-
+    #  plugin: extract
+    #  index:
+    #    - 1
     # TODO: if key 1 is empty, just use full string. A few spaces are like that.
 
   field_campus:

@@ -8,3 +8,21 @@
  * This file is no longer required in Drupal 8.
  * @see https://www.drupal.org/node/2217931
  */
+
+
+// A simple migrate callback for filtering an address out of fields from a source
+// which might contain a building name + address separated by a comma, or just the address.
+//  "buildingDescription": "Athena, Siltavuorenpenger 3 A"
+//  "buildingDescription": "Fabianinkatu 24",
+// https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21process%21Callback.php/class/Callback
+function migrate_optime_json_get_address($value = ""){
+  $value = (string)$value;
+  if(strpos($value, ',' !== FALSE){
+    $source_array = explode (',', $value);
+    // Return the second part, which should always be the address
+    return trim($source_array[1]);
+  }
+
+  // The value itself should be the address, return it.
+  return trim($value);
+}
