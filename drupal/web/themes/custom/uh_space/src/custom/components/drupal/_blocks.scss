@@ -17,3 +17,10 @@
     @extend .button;
   }
 }
+
+#block-footerlinksfi-menu,
+#block-languageswitcher {
+  > h2 {
+    @extend .visually-hidden;
+  }
+}
