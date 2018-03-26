@@ -17,7 +17,7 @@
 // https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21process%21Callback.php/class/Callback
 function migrate_optime_json_get_address($value = ""){
   $value = (string)$value;
-  if(strpos($value, ',' !== FALSE){
+  if(strpos($value, ',') !== FALSE){
     $source_array = explode (',', $value);
     // Return the second part, which should always be the address
     return trim($source_array[1]);
