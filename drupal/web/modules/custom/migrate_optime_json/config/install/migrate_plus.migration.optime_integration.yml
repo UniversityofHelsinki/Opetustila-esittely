@@ -124,7 +124,16 @@ process:
   type:
     plugin: default_value
     default_value: space
+
   title: space_description
+  # The title source is normally building + space name.
+  # This callback allows us to filter it based on a comma.
+  # NOTE: currently unused, so we show the long name.
+  #title:
+  #  -
+  #    plugin: callback
+  #    callable: migrate_optime_json_get_name
+  #    source: space_description
   # Alternative, combined title.
   #  plugin: concat
   #  source:

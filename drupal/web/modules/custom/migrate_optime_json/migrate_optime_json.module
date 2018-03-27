@@ -8,21 +8,70 @@
  * This file is no longer required in Drupal 8.
  * @see https://www.drupal.org/node/2217931
  */
+use Drupal\taxonomy\Entity\Term;
 
 
-// A simple migrate callback for filtering an address out of fields from a source
-// which might contain a building name + address separated by a comma, or just the address.
-//  "buildingDescription": "Athena, Siltavuorenpenger 3 A"
-//  "buildingDescription": "Fabianinkatu 24",
-// https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21process%21Callback.php/class/Callback
+/** Simple migrate callbacks for filtering an address out of fields from a source
+ *  which might contain a building name + address separated by a comma, or just the address.
+ *    "buildingDescription": "Athena, Siltavuorenpenger 3 A"
+ *    "buildingDescription": "Fabianinkatu 24",
+ * https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21process%21Callback.php/class/Callback
+ */
 function migrate_optime_json_get_address($value = ""){
+  return migrate_optime_json_get_trimmed_part($value, 1);
+}
+
+
+function migrate_optime_json_get_name($value = ""){
+  return migrate_optime_json_get_trimmed_part($value, 0);
+}
+
+
+function migrate_optime_json_get_trimmed_part($value = "", $key = 0){
   $value = (string)$value;
   if(strpos($value, ',') !== FALSE){
     $source_array = explode (',', $value);
     // Return the second part, which should always be the address
-    return trim($source_array[1]);
+    return trim($source_array[$key]);
   }
-
   // The value itself should be the address, return it.
   return trim($value);
+}
+
+
+/**
+ * Implements hook_entity_presave().
+ */
+function migrate_optime_json_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  switch ($entity->bundle()) {
+    case 'space':
+      // 'Space' node status might be turned off if either Optime or Drupal data says so.
+      // This may still be bit confusing, because the "Publish" checkbox is currently
+      // also visible, but these 2 fields may override it.
+      if(!empty($entity->get('field_inactivated_in_drupal')->value) || !empty($entity->get('field_inactivate_in_optime')->value) ){
+        $entity->setPublished(FALSE);
+      }
+
+      // Buildings have a campus reference just like space nodes. Optime migration
+      // auto-creates and references both campus and building terms, but manipulating
+      // building term fields within the migration is messy. Also, we only have a few dozen
+      // buildings, which can be edited manually. But to make path-auto, breadcrumbs etc
+      // work nicely out of box, we can atleast try to set the campus reference,
+      // if its otherwise empty.
+      $campus_tid = $entity->get('field_campus')->target_id;
+      $building_tid = $entity->get('field_building')->target_id;
+
+      if(!empty($campus_tid) && !empty($building_tid)){
+        $building_term = Term::load($building_tid);
+        // If building has no campus term yet, lets try to set the reference based on space.
+        if(!empty($building_term) && empty($building_term->get('field_campus')->target_id)){
+          // $building_term->field_campus->setValue($campus_tid);
+          // $building_term->field_campus->set('field_campus')->target_id = $campus_tid;
+          $building_term->field_campus->target_id = $campus_tid;
+          $building_term->Save();
+        }
+      }
+
+      break;
+  }
 }
