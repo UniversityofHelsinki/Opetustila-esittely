@@ -45,3 +45,14 @@ function uh_space_site_ds_pre_render_alter(&$layout_render_array, $context, &$va
     }
   }
 }
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function uh_space_site_views_query_alter($view, $query) {
+  // Change contextual filter to OR type so it's enough that either
+  // parent term ID or current term ID matches the provided value.
+  if ($view->id() == 'space_navigation' && $view->current_display == 'campus_buildings') {
+    $query->where[0]['type'] = 'OR';
+  }
+}
