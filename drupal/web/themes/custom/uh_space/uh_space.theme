@@ -127,7 +127,9 @@ function uh_space_preprocess_field__ds_field_expert(&$vars) {
         ];
 
         foreach ($load_paths as $load_path) {
-          if ($icon = file_get_contents("{$load_path}/{$icon_name}.svg")) {
+          $icon_path = "{$load_path}/{$icon_name}.svg";
+
+          if (file_exists($icon_path) && $icon = file_get_contents($icon_path)) {
             break;
           }
         }
