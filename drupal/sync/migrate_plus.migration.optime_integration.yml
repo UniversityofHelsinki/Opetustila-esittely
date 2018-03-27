@@ -1,4 +1,4 @@
-uuid: ef0e543a-85e1-45ca-8772-45c5f4e0234e
+uuid: 370374ea-36f5-419e-bc61-7f3fe35b6a3c
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - migrate_plus
 _core:
-  default_config_hash: UODJQimrvJ84qp5KTZxMgc9M_HnDimhpGFb64twEa_I
+  default_config_hash: bsWfHRo2rYL7FwIggGlRWIsktYDsTJWTNVwCo0-8AZo
 id: optime_integration
 class: null
 field_plugin_method: null
@@ -87,12 +87,7 @@ process:
   type:
     plugin: default_value
     default_value: space
-  title:
-    plugin: concat
-    source:
-      - building_description
-      - space_description
-    delimiter: ' - '
+  title: space_description
   uid:
     plugin: default_value
     default_value: 1
@@ -100,7 +95,21 @@ process:
   field_optime_index: optime_index
   field_building_id: building_id
   field_capacity: capacity
-  field_last_changed_in_optime: last_changed_in_optime
+  field_last_changed_in_optime:
+    -
+      plugin: concat
+      source:
+        - last_changed_in_optime
+    -
+      plugin: substr
+      start: 0
+      length: 10
+    -
+      plugin: format_date
+      from_format: U
+      to_format: 'Y-m-d\TH:i:s'
+      from_timezone: UTC
+      to_timezone: UTC
   field_inactivate_in_optime: inactivate_in_optime
   field_optime_comments: optime_comments
   field_legacy_url/uri: legacy_url
@@ -121,14 +130,9 @@ process:
     default_value: 'Optime reservation'
   field_street_address:
     -
-      plugin: explode
+      plugin: callback
+      callable: migrate_optime_json_get_address
       source: street_address
-      delimiter: ', '
-      strict: false
-    -
-      plugin: extract
-      index:
-        - 1
   field_campus:
     -
       plugin: entity_generate

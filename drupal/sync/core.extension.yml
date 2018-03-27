@@ -13,11 +13,11 @@ module:
   datetime_range: 0
   dblog: 0
   devel: 0
+  disable_field: 0
   ds_chains: 0
   dynamic_page_cache: 0
   field: 0
   field_group: 0
-  field_permissions: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -37,6 +37,7 @@ module:
   path: 0
   responsive_image: 0
   search_api: 0
+  search_api_autocomplete: 0
   search_api_db: 0
   simplei: 0
   system: 0

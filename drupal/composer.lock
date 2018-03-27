@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1609d9a116d726e52610cb9a75ce28ff",
+    "content-hash": "05beae0729d9f21fad2c0f159d9968a1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2378,6 +2378,61 @@
             }
         },
         {
+            "name": "drupal/disable_field",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/disable_field",
+                "reference": "8.x-1.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/disable_field-8.x-1.8.zip",
+                "reference": "8.x-1.8",
+                "shasum": "546a51c7df1577b288c8c05c256712068cc1fe6f"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.8",
+                    "datestamp": "1519376584",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "ajay_reddy",
+                    "homepage": "https://www.drupal.org/user/3261994"
+                },
+                {
+                    "name": "eugene.ilyin",
+                    "homepage": "https://www.drupal.org/user/1767626"
+                },
+                {
+                    "name": "virajrajankar",
+                    "homepage": "https://www.drupal.org/user/3164807"
+                }
+            ],
+            "description": "Allows to disable field of entities on the forms",
+            "homepage": "https://www.drupal.org/project/disable_field",
+            "support": {
+                "source": "http://cgit.drupalcode.org/disable_field"
+            }
+        },
+        {
             "name": "drupal/ds",
             "version": "3.1.0",
             "source": {
@@ -2934,6 +2989,63 @@
             "support": {
                 "source": "http://git.drupal.org/project/search_api.git",
                 "issues": "https://www.drupal.org/project/issues/search_api",
+                "irc": "irc://irc.freenode.org/drupal-search-api"
+            }
+        },
+        {
+            "name": "drupal/search_api_autocomplete",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/search_api_autocomplete",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_api_autocomplete-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "c108033611a2518904e75b894b9e0ad7a34bb053"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/search_api": "1.x"
+            },
+            "require-dev": {
+                "drupal/search_api_page": "@dev"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1521362884",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Seidl",
+                    "homepage": "https://www.drupal.org/u/drunken-monkey"
+                },
+                {
+                    "name": "See other contributors",
+                    "homepage": "https://www.drupal.org/node/1142202/committers"
+                }
+            ],
+            "description": "Adds autocomplete functionality to searches.",
+            "homepage": "https://www.drupal.org/project/search_api_autocomplete",
+            "support": {
+                "source": "http://git.drupal.org/project/search_api_autocomplete.git",
+                "issues": "https://www.drupal.org/project/issues/search_api_autocomplete",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
             }
         },

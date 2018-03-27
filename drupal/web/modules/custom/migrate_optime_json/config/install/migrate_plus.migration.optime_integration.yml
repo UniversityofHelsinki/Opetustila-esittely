@@ -33,7 +33,8 @@ source:
   # because Opetustilat dev/stage/prod are not functional.
   # Can be overridden per environment in settings.local.php with:
   #   $config['migrate_plus']['migration']['optime_integration']['urls'] = 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json';
-  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
+  #urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
+  urls: 'https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=1'
   # urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json
   # We might not need item selector.
   item_selector: 0
@@ -124,12 +125,22 @@ process:
   type:
     plugin: default_value
     default_value: space
-  title:
-    plugin: concat
-    source:
-      - building_description
-      - space_description
-    delimiter: ' - '
+
+  title: space_description
+  # The title source is normally building + space name.
+  # This callback allows us to filter it based on a comma.
+  # NOTE: currently unused, so we show the long name.
+  #title:
+  #  -
+  #    plugin: callback
+  #    callable: migrate_optime_json_get_name
+  #    source: space_description
+  # Alternative, combined title.
+  #  plugin: concat
+  #  source:
+  #    - building_description
+  #    - space_description
+  #  delimiter: ' - '
   uid:
     plugin: default_value
     default_value: 1
@@ -139,7 +150,26 @@ process:
   field_optime_index: optime_index
   field_building_id: building_id
   field_capacity: capacity
-  field_last_changed_in_optime: last_changed_in_optime
+  #field_last_changed_in_optime: last_changed_in_optime
+  field_last_changed_in_optime:
+  # Convert int to string, otherwise substr fails.
+    -
+      plugin: concat
+      source:
+        - last_changed_in_optime
+  # Convert millisecond timestamp to seconds (drop 000 at the end)
+    -
+      plugin: substr
+      start: 0
+      length: 10
+    # This length should be valid for about the next 400 years.
+    -
+      plugin: 'format_date'
+      from_format: 'U'
+      to_format: 'Y-m-d\TH:i:s'
+      from_timezone: 'UTC'
+      to_timezone: 'UTC'
+  # The API outputs there booleans as numeric strings ("0", "1").
   field_inactivate_in_optime: inactivate_in_optime
   field_optime_comments: optime_comments
 
@@ -169,17 +199,23 @@ process:
     plugin: default_value
     default_value: 'Optime reservation'
 
-  # Needs to be exploded by "," to get address.
+  # Needs to be split by "," to get address.
+  # There are a few cases without any "," in which case the full string is the address.
   field_street_address:
     -
-      plugin: explode
+      plugin: callback
+      callable: migrate_optime_json_get_address
       source: street_address
-      delimiter: ', '
-      strict: false
-    -
-      plugin: extract
-      index:
-        - 1
+    #-
+    #  plugin: explode
+    #  source: street_address
+    #  delimiter: ', '
+    #  strict: false
+    #-
+    #  plugin: extract
+    #  index:
+    #    - 1
+    # TODO: if key 1 is empty, just use full string. A few spaces are like that.
 
   field_campus:
     -

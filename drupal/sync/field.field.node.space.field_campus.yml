@@ -6,6 +6,14 @@ dependencies:
     - field.storage.node.field_campus
     - node.type.space
     - taxonomy.vocabulary.campus
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: all
+    edit_disable_roles: {  }
 id: node.space.field_campus
 field_name: field_campus
 entity_type: node
