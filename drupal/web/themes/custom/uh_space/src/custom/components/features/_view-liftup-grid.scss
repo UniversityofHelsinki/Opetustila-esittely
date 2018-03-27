@@ -1,26 +1,35 @@
+%view-liftup-grid__content {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  padding: $line;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  > * {
+    flex-basis: 100%;
+  }
+}
+
 .view--liftup-grid {
   .view__content {
     @extend .liftup-grid;
   }
 
   .liftup-grid__content {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+    @extend %view-liftup-grid__content;
+  }
+}
 
-    > * {
-      flex-basis: 100%;
-    }
+.view--liftup-auto-grid {
+  .view__content {
+    @extend .liftup-auto-grid;
   }
 
-  &.view--campus-list {
-    .liftup-grid__item {
-      background: $black;
-    }
+  .liftup-grid__content {
+    @extend %view-liftup-grid__content;
   }
 }
