@@ -1,0 +1,23 @@
+uuid: f3a5ede5-6cad-4b06-aa98-132ba723092e
+langcode: fi
+status: true
+dependencies:
+  config:
+    - image.style.hero_image_full
+    - image.style.hero_image_half
+    - image.style.hero_image_quarter
+id: hero_image
+label: 'Hero Image'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 1280px) 1440px, 720px'
+      sizes_image_styles:
+        - hero_image_full
+        - hero_image_half
+        - hero_image_quarter
+breakpoint_group: responsive_image
+fallback_image_style: hero_image_quarter
