@@ -33,7 +33,8 @@ source:
   # because Opetustilat dev/stage/prod are not functional.
   # Can be overridden per environment in settings.local.php with:
   #   $config['migrate_plus']['migration']['optime_integration']['urls'] = 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json';
-  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
+  #urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
+  urls: 'https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=1'
   # urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json
   # We might not need item selector.
   item_selector: 0
