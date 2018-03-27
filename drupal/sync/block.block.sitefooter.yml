@@ -16,7 +16,7 @@ provider: null
 plugin: 'system_menu_block:site-footer'
 settings:
   id: 'system_menu_block:site-footer'
-  label: 'Contact Us'
+  label: 'Ota Yhteyttä'
   provider: system
   label_display: visible
   level: 1

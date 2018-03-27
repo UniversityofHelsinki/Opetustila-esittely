@@ -1,5 +1,5 @@
 disabled: false
-field_template: true
+field_template: false
 ft-default: default
 ft-show-colon: false
 classes:

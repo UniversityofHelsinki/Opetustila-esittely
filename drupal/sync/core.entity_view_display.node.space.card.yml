@@ -15,8 +15,6 @@ dependencies:
     - field.field.node.space.field_equipment_information
     - field.field.node.space.field_floor
     - field.field.node.space.field_images
-    - field.field.node.space.field_inactivate_in_optime
-    - field.field.node.space.field_inactivated_in_drupal
     - field.field.node.space.field_last_changed_in_optime
     - field.field.node.space.field_legacy_url
     - field.field.node.space.field_optime_comments
@@ -25,7 +23,6 @@ dependencies:
     - field.field.node.space.field_price_category
     - field.field.node.space.field_reservation_link
     - field.field.node.space.field_room_type
-    - field.field.node.space.field_street_address
     - image.style.large
     - node.type.space
   module:
@@ -52,8 +49,8 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
-        - node_title
         - field_images
+        - node_title
         - 'dynamic_token_field:node-referenced_address'
         - group_key_information
         - group_pricing
@@ -68,7 +65,7 @@ third_party_settings:
         formatter: default
       node_title:
         plugin_id: node_title
-        weight: 0
+        weight: 1
         label: hidden
         formatter: default
         settings:
@@ -100,7 +97,7 @@ third_party_settings:
         - field_equipment
         - field_equipment_information
       parent_name: ''
-      weight: 34
+      weight: 32
       format_type: html_element
       format_settings:
         label: Equipment
@@ -146,35 +143,7 @@ content:
     label: visually_hidden
     settings:
       link: false
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: Accessibility
-            prefix: icon=accessibility;
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: ''
-            ow-cl: field--name-field-accessibility
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
+    third_party_settings: {  }
   field_capacity:
     type: number_integer
     weight: 4
@@ -183,38 +152,10 @@ content:
     settings:
       thousand_separator: ''
       prefix_suffix: true
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: Capacity
-            prefix: icon=people;
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: ''
-            ow-cl: field--name-field-capacity
-            ow-at: ''
-            ow-def-at: true
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
-            fi-def-at: false
+    third_party_settings: {  }
   field_images:
     type: image
-    weight: 1
+    weight: 0
     region: ds_content
     label: hidden
     settings:
@@ -227,7 +168,7 @@ content:
     type: entity_reference_entity_view
     weight: 5
     region: ds_content
-    label: hidden
+    label: visually_hidden
     settings:
       view_mode: minimal
       link: false

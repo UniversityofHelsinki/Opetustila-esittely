@@ -29,10 +29,100 @@ dependencies:
     - node.type.space
   module:
     - datetime
+    - field_group
     - image
     - link
     - path
     - text
+third_party_settings:
+  field_group:
+    group_optime:
+      children:
+        - title
+        - field_inactivate_in_optime
+        - field_campus
+        - field_building
+        - field_building_id
+        - field_street_address
+        - field_room_type
+        - field_capacity
+        - field_equipment
+        - field_accessibility
+        - field_optime_id
+        - field_optime_index
+        - field_optime_comments
+        - field_last_changed_in_optime
+        - field_reservation_link
+        - field_legacy_url
+      parent_name: group_data
+      weight: 22
+      format_type: tab
+      format_settings:
+        label: Optime
+        formatter: open
+        description: 'These values are automatically imported and updated from Optime.'
+        id: optime_data
+        classes: optime-data
+        required_fields: false
+      label: Optime
+      region: content
+    group_optional_information:
+      children:
+        - body
+        - field_accessible_entry
+        - field_equipment_information
+        - field_floor
+        - field_images
+        - field_price_category
+      parent_name: group_data
+      weight: 23
+      format_type: tab
+      format_settings:
+        label: 'Additional information'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: additional_data
+        classes: additional-data
+      label: 'Additional information'
+      region: content
+    group_publishing_settings:
+      children:
+        - langcode
+        - status
+        - uid
+        - created
+        - promote
+        - sticky
+        - path
+        - field_inactivated_in_drupal
+        - translation
+      parent_name: group_data
+      weight: 24
+      format_type: tab
+      format_settings:
+        id: publishing-settings
+        classes: publishing-settings
+        direction: vertical
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Publishing settings'
+      region: content
+    group_data:
+      children:
+        - group_optime
+        - group_optional_information
+        - group_publishing_settings
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        id: node_data
+        classes: node-data-wrapper
+        direction: vertical
+      label: Data
+      region: content
 id: node.space.default
 targetEntityType: node
 bundle: space
@@ -40,181 +130,181 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 4
+    weight: 0
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
-    region: first
   created:
     type: datetime_timestamp
-    weight: 25
-    region: bottom
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
   field_accessibility:
-    weight: 11
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: entity_reference_autocomplete
-    region: first
-  field_accessible_entry:
     weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_accessible_entry:
+    type: string_textarea
+    weight: 0
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: first
   field_building:
-    weight: 10
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: entity_reference_autocomplete
-    region: first
-  field_building_id:
-    weight: 17
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: first
-  field_campus:
     weight: 9
+    region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_building_id:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_campus:
     type: entity_reference_autocomplete
-    region: first
-  field_capacity:
     weight: 8
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: first
-  field_equipment:
-    weight: 6
+    region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_capacity:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_equipment:
     type: entity_reference_autocomplete
-    region: first
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_equipment_information:
-    weight: 16
+    type: string_textarea
+    weight: 0
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: first
   field_floor:
-    weight: 14
+    type: string_textfield
+    weight: 0
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: first
   field_images:
-    weight: 5
+    type: image_image
+    weight: 0
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: first
   field_inactivate_in_optime:
-    weight: 29
+    weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_inactivated_in_drupal:
-    weight: 30
+    type: boolean_checkbox
+    weight: 0
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_last_changed_in_optime:
-    weight: 20
+    type: datetime_default
+    weight: 19
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
-    region: first
   field_legacy_url:
-    weight: 26
+    type: link_default
+    weight: 21
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: bottom
   field_optime_comments:
-    weight: 21
+    type: text_textarea
+    weight: 18
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: first
   field_optime_id:
-    weight: 18
+    type: string_textfield
+    weight: 16
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: first
   field_optime_index:
-    weight: 19
+    type: number
+    weight: 17
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: first
   field_price_category:
-    weight: 13
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: first
   field_reservation_link:
-    weight: 7
+    type: link_default
+    weight: 20
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: first
   field_room_type:
+    type: entity_reference_autocomplete
     weight: 12
+    region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: first
   field_street_address:
-    weight: 28
+    weight: 11
     settings:
       size: 60
       placeholder: ''
@@ -223,58 +313,58 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 1
-    region: top
+    weight: 0
+    region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 27
-    region: bottom
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
+    weight: 0
+    region: content
     settings:
       display_label: true
-    weight: 24
-    region: bottom
     third_party_settings: {  }
   status:
     type: boolean_checkbox
+    weight: 0
+    region: content
     settings:
       display_label: true
-    weight: 3
-    region: first
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
+    weight: 0
+    region: content
     settings:
       display_label: true
-    weight: 23
-    region: bottom
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 2
-    region: top
+    weight: 6
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   translation:
     weight: 0
-    region: top
+    region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 22
+    weight: 0
+    region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
-    region: bottom
     third_party_settings: {  }
 hidden: {  }
