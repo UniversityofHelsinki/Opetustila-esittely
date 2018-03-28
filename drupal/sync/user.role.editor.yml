@@ -19,6 +19,7 @@ permissions:
   - 'administer content translation'
   - 'administer menu'
   - 'administer migrate_optime_json configuration'
+  - 'administer nodes'
   - 'administer taxonomy'
   - 'administer url aliases'
   - 'administer webform submission'
