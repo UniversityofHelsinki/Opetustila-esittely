@@ -1,4 +1,4 @@
-uuid: 370374ea-36f5-419e-bc61-7f3fe35b6a3c
+uuid: 832a18bd-6785-4b38-9af0-b1c0719604fa
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - migrate_plus
 _core:
-  default_config_hash: bsWfHRo2rYL7FwIggGlRWIsktYDsTJWTNVwCo0-8AZo
+  default_config_hash: wbdn0segXMJDFYdSPuDwNsCOT6zM3bIPMDTvUOODwGw
 id: optime_integration
 class: null
 field_plugin_method: null
@@ -19,7 +19,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: json
   include_raw_data: true
-  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
+  urls: 'https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=1'
   item_selector: 0
   constants:
     reservation_link_base: 'https://optime.helsinki.fi/Timetables/Room/'
@@ -76,6 +76,10 @@ source:
       name: capacity
       label: 'Room capacity (integer)'
       selector: capacity
+    -
+      name: accessibility
+      label: 'Accessibility (term reference)'
+      selector: accessibility
     -
       name: street_address
       label: 'Street address (taken from building description, last part)'
@@ -171,7 +175,7 @@ process:
       plugin: entity_generate
       source: accessibility
       value_key: name
-      bundle: equipment
+      bundle: accessibility
       entity_type: taxonomy_term
       ignore_case: true
 destination:
