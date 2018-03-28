@@ -64,14 +64,24 @@ function migrate_optime_json_entity_presave(Drupal\Core\Entity\EntityInterface $
       if(!empty($campus_tid) && !empty($building_tid)){
         $building_term = Term::load($building_tid);
         // If building has no campus term yet, lets try to set the reference based on space.
-        if(!empty($building_term) && empty($building_term->get('field_campus')->target_id)){
-          // $building_term->field_campus->setValue($campus_tid);
-          // $building_term->field_campus->set('field_campus')->target_id = $campus_tid;
-          $building_term->field_campus->target_id = $campus_tid;
+        if(!empty($building_term)){
+
+          if(empty($building_term->get('field_campus')->target_id)){
+            $building_term->field_campus->target_id = $campus_tid;
+          }
+
+          // Also copy building Id and street address under same conditions.
+          if(empty($building_term->get('field_building_id')->value)){
+            $building_term->field_building_id->value = $entity->get('field_building_id')->value;
+          }
+
+          if(empty($building_term->get('field_street_address')->value)){
+            $building_term->field_street_address->value = $entity->get('field_street_address')->value;
+          }
+
           $building_term->Save();
         }
       }
-
-      break;
+    break;
   }
 }
