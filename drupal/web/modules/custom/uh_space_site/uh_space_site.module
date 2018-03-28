@@ -56,3 +56,28 @@ function uh_space_site_views_query_alter($view, $query) {
     $query->where[0]['type'] = 'OR';
   }
 }
+
+/**
+ * Implements uh_space_site_system_breadcrumb_alter().
+ */
+function uh_space_site_system_breadcrumb_alter(&$breadcrumb, $route_match, $context) {
+  $links = $breadcrumb->getLinks();
+
+  foreach ($links as $key => &$link) {
+    $url = $link->getUrl();
+    $params = $url->getRouteParameters();
+
+    if (isset($params['taxonomy_term'])) {
+      $tid = $params['taxonomy_term'];
+
+      $parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($tid);
+      $parent = reset($parent);
+
+      // Switch campus link in breadcrumb with its parent term.
+      if ($parent && $parent->bundle() == 'campus') {
+        $link->setText($parent->getName());
+        $link->setUrl($parent->toUrl());
+      }
+    }
+  }
+}
