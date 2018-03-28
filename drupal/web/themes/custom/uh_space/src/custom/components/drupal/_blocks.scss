@@ -30,3 +30,7 @@
     @extend .visually-hidden;
   }
 }
+
+#block-breadcrumbs {
+  @include container;
+}

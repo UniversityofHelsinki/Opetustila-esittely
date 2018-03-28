@@ -1,0 +1,13 @@
+include_home_segment: 1
+home_segment_title: Spaces
+include_title_segment: 0
+language_path_prefix_as_segment: 0
+use_menu_title_as_fallback: 0
+remove_repeated_segments: 1
+_core:
+  default_config_hash: MymgTM4i959vZLJ3F-hpn_ntX-johso5eQqRm-03r0Y
+include_invalid_paths: 0
+excluded_paths: ''
+segments_separator: null
+title_segment_as_link: 1
+title_from_page_when_available: 1

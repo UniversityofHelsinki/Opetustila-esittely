@@ -12,7 +12,7 @@ dependencies:
 id: views_block__space_search_main
 theme: uh_space
 region: content_top
-weight: 1
+weight: -1
 provider: null
 plugin: 'views_block:space_search-main'
 settings:
