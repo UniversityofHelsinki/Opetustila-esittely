@@ -103,6 +103,10 @@ source:
       label: 'Room capacity (integer)'
       selector: capacity
     -
+      name: accessibility
+      label: 'Accessibility (term reference)'
+      selector: accessibility
+    -
       name: street_address
       label: 'Street address (taken from building description, last part)'
       selector: buildingDescription
@@ -285,7 +289,7 @@ process:
       plugin: entity_generate
       source: accessibility
       value_key: name
-      bundle: equipment
+      bundle: accessibility
       entity_type: taxonomy_term
       ignore_case: true
   #    default_values:
