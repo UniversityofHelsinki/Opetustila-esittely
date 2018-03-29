@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c6f5b2817090a50448265c932776727",
+    "content-hash": "16f5a7626a287a84da9ba2d795af30f9",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3057,6 +3057,53 @@
             "homepage": "https://www.drupal.org/project/simplei",
             "support": {
                 "source": "http://cgit.drupalcode.org/simplei"
+            }
+        },
+        {
+            "name": "drupal/taxonomy_publish",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/taxonomy_publish",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/taxonomy_publish-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "b75174707d9b14a77c92d25a2f6dc5d7b696b879"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1519952285",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "vslklv",
+                    "homepage": "https://www.drupal.org/user/3239737"
+                }
+            ],
+            "description": "Option to unpublish content.",
+            "homepage": "https://www.drupal.org/project/taxonomy_publish",
+            "support": {
+                "source": "http://cgit.drupalcode.org/taxonomy_publish"
             }
         },
         {
