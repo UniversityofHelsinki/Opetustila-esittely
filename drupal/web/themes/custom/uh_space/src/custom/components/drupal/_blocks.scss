@@ -24,3 +24,13 @@
     @extend .visually-hidden;
   }
 }
+
+#block-views-block-space-navigation-campus-list {
+  > h2 {
+    @extend .visually-hidden;
+  }
+}
+
+#block-breadcrumbs {
+  @include container;
+}

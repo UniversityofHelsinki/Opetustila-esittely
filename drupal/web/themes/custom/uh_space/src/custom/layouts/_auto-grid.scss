@@ -1,0 +1,26 @@
+.liftup-auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+
+  .liftup-auto-grid__item {
+    width: auto;
+  }
+}
+
+.liftup-auto-grid__item {
+  @extend .liftup-grid__item;
+}
+
+// IE11, no Edge
+// https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-high-contrast
+@media all and (-ms-high-contrast: none)
+, (-ms-high-contrast: active) {
+  .liftup-auto-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .liftup-auto-grid__item {
+    flex-basis: 33.33%;
+  }
+}

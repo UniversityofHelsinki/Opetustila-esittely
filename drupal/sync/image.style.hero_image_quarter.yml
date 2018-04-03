@@ -1,0 +1,14 @@
+uuid: f4811088-a116-465a-8365-7bf26b0c7ddc
+langcode: fi
+status: true
+dependencies: {  }
+name: hero_image_quarter
+label: 'Hero Image Quarter'
+effects:
+  157ea636-323c-436c-b561-93bb64a8cf1c:
+    uuid: 157ea636-323c-436c-b561-93bb64a8cf1c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 720
+      height: 300

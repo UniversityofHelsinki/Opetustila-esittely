@@ -35,7 +35,7 @@ class HeroBlock extends BlockBase {
     if (!empty($image[0]['target_id'])) {
       $file = \Drupal\file\Entity\File::load($image[0]['target_id']);
       $path = $file->getFileUri();
-      $url = \Drupal\image\Entity\ImageStyle::load('hero_image')->buildUrl($file->getFileUri());
+      $url = \Drupal\image\Entity\ImageStyle::load('hero_image_half')->buildUrl($file->getFileUri());
       $block['#background_image'] = $url;
     }
 
