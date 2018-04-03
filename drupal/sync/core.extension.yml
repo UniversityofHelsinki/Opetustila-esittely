@@ -14,8 +14,10 @@ module:
   dblog: 0
   ds_chains: 0
   dynamic_page_cache: 0
+  easy_breadcrumb: 0
   field: 0
   field_group: 0
+  field_group_link: 0
   field_permissions: 0
   field_ui: 0
   file: 0

@@ -44,7 +44,9 @@
         "drupal/ds": "3.1",
         "drupal/ds_chains": "^1.0@alpha",
         "drupal/search_api": "^1.7",
-        "drupal/devel": "^1.2"
+        "drupal/devel": "^1.2",
+        "drupal/field_group_link": "^3.0@RC",
+        "drupal/easy_breadcrumb": "^1.6"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",

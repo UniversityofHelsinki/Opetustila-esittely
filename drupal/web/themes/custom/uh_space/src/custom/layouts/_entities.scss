@@ -1,0 +1,10 @@
+.taxonomy-term--view-mode-full {
+  &.taxonomy-term--type-building,
+  &.taxonomy-term--type-campus {
+    .field-name-taxonomy-term-title,
+    .field-name-field-images {
+      @include container;
+      margin-bottom: $line * 2;
+    }
+  }
+}

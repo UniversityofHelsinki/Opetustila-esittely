@@ -11,7 +11,7 @@ dependencies:
 id: heroblock
 theme: uh_space
 region: content_top
-weight: 0
+weight: -3
 provider: null
 plugin: hero_block
 settings:

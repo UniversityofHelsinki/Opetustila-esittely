@@ -1,0 +1,14 @@
+uuid: 1eb3557d-875b-4214-96b6-314fe3606a22
+langcode: fi
+status: true
+dependencies: {  }
+name: liftup_image_full
+label: 'Liftup Image Full'
+effects:
+  5cc1f624-a7b1-4d3e-9b9f-abbd5ad45ec0:
+    uuid: 5cc1f624-a7b1-4d3e-9b9f-abbd5ad45ec0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1536
+      height: 1536
