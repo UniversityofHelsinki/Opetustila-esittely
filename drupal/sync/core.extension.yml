@@ -53,7 +53,6 @@ module:
   webform: 0
   webform_node: 0
   webform_ui: 0
-  contribute: 1
   ds: 1
   menu_link_content: 1
   pathauto: 1
