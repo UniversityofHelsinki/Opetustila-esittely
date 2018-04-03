@@ -20,10 +20,21 @@ services:
     hogfrom:
       - appserver
 
+  # Making SequelPro access easier with static port: https://docs.devwithlando.io/tutorials/external-access.html
+  # Edit, not strictly necessary.
+  database:
+    portforward: 33306
+
   appserver:
     extras:
       - "apt-get update -y"
       - "apt-get install python-yaml -y"
+      - "apt-get install sudo nano vim mlocate -y"
+      # Make sure our custom drush.yml is active either by copying or symlinking.
+      # - "/bin/cp /app/web/sites/default/drush.yml /var/www/.drush/drush.yml"
+      #- "ln -sf /app/web/sites/default/drush.yml ~/.drush/drush.yml"
+      #- "ln -sf /app/drush/drushrc.php /var/www/.drush/drushrc.php"
+      - "ln -sf /app/drush/drush.yml /var/www/.drush/drush.yml"
     overrides:
       services:
         environment:

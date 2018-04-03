@@ -6,6 +6,14 @@ dependencies:
     - field.storage.node.field_accessibility
     - node.type.space
     - taxonomy.vocabulary.accessibility
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: all
+    edit_disable_roles: {  }
 id: node.space.field_accessibility
 field_name: field_accessibility
 entity_type: node

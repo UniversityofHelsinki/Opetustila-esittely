@@ -1,11 +1,12 @@
-uuid: be5afa86-d266-4144-bcc7-f45d755599a1
+uuid: 370374ea-36f5-419e-bc61-7f3fe35b6a3c
 langcode: en
 status: true
 dependencies:
   enforced:
-    module: {  }
+    module:
+      - migrate_plus
 _core:
-  default_config_hash: 5QnAurLGG9HuEn-sH_Qmldhra2YGE9ZoVofepAtbumM
+  default_config_hash: bsWfHRo2rYL7FwIggGlRWIsktYDsTJWTNVwCo0-8AZo
 id: optime_integration
 class: null
 field_plugin_method: null
@@ -17,46 +18,164 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: json
-  urls: 'http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json'
-  item_selector: 1
+  include_raw_data: true
+  urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
+  item_selector: 0
+  constants:
+    reservation_link_base: 'https://optime.helsinki.fi/Timetables/Room/'
   fields:
     -
-      name: source_id
+      name: optime_id
       label: 'Unique identifier containing building and space (optime)'
       selector: id
     -
-      name: source_building_description
+      name: optime_index
+      label: 'Unique identifier containing building and space (optime)'
+      selector: optimeIndex
+    -
+      name: space_description
+      label: 'Name or description of space, added to title'
+      selector: description
+    -
+      name: building_description
       label: 'Building description including address, added to title'
       selector: buildingDescription
     -
-      name: source_equipment
-      label: 'Equipment terms'
+      name: equipment
+      label: 'Equipment terms (term references)'
       selector: equipment
     -
-      name: source_campus
-      label: 'Campus term'
+      name: campus
+      label: 'Campus term (required term reference)'
       selector: campus
+    -
+      name: building_id
+      label: 'Building ID (used in search)'
+      selector: building
+    -
+      name: last_changed_in_optime
+      label: 'Last changed in optime (UNIX timestamp)'
+      selector: changeDate
+    -
+      name: inactivate_in_optime
+      label: 'Inactive (boolean, both optime and drupal have a setting that can be used to disallow publishing))'
+      selector: inactive
+    -
+      name: optime_comments
+      label: 'Comments from optime (unlikely to be shown directly in Drupal)'
+      selector: comments
+    -
+      name: legacy_url
+      label: 'Url in the old system, might be used for comparing data'
+      selector: url
+    -
+      name: room_type
+      label: 'Room type (term reference)'
+      selector: roomTypeDescription
+    -
+      name: capacity
+      label: 'Room capacity (integer)'
+      selector: capacity
+    -
+      name: street_address
+      label: 'Street address (taken from building description, last part)'
+      selector: buildingDescription
   ids:
-    source_id:
+    optime_id:
       type: string
 process:
-  optime_id: source_id
-  title: building_description
+  type:
+    plugin: default_value
+    default_value: space
+  title: space_description
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_optime_id: optime_id
+  field_optime_index: optime_index
+  field_building_id: building_id
+  field_capacity: capacity
+  field_last_changed_in_optime:
+    -
+      plugin: concat
+      source:
+        - last_changed_in_optime
+    -
+      plugin: substr
+      start: 0
+      length: 10
+    -
+      plugin: format_date
+      from_format: U
+      to_format: 'Y-m-d\TH:i:s'
+      from_timezone: UTC
+      to_timezone: UTC
+  field_inactivate_in_optime: inactivate_in_optime
+  field_optime_comments: optime_comments
+  field_legacy_url/uri: legacy_url
+  field_legacy_url/title:
+    plugin: default_value
+    default_value: 'Legacy url'
+  field_reservation_link/uri:
+    plugin: concat
+    source:
+      - constants/reservation_link_base
+      - optime_id
+    delimiter: ''
+  field_reservation_link/title:
+    plugin: default_value
+    default_value: 'Optime reservation'
+  'field_reservation_link/title''':
+    plugin: default_value
+    default_value: 'Optime reservation'
+  field_street_address:
+    -
+      plugin: callback
+      callable: migrate_optime_json_get_address
+      source: street_address
   field_campus:
-    plugin: entity_generate
-    source: campus
-    value_key: name
-    bundle: campus
-    entity_type: taxonomy_term
-    ignore_case: true
+    -
+      plugin: entity_generate
+      source: campus
+      value_key: name
+      bundle_key: vid
+      bundle: campus
+      entity_type: taxonomy_term
+      ignore_case: true
+  field_building:
+    -
+      plugin: entity_generate
+      source: building_description
+      value_key: name
+      bundle: building
+      entity_type: taxonomy_term
+      ignore_case: true
   field_equipment:
-    plugin: entity_generate
-    source: equipment
-    value_key: name
-    bundle: equipment
-    entity_type: taxonomy_term
-    ignore_case: true
+    -
+      plugin: entity_generate
+      source: equipment
+      value_key: name
+      bundle: equipment
+      entity_type: taxonomy_term
+      ignore_case: true
+  field_room_type:
+    -
+      plugin: entity_generate
+      source: room_type
+      value_key: name
+      bundle: room_type
+      entity_type: taxonomy_term
+      ignore_case: true
+  field_accessibility:
+    -
+      plugin: entity_generate
+      source: accessibility
+      value_key: name
+      bundle: equipment
+      entity_type: taxonomy_term
+      ignore_case: true
 destination:
   plugin: 'entity:node'
   default_bundle: space
+  bundle: space
 migration_dependencies: {  }

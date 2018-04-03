@@ -1,0 +1,83 @@
+#
+# Examples of valid statements for a Drush runtime config (drush.yml) file.
+#
+# Use this file to cut down on typing out lengthy and repetitive command line
+# options in the Drush commands you use and to avoid mistakes.
+#
+# The Drush configuration system has been factored out and shared with
+# the world at https://github.com/consolidation/config. Feel free to use it
+# for your projects. Lots more usage information is there.
+
+# Directories and Discovery
+#
+# Rename this file to drush.yml and copy it to one of the places listed below
+# in order of precedence:
+#
+# 1.  Drupal site folder (e.g. sites/{default|example.com}/drush.yml).
+# 2.  Drupal /drush and sites/all/drush folders, or the /drush folder
+#       in the directory above the Drupal root.
+# 3.  In any location, as specified by the --config (-c) option.
+# 4.  User's .drush folder (i.e. ~/.drush/drush.yml).
+# 5.  System wide configuration folder (e.g. /etc/drush/drush.yml or C:\ProgramData\Drush\drush.yml).
+#
+# If a configuration file is found in any of the above locations, it will be
+# loaded and merged with other configuration files in the search list.
+
+# Environment variables
+#
+# Your Drush config file may reference environment variables using a syntax like ${env.home}.
+# For example see the drush.paths examples below.
+#
+# An alternative way to populate Drush configuration is to define environment variables that
+# correspond to config keys. For example, to populate the options.uri config item,
+# create an environment variable `DRUSH_OPTIONS_URI=http://example.com`.
+# As you can see, variable names should be uppercased, prefixed with `DRUSH_`, and periods
+# replaced with dashes.
+
+#drush:
+#  paths:
+    # Specify config files to load.
+    #config:
+      # Load any personal config files. Is silently skipped if not found. Filename must be drush.yml
+      #- ${env.home}/.drush/config/drush.yml
+
+
+    # Specify folders to search for Drush command files.  These locations
+    # are always merged with include paths defined on the command line or
+    # in other configuration files.  On the command line, paths may be separated
+    # by a colon (:) on Unix-based systems or a semi-colon (;) on Windows,
+    # or multiple --include options may be provided. Drush 8 and earlier did
+    # a deep search in ~/.drush and /usr/share/drush/commands when loading
+    # command files.
+    #include:
+    #  - '${env.home}/.drush/commands'
+    #  - /usr/share/drush/commands
+
+    # Specify the folders to search for Drush alias files (*.site.yml). These
+    # locations are always merged with alias paths defined on the command line
+    # or in other configuration files.  On the command line, paths may be
+    # separated by a colon (:) on Unix-based systems or a semi-colon (;) on
+    # Windows, or multiple --alias-path options may be provided. Note that
+    # Drush 8 and earlier did a deep search in ~/.drush and /etc/drush when
+    # loading alias files.
+    #alias-path:
+    #  - '${env.home}/.drush/sites'
+    #  - /etc/drush/sites
+
+# This section is for setting global options.
+options:
+  # Specify the base_url that should be used when generating links.
+  # Not recommended if you have more than one Drupal site on your system.
+  uri: 'http://tilat.lndo.site'
+  editor: 'nano'
+
+  # Specify your Drupal core base directory (useful if you use symlinks).
+  # Not recommended if you have more than one Drupal root on your system.
+  # root: '/home/USER/workspace/drupal-6'
+
+  # Enable verbose mode.
+  verbose: true
+
+# This section is for setting command-specific options.
+#command:
+# removed. See example.drush.yml to see the rest

@@ -15,8 +15,6 @@ dependencies:
     - field.field.node.space.field_equipment_information
     - field.field.node.space.field_floor
     - field.field.node.space.field_images
-    - field.field.node.space.field_inactivate_in_optime
-    - field.field.node.space.field_inactivated_in_drupal
     - field.field.node.space.field_last_changed_in_optime
     - field.field.node.space.field_legacy_url
     - field.field.node.space.field_optime_comments
@@ -25,7 +23,6 @@ dependencies:
     - field.field.node.space.field_price_category
     - field.field.node.space.field_reservation_link
     - field.field.node.space.field_room_type
-    - field.field.node.space.field_street_address
     - image.style.large
     - node.type.space
   module:

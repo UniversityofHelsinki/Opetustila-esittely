@@ -82,6 +82,29 @@ $settings['update_free_access'] = FALSE;
  */
 $settings['container_yamls'][] = __DIR__ . '/services.yml';
 
+
+// Override optime migration url per environment. This can be put in settings.local.php
+// $config['migrate_plus.migration.optime_integration']['source']['urls'] = 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json';
+
+// Override optime migration url.
+// dev and prod urls point to:
+//  https://esbmt2.it.helsinki.fi/devel/optime/locations/?fromTimestamp=1 <-- DEV
+//  https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=1 <-- PROD
+// It can also have a a date filter, including only the nodes that have changed after
+// a specific UNIX timestamp.
+#$config['migrate_plus.migration.optime_integration']['source']['urls'] =
+#  'https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=1';
+
+$import_period = time() - (72 * 3600); // Import last 3 days of changes
+#  $config['migrate_plus.migration.optime_integration']['source']['urls'] =
+#    'https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=' . $import_period;
+
+
+// To have optime integration running in any environment, we need this in crontab:
+# Fetch	Optime data every 25mins. This interval	could be made much smaller if/when the importer	contains a dynamic
+# time filter, to limit	the results to items that have updated within a	short timeframe	(such as last import time or last 24h).
+# */25 * * * * cd /var/www/opetustila-test.it.helsinki.fi/current/web/sites/default; /usr/lib/composer/vendor/bin/drush mim optime_integration --update
+
 /**
  * Environment specific override configuration, if available.
  */
