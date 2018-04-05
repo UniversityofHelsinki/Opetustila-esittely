@@ -1,0 +1,37 @@
+.ui-widget.search-api-autocomplete-search.ui-autocomplete {
+  @extend .list-of-links;
+
+  li {
+    &:hover,
+    &:focus {
+      background: none;
+    }
+  }
+
+  a {
+    @extend .list-of-links__link;
+    @extend .button--action;
+    @extend .theme-transparent-alt;
+    display: flex;
+    justify-content: space-between;
+
+    &.ui-menu-item-wrapper {
+      &.ui-state-active {
+        .search-api-autocomplete-suggestion {
+          background: none;
+          color: inherit;
+        }
+      }
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        path,
+        polygon {
+          fill: $darkblue;
+        }
+      }
+    }
+  }
+}

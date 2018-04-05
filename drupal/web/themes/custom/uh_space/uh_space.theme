@@ -121,26 +121,10 @@ function uh_space_preprocess_field__ds_field_expert(&$vars) {
   foreach (['prefix', 'suffix'] as $sibling) {
     if (!empty($vars['settings'][$sibling]) && $sibling_content = $vars['settings'][$sibling]) {
       if ($icon_name = _uh_space_filter_icon_name($sibling_content)) {
-        $load_paths = [
-          drupal_get_path('theme', 'uh_space') . "/src/icons",
-          drupal_get_path('theme', 'uh_space') . "/lib/uh_styleguide/icons/src",
-        ];
-
-        foreach ($load_paths as $load_path) {
-          $icon_path = "{$load_path}/{$icon_name}.svg";
-
-          if (file_exists($icon_path) && $icon = file_get_contents($icon_path)) {
-            break;
-          }
-        }
+        $icon = _uh_space_load_icon($icon_name);
 
         if ($icon) {
-          // Remove XML definition.
-          $icon_clean = preg_replace( "/\<\?xml.+\?\>/", "", $icon);
-
-          // Wrap in div.
-          $icon_wrapped = "<div class='svg-icon svg-icon--{$icon_name}' role='presentation' aria-hidden='true'>{$icon_clean}</div>";
-          $vars['settings'][$sibling] = $icon_wrapped;
+          $vars['settings'][$sibling] = _uh_space_wrap_icon($icon, $icon_name);
         }
       }
     }
@@ -156,6 +140,43 @@ function uh_space_preprocess_views_exposed_form(&$vars) {
     $main = $space_search->getDisplay('main');
     $vars['title'] = $main->options['title'];
   }
+}
+
+/**
+ * Implements template_preprocess_search_api_autocomplete_suggestion().
+ */
+function uh_space_preprocess_search_api_autocomplete_suggestion(&$vars) {
+  $vars['arrow_icon'] = _uh_space_wrap_icon(_uh_space_load_icon('arrow-right'), 'arrow-right');
+}
+
+/**
+ * Helper for wrapping SVG icon in a standard way.
+ */
+function _uh_space_wrap_icon($icon, $icon_name) {
+  $icon_clean = preg_replace( "/\<\?xml.+\?\>/", "", $icon);
+  $icon_wrapped = "<div class='svg-icon svg-icon--{$icon_name}' role='presentation' aria-hidden='true'>{$icon_clean}</div>";
+
+  return $icon_wrapped;
+}
+
+/**
+ * Helper for loading an SVG icon.
+ */
+function _uh_space_load_icon($icon_name) {
+  $load_paths = [
+    drupal_get_path('theme', 'uh_space') . "/src/icons",
+    drupal_get_path('theme', 'uh_space') . "/lib/uh_styleguide/icons/src",
+  ];
+
+  foreach ($load_paths as $load_path) {
+    $icon_path = "{$load_path}/{$icon_name}.svg";
+
+    if (file_exists($icon_path) && $icon = file_get_contents($icon_path)) {
+      return $icon;
+    }
+  }
+
+  return false;
 }
 
 /**
