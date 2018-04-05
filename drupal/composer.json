@@ -13,6 +13,19 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "contrib/d8-termstatus",
+                "version": "dev-master",
+                "type":"drupal-module",
+                "source": {
+                    "url": "https://github.com/ainarend/D8-termstatus.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
         }
     ],
     "require": {
@@ -49,7 +62,12 @@
         "drupal/disable_field": "^1.8",
         "drupal/taxonomy_publish": "^1.0",
         "drupal/field_group_link": "^3.0@RC",
-        "drupal/easy_breadcrumb": "^1.6"
+        "drupal/easy_breadcrumb": "^1.6",
+        "drupal/leaflet": "^1.0@beta",
+        "drupal/redirect": "^1.1",
+        "drupal/geofield_map": "^1.44",
+        "drupal/permissions_by_term": "^1.44",
+        "contrib/d8-termstatus": "*"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
