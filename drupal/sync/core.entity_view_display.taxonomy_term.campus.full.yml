@@ -1,22 +1,18 @@
-uuid: cda4a191-f989-47d0-ba1f-69b6f142a46e
+uuid: e2eebda0-b279-417c-afaa-4ca7448e0254
 langcode: en
-status: true
+status: false
 dependencies:
   config:
-    - field.field.taxonomy_term.building.field_building_id
-    - field.field.taxonomy_term.building.field_campus
-    - field.field.taxonomy_term.building.field_city
-    - field.field.taxonomy_term.building.field_contact_details
-    - field.field.taxonomy_term.building.field_contacts
-    - field.field.taxonomy_term.building.field_equipment_information
-    - field.field.taxonomy_term.building.field_images
-    - field.field.taxonomy_term.building.field_navigation_link
-    - field.field.taxonomy_term.building.field_opening_times
-    - field.field.taxonomy_term.building.field_street_address
-    - taxonomy.vocabulary.building
+    - core.entity_view_mode.taxonomy_term.full
+    - field.field.taxonomy_term.campus.field_city
+    - field.field.taxonomy_term.campus.field_images
+    - field.field.taxonomy_term.campus.field_reservation_instructions
+    - responsive_image.styles.hero_image
+    - taxonomy.vocabulary.campus
   module:
     - ds
     - ds_chains
+    - responsive_image
 third_party_settings:
   ds:
     layout:
@@ -36,11 +32,12 @@ third_party_settings:
     regions:
       ds_content:
         - taxonomy_term_title
-        - 'dynamic_block_field:taxonomy_term-building_spaces_view'
+        - field_images
+        - 'dynamic_block_field:taxonomy_term-campus_buildings_view'
     fields:
-      'dynamic_block_field:taxonomy_term-building_spaces_view':
-        plugin_id: 'dynamic_block_field:taxonomy_term-building_spaces_view'
-        weight: 1
+      'dynamic_block_field:taxonomy_term-campus_buildings_view':
+        plugin_id: 'dynamic_block_field:taxonomy_term-campus_buildings_view'
+        weight: 2
         label: above
         formatter: default
         ft:
@@ -87,21 +84,30 @@ third_party_settings:
             classes: {  }
   ds_chains:
     fields: {  }
-id: taxonomy_term.building.default
+id: taxonomy_term.campus.full
 targetEntityType: taxonomy_term
-bundle: building
-mode: default
-content: {  }
+bundle: campus
+mode: full
+content:
+  field_images:
+    weight: 1
+    label: hidden
+    settings:
+      responsive_image_style: hero_image
+      image_link: ''
+    third_party_settings:
+      ds:
+        ds_limit: '1'
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: responsive_image
+    region: ds_content
 hidden:
   description: true
-  field_building_id: true
-  field_campus: true
   field_city: true
-  field_contact_details: true
-  field_contacts: true
-  field_equipment_information: true
-  field_images: true
-  field_navigation_link: true
-  field_opening_times: true
-  field_street_address: true
+  field_reservation_instructions: true
   langcode: true

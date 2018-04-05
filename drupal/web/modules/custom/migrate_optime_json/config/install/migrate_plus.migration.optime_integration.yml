@@ -223,11 +223,19 @@ process:
 
   field_campus:
     -
+      # We dont want 'Helsinginulkopuoliset'
+      plugin: skip_on_value
+      method: row
+      source: campus
+      #not_equals: false
+      value:
+        - 'Helsinginulkopuoliset'
+    -
       # Above: taxonomy_term reference field to populate
       # Plugin to use, see EntityGenerate.php.
       plugin: entity_generate
       # Field from source configuration
-      source: campus
+      #source: campus
       # Value to compare in the bundle
       value_key: name
       # Bundle key value

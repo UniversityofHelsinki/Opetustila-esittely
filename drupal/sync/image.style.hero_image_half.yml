@@ -2,8 +2,8 @@ uuid: bf7c42ef-75e6-45df-b73b-9f9dc90c621c
 langcode: fi
 status: true
 dependencies: {  }
-name: hero_image
-label: 'Hero Image'
+name: hero_image_half
+label: 'Hero Image Half'
 effects:
   156c0c9c-5ed9-45d6-be9a-c793589cced5:
     uuid: 156c0c9c-5ed9-45d6-be9a-c793589cced5

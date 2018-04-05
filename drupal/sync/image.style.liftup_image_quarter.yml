@@ -1,0 +1,14 @@
+uuid: 89111cb3-e2fc-4af2-8199-18c3e5dc5bdc
+langcode: fi
+status: true
+dependencies: {  }
+name: liftup_image_quarter
+label: 'Liftup Image Quarter'
+effects:
+  4c598474-09d6-4eea-a687-3a19c269fa62:
+    uuid: 4c598474-09d6-4eea-a687-3a19c269fa62
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 384
+      height: 384
