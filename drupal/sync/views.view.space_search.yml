@@ -10,7 +10,6 @@ dependencies:
     - taxonomy.vocabulary.equipment
   module:
     - search_api
-    - taxonomy
     - user
 id: space_search
 label: 'Space search'
@@ -518,29 +517,7 @@ display:
           plugin_id: result
       footer: {  }
       empty: {  }
-      relationships:
-        field_building:
-          id: field_building
-          table: search_api_datasource_spaces_search_entity_node
-          field: field_building
-          relationship: none
-          group_type: group
-          admin_label: 'Building: Taxonomy term'
-          required: false
-          skip_access: false
-          entity_type: node
-          plugin_id: search_api
-        field_campus:
-          id: field_campus
-          table: search_api_datasource_spaces_search_entity_node
-          field: field_campus
-          relationship: none
-          group_type: group
-          admin_label: 'Campus: Taxonomy term'
-          required: false
-          skip_access: false
-          entity_type: node
-          plugin_id: search_api
+      relationships: {  }
       arguments: {  }
       display_extenders: {  }
       filter_groups:
