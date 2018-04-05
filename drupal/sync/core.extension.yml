@@ -3,6 +3,7 @@ module:
   admin_toolbar_tools: 0
   block: 0
   breakpoint: 0
+  ckeditor: 0
   config: 0
   config_filter: 0
   config_ignore: 0
@@ -17,6 +18,7 @@ module:
   ds_chains: 0
   dynamic_page_cache: 0
   easy_breadcrumb: 0
+  editor: 0
   field: 0
   field_group: 0
   field_group_link: 0

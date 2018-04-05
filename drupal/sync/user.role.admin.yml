@@ -147,6 +147,7 @@ permissions:
   - 'translate room_type taxonomy_term'
   - 'translate space node'
   - 'update content translations'
+  - 'use text format wysiwyg'
   - 'view all revisions'
   - 'view any webform submission'
   - 'view own unpublished content'
