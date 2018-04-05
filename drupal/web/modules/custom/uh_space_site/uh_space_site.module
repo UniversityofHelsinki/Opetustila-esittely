@@ -81,3 +81,30 @@ function uh_space_site_system_breadcrumb_alter(&$breadcrumb, $route_match, $cont
     }
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function uh_space_site_form_alter(&$form, &$form_state, $form_id) {
+  // Filter space_search campus filter options.
+  if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-space-search-main') {
+    if (!empty($form['field_campus']['#options'])) {
+      $tids = array_keys($form['field_campus']['#options']);
+
+      // Load first level campus terms.
+      $campus_terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('campus', 0, 1, FALSE);
+      $campus_tids = array_map(function($term) { return $term->tid; }, $campus_terms);
+
+      // Remove options that aren't first level campus TIDs.
+      foreach ($tids as $tid) {
+        if ($tid == 'All') {
+          continue;
+        }
+
+        if (!in_array($tid, $campus_tids)) {
+          unset($form['field_campus']['#options'][$tid]);
+        }
+      }
+    }
+  }
+}
