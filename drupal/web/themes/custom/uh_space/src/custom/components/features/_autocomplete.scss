@@ -35,3 +35,10 @@
     }
   }
 }
+
+.js input.form-autocomplete {
+  &,
+  &.ui-autocomplete-loading {
+    background-image: none;
+  }
+}
