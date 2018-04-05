@@ -15,23 +15,25 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: ds_1col
+      id: ds_1col_wrapper
       library: null
       disable_css: false
       entity_classes: all_classes
       settings:
         wrappers:
-          ds_content: div
+          ds_content: article
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
         classes:
-          layout_class: {  }
+          layout_class:
+            ds-container: ds-container
+          ds_content: {  }
     regions:
       ds_content:
-        - links
         - body
+        - links
   ds_chains:
     fields: {  }
 id: node.page.default
@@ -42,7 +44,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 0
     settings: {  }
     third_party_settings: {  }
     region: ds_content

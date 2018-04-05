@@ -22,3 +22,7 @@
     flex-grow: 1;
   }
 }
+
+.ds-container {
+  @include container;
+}
