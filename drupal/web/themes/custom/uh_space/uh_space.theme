@@ -147,7 +147,19 @@ function uh_space_preprocess_views_exposed_form(&$vars) {
  */
 function uh_space_preprocess_input__textfield(&$vars) {
   if (!empty($vars['attributes']['data-autocomplete-path'])) {
-    $vars['loading_icon'] = _uh_space_load_wrapped_icon('spinner');
+    $vars['suffix_icon'] = _uh_space_load_wrapped_icon('spinner');
+  }
+}
+
+/**
+ * Implements template_preprocess_select().
+ */
+function uh_space_preprocess_select(&$vars) {
+  if (!$vars['element']['#multiple']) {
+    $vars['suffix_icon'] = _uh_space_load_wrapped_icon('caret-down');
+  }
+  else {
+    $vars['suffix_icon'] = _uh_space_load_wrapped_icon('plus');
   }
 }
 

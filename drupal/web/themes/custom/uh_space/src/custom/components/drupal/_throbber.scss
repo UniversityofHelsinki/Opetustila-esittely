@@ -8,23 +8,12 @@
   }
 }
 
-.input-wrapper {
-  &.input-wrapper--spinner {
-    align-items: center;
-    display: flex;
+.form-element-icon-wrapper--input {
+  .svg-icon--spinner {
+    display: none;
 
-    .svg-icon--spinner {
-      display: none;
-      margin-left: -2em;
-
-      svg {
-        animation: icon-spin 2s infinite linear;
-
-        fill,
-        polygon {
-          color: $blue;
-        }
-      }
+    svg {
+      animation: icon-spin 2s infinite linear;
     }
   }
 }

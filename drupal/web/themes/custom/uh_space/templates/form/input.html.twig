@@ -10,11 +10,18 @@
  * @see template_preprocess_input()
  */
 #}
-{% if loading_icon %}
+{% if suffix_icon or prefix_icon %}
 
-  <div class="input-wrapper input-wrapper--spinner">
+  <div class="form-element-icon-wrapper form-element-icon-wrapper--input">
+    {% if prefix_icon %}
+      {{ prefix_icon | raw }}
+    {% endif %}
+
     <input{{ attributes }} />{{ children }}
-    {{ loading_icon | raw }}
+
+    {% if suffix_icon %}
+      {{ suffix_icon | raw }}
+    {% endif %}
   </div>
 
 {% else %}

@@ -1,0 +1,24 @@
+.form-item {
+  .description {
+    @extend small;
+    margin-top: $line * 0.5;
+  }
+}
+
+.form-element-icon-wrapper {
+  align-items: center;
+  display: flex;
+
+  .svg-icon {
+    pointer-events: none;
+    margin-left: -1.5em;
+
+    svg {
+      fill,
+      polygon {
+        color: $blue;
+      }
+    }
+  }
+}
+
