@@ -32,4 +32,8 @@
       right: -($line);
     }
   }
+
+  li.pager__page {
+    cursor: default;
+  }
 }
