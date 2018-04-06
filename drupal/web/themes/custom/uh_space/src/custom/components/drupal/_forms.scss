@@ -9,9 +9,14 @@
   align-items: center;
   display: flex;
 
+  input,
+  select {
+    padding-right: $line + 1rem;
+  }
+
   .svg-icon {
     pointer-events: none;
-    margin-left: -1.5em;
+    margin-left: -($line / 2 + 1rem);
 
     svg {
       fill,
