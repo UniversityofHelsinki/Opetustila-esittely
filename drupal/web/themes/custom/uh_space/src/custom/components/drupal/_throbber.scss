@@ -7,3 +7,24 @@
     animation: icon-spin 2s infinite linear;
   }
 }
+
+.input-wrapper {
+  &.input-wrapper--spinner {
+    align-items: center;
+    display: flex;
+
+    .svg-icon--spinner {
+      display: none;
+      margin-left: -2em;
+
+      svg {
+        animation: icon-spin 2s infinite linear;
+
+        fill,
+        polygon {
+          color: $blue;
+        }
+      }
+    }
+  }
+}

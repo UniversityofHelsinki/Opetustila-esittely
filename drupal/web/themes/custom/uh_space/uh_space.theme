@@ -143,10 +143,26 @@ function uh_space_preprocess_views_exposed_form(&$vars) {
 }
 
 /**
+ * Implements template_preprocess_input__textfield().
+ */
+function uh_space_preprocess_input__textfield(&$vars) {
+  if (!empty($vars['attributes']['data-autocomplete-path'])) {
+    $vars['loading_icon'] = _uh_space_load_wrapped_icon('spinner');
+  }
+}
+
+/**
  * Implements template_preprocess_search_api_autocomplete_suggestion().
  */
 function uh_space_preprocess_search_api_autocomplete_suggestion(&$vars) {
-  $vars['arrow_icon'] = _uh_space_wrap_icon(_uh_space_load_icon('arrow-right'), 'arrow-right');
+  $vars['arrow_icon'] = _uh_space_load_wrapped_icon('arrow-right');
+}
+
+/**
+ * Helper for getting wrapped icon.
+ */
+function _uh_space_load_wrapped_icon($icon_name) {
+  return _uh_space_wrap_icon(_uh_space_load_icon($icon_name), $icon_name);
 }
 
 /**

@@ -42,3 +42,12 @@
     background-image: none;
   }
 }
+
+.ui-autocomplete-input {
+  &.ui-autocomplete-loading {
+
+    ~ .svg-icon--spinner {
+      display: block;
+    }
+  }
+}
