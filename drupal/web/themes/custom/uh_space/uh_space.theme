@@ -143,6 +143,14 @@ function uh_space_preprocess_views_exposed_form(&$vars) {
 }
 
 /**
+ * Implements template_preprocess_views_mini_pager().
+ */
+function uh_space_preprocess_views_mini_pager(&$vars) {
+  $vars['prev_icon'] = _uh_space_load_wrapped_icon('arrow-left');
+  $vars['next_icon'] = _uh_space_load_wrapped_icon('arrow-right');
+}
+
+/**
  * Implements template_preprocess_input__textfield().
  */
 function uh_space_preprocess_input__textfield(&$vars) {
