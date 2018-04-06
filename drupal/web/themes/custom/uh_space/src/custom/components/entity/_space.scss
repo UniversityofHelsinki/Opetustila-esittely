@@ -90,7 +90,7 @@
       .svg-icon {
         margin-right: $line / 4;
 
-        path, polygon {
+        path, polygon, circle {
           fill: $black;
         }
       }
