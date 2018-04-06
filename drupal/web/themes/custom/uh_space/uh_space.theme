@@ -164,6 +164,15 @@ function uh_space_preprocess_select(&$vars) {
 }
 
 /**
+ * Implements template_preprocess_input__submit().
+ */
+function uh_space_preprocess_input__submit(&$vars) {
+  if ($vars['element']['#type'] == 'submit') {
+    $vars['suffix_icon'] = _uh_space_load_wrapped_icon('search');
+  }
+}
+
+/**
  * Implements template_preprocess_search_api_autocomplete_suggestion().
  */
 function uh_space_preprocess_search_api_autocomplete_suggestion(&$vars) {

@@ -11,7 +11,13 @@
  */
 #}
 
-<div class="input-container--submit input-container--selector-{{ attributes["data-drupal-selector"] }}">
-  <input{{ attributes.removeClass('button') }} />
-  {{ children }}
-</div>
+{% if prefix_icon or suffix_icon %}
+
+  <div class="input-container--submit input-container--selector-{{ attributes["data-drupal-selector"] }}">
+    {{ prefix_icon | raw }}
+    <input{{ attributes.removeClass('button') }} />
+    {{ children }}
+    {{ suffix_icon | raw }}
+  </div>
+
+{% endif %}

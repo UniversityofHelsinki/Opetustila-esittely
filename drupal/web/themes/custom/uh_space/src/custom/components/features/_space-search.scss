@@ -36,18 +36,6 @@
     @extend %input-action;
     margin: 0 $line / 2;
 
-    input {
-      padding-left: $line * 2;
-
-      &:disabled {
-        display: none;
-      }
-    }
-
-    &:after {
-      @extend .icon--search;
-    }
-
     &.input-container--selector-edit-reset {
       input {
         background: $darkgray;
