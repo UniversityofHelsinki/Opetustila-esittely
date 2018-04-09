@@ -7,3 +7,13 @@
     animation: icon-spin 2s infinite linear;
   }
 }
+
+.form-element-icon-wrapper--input {
+  .svg-icon--spinner {
+    display: none;
+
+    svg {
+      animation: icon-spin 2s infinite linear;
+    }
+  }
+}

@@ -186,7 +186,7 @@ content:
           id: expert
           settings:
             lb: Capacity
-            prefix: icon=people;
+            prefix: icon=avatar;
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
