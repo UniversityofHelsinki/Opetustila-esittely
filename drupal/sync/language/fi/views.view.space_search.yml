@@ -1,0 +1,41 @@
+display:
+  default:
+    display_options:
+      pager:
+        options:
+          tags:
+            previous: Edellinen
+            next: Seuraava
+          expose:
+            items_per_page_label: 'Tulosta per sivu'
+            items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Ohita
+      filters:
+        field_campus:
+          expose:
+            label: Sijainti
+        field_capacity:
+          expose:
+            label: 'Paikkoja vähintään'
+        field_accessibility:
+          expose:
+            label: Esteettömyys
+        field_equipment:
+          expose:
+            label: 'Tilan varusteet'
+            description: 'Lisää yksi tai useampi varuste painamalla teksikenttää. Voit rajata varustelistaa kirjoittamalla osan etsimästäsi varusteesta.'
+        search_api_fulltext:
+          expose:
+            label: 'Etsitkö tiettyä paikkaa?'
+        search_api_language:
+          expose:
+            description: ''
+      title: 'Millaista tilaa tarvitset?'
+      header:
+        result:
+          content: '<h3>Ehdoillasi löytyi @total tilaa</h3>'
+      exposed_form:
+        options:
+          submit_button: Etsi
+          reset_button_label: Tyhjennä
+label: Tilahaku
