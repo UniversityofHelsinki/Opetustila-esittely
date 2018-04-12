@@ -8,6 +8,7 @@
   &.l-header-bar--negative {
     background: none;
     color: $black;
+    margin-bottom: $line;
     padding: 0 $line / 2;
 
     .logo__sitename,
