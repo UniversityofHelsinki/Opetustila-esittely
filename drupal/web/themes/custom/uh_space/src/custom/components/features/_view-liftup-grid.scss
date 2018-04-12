@@ -15,8 +15,6 @@
 }
 
 .view--liftup-grid {
-  @include container;
-
   .view__content {
     @extend .liftup-grid;
   }
