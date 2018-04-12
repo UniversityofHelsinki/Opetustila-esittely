@@ -1,0 +1,11 @@
+.taxonomy-term--type-contacts {
+  &.taxonomy-term--view-mode-liftup {
+    .contact__name {
+      @extend h5;
+    }
+
+    .field {
+      margin: 0;
+    }
+  }
+}
