@@ -58,6 +58,7 @@ function uh_space_preprocess_menu(&$vars) {
 function uh_space_preprocess_region(&$variables) {
   switch ($variables['region']) {
     case 'header':
+      $variables['site_name'] = \Drupal::config('system.site')->get('name');
       $variables['logo_path'] = \Drupal::config('uhsg_service_provider_details.settings')->get('logo_path');
       $variables['logo_text'] = \Drupal::config('uhsg_service_provider_details.settings')->get('logo_text');
       $variables['header_class'] = \Drupal::service('path.matcher')->isFrontPage() ? 'l-header-bar--transparent' : 'l-header-bar--negative';
