@@ -55,6 +55,10 @@ third_party_settings:
         link_custom: ''
         classes:
           layout_class: {  }
+          header: {  }
+          left: {  }
+          right: {  }
+          footer: {  }
     regions:
       header:
         - group_header_main
@@ -299,10 +303,16 @@ content:
     label: hidden
     settings:
       responsive_image_style: space_image
-      image_link: content
+      image_link: file
     third_party_settings:
       ds:
         ds_limit: '2'
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   field_price_category:
     type: entity_reference_entity_view
     weight: 9
