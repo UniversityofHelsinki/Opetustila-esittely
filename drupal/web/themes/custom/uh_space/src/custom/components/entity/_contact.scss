@@ -1,7 +1,8 @@
 .taxonomy-term--type-contacts {
   &.taxonomy-term--view-mode-liftup {
-    .contact__name {
+    .contact__role {
       @extend h5;
+      @include font-weight-bold;
     }
 
     .field {

@@ -48,14 +48,15 @@ third_party_settings:
       header:
         - taxonomy_term_title
         - field_images
-        - group_building_info
       left:
         - 'dynamic_block_field:taxonomy_term-building_spaces_view'
       right:
+        - group_building_info
         - 'dynamic_token_field:taxonomy_term-building_address'
+        - group_opening_hours
+        - field_contacts
         - field_opening_times
         - group_contacts
-        - field_contacts
     fields:
       'dynamic_block_field:taxonomy_term-building_spaces_view':
         plugin_id: 'dynamic_block_field:taxonomy_term-building_spaces_view'
@@ -116,38 +117,57 @@ third_party_settings:
       children:
         - field_contacts
       parent_name: group_building_info
-      weight: 6
+      weight: 7
       format_type: html_element
       format_settings:
         label: Contacts
-        element: div
-        show_label: true
-        label_element: h4
-        attributes: ''
-        effect: none
-        speed: fast
-        id: ''
-        classes: building__contacts
-      label: Contacts
-      region: hidden
-    group_building_info:
-      children:
-        - 'dynamic_token_field:taxonomy_term-building_address'
-        - field_opening_times
-        - group_contacts
-      parent_name: ''
-      weight: 3
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: 'building__info group--label-visually-hidden'
         element: div
         show_label: true
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
+        id: ''
+        classes: 'building__contacts field-group--label-visually_hidden'
+      label: Contacts
+      region: hidden
+    group_building_info:
+      children:
+        - 'dynamic_token_field:taxonomy_term-building_address'
+        - group_opening_hours
+        - group_contacts
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        label: 'Building Info'
+        element: div
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: building__info
       label: 'Building Info'
+      region: hidden
+    group_opening_hours:
+      children:
+        - field_opening_times
+      parent_name: group_building_info
+      weight: 5
+      format_type: html_element
+      format_settings:
+        label: 'Opening Hours'
+        element: div
+        show_label: true
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'building__opening-hours field-group--label-visually_hidden'
+      label: 'Opening Hours'
       region: hidden
 id: taxonomy_term.building.default
 targetEntityType: taxonomy_term
@@ -188,11 +208,16 @@ content:
             classes: {  }
   field_opening_times:
     type: text_default
-    weight: 5
+    weight: 6
     region: right
-    label: above
+    label: hidden
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
 hidden:
   description: true
   field_building_id: true
