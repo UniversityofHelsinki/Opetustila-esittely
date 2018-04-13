@@ -11,6 +11,10 @@ theme: {  }
 blacklist:
   - uhsg_service_provider_details.settings
   - 'system.site.page.*'
+  - redirect.settings
+  - redirect_404.settings
+  - google_tag.settings
+  - xmlsitemap.settings
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: true
