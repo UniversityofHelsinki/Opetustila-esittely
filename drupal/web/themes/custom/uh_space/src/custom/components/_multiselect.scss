@@ -4,14 +4,6 @@
     border-radius: 0;
     display: flex;
 
-    &:after {
-      @extend .icon--plus;
-      align-self: center;
-      color: $blue;
-      cursor: pointer;
-      margin: 0 $line / 4;
-    }
-
     .select2-selection__choice {
       border: 1px solid $blue;
       border-radius: 0;
@@ -63,4 +55,8 @@
       outline-offset: -2px;
     }
   }
+}
+
+.select2-container ~ .svg-icon {
+  z-index: 1;
 }

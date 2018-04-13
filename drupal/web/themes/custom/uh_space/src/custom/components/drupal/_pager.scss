@@ -1,0 +1,39 @@
+.pager {
+  a.button--action,
+  a.button--action-before {
+    align-items: center;
+    display: flex;
+
+    .svg-icon {
+      position: relative;
+      z-index: 1;
+
+      path,
+      polygon {
+        fill: $white;
+      }
+    }
+
+    &:after {
+      content: ' ';
+    }
+  }
+
+  a.button--action-before {
+    .svg-icon {
+      margin-left: -1em;
+      left: -($line);
+    }
+  }
+
+  a.button--action {
+    .svg-icon {
+      margin-right: -1em;
+      right: -($line);
+    }
+  }
+
+  li.pager__page {
+    cursor: default;
+  }
+}

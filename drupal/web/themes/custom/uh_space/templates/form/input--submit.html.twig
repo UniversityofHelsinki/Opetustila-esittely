@@ -12,6 +12,8 @@
 #}
 
 <div class="input-container--submit input-container--selector-{{ attributes["data-drupal-selector"] }}">
+  {{ prefix_icon | raw }}
   <input{{ attributes.removeClass('button') }} />
   {{ children }}
+  {{ suffix_icon | raw }}
 </div>

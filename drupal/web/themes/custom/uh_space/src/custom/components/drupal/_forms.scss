@@ -1,0 +1,68 @@
+.form-item {
+  .description {
+    @extend small;
+    margin-top: $line * 0.5;
+  }
+}
+
+.form-element-icon-wrapper {
+  align-items: center;
+  display: flex;
+
+  input,
+  select {
+    padding-right: $line + 1rem;
+  }
+
+  .svg-icon {
+    pointer-events: none;
+    margin-left: -($line / 2 + 1rem);
+
+    svg {
+      fill,
+      polygon {
+        color: $blue;
+      }
+    }
+  }
+}
+
+.input-container--submit {
+  input {
+    padding-left: $line * 2;
+
+    &:disabled {
+      &,
+      &:hover,
+      &:focus {
+        ~ .svg-icon {
+          background: $silver;
+        }
+      }
+    }
+
+    &:hover,
+    &:focus {
+      ~ .svg-icon {
+        background: $darkblue--active;
+      }
+    }
+  }
+
+  .svg-icon {
+    background: $blue--active;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: 0.1s all;
+    top: 0;
+    width: $line * 1.5;
+
+    path,
+    polygon {
+      fill: $white;
+    }
+  }
+}

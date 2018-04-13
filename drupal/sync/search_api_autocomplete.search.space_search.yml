@@ -31,20 +31,10 @@ suggester_settings:
         equipment: ''
         price_categories: ''
         room_type: ''
-  server:
-    fields:
-      - field_building
-      - field_building_id
-      - field_campus
-      - title
-      - field_room_type
-      - field_street_address_1
 suggester_weights:
   live_results: 0
-  server: 0
 suggester_limits:
   live_results: 5
-  server: 5
 search_settings:
   'views:space_search':
     displays:

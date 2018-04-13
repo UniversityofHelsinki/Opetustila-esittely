@@ -1,10 +1,19 @@
 .taxonomy-term--view-mode-full {
   &.taxonomy-term--type-building,
   &.taxonomy-term--type-campus {
-    .field-name-taxonomy-term-title,
-    .field-name-field-images {
-      @include container;
+    .field--name-taxonomy-term-title {
+      margin-bottom: $line / 2;
+    }
+
+    .field--name-field-images {
       margin-bottom: $line * 2;
+    }
+  }
+
+  &.taxonomy-term--type-campus {
+    .field--name-taxonomy-term-title,
+    .field--name-field-images {
+      @include container;
     }
   }
 }

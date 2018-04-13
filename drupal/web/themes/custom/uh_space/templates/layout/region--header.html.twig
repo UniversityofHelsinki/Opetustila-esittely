@@ -15,7 +15,7 @@
 <div class="l-top-bar l-top-bar--small">
   <div class="l-top-bar__left">
     <div class="links theme-plain">
-      <a class="links__link" href="https://www.helsinki.fi">Helsingin yliopisto</a>
+      <a class="links__link" href="{{ logo_path }}">Helsingin yliopisto</a>
     </div>
   </div>
   <div class="l-top-bar__right">
@@ -29,8 +29,8 @@
   <div class="l-header-bar__top">
     <div class="l-header-bar__left">
       {% if logo_path and logo_text %}
-        <a href="{{ logo_path }}" class="logo">
-          <p class="logo__sitename">{{ logo_text }}</p>
+        <a href="{{ url('<front>') }}" class="logo">
+          <p class="logo__sitename">{{ site_name }}</p>
         </a>
       {% endif %}
     </div>
