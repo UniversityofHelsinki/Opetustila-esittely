@@ -6,14 +6,16 @@ id: local
 label: Local
 folder: ../conf/config_split/local
 module:
-  devel: 0
   kint: 0
 theme: {  }
 blacklist:
   - uhsg_service_provider_details.settings
-graylist:
-  - system.site.name
   - 'system.site.page.*'
+  - redirect.settings
+  - redirect_404.settings
+  - google_tag.settings
+  - xmlsitemap.settings
+graylist: {  }
 graylist_dependents: true
-graylist_skip_equal: false
+graylist_skip_equal: true
 weight: 0

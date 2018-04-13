@@ -39,14 +39,25 @@
       tags: ['cron']
 
     # Set drupal cron to be run every minute and alternate between both servers
-    - name: "Run drupal cronjob with nginx user at even minutes"
+    - name: "Run drupal cronjob with www-admin user at even minutes"
       cron:
         name: "Run Drupal cronjobs with drush"
         minute: "*/2"
         job: "/usr/lib/composer/vendor/bin/drush --root={{ drupal_web_root }} cron"
         state: "present"
-        user: nginx
+        user: www-admin
       tags: ['cron']
+
+    # Run Drupal cron job
+    - name: "Run Optime migration periodically"
+      cron:
+        name: "Run Optime migration"
+        minute: "*/45"
+        job: "cd {{ drupal_web_root }}; /usr/lib/composer/vendor/bin/drush mim optime_integration --update"
+        state: "present"
+        user: www-admin
+      tags: ['cron']
+      when: drupal_web_root is defined
 
     - name: assign www-admin to hysudo group
       user:
@@ -253,4 +264,3 @@
     newrelic_infra_enabled: True
     # newrelic_license_key defined in prod_vars.yml
     newrelic_appname: "{{ project_name }}"
-

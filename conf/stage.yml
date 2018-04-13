@@ -36,13 +36,24 @@
         user: nginx
       tags: ['cron']
     # Run Drupal cron job
-    - name: "Add drupal cronjob to nginx user"
+    - name: "Add drupal cronjob to www-admin user"
       cron:
         name: "Run Drupal cronjobs with drush"
         minute: "*/2"
         job: "/usr/lib/composer/vendor/bin/drush --root={{ drupal_web_root }} cron"
         state: "present"
-        user: nginx
+        user: www-admin
+      tags: ['cron']
+      when: drupal_web_root is defined
+
+    # Run Drupal cron job
+    - name: "Run Optime migration periodically"
+      cron:
+        name: "Run Optime migration"
+        minute: "*/45"
+        job: "cd {{ drupal_web_root }}; /usr/lib/composer/vendor/bin/drush mim optime_integration --update"
+        state: "present"
+        user: www-admin
       tags: ['cron']
       when: drupal_web_root is defined
 

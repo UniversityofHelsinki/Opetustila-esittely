@@ -79,9 +79,30 @@ function migrate_optime_json_entity_presave(Drupal\Core\Entity\EntityInterface $
             $building_term->field_street_address->value = $entity->get('field_street_address')->value;
           }
 
+          // We also have a separate address field to store the geolocated address. In most cases the
+          // optime sources address will also allow to autofill an address that can be auto-geolocated,
+          // and usually guesses right even without city.
+          if(empty($building_term->get('field_geolocation_address')->value)){
+            $building_term->field_geolocation_address->value = $entity->get('field_street_address')->value;
+          }
           $building_term->Save();
         }
       }
-    break;
+
+      // We can create automatic url redirects for space nodes for those that have legacy urls
+      // defined in Optime data.
+      // Make sure we dont try to create duplicate redirects, and only act for known legacy urls.
+      // Currently this is hardcoded to only affect urls starting with:
+      // http://www.helsinki.fi/teknos/opetustilat
+      // The whole old static site is wildcard redirected (301) to the new Drupal site, like:
+      // http://www.helsinki.fi/teknos/opetustilat/* => http://tilavaraus.helsinki.fi/*
+      //
+      // Drupal can then decide to do an additional internal 301 redirect for invidual nodes. For example:
+      //     http://www.helsinki.fi/teknos/opetustilat/keskusta/u37/ls.htm
+      //  => 301 http://tilavaraus.helsinki.fi/keskusta/u37/ls.htm
+      //  => 301 http://tilavaraus.helsinki.fi/fi/keskusta/metsatalo-unioninkatu-40/metsatalo-sali-17
+
+
+      break;
   }
 }

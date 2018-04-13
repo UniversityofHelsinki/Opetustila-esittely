@@ -1,0 +1,47 @@
+label: Omdirigera
+display:
+  default:
+    display_title: Huvud
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Verkställ
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      pager:
+        options:
+          tags:
+            previous: '‹ föregående'
+            next: 'nästa ›'
+            first: '« första'
+            last: 'sista »'
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+      fields:
+        redirect_source__path:
+          label: Från
+          separator: ', '
+        created:
+          label: Skapad
+      filters:
+        redirect_source__path:
+          expose:
+            label: Från
+        redirect_redirect__uri:
+          expose:
+            label: Till
+        status_code:
+          expose:
+            label: Statuskod
+          group_info:
+            label: Statuskod
+        language:
+          expose:
+            label: Ursprungsspråk
+      title: Omdirigera
+  page_1:
+    display_title: Sida
