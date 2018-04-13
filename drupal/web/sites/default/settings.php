@@ -105,6 +105,14 @@ $import_period = time() - (72 * 3600); // Import last 3 days of changes
 # time filter, to limit	the results to items that have updated within a	short timeframe	(such as last import time or last 24h).
 # */25 * * * * cd /var/www/opetustila-test.it.helsinki.fi/current/web/sites/default; /usr/lib/composer/vendor/bin/drush mim optime_integration --update
 
+// Fix warning on Drupal status page.
+$settings['trusted_host_patterns'] = array(
+'^tilat\.lndo\.site$',
+'^.*\.helsinki\.fi$',
+'^127\.0\.0\.1$',
+);
+
+
 /**
  * Environment specific override configuration, if available.
  */
