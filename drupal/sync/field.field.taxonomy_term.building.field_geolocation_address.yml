@@ -1,0 +1,27 @@
+uuid: 25be5e5a-66eb-4c97-b107-4590fb6cdb3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_geolocation_address
+    - taxonomy.vocabulary.building
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: none
+    edit_disable_roles: {  }
+id: taxonomy_term.building.field_geolocation_address
+field_name: field_geolocation_address
+entity_type: taxonomy_term
+bundle: building
+label: 'Geolocation address'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
