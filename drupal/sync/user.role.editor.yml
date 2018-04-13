@@ -21,6 +21,7 @@ permissions:
   - 'administer menu'
   - 'administer migrate_optime_json configuration'
   - 'administer nodes'
+  - 'administer redirects'
   - 'administer taxonomy'
   - 'administer url aliases'
   - 'administer webform submission'
