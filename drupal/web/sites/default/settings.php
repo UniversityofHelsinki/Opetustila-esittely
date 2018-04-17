@@ -48,22 +48,33 @@ if (!empty($_SERVER['SERVER_ADDR'])) {
 }
 
 $env = getenv('WKV_SITE_ENV');
+global $base_url;
+
 switch ($env) {
-  case 'production':
+  case 'prod':
     $settings['simple_environment_indicator'] = '#d4000f Production';
+    $base_url = "https://tilavaraus.helsinki.fi";
     break;
 
   case 'dev':
     $settings['simple_environment_indicator'] = '#004984 Development';
+    $base_url = "https://opetustila-test.it.helsinki.fi";
     break;
 
   case 'stage':
     $settings['simple_environment_indicator'] = '#e56716 Stage';
+    $base_url = "https://opetustila-staging.it.helsinki.fi";
     break;
 
-  case 'local':
-    $settings['simple_environment_indicator'] = '#88b700 Local';
-    break;
+    case 'local':
+      $settings['simple_environment_indicator'] = '#88b700 Local';
+      $base_url = "http://opetustila.local.helsinki.fi";
+      break;
+
+    case 'lando':
+      $settings['simple_environment_indicator'] = '#88b700 Local';
+      $base_url = "http://tilat.lndo.site";
+      break;
 }
 /**
  * Location of the site configuration files.
