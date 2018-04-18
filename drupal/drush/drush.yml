@@ -79,6 +79,9 @@ options:
   # Enable verbose mode.
   verbose: true
 
+  # Trying to run drush always as superadmin. May avoid problems with termstatus errors durin migration.
+  # user: 1
+
 # This section is for setting command-specific options.
 #command:
 # removed. See example.drush.yml to see the rest
