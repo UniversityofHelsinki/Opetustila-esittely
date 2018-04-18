@@ -322,6 +322,9 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -49
   highlight:
     highlight: always
     highlight_partial: false
@@ -363,7 +366,7 @@ processor_settings:
       - description
     weights:
       preprocess_index: -20
-      preprocess_query: -20
+      preprocess_query: -50
   rendered_item: {  }
   tokenizer:
     all_fields: true
@@ -385,7 +388,7 @@ processor_settings:
     minimum_word_size: '3'
     weights:
       preprocess_index: -6
-      preprocess_query: -6
+      preprocess_query: -45
   type_boost:
     boosts:
       'entity:node':
@@ -404,9 +407,38 @@ processor_settings:
           room_type: 0.3
     weights:
       preprocess_index: 0
-  content_access:
+  transliteration:
+    all_fields: true
+    fields:
+      - rendered_item
+      - url
+      - field_accessibility
+      - field_building
+      - field_building_id
+      - field_campus
+      - type
+      - body
+      - field_equipment
+      - langcode
+      - field_optime_id
+      - field_price_category
+      - title
+      - field_room_type
+      - field_street_address_1
+      - field_building_id_1
+      - field_campus_1
+      - field_city
+      - field_equipment_information
+      - field_reservation_instructions
+      - vid
+      - field_vat_rate
+      - field_street_address
+      - name
+      - langcode_1
+      - description
     weights:
-      preprocess_query: -30
+      preprocess_index: -20
+      preprocess_query: -48
 tracker_settings:
   default:
     indexing_order: lifo

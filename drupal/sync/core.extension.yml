@@ -54,7 +54,6 @@ module:
   taxonomy: 0
   taxonomy_publish: 0
   telephone: 0
-  termstatus: 0
   text: 0
   token: 0
   toolbar: 0
