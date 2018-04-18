@@ -8,4 +8,4 @@ if (file_exists('/etc/drush/drushrc.php')) {
 //   lando drush cedit migrate_plus.migration.optime_integration
 // This doesnt work with drush 9. Do this in drush.yml instead.
 $options['editor'] = 'nano';
-$options['uri'] = "http://tilat.lndo.site";
+// $options['uri'] = "http://tilat.lndo.site";

@@ -50,7 +50,7 @@
     - name: "Run Optime migration periodically"
       cron:
         name: "Run Optime migration"
-        minute: "*/25"
+        minute: "*/45"
         job: "cd {{ drupal_web_root }}; /usr/lib/composer/vendor/bin/drush mim optime_integration --update"
         state: "present"
         user: www-admin

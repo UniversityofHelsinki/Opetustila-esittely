@@ -9,7 +9,9 @@ dependencies:
     - field.field.taxonomy_term.building.field_contact_details
     - field.field.taxonomy_term.building.field_contacts
     - field.field.taxonomy_term.building.field_equipment_information
+    - field.field.taxonomy_term.building.field_geolocation_address
     - field.field.taxonomy_term.building.field_images
+    - field.field.taxonomy_term.building.field_location_map
     - field.field.taxonomy_term.building.field_navigation_link
     - field.field.taxonomy_term.building.field_opening_times
     - field.field.taxonomy_term.building.field_street_address
@@ -17,6 +19,7 @@ dependencies:
   module:
     - ds
     - ds_chains
+    - leaflet
 third_party_settings:
   ds:
     layout:
@@ -33,10 +36,12 @@ third_party_settings:
         link_custom: ''
         classes:
           layout_class: {  }
+          ds_content: {  }
     regions:
       ds_content:
         - taxonomy_term_title
         - 'dynamic_block_field:taxonomy_term-building_spaces_view'
+        - field_location_map
     fields:
       'dynamic_block_field:taxonomy_term-building_spaces_view':
         plugin_id: 'dynamic_block_field:taxonomy_term-building_spaces_view'
@@ -91,7 +96,44 @@ id: taxonomy_term.building.default
 targetEntityType: taxonomy_term
 bundle: building
 mode: default
-content: {  }
+content:
+  field_location_map:
+    weight: 2
+    label: hidden
+    settings:
+      leaflet_map: 'OSM Mapnik'
+      zoom: '16'
+      minZoom: '10'
+      maxZoom: '18'
+      height: '400'
+      icon:
+        icon_url: ''
+        shadow_url: ''
+        icon_size:
+          x: '0'
+          'y': '0'
+        icon_anchor:
+          x: '0'
+          'y': '0'
+        shadow_anchor:
+          x: '0'
+          'y': '0'
+        popup_anchor:
+          x: '0'
+          'y': '0'
+      popup: 0
+      minPossibleZoom: 0
+      maxPossibleZoom: 18
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: leaflet_formatter_default
+    region: ds_content
 hidden:
   description: true
   field_building_id: true
@@ -100,6 +142,7 @@ hidden:
   field_contact_details: true
   field_contacts: true
   field_equipment_information: true
+  field_geolocation_address: true
   field_images: true
   field_navigation_link: true
   field_opening_times: true
