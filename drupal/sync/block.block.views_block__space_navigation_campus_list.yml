@@ -1,0 +1,30 @@
+uuid: d2a6c454-9078-4181-8432-43f0237a6f0d
+langcode: fi
+status: true
+dependencies:
+  config:
+    - views.view.space_navigation
+  module:
+    - system
+    - views
+  theme:
+    - uh_space
+id: views_block__space_navigation_campus_list
+theme: uh_space
+region: content_bottom
+weight: 0
+provider: null
+plugin: 'views_block:space_navigation-campus_list'
+settings:
+  id: 'views_block:space_navigation-campus_list'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

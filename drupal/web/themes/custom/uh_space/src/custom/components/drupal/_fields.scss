@@ -1,0 +1,37 @@
+.field {
+  margin: $line 0;
+
+  .field {
+    margin: 0;
+  }
+}
+
+.field__label {
+  @include font-weight-bold;
+  color: $black;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.field--label-inline {
+  display: flex;
+  flex-wrap: wrap;
+
+  > .field__label {
+    flex-basis: 10rem;
+  }
+
+  > .field__item {
+    flex-basis: 28rem;
+  }
+}
+
+.field--label-visually_hidden {
+  .field__label {
+    @extend .visually-hidden;
+  }
+}
+
+.field-label-visually-hidden {
+  @extend .visually-hidden;
+}

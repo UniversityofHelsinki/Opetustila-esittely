@@ -12,7 +12,8 @@ regions:
   content: 'Content'
   content_bottom: 'Content bottom'
   footer_top: 'Footer top'
-  footer: 'Footer'
+  footer_site: 'Site Footer'
+  footer: 'UH Footer'
   hidden: 'Hidden'
 libraries:
   - uh_space/global

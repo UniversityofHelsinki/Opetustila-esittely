@@ -6,6 +6,14 @@ dependencies:
     - field.storage.node.field_building
     - node.type.space
     - taxonomy.vocabulary.building
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: all
+    edit_disable_roles: {  }
 id: node.space.field_building
 field_name: field_building
 entity_type: node

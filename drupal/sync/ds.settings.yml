@@ -1,9 +1,10 @@
 disabled: false
-field_template: false
+field_template: true
 ft-default: default
 ft-show-colon: false
 classes:
-  region: {  }
+  region:
+    - ds-container
   field: {  }
 use_field_names: true
 _core:

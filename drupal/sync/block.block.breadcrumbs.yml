@@ -1,0 +1,20 @@
+uuid: 07c3d8da-1b9f-4b34-88d4-57cc3d2bc96b
+langcode: fi
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uh_space
+id: breadcrumbs
+theme: uh_space
+region: content_top
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

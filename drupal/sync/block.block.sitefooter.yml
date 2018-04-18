@@ -1,0 +1,24 @@
+uuid: 76d5ab4e-a405-43a6-b8c7-cd44d9db1426
+langcode: fi
+status: true
+dependencies:
+  config:
+    - system.menu.site-footer
+  module:
+    - system
+  theme:
+    - uh_space
+id: sitefooter
+theme: uh_space
+region: footer_site
+weight: 0
+provider: null
+plugin: 'system_menu_block:site-footer'
+settings:
+  id: 'system_menu_block:site-footer'
+  label: 'Ota Yhteyttä'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

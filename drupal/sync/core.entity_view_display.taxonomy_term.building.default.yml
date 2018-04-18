@@ -9,109 +9,142 @@ dependencies:
     - field.field.taxonomy_term.building.field_contact_details
     - field.field.taxonomy_term.building.field_contacts
     - field.field.taxonomy_term.building.field_equipment_information
+    - field.field.taxonomy_term.building.field_geolocation_address
     - field.field.taxonomy_term.building.field_images
+    - field.field.taxonomy_term.building.field_location_map
     - field.field.taxonomy_term.building.field_navigation_link
     - field.field.taxonomy_term.building.field_opening_times
     - field.field.taxonomy_term.building.field_street_address
     - taxonomy.vocabulary.building
   module:
-    - image
-    - layout_discovery
-    - link
-    - text
+    - ds
+    - ds_chains
+    - leaflet
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+    regions:
+      ds_content:
+        - taxonomy_term_title
+        - 'dynamic_block_field:taxonomy_term-building_spaces_view'
+        - field_location_map
+    fields:
+      'dynamic_block_field:taxonomy_term-building_spaces_view':
+        plugin_id: 'dynamic_block_field:taxonomy_term-building_spaces_view'
+        weight: 1
+        label: above
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: ''
+            lbw-cl: visually-hidden
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: h1
+          class: page__title
+          link: false
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  ds_chains:
+    fields: {  }
 id: taxonomy_term.building.default
 targetEntityType: taxonomy_term
 bundle: building
 mode: default
 content:
-  description:
-    label: hidden
-    type: text_default
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_building_id:
-    weight: 4
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_campus:
-    weight: 7
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_city:
-    weight: 6
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_contact_details:
+  field_location_map:
     weight: 2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_contacts:
-    weight: 3
-    label: above
+    label: hidden
     settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_equipment_information:
-    weight: 10
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_images:
-    weight: 5
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_navigation_link:
-    weight: 9
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
-  field_opening_times:
-    weight: 1
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_street_address:
-    weight: 8
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
+      leaflet_map: 'OSM Mapnik'
+      zoom: '16'
+      minZoom: '10'
+      maxZoom: '18'
+      height: '400'
+      icon:
+        icon_url: ''
+        shadow_url: ''
+        icon_size:
+          x: '0'
+          'y': '0'
+        icon_anchor:
+          x: '0'
+          'y': '0'
+        shadow_anchor:
+          x: '0'
+          'y': '0'
+        popup_anchor:
+          x: '0'
+          'y': '0'
+      popup: 0
+      minPossibleZoom: 0
+      maxPossibleZoom: 18
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: leaflet_formatter_default
+    region: ds_content
 hidden:
+  description: true
+  field_building_id: true
+  field_campus: true
+  field_city: true
+  field_contact_details: true
+  field_contacts: true
+  field_equipment_information: true
+  field_geolocation_address: true
+  field_images: true
+  field_navigation_link: true
+  field_opening_times: true
+  field_street_address: true
   langcode: true

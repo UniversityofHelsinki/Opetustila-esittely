@@ -1,0 +1,19 @@
+.ajax-progress-fullscreen {
+  background: none;
+  &:after {
+    @include icon($icon-spinner);
+    color: $blue;
+    font-size: 2em;
+    animation: icon-spin 2s infinite linear;
+  }
+}
+
+.form-element-icon-wrapper--input {
+  .svg-icon--spinner {
+    display: none;
+
+    svg {
+      animation: icon-spin 2s infinite linear;
+    }
+  }
+}

@@ -5,11 +5,17 @@ dependencies: {  }
 id: local
 label: Local
 folder: ../conf/config_split/local
-module: {  }
+module:
+  kint: 0
 theme: {  }
 blacklist:
-  - core.extension.devel
-  - core.extension.kint
+  - google_tag.settings
+  - redirect.settings
+  - redirect_404.settings
+  - uhsg_service_provider_details.settings
+  - xmlsitemap.settings
+  - 'system.site.page.*'
+  - 'devel.*'
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: true

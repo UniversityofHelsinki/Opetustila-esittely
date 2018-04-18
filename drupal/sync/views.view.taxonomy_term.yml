@@ -303,6 +303,7 @@ display:
         options: {  }
       path: taxonomy/term/%
       display_extenders: {  }
+      enabled: false
     cache_metadata:
       contexts:
         - 'languages:language_interface'

@@ -5,6 +5,14 @@ dependencies:
   config:
     - field.storage.node.field_optime_index
     - node.type.space
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: all
+    edit_disable_roles: {  }
 id: node.space.field_optime_index
 field_name: field_optime_index
 entity_type: node

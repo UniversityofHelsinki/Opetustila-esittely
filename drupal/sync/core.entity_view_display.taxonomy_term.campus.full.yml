@@ -1,0 +1,113 @@
+uuid: e2eebda0-b279-417c-afaa-4ca7448e0254
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.full
+    - field.field.taxonomy_term.campus.field_city
+    - field.field.taxonomy_term.campus.field_images
+    - field.field.taxonomy_term.campus.field_reservation_instructions
+    - responsive_image.styles.hero_image
+    - taxonomy.vocabulary.campus
+  module:
+    - ds
+    - ds_chains
+    - responsive_image
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - taxonomy_term_title
+        - field_images
+        - 'dynamic_block_field:taxonomy_term-campus_buildings_view'
+    fields:
+      'dynamic_block_field:taxonomy_term-campus_buildings_view':
+        plugin_id: 'dynamic_block_field:taxonomy_term-campus_buildings_view'
+        weight: 2
+        label: above
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw: true
+            lbw-el: ''
+            lbw-cl: visually-hidden
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: h1
+          class: page__title
+          link: false
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  ds_chains:
+    fields: {  }
+id: taxonomy_term.campus.full
+targetEntityType: taxonomy_term
+bundle: campus
+mode: full
+content:
+  field_images:
+    weight: 1
+    label: hidden
+    settings:
+      responsive_image_style: hero_image
+      image_link: ''
+    third_party_settings:
+      ds:
+        ds_limit: '1'
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: responsive_image
+    region: ds_content
+hidden:
+  description: true
+  field_city: true
+  field_reservation_instructions: true
+  langcode: true

@@ -9,15 +9,17 @@ dependencies:
     - field.field.taxonomy_term.building.field_contact_details
     - field.field.taxonomy_term.building.field_contacts
     - field.field.taxonomy_term.building.field_equipment_information
+    - field.field.taxonomy_term.building.field_geolocation_address
     - field.field.taxonomy_term.building.field_images
+    - field.field.taxonomy_term.building.field_location_map
     - field.field.taxonomy_term.building.field_navigation_link
     - field.field.taxonomy_term.building.field_opening_times
     - field.field.taxonomy_term.building.field_street_address
     - image.style.thumbnail
     - taxonomy.vocabulary.building
   module:
+    - geofield_map
     - image
-    - layout_discovery
     - link
     - path
     - text
@@ -27,15 +29,15 @@ bundle: building
 mode: default
 content:
   description:
-    type: text_textfield
-    weight: 0
+    type: text_textarea
+    weight: 1
     region: content
     settings:
-      size: 60
       placeholder: ''
+      rows: 5
     third_party_settings: {  }
   field_building_id:
-    weight: 34
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -43,7 +45,7 @@ content:
     type: string_textfield
     region: content
   field_campus:
-    weight: 37
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60
@@ -52,7 +54,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_city:
-    weight: 36
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -60,7 +62,7 @@ content:
     type: string_textfield
     region: content
   field_contact_details:
-    weight: 32
+    weight: 13
     settings:
       rows: 5
       placeholder: ''
@@ -68,7 +70,7 @@ content:
     type: text_textarea
     region: content
   field_contacts:
-    weight: 33
+    weight: 14
     settings:
       match_operator: CONTAINS
       size: 60
@@ -77,23 +79,64 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_equipment_information:
-    weight: 40
+    weight: 15
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_geolocation_address:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_images:
-    weight: 35
+    weight: 11
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
     region: content
+  field_location_map:
+    weight: 6
+    settings:
+      map_google_places:
+        places_control: '1'
+        places_additional_options: ''
+      map_library: leaflet
+      map_type_google: roadmap
+      map_type_leaflet: OpenStreetMap_Mapnik
+      map_type_selector: '1'
+      map_dimensions:
+        width: 100%
+        height: 450px
+      zoom:
+        start: '18'
+        focus: '18'
+        min: '10'
+        max: '22'
+      geoaddress_field:
+        field: field_geolocation_address
+        hidden: 0
+        disabled: 0
+      default_value:
+        lat: '0'
+        lon: '0'
+      click_to_find_marker: 0
+      click_to_place_marker: 0
+      html5_geolocation: 0
+      map_google_api_key: ''
+      zoom_level: 5
+    third_party_settings: {  }
+    type: geofield_map
+    region: content
   field_navigation_link:
-    weight: 39
+    weight: 16
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -101,7 +144,7 @@ content:
     type: link_default
     region: content
   field_opening_times:
-    weight: 31
+    weight: 12
     settings:
       rows: 5
       placeholder: ''
@@ -109,7 +152,7 @@ content:
     type: text_textarea
     region: content
   field_street_address:
-    weight: 38
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -125,7 +168,7 @@ content:
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -133,11 +176,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 3
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

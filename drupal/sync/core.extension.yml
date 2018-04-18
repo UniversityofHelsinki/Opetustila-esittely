@@ -3,6 +3,7 @@ module:
   admin_toolbar_tools: 0
   block: 0
   breakpoint: 0
+  ckeditor: 0
   config: 0
   config_filter: 0
   config_ignore: 0
@@ -12,17 +13,26 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
+  devel: 0
+  disable_field: 0
   ds_chains: 0
   dynamic_page_cache: 0
+  easy_breadcrumb: 0
+  editor: 0
   field: 0
   field_group: 0
-  field_permissions: 0
+  field_group_link: 0
   field_ui: 0
   file: 0
   filter: 0
+  geofield: 0
+  geofield_map: 0
+  google_tag: 0
   image: 0
   language: 0
   layout_discovery: 0
+  leaflet: 0
+  leaflet_views: 0
   link: 0
   locale: 0
   menu_ui: 0
@@ -34,7 +44,11 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  redirect: 0
+  redirect_404: 0
+  responsive_image: 0
   search_api: 0
+  search_api_autocomplete: 0
   search_api_db: 0
   simplei: 0
   system: 0
@@ -44,15 +58,17 @@ module:
   token: 0
   toolbar: 0
   uh_space_site: 0
+  uhsg_service_provider_details: 0
   user: 0
   views_ui: 0
   webform: 0
   webform_node: 0
   webform_ui: 0
-  contribute: 1
+  xmlsitemap_engines: 0
   ds: 1
   menu_link_content: 1
   pathauto: 1
+  xmlsitemap: 1
   content_translation: 10
   views: 10
   minimal: 1000

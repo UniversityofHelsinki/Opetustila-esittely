@@ -1,0 +1,7 @@
+input[type="submit"]:disabled {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $silver;
+  }
+}

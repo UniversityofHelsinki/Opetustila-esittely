@@ -1,0 +1,10 @@
+uuid: 43fcc367-064a-432f-bbfe-6d5c1856a2cc
+langcode: fi
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.liftup
+label: Liftup
+targetEntityType: taxonomy_term
+cache: true

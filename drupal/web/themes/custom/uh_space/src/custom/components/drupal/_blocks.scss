@@ -1,0 +1,36 @@
+#block-tabs {
+  @include container;
+  margin-bottom: $line;
+  margin-top: $line;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  li {
+    display: block;
+    margin: $line / 8;
+  }
+
+  a {
+    @extend .button;
+  }
+}
+
+#block-footerlinksfi-menu,
+#block-languageswitcher {
+  > h2 {
+    @extend .visually-hidden;
+  }
+}
+
+#block-views-block-space-navigation-campus-list {
+  > h2 {
+    @extend .visually-hidden;
+  }
+}
+
+#block-breadcrumbs {
+  @include container;
+}
