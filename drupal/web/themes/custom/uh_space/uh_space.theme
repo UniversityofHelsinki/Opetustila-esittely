@@ -76,6 +76,32 @@ function uh_space_preprocess_region(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_status_messages().
+ */
+function uh_space_preprocess_status_messages(&$variables) {
+  foreach ($variables['message_list'] as $key => &$message) {
+    $icon = FALSE;
+
+    switch ($key) {
+      case 'status':
+        $icon = _uh_space_load_wrapped_icon('done');
+        break;
+      case 'warning':
+        $icon = _uh_space_load_wrapped_icon('warning');
+        break;
+      case 'error':
+        $icon = _uh_space_load_wrapped_icon('alert');
+        break;
+    }
+
+    $message = [
+      'messages' => $message,
+      'icon' => $icon,
+    ];
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK() for language links.
  */
 function uh_space_preprocess_links__language_block(&$variables) {
