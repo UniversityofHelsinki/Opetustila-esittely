@@ -24,6 +24,7 @@ class HeroBlock extends BlockBase {
     $block = array(
       '#theme' => 'hero_block',
       '#title' => $node->getTitle(),
+      '#background_image' => FALSE,
     );
 
     $lead = $node->field_lead_text->getValue();
