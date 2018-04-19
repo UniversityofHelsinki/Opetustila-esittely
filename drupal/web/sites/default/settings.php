@@ -48,22 +48,33 @@ if (!empty($_SERVER['SERVER_ADDR'])) {
 }
 
 $env = getenv('WKV_SITE_ENV');
+global $base_url;
+
 switch ($env) {
-  case 'production':
+  case 'prod':
     $settings['simple_environment_indicator'] = '#d4000f Production';
+    $base_url = "https://tilavaraus.helsinki.fi";
     break;
 
   case 'dev':
     $settings['simple_environment_indicator'] = '#004984 Development';
+    $base_url = "https://opetustila-test.it.helsinki.fi";
     break;
 
   case 'stage':
     $settings['simple_environment_indicator'] = '#e56716 Stage';
+    $base_url = "https://opetustila-staging.it.helsinki.fi";
     break;
 
-  case 'local':
-    $settings['simple_environment_indicator'] = '#88b700 Local';
-    break;
+    case 'local':
+      $settings['simple_environment_indicator'] = '#88b700 Local';
+      $base_url = "http://opetustila.local.helsinki.fi";
+      break;
+
+    case 'lando':
+      $settings['simple_environment_indicator'] = '#88b700 Local';
+      $base_url = "http://tilat.lndo.site";
+      break;
 }
 /**
  * Location of the site configuration files.
@@ -104,6 +115,14 @@ $import_period = time() - (72 * 3600); // Import last 3 days of changes
 # Fetch	Optime data every 25mins. This interval	could be made much smaller if/when the importer	contains a dynamic
 # time filter, to limit	the results to items that have updated within a	short timeframe	(such as last import time or last 24h).
 # */25 * * * * cd /var/www/opetustila-test.it.helsinki.fi/current/web/sites/default; /usr/lib/composer/vendor/bin/drush mim optime_integration --update
+
+// Fix warning on Drupal status page.
+$settings['trusted_host_patterns'] = array(
+'^tilat\.lndo\.site$',
+'^.*\.helsinki\.fi$',
+'^127\.0\.0\.1$',
+);
+
 
 /**
  * Environment specific override configuration, if available.

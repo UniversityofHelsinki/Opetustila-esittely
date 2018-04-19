@@ -181,6 +181,8 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: status
     type: boolean
+    indexed_locked: true
+    type_locked: true
   promote:
     label: 'Promoted to front page'
     datasource_id: 'entity:node'
@@ -287,6 +289,20 @@ field_settings:
     datasource_id: 'entity:taxonomy_term'
     property_path: changed
     type: date
+  uid:
+    label: null
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
 datasource_settings:
   'entity:node':
     bundles:
@@ -306,6 +322,9 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -49
   highlight:
     highlight: always
     highlight_partial: false
@@ -393,6 +412,38 @@ processor_settings:
       field_accessibility: taxonomy_term-parent
     weights:
       preprocess_index: -50
+  transliteration:
+    all_fields: true
+    fields:
+      - rendered_item
+      - url
+      - field_accessibility
+      - field_building
+      - field_building_id
+      - field_campus
+      - type
+      - body
+      - field_equipment
+      - langcode
+      - field_optime_id
+      - field_price_category
+      - title
+      - field_room_type
+      - field_street_address_1
+      - field_building_id_1
+      - field_campus_1
+      - field_city
+      - field_equipment_information
+      - field_reservation_instructions
+      - vid
+      - field_vat_rate
+      - field_street_address
+      - name
+      - langcode_1
+      - description
+    weights:
+      preprocess_index: -20
+      preprocess_query: -48
 tracker_settings:
   default:
     indexing_order: lifo

@@ -9,7 +9,9 @@ dependencies:
     - field.field.taxonomy_term.building.field_contact_details
     - field.field.taxonomy_term.building.field_contacts
     - field.field.taxonomy_term.building.field_equipment_information
+    - field.field.taxonomy_term.building.field_geolocation_address
     - field.field.taxonomy_term.building.field_images
+    - field.field.taxonomy_term.building.field_location_map
     - field.field.taxonomy_term.building.field_navigation_link
     - field.field.taxonomy_term.building.field_opening_times
     - field.field.taxonomy_term.building.field_street_address
@@ -21,6 +23,7 @@ dependencies:
     - field_group
     - responsive_image
     - text
+    - leaflet
 third_party_settings:
   ds:
     layout:
@@ -57,6 +60,7 @@ third_party_settings:
         - field_contacts
         - field_opening_times
         - group_contacts
+        - field_location_map
     fields:
       'dynamic_block_field:taxonomy_term-building_spaces_view':
         plugin_id: 'dynamic_block_field:taxonomy_term-building_spaces_view'
@@ -200,6 +204,37 @@ content:
     third_party_settings:
       ds:
         ds_limit: '1'
+  field_location_map:
+    type: leaflet_formatter_default
+    weight: 2
+    region: ds_content
+    label: hidden
+    settings:
+      leaflet_map: 'OSM Mapnik'
+      zoom: '16'
+      minZoom: '10'
+      maxZoom: '18'
+      height: '400'
+      icon:
+        icon_url: ''
+        shadow_url: ''
+        icon_size:
+          x: '0'
+          'y': '0'
+        icon_anchor:
+          x: '0'
+          'y': '0'
+        shadow_anchor:
+          x: '0'
+          'y': '0'
+        popup_anchor:
+          x: '0'
+          'y': '0'
+      popup: 0
+      minPossibleZoom: 0
+      maxPossibleZoom: 18
+    third_party_settings:
+      ds:
         ft:
           id: minimal
           settings:
@@ -225,6 +260,8 @@ hidden:
   field_city: true
   field_contact_details: true
   field_equipment_information: true
+  field_geolocation_address: true
+  field_images: true
   field_navigation_link: true
   field_street_address: true
   langcode: true

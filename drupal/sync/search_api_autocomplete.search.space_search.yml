@@ -13,13 +13,7 @@ label: 'Space search'
 index_id: spaces_search
 suggester_settings:
   live_results:
-    fields:
-      - field_building
-      - field_building_id
-      - field_campus
-      - title
-      - field_room_type
-      - field_street_address_1
+    fields: {  }
     view_modes:
       'entity:node':
         space: ''

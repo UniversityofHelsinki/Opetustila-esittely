@@ -10,10 +10,15 @@ module:
   kint: 0
 theme: {  }
 blacklist:
+  - google_tag.settings
+  - redirect.settings
+  - redirect_404.settings
   - uhsg_service_provider_details.settings
 graylist:
+  - 'devel.*'
   - system.site.name
   - 'system.site.page.*'
+  - xmlsitemap.settings
 graylist_dependents: true
 graylist_skip_equal: false
 weight: 0

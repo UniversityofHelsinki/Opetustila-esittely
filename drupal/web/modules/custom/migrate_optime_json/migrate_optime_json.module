@@ -9,7 +9,9 @@
  * @see https://www.drupal.org/node/2217931
  */
 use Drupal\taxonomy\Entity\Term;
-
+use Drupal\Core\Url;
+use Drupal\Core\Site\Settings;
+use Drupal\redirect\Entity\Redirect;
 
 /** Simple migrate callbacks for filtering an address out of fields from a source
  *  which might contain a building name + address separated by a comma, or just the address.
@@ -78,10 +80,105 @@ function migrate_optime_json_entity_presave(Drupal\Core\Entity\EntityInterface $
           if(empty($building_term->get('field_street_address')->value)){
             $building_term->field_street_address->value = $entity->get('field_street_address')->value;
           }
+
+          // We also have a separate address field to store the geolocated address. In most cases the
+          // optime sources address will also allow to autofill an address that can be auto-geolocated,
+          // and usually guesses right even without city.
+          if(empty($building_term->get('field_geolocation_address')->value)){
+            $building_term->field_geolocation_address->value = $entity->get('field_street_address')->value;
+          }
+
+          // Check if there is a legacy redirect missing which we could add.
+          if(!empty($entity->id())){
+            migrate_optime_json_legacy_redirect($entity);
+          }
+
           $building_term->Save();
         }
       }
 
+
       break;
   }
+}
+
+
+/**
+ * Implements hook_entity_insert().
+ */
+function migrate_optime_json_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  switch ($entity->bundle()) {
+    case 'space':
+      // Check if there is a legacy redirect missing which we could add.
+      if(!empty($entity->id())){
+        migrate_optime_json_legacy_redirect($entity);
+      }
+    }
+}
+
+
+// We can create automatic url redirects for space nodes for those that have legacy urls
+// defined in Optime data.
+// Make sure we dont try to create duplicate redirects, and only act for known legacy urls.
+// Currently this is hardcoded to only affect urls starting with:
+// http://www.helsinki.fi/teknos/opetustilat
+// The whole old static site is wildcard redirected (301) to the new Drupal site, like:
+// http://www.helsinki.fi/teknos/opetustilat/* => http://tilavaraus.helsinki.fi/*
+//
+// Drupal can then decide to do an additional internal 301 redirect for invidual nodes. For example:
+//     http://www.helsinki.fi/teknos/opetustilat/keskusta/u37/ls.htm
+//  => 301 http://tilavaraus.helsinki.fi/keskusta/u37/ls.htm
+//  => 301 http://tilavaraus.helsinki.fi/fi/keskusta/metsatalo-unioninkatu-40/metsatalo-sali-17
+// Delete all redirects having the same source as this alias.
+// redirect_delete_by_path($path['alias'], $path['langcode'], FALSE);
+// if ($original_path['alias'] != $path['alias']) {
+function migrate_optime_json_legacy_redirect($entity){
+    if (!\Drupal::moduleHandler()->moduleExists('redirect') || empty($entity->id())) {
+      return;
+    }
+
+    if(empty($entity->get('field_legacy_url')->uri)){
+      return;
+    }
+    $full_legacy_url = $entity->get('field_legacy_url')->uri; // value or "uri"?
+    //$full_legacy_url = $entity->get('field_legacy_url')->value; // value or "uri"?
+    // For now, we simply remove the beginning of the url based on hardcoded/known
+    // beginning part.
+    $legacy_url = str_replace("http://www.helsinki.fi/teknos/opetustilat/", "", $full_legacy_url);
+
+    $langcode = 'fi'; // Old site was only in finnish, so for now hardcode to it.
+    $http_code = 301; // 301 should be best for SEO.
+    $source_path = strip_tags($legacy_url); // Do we need further cleanup? Redirect will make sure there is no XSS etc.
+    $target_path = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $entity->id());
+    //  dsm($target_path);
+    if(empty($target_path)){
+      // Either redirect to node/123 or the alias. redirect should make sure the alias is the target automatically.
+      $target_path = "node/" . $entity->id();
+    }
+
+    if (!redirect_repository()->findMatchingRedirect($source_path, array(), $langcode)) {
+      $redirect = Redirect::create();
+      $redirect->setSource($source_path);
+      $redirect->setRedirect('/' . $langcode . $target_path); // Need to add langcode here too to avoid problems.
+      $redirect->setLanguage($langcode);
+      $redirect->setStatusCode($http_code);
+
+      // $redirect->setLanguage($original_path['langcode']);
+      // $redirect->setStatusCode(\Drupal::config('redirect.settings')->get('default_status_code'));
+      $redirect->save();
+    }
+
+    // Set another redirect for english ('en'), to avoid some problems related to main language setting.
+    // This is basically a auto-redirect from enlish to finnish version.
+    if (!redirect_repository()->findMatchingRedirect($source_path, array(), 'en')) {
+      $redirect = Redirect::create();
+      $redirect->setSource($source_path);
+      $redirect->setRedirect('/' . $langcode . $target_path);
+      $redirect->setLanguage('en'); // Hardcoded for now.
+      $redirect->setStatusCode($http_code);
+
+      // $redirect->setLanguage($original_path['langcode']);
+      // $redirect->setStatusCode(\Drupal::config('redirect.settings')->get('default_status_code'));
+      $redirect->save();
+    }
 }
