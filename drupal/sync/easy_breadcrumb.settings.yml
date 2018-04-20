@@ -11,3 +11,4 @@ excluded_paths: ''
 segments_separator: null
 title_segment_as_link: true
 title_from_page_when_available: true
+langcode: fi
