@@ -8,7 +8,7 @@ id: node.webform.title
 field_name: title
 entity_type: node
 bundle: webform
-label: Title
+label: Otsikko
 description: ''
 required: true
 translatable: false

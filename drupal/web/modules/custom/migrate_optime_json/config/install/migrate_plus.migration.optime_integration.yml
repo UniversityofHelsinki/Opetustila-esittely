@@ -187,17 +187,7 @@ process:
       plugin: concat
       source:
         - constants/reservation_link_base
-        - optime_id
-      delimiter: ''
-  field_reservation_link/title:
-    plugin: default_value
-    default_value: 'Optime reservation'
-
-  field_reservation_link/uri:
-      plugin: concat
-      source:
-        - constants/reservation_link_base
-        - optime_id
+        - optime_index
       delimiter: ''
   field_reservation_link/title':
     plugin: default_value

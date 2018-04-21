@@ -1,0 +1,18 @@
+uuid: ee4a362b-05a7-4626-a21a-5ab2318d682c
+langcode: fi
+status: true
+dependencies:
+  config:
+    - node.type.page
+id: node.page.title
+field_name: title
+entity_type: node
+bundle: page
+label: Otsikko
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

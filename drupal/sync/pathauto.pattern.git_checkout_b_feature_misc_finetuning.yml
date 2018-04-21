@@ -1,0 +1,14 @@
+uuid: 0a40be45-1cfd-44d1-a32e-4a7eaffb19d6
+langcode: fi
+status: true
+dependencies:
+  module:
+    - node
+id: git_checkout_b_feature_misc_finetuning
+label: 'By default every node path is its title'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }
