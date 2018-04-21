@@ -1,17 +1,17 @@
-uuid: 9326d516-c142-4575-84f2-d18d85c484bd
-langcode: en
+uuid: ee4a362b-05a7-4626-a21a-5ab2318d682c
+langcode: fi
 status: true
 dependencies:
   config:
-    - node.type.webform
-id: node.webform.title
+    - node.type.page
+id: node.page.title
 field_name: title
 entity_type: node
-bundle: webform
+bundle: page
 label: Otsikko
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

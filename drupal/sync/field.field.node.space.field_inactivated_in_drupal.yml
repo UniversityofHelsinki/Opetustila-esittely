@@ -5,12 +5,20 @@ dependencies:
   config:
     - field.storage.node.field_inactivated_in_drupal
     - node.type.space
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: none
+    edit_disable_roles: {  }
 id: node.space.field_inactivated_in_drupal
 field_name: field_inactivated_in_drupal
 entity_type: node
 bundle: space
-label: 'Inactivated in Drupal'
-description: 'If checked, the space will always stay unpublished in Drupal, regardless of the inactivated value of Drupal.'
+label: 'Julkaisun esto Drupalissa'
+description: 'Jos tämä kenttä on valittu, sisältö pysyy aina julkaisemattomassa tilassa. Optime-tiedoissa voi tulla myös vastaava julkaisemisen esto, jota ei voi ohittaa Drupalissa.'
 required: false
 translatable: false
 default_value:
@@ -18,6 +26,6 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  on_label: Inactivated
-  off_label: 'Not set'
+  on_label: 'Estä julkaiseminen'
+  off_label: Neutraali
 field_type: boolean

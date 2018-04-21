@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: wTJRNzsLVTenCALONNlVfgm_pBOlqucSPuVFLOD56ck
 id: user_admin_people
-label: People
+label: Käyttäjät
 module: user
 description: 'Find and manage people interacting with your site.'
 tag: default
@@ -842,7 +842,7 @@ display:
           plugin_id: date
           entity_type: user
           entity_field: created
-      title: People
+      title: Käyttäjät
       empty:
         area_text_custom:
           id: area_text_custom
@@ -883,23 +883,24 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: Sivu
     position: 1
     display_options:
       path: admin/people/list
       show_admin_links: false
       menu:
         type: 'default tab'
-        title: List
+        title: Listaa
         description: 'Find and manage people interacting with your site.'
-        menu_name: admin
+        expanded: false
+        parent: ''
         weight: -10
-        context: ''
+        context: '0'
+        menu_name: admin
       tab_options:
         type: normal
-        title: People
+        title: Käyttäjät
         description: 'Manage user accounts, roles, and permissions.'
-        menu_name: admin
         weight: 0
       defaults:
         show_admin_links: false

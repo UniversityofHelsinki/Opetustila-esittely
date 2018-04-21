@@ -18,7 +18,7 @@ id: node.space.field_equipment
 field_name: field_equipment
 entity_type: node
 bundle: space
-label: Equipment
+label: Varusteet
 description: ''
 required: false
 translatable: false

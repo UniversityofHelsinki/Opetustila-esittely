@@ -5,12 +5,20 @@ dependencies:
   config:
     - field.storage.node.field_accessible_entry
     - node.type.space
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: none
+    edit_disable_roles: {  }
 id: node.space.field_accessible_entry
 field_name: field_accessible_entry
 entity_type: node
 bundle: space
-label: 'Accessible Entry'
-description: 'Describe where the accessible entry to this space is if one exists separately.'
+label: 'Esteettömän pääsyn lisätiedot'
+description: 'Jos tilalla on esteetön sisäänkäynti, kuvaa sen sijainti tähän kenttään. '
 required: false
 translatable: false
 default_value: {  }

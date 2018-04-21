@@ -17,8 +17,8 @@ id: node.space.field_inactivate_in_optime
 field_name: field_inactivate_in_optime
 entity_type: node
 bundle: space
-label: 'Inactivated in Optime'
-description: 'If a space is disabled in the Optime system, it is imported but will stay inactive, unpublished.'
+label: 'Julkaisun esto Optimessa'
+description: 'Jos tämä kenttä on aktivoitu Optimessa, sisältö pysyy aina julkaisemattomassa tilassa. Tätä kenttää ei voi muuttaa Drupalissa, mutta myös Drupalissa voi estää julkaisemisen erillisen kentän kautta.'
 required: false
 translatable: false
 default_value:
@@ -26,6 +26,6 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  on_label: Inactivated
-  off_label: 'Not set'
+  on_label: 'Estä julkaisaminen'
+  off_label: Neutraali
 field_type: boolean

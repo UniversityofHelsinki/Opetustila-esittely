@@ -17,7 +17,7 @@ id: node.space.field_street_address
 field_name: field_street_address
 entity_type: node
 bundle: space
-label: 'Street address'
+label: Katuosoite
 description: ''
 required: false
 translatable: false
