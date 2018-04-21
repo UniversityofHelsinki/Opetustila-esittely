@@ -135,7 +135,7 @@ requirements:
   cdn: true
   bootstrap: true
   spam: true
-langcode: en
+langcode: fi
 third_party_settings: {  }
 _core:
   default_config_hash: pCVedUicnZwcaPYXHSEnGjAGPbKqhTUmtHKTi4nfI-M

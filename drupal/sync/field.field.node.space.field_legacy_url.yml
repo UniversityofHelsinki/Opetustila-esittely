@@ -18,7 +18,7 @@ id: node.space.field_legacy_url
 field_name: field_legacy_url
 entity_type: node
 bundle: space
-label: 'Legacy url'
+label: 'Sijainti aikaisemmassa järjestelmässä (url)'
 description: ''
 required: false
 translatable: false

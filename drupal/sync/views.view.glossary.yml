@@ -1,5 +1,5 @@
 uuid: 11c7d994-4b68-4be9-ba32-954a1d41d23d
-langcode: en
+langcode: fi
 status: false
 dependencies:
   config:
@@ -432,7 +432,7 @@ display:
       tags: {  }
   page_1:
     id: page_1
-    display_title: Page
+    display_title: Sivu
     display_plugin: page
     position: 1
     display_options:

@@ -9,7 +9,6 @@ module:
   kint: 0
 theme: {  }
 blacklist:
-  - google_tag.settings
   - redirect.settings
   - redirect_404.settings
   - uhsg_service_provider_details.settings
