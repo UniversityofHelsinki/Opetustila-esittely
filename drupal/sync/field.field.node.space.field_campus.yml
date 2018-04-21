@@ -18,7 +18,7 @@ id: node.space.field_campus
 field_name: field_campus
 entity_type: node
 bundle: space
-label: Campus
+label: Kampus
 description: ''
 required: true
 translatable: false

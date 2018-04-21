@@ -1,5 +1,5 @@
 uuid: 62eb0c38-54c2-4cd3-8b18-4714545e72f7
-langcode: en
+langcode: fi
 status: true
 dependencies:
   module:
@@ -268,7 +268,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Language
+          label: Kieli
           exclude: false
           alter:
             alter_text: false
@@ -411,7 +411,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: Kieli
             description: ''
             use_operator: false
             operator: langcode_op
@@ -509,7 +509,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: Sivu
     position: 1
     display_options:
       display_extenders: {  }

@@ -60,7 +60,7 @@ third_party_settings:
       format_settings:
         label: Optime
         formatter: open
-        description: 'These values are automatically imported and updated from Optime.'
+        description: 'Nämä tiedot haetaan ja päivitetään automaattisesti Optime-järjestelmästä.'
         id: optime_data
         classes: optime-data
         required_fields: false
@@ -74,17 +74,18 @@ third_party_settings:
         - field_floor
         - field_images
         - field_price_category
+        - url_redirects
       parent_name: group_data
       weight: 23
       format_type: tab
       format_settings:
-        label: 'Additional information'
+        label: 'Optionaaliset lisätiedot'
         formatter: closed
         description: ''
         required_fields: true
         id: additional_data
         classes: additional-data
-      label: 'Additional information'
+      label: 'Optionaaliset lisätiedot'
       region: content
     group_publishing_settings:
       children:
@@ -101,13 +102,13 @@ third_party_settings:
       weight: 24
       format_type: tab
       format_settings:
-        id: publishing-settings
-        classes: publishing-settings
-        direction: vertical
+        label: 'Julkaisu ja kieli'
         formatter: closed
         description: ''
         required_fields: true
-      label: 'Publishing settings'
+        id: publishing-settings
+        classes: publishing-settings
+      label: 'Julkaisu ja kieli'
       region: content
     group_data:
       children:
@@ -139,7 +140,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 0
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -154,7 +155,7 @@ content:
     third_party_settings: {  }
   field_accessible_entry:
     type: string_textarea
-    weight: 0
+    weight: 1
     region: content
     settings:
       rows: 5
@@ -204,7 +205,7 @@ content:
     third_party_settings: {  }
   field_equipment_information:
     type: string_textarea
-    weight: 0
+    weight: 2
     region: content
     settings:
       rows: 5
@@ -212,7 +213,7 @@ content:
     third_party_settings: {  }
   field_floor:
     type: string_textfield
-    weight: 0
+    weight: 3
     region: content
     settings:
       size: 60
@@ -220,7 +221,7 @@ content:
     third_party_settings: {  }
   field_images:
     type: image_image
-    weight: 0
+    weight: 4
     region: content
     settings:
       progress_indicator: throbber
@@ -235,7 +236,7 @@ content:
     region: content
   field_inactivated_in_drupal:
     type: boolean_checkbox
-    weight: 0
+    weight: 7
     region: content
     settings:
       display_label: true
@@ -279,7 +280,7 @@ content:
     third_party_settings: {  }
   field_price_category:
     type: entity_reference_autocomplete
-    weight: 0
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -320,27 +321,27 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 0
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 0
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 0
+    weight: 1
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 0
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -354,17 +355,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 0
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 0
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 6
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

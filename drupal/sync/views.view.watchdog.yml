@@ -1,5 +1,5 @@
 uuid: 1e11d5e5-82dc-4a01-9edc-2249858ed884
-langcode: en
+langcode: fi
 status: true
 dependencies:
   module:
@@ -696,7 +696,7 @@ display:
   page:
     display_plugin: page
     id: page
-    display_title: Page
+    display_title: Sivu
     position: 1
     display_options:
       display_extenders: {  }

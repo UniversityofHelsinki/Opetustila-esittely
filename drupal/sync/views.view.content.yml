@@ -1,5 +1,5 @@
 uuid: 73acc0cd-1439-430e-90c2-c1c02a0d910c
-langcode: en
+langcode: fi
 status: true
 dependencies:
   module:
@@ -8,7 +8,7 @@ dependencies:
 _core:
   default_config_hash: tS8PbpJX90aRFC3-UTgXzdqkq7_2frk2pz4TMijEebM
 id: content
-label: Content
+label: Sisältö
 module: node
 description: 'Find and manage content.'
 tag: default
@@ -278,8 +278,8 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: Published
-            format_custom_false: Unpublished
+            format_custom_true: Julkaistu
+            format_custom_false: Julkaisematon
           plugin_id: field
           entity_type: node
           entity_field: status
@@ -462,7 +462,7 @@ display:
               authenticated: authenticated
           is_grouped: true
           group_info:
-            label: 'Published status'
+            label: Julkaisutila
             description: ''
             identifier: status
             optional: true
@@ -473,11 +473,11 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Published
+                title: Julkaistu
                 operator: '='
                 value: '1'
               2:
-                title: Unpublished
+                title: Julkaisematon
                 operator: '='
                 value: '0'
           plugin_id: boolean
@@ -496,7 +496,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Language
+            label: Kieli
             description: ''
             use_operator: false
             operator: langcode_op
@@ -534,7 +534,7 @@ display:
           group: 1
           entity_type: node
       sorts: {  }
-      title: Content
+      title: Sisältö
       empty:
         area_text_custom:
           id: area_text_custom
@@ -578,20 +578,21 @@ display:
       path: admin/content/node
       menu:
         type: 'default tab'
-        title: Content
+        title: Sisältö
         description: ''
-        menu_name: admin
+        expanded: false
+        parent: ''
         weight: -10
-        context: ''
+        context: '0'
+        menu_name: admin
       tab_options:
         type: normal
-        title: Content
+        title: Sisältö
         description: 'Find and manage content'
-        menu_name: admin
         weight: -10
       display_extenders: {  }
     display_plugin: page
-    display_title: Page
+    display_title: Sivu
     id: page_1
     position: 1
     cache_metadata:

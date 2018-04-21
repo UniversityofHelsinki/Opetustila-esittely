@@ -6,12 +6,19 @@ dependencies:
     - field.storage.node.body
     - node.type.space
   module:
+    - disable_field
     - text
+third_party_settings:
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: none
+    edit_disable_roles: {  }
 id: node.space.body
 field_name: body
 entity_type: node
 bundle: space
-label: Description
+label: Kuvaus
 description: ''
 required: false
 translatable: true
