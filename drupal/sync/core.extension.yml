@@ -8,7 +8,6 @@ module:
   config_filter: 0
   config_ignore: 0
   config_split: 0
-  config_translation: 0
   ctools: 0
   datetime: 0
   datetime_range: 0
