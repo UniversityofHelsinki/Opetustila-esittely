@@ -20,11 +20,6 @@ settings:
   provider: uh_space_site
   label_display: '0'
 visibility:
-  request_path:
-    id: request_path
-    pages: '<front>'
-    negate: false
-    context_mapping: {  }
   'entity_bundle:node':
     id: 'entity_bundle:node'
     bundles:
@@ -32,3 +27,8 @@ visibility:
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
