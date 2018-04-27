@@ -53,6 +53,25 @@ function uh_space_preprocess_menu(&$vars) {
 }
 
 /**
+ * Implements template_preprocess_page().
+ */
+function uh_space_preprocess_page(&$variables) {
+  if (!empty($variables['page']['content_top']['heroblock'])) {
+    $variables['attributes']['class'][] = 'page--with-hero';
+  }
+
+  if ($variables['is_front']) {
+    $variables['attributes']['class'][] = 'page--hero-overflow';
+  }
+
+  if ($variables['node']) {
+    if ($variables['node']->getType() != 'space') {
+      unset($variables['page']['content_top']['breadcrumbs']);
+    }
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK() for Region templates.
  */
 function uh_space_preprocess_region(&$variables) {
