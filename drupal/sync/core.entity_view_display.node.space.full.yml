@@ -71,6 +71,7 @@ third_party_settings:
         - 'dynamic_copy_field:node-referenced_address_clone'
         - field_floor
         - field_accessible_entry
+        - 'ds_chains:node/space/field_building/field_location_map'
         - group_guidance
       left:
         - 'ds_chains:node/space/field_campus/field_reservation_instructions'
@@ -98,6 +99,11 @@ third_party_settings:
         weight: 11
         label: hidden
         formatter: basic_string
+      'ds_chains:node/space/field_building/field_location_map':
+        plugin_id: 'ds_chains:node/space/field_building/field_location_map'
+        weight: 3
+        label: hidden
+        formatter: leaflet_formatter_default
       'ds_chains:node/space/field_campus/field_reservation_instructions':
         plugin_id: 'ds_chains:node/space/field_campus/field_reservation_instructions'
         weight: 0
@@ -174,6 +180,7 @@ third_party_settings:
         - 'dynamic_copy_field:node-referenced_address_clone'
         - field_floor
         - field_accessible_entry
+        - 'ds_chains:node/space/field_building/field_location_map'
       parent_name: ''
       weight: 6
       format_type: html_element

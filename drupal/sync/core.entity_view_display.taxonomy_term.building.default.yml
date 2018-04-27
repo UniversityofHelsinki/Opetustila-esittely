@@ -21,9 +21,9 @@ dependencies:
     - ds
     - ds_chains
     - field_group
+    - leaflet
     - responsive_image
     - text
-    - leaflet
 third_party_settings:
   ds:
     layout:
@@ -56,11 +56,11 @@ third_party_settings:
       right:
         - group_building_info
         - 'dynamic_token_field:taxonomy_term-building_address'
-        - group_opening_hours
+        - field_location_map
         - field_contacts
         - field_opening_times
+        - group_opening_hours
         - group_contacts
-        - field_location_map
     fields:
       'dynamic_block_field:taxonomy_term-building_spaces_view':
         plugin_id: 'dynamic_block_field:taxonomy_term-building_spaces_view'
@@ -109,11 +109,9 @@ third_party_settings:
           class: page__title
           link: false
         ft:
-          id: minimal
+          id: reset
           settings:
             lb: ''
-            lb-col: false
-            classes: {  }
   ds_chains:
     fields: {  }
   field_group:
@@ -138,6 +136,7 @@ third_party_settings:
     group_building_info:
       children:
         - 'dynamic_token_field:taxonomy_term-building_address'
+        - field_location_map
         - group_opening_hours
         - group_contacts
       parent_name: ''
@@ -159,7 +158,7 @@ third_party_settings:
       children:
         - field_opening_times
       parent_name: group_building_info
-      weight: 5
+      weight: 6
       format_type: html_element
       format_settings:
         label: 'Opening Hours'
@@ -206,9 +205,9 @@ content:
         ds_limit: '1'
   field_location_map:
     type: leaflet_formatter_default
-    weight: 2
-    region: ds_content
-    label: hidden
+    weight: 5
+    region: right
+    label: visually_hidden
     settings:
       leaflet_map: 'OSM Mapnik'
       zoom: '16'
@@ -261,7 +260,6 @@ hidden:
   field_contact_details: true
   field_equipment_information: true
   field_geolocation_address: true
-  field_images: true
   field_navigation_link: true
   field_street_address: true
   langcode: true
