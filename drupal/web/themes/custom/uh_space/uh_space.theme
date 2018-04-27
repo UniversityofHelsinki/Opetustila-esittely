@@ -64,7 +64,7 @@ function uh_space_preprocess_page(&$variables) {
     $variables['attributes']['class'][] = 'page--hero-overflow';
   }
 
-  if ($variables['node']) {
+  if (isset($variables['node'])) {
     if ($variables['node']->getType() != 'space') {
       unset($variables['page']['content_top']['breadcrumbs']);
     }
