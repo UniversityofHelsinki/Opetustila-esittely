@@ -222,7 +222,10 @@ function uh_space_preprocess_select(&$vars) {
  */
 function uh_space_preprocess_input__submit(&$vars) {
   if ($vars['element']['#type'] == 'submit') {
-    $vars['suffix_icon'] = _uh_space_load_wrapped_icon('search');
+    if ($vars['element']['#id'] == 'edit-submit-space-search') {
+      $vars['suffix_icon'] = _uh_space_load_wrapped_icon('search');
+      $vars['attributes']['class'][] = 'submit--action-before';
+    }
   }
 }
 
