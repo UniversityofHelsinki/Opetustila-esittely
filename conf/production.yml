@@ -14,7 +14,6 @@
    - { role: memcached, tags: [ 'memcached' ] }
    - { role: drush, tags: [ 'drush' ] }
    - { role: drupal-log, tags: [ 'drupal-log' ] }
-   - { role: external-smtp, tags: [ 'external-smtp' ] }
    - { role: monit, tags: [ 'monit' ] }
    - { role: newrelic, tags: [ 'newrelic' ] }
    - { role: newrelic-sysmon, tags: [ 'newrelic-sysmon' ] }

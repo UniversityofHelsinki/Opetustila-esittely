@@ -7,6 +7,7 @@ dependencies:
     - node.type.space
   module:
     - content_translation
+    - disable_field
     - image
 third_party_settings:
   content_translation:
@@ -14,11 +15,16 @@ third_party_settings:
       alt: alt
       title: title
       file: '0'
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: none
+    edit_disable_roles: {  }
 id: node.space.field_images
 field_name: field_images
 entity_type: node
 bundle: space
-label: Images
+label: Kuvat
 description: ''
 required: false
 translatable: true

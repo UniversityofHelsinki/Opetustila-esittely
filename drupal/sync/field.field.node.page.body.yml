@@ -18,7 +18,7 @@ id: node.page.body
 field_name: body
 entity_type: node
 bundle: page
-label: Body
+label: Pääteksti
 description: ''
 required: false
 translatable: true

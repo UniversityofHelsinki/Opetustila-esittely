@@ -1,5 +1,5 @@
 uuid: 64418833-82af-48a9-bad9-59212d70b5e0
-langcode: en
+langcode: fi
 status: true
 dependencies:
   config:
@@ -292,7 +292,7 @@ display:
       path: node
       display_extenders: {  }
     display_plugin: page
-    display_title: Page
+    display_title: Sivu
     id: page_1
     position: 1
     cache_metadata:

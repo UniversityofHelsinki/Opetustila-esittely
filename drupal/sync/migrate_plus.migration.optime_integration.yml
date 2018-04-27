@@ -1,12 +1,12 @@
-uuid: 0b822184-bb93-47e6-a800-e65bde2beefa
-langcode: en
+uuid: e3c59a73-f948-44a5-9704-d74d2e5d07ff
+langcode: fi
 status: true
 dependencies:
   enforced:
     module:
       - migrate_plus
 _core:
-  default_config_hash: pLCO1DMTjJ8YqezTzZNc2MZDWTONPPU6DFeDy4Z7sn0
+  default_config_hash: Bl3LIhL32ab5GnXwTLGfwcYVSWDSIg726fGH0mEBV4M
 id: optime_integration
 class: null
 field_plugin_method: null
@@ -124,11 +124,8 @@ process:
     plugin: concat
     source:
       - constants/reservation_link_base
-      - optime_id
+      - optime_index
     delimiter: ''
-  field_reservation_link/title:
-    plugin: default_value
-    default_value: 'Optime reservation'
   'field_reservation_link/title''':
     plugin: default_value
     default_value: 'Optime reservation'

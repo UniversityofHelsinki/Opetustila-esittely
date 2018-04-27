@@ -9,9 +9,9 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: Space
+name: Tila
 type: space
-description: 'A room or other space.'
+description: 'Huone, sali tai muu tila.'
 help: ''
 new_revision: false
 preview_mode: 1

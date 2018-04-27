@@ -8,7 +8,6 @@ module:
   config_filter: 0
   config_ignore: 0
   config_split: 0
-  config_translation: 0
   ctools: 0
   datetime: 0
   datetime_range: 0
@@ -50,6 +49,7 @@ module:
   search_api_autocomplete: 0
   search_api_db: 0
   simplei: 0
+  syslog: 0
   system: 0
   taxonomy: 0
   telephone: 0
@@ -81,3 +81,4 @@ theme:
 profile: minimal
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
+langcode: fi
