@@ -17,24 +17,24 @@
   "license": "ISC",
   "dependencies": {
     "breakpoint-sass": "^2.7.0",
-    "css-loader": "^0.28.4",
+    "css-loader": "^0.28.11",
     "file-loader": "^1.1.6",
-    "image-webpack-loader": "^4.0.0",
+    "image-webpack-loader": "^4.2.0",
     "inert-polyfill": "^0.2.5",
     "normalize.css": "^3.0.0",
-    "postcss": "^6.0.1",
+    "postcss": "^6.0.22",
     "postcss-discard-comments": "^2.0.4",
-    "postcss-loader": "^2.0.6",
+    "postcss-loader": "^2.1.4",
     "tabbable": "^1.1.1",
-    "webpack-cli": "^2.0.9"
+    "webpack-cli": "^2.1.2"
   },
   "devDependencies": {
-    "autoprefixer": "^8.1.0",
-    "clean-webpack-plugin": "^0.1.17",
+    "autoprefixer": "^8.4.1",
+    "clean-webpack-plugin": "^0.1.19",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "node-sass": "^4.7.2",
-    "node-sass-glob-importer": "^5.1.0",
+    "node-sass": "^4.9.0",
+    "node-sass-glob-importer": "^5.1.2",
     "sass-loader": "^6.0.7",
-    "webpack": "^4.1.0"
+    "webpack": "^4.6.0"
   }
 }
