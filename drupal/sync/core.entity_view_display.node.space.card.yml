@@ -160,7 +160,7 @@ content:
         ft:
           id: expert
           settings:
-            lb: Accessibility
+            lb: ''
             prefix: icon=accessibility;
             lbw-el: ''
             lbw-cl: ''
@@ -197,7 +197,7 @@ content:
         ft:
           id: expert
           settings:
-            lb: Capacity
+            lb: ''
             prefix: icon=avatar;
             lbw-el: ''
             lbw-cl: ''
