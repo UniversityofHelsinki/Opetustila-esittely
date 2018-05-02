@@ -5,3 +5,24 @@
     }
   }
 }
+
+.taxonomy-term--type-building {
+  .space-list {
+    margin-left: -($grid-gap / 2);
+    margin-left: -($grid-gap / 2);
+  }
+}
+
+.building__info {
+  p {
+    margin: 0;
+  }
+
+  .field {
+    margin: $line / 2 0;
+  }
+
+  .building__contacts {
+    margin: $line 0;
+  }
+}

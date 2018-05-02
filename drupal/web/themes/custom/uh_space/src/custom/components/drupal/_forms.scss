@@ -29,8 +29,6 @@
 
 .input-container--submit {
   input {
-    padding-left: $line * 2;
-
     &:disabled {
       &,
       &:hover,
@@ -46,6 +44,10 @@
       ~ .svg-icon {
         background: $darkblue--active;
       }
+    }
+
+    &.submit--action-before {
+      padding-left: $line * 2;
     }
   }
 
@@ -64,5 +66,17 @@
     polygon {
       fill: $white;
     }
+  }
+}
+
+.user-login-form {
+  @include container;
+
+  label {
+    display: block;
+  }
+
+  input {
+    width: auto;
   }
 }

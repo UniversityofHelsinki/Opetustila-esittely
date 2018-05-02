@@ -59,6 +59,7 @@
     // Make field image appear first in visual order, but not
     // read order.
     .field--name-field-images {
+      margin: 0;
       order: -1;
     }
 

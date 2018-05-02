@@ -43,7 +43,7 @@
  * @see html.html.twig
  */
 #}
-<div class="layout-container">
+<div {{ attributes.addClass('page').addClass('layout-container') }}>
 
   <header role="banner">
     {{ page.header }}
@@ -56,9 +56,8 @@
   {{ page.hero }}
 
   <main role="main">
-    {{ page.content_top }}
-
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    {{ page.content_top }}
 
     <div class="layout-content">
       {{ page.content }}

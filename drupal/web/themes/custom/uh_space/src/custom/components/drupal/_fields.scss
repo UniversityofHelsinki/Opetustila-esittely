@@ -31,7 +31,11 @@
     @extend .visually-hidden;
   }
 }
-
-.field-label-visually-hidden {
+.field-group--label-visually_hidden {
+  .field-group__label {
+    @extend .visually-hidden;
+  }
+}
+.field__label.field__label--visually_hidden {
   @extend .visually-hidden;
 }

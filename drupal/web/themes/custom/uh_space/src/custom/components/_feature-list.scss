@@ -12,12 +12,18 @@
     border-bottom: 1px solid $silver;
   }
 
-  &:before {
-    @include icon("\EA0B");
-    @include font-size(24px);
-    color: $blue;
+  .svg-icon {
     padding: 0 $line / 2;
     position: relative;
     top: 0.1rem;
+
+    svg {
+      path {
+        fill: $blue;
+      }
+
+      height: 1.5rem;
+      width: 1.5rem;
+    }
   }
 }
