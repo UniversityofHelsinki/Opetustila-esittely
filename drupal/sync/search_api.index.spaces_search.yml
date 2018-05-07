@@ -365,8 +365,8 @@ processor_settings:
       - langcode_1
       - description
     weights:
-      preprocess_index: -49
-      preprocess_query: -20
+      preprocess_index: -20
+      preprocess_query: -50
   rendered_item: {  }
   tokenizer:
     all_fields: true
@@ -387,8 +387,8 @@ processor_settings:
     overlap_cjk: 1
     minimum_word_size: '3'
     weights:
-      preprocess_index: -45
-      preprocess_query: -6
+      preprocess_index: -6
+      preprocess_query: -45
   type_boost:
     boosts:
       'entity:node':
@@ -406,12 +406,7 @@ processor_settings:
           price_categories: !!float 0
           room_type: 0.3
     weights:
-      preprocess_index: -42
-  hierarchy:
-    fields:
-      field_accessibility: taxonomy_term-parent
-    weights:
-      preprocess_index: -50
+      preprocess_index: 0
   transliteration:
     all_fields: true
     fields:
