@@ -1,6 +1,6 @@
-.hero-big--overflow {
+.hero-big--alternative {
   height: auto;
-  overflow: visible;
+  min-height: 24rem;
   padding-top: $line * 3;
   position: relative;
   z-index: -1;
@@ -19,13 +19,13 @@
     box-sizing: content-box;
     height: 100%;
     left: 0;
-    padding-bottom: $line * 10;
     position: absolute;
     top: 0;
     width: 100%;
   }
 
   .hero-big__background__image {
+    background-position: center center;
     background-size: cover;
     height: 100%;
     left: 0;
@@ -34,4 +34,20 @@
     top: 0;
     width: 100%;
   }
+
+  .page--hero-overflow & {
+    overflow: visible;
+
+    .hero-big__background {
+      padding-bottom: $line * 10;
+    }
+  }
+}
+
+.hero-subtle {
+  @include container;
+}
+
+.hero-subtle__ingress {
+  @include font-size(18px);
 }

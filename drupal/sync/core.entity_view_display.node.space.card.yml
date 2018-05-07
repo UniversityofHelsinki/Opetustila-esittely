@@ -15,6 +15,8 @@ dependencies:
     - field.field.node.space.field_equipment_information
     - field.field.node.space.field_floor
     - field.field.node.space.field_images
+    - field.field.node.space.field_inactivate_in_optime
+    - field.field.node.space.field_inactivated_in_drupal
     - field.field.node.space.field_last_changed_in_optime
     - field.field.node.space.field_legacy_url
     - field.field.node.space.field_optime_comments
@@ -23,6 +25,7 @@ dependencies:
     - field.field.node.space.field_price_category
     - field.field.node.space.field_reservation_link
     - field.field.node.space.field_room_type
+    - field.field.node.space.field_street_address
     - image.style.large
     - node.type.space
   module:
@@ -47,6 +50,7 @@ third_party_settings:
         link_custom: ''
         classes:
           layout_class: {  }
+          ds_content: {  }
     regions:
       ds_content:
         - node_title
@@ -63,6 +67,10 @@ third_party_settings:
         weight: 2
         label: hidden
         formatter: default
+        ft:
+          id: reset
+          settings:
+            lb: ''
       node_title:
         plugin_id: node_title
         weight: 0
@@ -72,6 +80,10 @@ third_party_settings:
           link: true
           wrapper: h3
           class: card__title
+        ft:
+          id: reset
+          settings:
+            lb: ''
   field_group:
     group_key_information:
       children:
@@ -148,7 +160,7 @@ content:
         ft:
           id: expert
           settings:
-            lb: Accessibility
+            lb: ''
             prefix: icon=accessibility;
             lbw-el: ''
             lbw-cl: ''
@@ -185,7 +197,7 @@ content:
         ft:
           id: expert
           settings:
-            lb: Capacity
+            lb: ''
             prefix: icon=avatar;
             lbw-el: ''
             lbw-cl: ''
@@ -220,6 +232,12 @@ content:
     third_party_settings:
       ds:
         ds_limit: '1'
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   field_price_category:
     type: entity_reference_entity_view
     weight: 5

@@ -33,7 +33,7 @@
   {% if not label_hidden %}
     {%
       set title_classes = [
-        'field-label-' ~ element['#label_display']|clean_class,
+        'field__label field__label--' ~ element['#label_display'],
       ]
     %}
     {%- if settings['lbw-def-at'] -%}

@@ -27,9 +27,6 @@ display:
         search_api_fulltext:
           expose:
             label: 'Etsitkö tiettyä paikkaa?'
-        search_api_language:
-          expose:
-            description: ''
       title: 'Millaista tilaa tarvitset?'
       header:
         result:

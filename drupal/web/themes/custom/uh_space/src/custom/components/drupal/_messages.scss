@@ -1,0 +1,61 @@
+.messages {
+  @include container;
+  font-size: 1rem;
+  margin-bottom: $line;
+  margin-top: $line;
+  text-align: left;
+
+  &.status {
+    svg {
+      path, polygon, circle {
+        fill: $black;
+      }
+    }
+  }
+
+  &.warning {
+    background-color: $orange;
+    color: $black;
+
+    svg {
+      path, polygon, circle {
+        fill: $black;
+      }
+    }
+  }
+
+  &.alert {
+    svg {
+      path, polygon, circle {
+        fill: $white;
+      }
+    }
+  }
+
+  .svg-icon {
+    margin-right: $line;
+
+    svg {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+  }
+
+  ul {
+    flex-grow: 1;
+  }
+
+  // Use SVG icons instead of font icons.
+  p,
+  li {
+    &:before {
+      content: none !important;
+      display: none !important;
+    }
+  }
+
+  .messages-inner {
+    display: flex;
+    padding: $line 0;
+  }
+}

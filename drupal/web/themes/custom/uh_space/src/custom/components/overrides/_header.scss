@@ -1,18 +1,42 @@
 .l-header-bar {
-  &.l-header-bar--transparent {
-    background: none;
-    position: absolute;
-    width: 100%;
+  background: none;
+  color: $black;
+  margin-bottom: $line;
+  padding: 0 $line;
+
+  .logo__sitename,
+  .logo:before {
+    color: $black;
   }
 
-  &.l-header-bar--negative {
+  .page--with-hero & {
     background: none;
-    color: $black;
-    padding: 0 $line / 2;
+    color: $white;
+    margin: 0;
+    position: absolute;
+    width: 100%;
 
     .logo__sitename,
     .logo:before {
-      color: $black;
+      color: $white;
+    }
+
+    svg {
+      path {
+        fill: $white;
+      }
+    }
+  }
+}
+
+.svg-logo {
+  align-items: center;
+  display: flex;
+
+  .svg-icon {
+    svg {
+      height: 3.25rem;
+      width: 3.25rem;
     }
   }
 }

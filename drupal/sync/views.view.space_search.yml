@@ -168,11 +168,11 @@ display:
             operator: field_campus_op
             identifier: field_campus
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
+              anonymous: anonymous
               authenticated: authenticated
-              anonymous: '0'
               admin: '0'
               editor: '0'
             reduce: false
@@ -217,13 +217,16 @@ display:
             operator: field_capacity_op
             identifier: field_capacity
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
+              anonymous: anonymous
               authenticated: authenticated
-              anonymous: '0'
               admin: '0'
               editor: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -256,11 +259,11 @@ display:
             operator: field_accessibility_op
             identifier: field_accessibility
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
+              anonymous: anonymous
               authenticated: authenticated
-              anonymous: '0'
               admin: '0'
               editor: '0'
             reduce: false
@@ -302,11 +305,11 @@ display:
             operator: field_equipment_op
             identifier: field_equipment
             required: false
-            remember: false
+            remember: true
             multiple: true
             remember_roles:
+              anonymous: anonymous
               authenticated: authenticated
-              anonymous: '0'
               admin: '0'
               editor: '0'
             reduce: false
@@ -423,13 +426,14 @@ display:
             operator: search_api_fulltext_op
             identifier: search_api_fulltext
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
+              anonymous: anonymous
               authenticated: authenticated
-              anonymous: '0'
               admin: '0'
               editor: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -491,6 +495,18 @@ display:
             group_items: {  }
           plugin_id: search_api_language
       sorts:
+        field_capacity:
+          id: field_capacity
+          table: search_api_index_spaces_search
+          field: field_capacity
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
         search_api_relevance:
           id: search_api_relevance
           table: search_api_index_spaces_search

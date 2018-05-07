@@ -1,0 +1,142 @@
+uuid: 8d64fdca-5e77-4953-82dd-5c9593c2bce0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.liftup
+    - field.field.taxonomy_term.contacts.field_email
+    - field.field.taxonomy_term.contacts.field_phone_number
+    - field.field.taxonomy_term.contacts.field_role
+    - taxonomy.vocabulary.contacts
+  module:
+    - ds
+    - ds_chains
+    - telephone
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+    regions:
+      ds_content:
+        - field_role
+        - taxonomy_term_title
+        - field_phone_number
+        - field_email
+        - description
+    fields:
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: div
+          class: contact__name
+          link: false
+        ft:
+          id: reset
+          settings:
+            lb: ''
+  ds_chains:
+    fields: {  }
+id: taxonomy_term.contacts.liftup
+targetEntityType: taxonomy_term
+bundle: contacts
+mode: liftup
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 4
+    region: ds_content
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  field_email:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: email_mailto
+    region: ds_content
+  field_phone_number:
+    weight: 2
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: telephone_link
+    region: ds_content
+  field_role:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: contact__role
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: string
+    region: ds_content
+hidden:
+  langcode: true
