@@ -119,3 +119,17 @@
     }
   }
 }
+
+.space__guidance {
+  p {
+    margin: 0;
+  }
+
+  .field {
+    margin: $line / 2 0;
+  }
+
+  .field--name-field-location-map {
+    margin: $line 0;
+  }
+}
