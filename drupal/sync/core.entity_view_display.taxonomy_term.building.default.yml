@@ -60,6 +60,7 @@ third_party_settings:
         - field_contacts
         - field_opening_times
         - group_opening_hours
+        - field_contact_details
         - group_contacts
     fields:
       'dynamic_block_field:taxonomy_term-building_spaces_view':
@@ -118,6 +119,7 @@ third_party_settings:
     group_contacts:
       children:
         - field_contacts
+        - field_contact_details
       parent_name: group_building_info
       weight: 7
       format_type: html_element
@@ -130,7 +132,7 @@ third_party_settings:
         effect: none
         speed: fast
         id: ''
-        classes: 'building__contacts field-group--label-visually_hidden'
+        classes: building__contacts
       label: Contacts
       region: hidden
     group_building_info:
@@ -177,6 +179,13 @@ targetEntityType: taxonomy_term
 bundle: building
 mode: default
 content:
+  field_contact_details:
+    type: text_default
+    weight: 7
+    region: right
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_contacts:
     type: entity_reference_entity_view
     weight: 6
@@ -257,7 +266,6 @@ hidden:
   field_building_id: true
   field_campus: true
   field_city: true
-  field_contact_details: true
   field_equipment_information: true
   field_geolocation_address: true
   field_navigation_link: true
