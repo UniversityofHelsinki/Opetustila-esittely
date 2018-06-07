@@ -53,8 +53,7 @@
   }
 
   &.node--view-mode-card {
-    display: flex;
-    flex-wrap: wrap;
+    @extend .card;
 
     // Make field image appear first in visual order, but not
     // read order.

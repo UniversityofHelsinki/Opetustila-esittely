@@ -1,4 +1,7 @@
-[class*="view-mode-card"] {
+.card {
+  display: flex;
+  flex-wrap: wrap;
+
   .field {
     margin: 0;
   }
@@ -9,6 +12,7 @@
   margin-bottom: 0;
   margin-top: $line;
   padding: 0;
+  width: 100%;
 
   a {
     @extend a;
