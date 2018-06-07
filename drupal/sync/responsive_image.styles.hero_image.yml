@@ -6,6 +6,7 @@ dependencies:
     - image.style.hero_image_full
     - image.style.hero_image_half
     - image.style.hero_image_quarter
+    - image.style.hero_image_three_quarters
 id: hero_image
 label: 'Hero Image'
 image_style_mappings:
@@ -14,10 +15,11 @@ image_style_mappings:
     multiplier: 1x
     image_mapping_type: sizes
     image_mapping:
-      sizes: '(min-width: 1280px) 1440px, 720px'
+      sizes: '(min-width: 1280px) 1280px, 720px'
       sizes_image_styles:
         - hero_image_full
         - hero_image_half
         - hero_image_quarter
+        - hero_image_three_quarters
 breakpoint_group: responsive_image
-fallback_image_style: hero_image_quarter
+fallback_image_style: hero_image_three_quarters
