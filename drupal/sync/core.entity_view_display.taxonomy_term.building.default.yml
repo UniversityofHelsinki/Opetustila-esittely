@@ -52,20 +52,21 @@ third_party_settings:
         - taxonomy_term_title
         - field_images
       left:
+        - description
         - 'dynamic_block_field:taxonomy_term-building_spaces_view'
       right:
         - group_building_info
         - 'dynamic_token_field:taxonomy_term-building_address'
         - field_location_map
-        - field_contacts
-        - field_opening_times
         - group_opening_hours
+        - field_opening_times
+        - field_contacts
         - field_contact_details
         - group_contacts
     fields:
       'dynamic_block_field:taxonomy_term-building_spaces_view':
         plugin_id: 'dynamic_block_field:taxonomy_term-building_spaces_view'
-        weight: 2
+        weight: 3
         label: above
         formatter: default
         ft:
@@ -142,7 +143,7 @@ third_party_settings:
         - group_opening_hours
         - group_contacts
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: html_element
       format_settings:
         label: 'Building Info'
@@ -179,6 +180,13 @@ targetEntityType: taxonomy_term
 bundle: building
 mode: default
 content:
+  description:
+    type: text_default
+    weight: 2
+    region: left
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_contact_details:
     type: text_default
     weight: 7
@@ -262,7 +270,6 @@ content:
           settings:
             lb: ''
 hidden:
-  description: true
   field_building_id: true
   field_campus: true
   field_city: true
