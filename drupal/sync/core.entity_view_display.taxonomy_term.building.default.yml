@@ -55,14 +55,14 @@ third_party_settings:
         - description
         - 'dynamic_block_field:taxonomy_term-building_spaces_view'
       right:
-        - group_building_info
         - 'dynamic_token_field:taxonomy_term-building_address'
-        - field_location_map
+        - group_building_info
         - group_opening_hours
-        - field_opening_times
         - field_contacts
-        - field_contact_details
+        - field_location_map
+        - field_opening_times
         - group_contacts
+        - field_contact_details
     fields:
       'dynamic_block_field:taxonomy_term-building_spaces_view':
         plugin_id: 'dynamic_block_field:taxonomy_term-building_spaces_view'
@@ -139,8 +139,8 @@ third_party_settings:
     group_building_info:
       children:
         - 'dynamic_token_field:taxonomy_term-building_address'
-        - field_location_map
         - group_opening_hours
+        - field_location_map
         - group_contacts
       parent_name: ''
       weight: 4
@@ -161,7 +161,7 @@ third_party_settings:
       children:
         - field_opening_times
       parent_name: group_building_info
-      weight: 6
+      weight: 5
       format_type: html_element
       format_settings:
         label: 'Opening Hours'
@@ -222,7 +222,7 @@ content:
         ds_limit: '1'
   field_location_map:
     type: leaflet_formatter_default
-    weight: 5
+    weight: 6
     region: right
     label: visually_hidden
     settings:
