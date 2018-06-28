@@ -1,7 +1,11 @@
 .taxonomy-term--type-campus {
-  .field-name-field-images {
+  .field--name-field-images {
     img {
       width: 100%;
     }
   }
+}
+
+.field--name-field-campus-buildings {
+  margin-top: $line * 2;
 }

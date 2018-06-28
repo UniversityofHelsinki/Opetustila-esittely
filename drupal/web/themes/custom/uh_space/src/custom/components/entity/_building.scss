@@ -1,5 +1,5 @@
 .taxonomy-term--type-building {
-  .field-name-field-images {
+  .field--name-field-images {
     img {
       width: 100%;
     }
@@ -20,6 +20,10 @@
 
   .field {
     margin: $line / 2 0;
+  }
+
+  .field--name-field-location-map {
+    margin: $line 0;
   }
 
   .building__contacts {

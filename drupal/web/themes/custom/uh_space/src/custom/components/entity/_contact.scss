@@ -1,5 +1,7 @@
 .taxonomy-term--type-contacts {
   &.taxonomy-term--view-mode-liftup {
+    margin-bottom: $line;
+
     .contact__role {
       @extend h5;
       @include font-weight-bold;

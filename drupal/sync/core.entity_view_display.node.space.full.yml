@@ -93,7 +93,13 @@ third_party_settings:
         label: inline
         formatter: entity_reference_entity_view
         settings:
-          view_mode: anonymous
+          view_mode: liftup
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
       'ds_chains:node/space/field_building/field_equipment_information':
         plugin_id: 'ds_chains:node/space/field_building/field_equipment_information'
         weight: 11

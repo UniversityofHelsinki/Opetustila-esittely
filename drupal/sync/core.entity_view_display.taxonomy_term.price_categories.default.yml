@@ -9,7 +9,7 @@ dependencies:
     - field.field.taxonomy_term.price_categories.field_vat_rate
     - taxonomy.vocabulary.price_categories
   module:
-    - layout_discovery
+    - ds
     - link
 id: taxonomy_term.price_categories.default
 targetEntityType: taxonomy_term
@@ -18,14 +18,21 @@ mode: default
 content:
   field_internal_price:
     weight: 3
-    label: above
+    label: hidden
     settings:
       trim_length: 80
+      target: _blank
       url_only: false
       url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
+      rel: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     type: link
     region: content
   field_price_per_unit:

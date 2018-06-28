@@ -1,0 +1,14 @@
+uuid: c2f61300-b63f-4528-9e47-237effd98cdf
+langcode: fi
+status: true
+dependencies: {  }
+name: hero_image_three_quarters
+label: 'Hero Image Three Quarters'
+effects:
+  b1834f29-3e1e-4281-9469-fdddf36b8b4a:
+    uuid: b1834f29-3e1e-4281-9469-fdddf36b8b4a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 2160
+      height: 900
