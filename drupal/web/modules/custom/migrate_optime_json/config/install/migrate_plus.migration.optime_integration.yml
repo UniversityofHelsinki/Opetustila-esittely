@@ -153,7 +153,11 @@ process:
   field_optime_id: optime_id
   field_optime_index: optime_index
   field_building_id: building_id
-  field_capacity: capacity
+  field_capacity:
+    -
+      plugin: callback
+      callable: migrate_optime_json_get_capacity
+      source: capacity
   #field_last_changed_in_optime: last_changed_in_optime
   field_last_changed_in_optime:
   # Convert int to string, otherwise substr fails.
