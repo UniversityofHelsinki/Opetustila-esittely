@@ -33,24 +33,9 @@ third_party_settings:
     regions:
       ds_content:
         - field_role
-        - taxonomy_term_title
         - field_phone_number
         - field_email
         - description
-    fields:
-      taxonomy_term_title:
-        plugin_id: taxonomy_term_title
-        weight: 1
-        label: hidden
-        formatter: default
-        settings:
-          wrapper: div
-          class: contact__name
-          link: false
-        ft:
-          id: reset
-          settings:
-            lb: ''
   ds_chains:
     fields: {  }
 id: taxonomy_term.contacts.liftup
@@ -61,7 +46,7 @@ content:
   description:
     label: hidden
     type: text_default
-    weight: 4
+    weight: 3
     region: ds_content
     settings: {  }
     third_party_settings:
@@ -73,7 +58,7 @@ content:
             lb-col: false
             classes: {  }
   field_email:
-    weight: 3
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings:
@@ -87,7 +72,7 @@ content:
     type: email_mailto
     region: ds_content
   field_phone_number:
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       title: ''

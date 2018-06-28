@@ -53,8 +53,7 @@
   }
 
   &.node--view-mode-card {
-    display: flex;
-    flex-wrap: wrap;
+    @extend .card;
 
     // Make field image appear first in visual order, but not
     // read order.
@@ -118,5 +117,19 @@
         }
       }
     }
+  }
+}
+
+.space__guidance {
+  p {
+    margin: 0;
+  }
+
+  .field {
+    margin: $line / 2 0;
+  }
+
+  .field--name-field-location-map {
+    margin: $line 0;
   }
 }
