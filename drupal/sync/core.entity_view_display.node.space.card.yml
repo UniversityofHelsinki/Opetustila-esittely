@@ -68,9 +68,11 @@ third_party_settings:
         label: hidden
         formatter: default
         ft:
-          id: reset
+          id: minimal
           settings:
             lb: ''
+            lb-col: false
+            classes: {  }
       node_title:
         plugin_id: node_title
         weight: 0

@@ -13,6 +13,10 @@ use Drupal\Core\Url;
 use Drupal\Core\Site\Settings;
 use Drupal\redirect\Entity\Redirect;
 
+function migrate_optime_json_get_capacity($value = ""){
+  return !empty($value) ? $value : FALSE;
+}
+
 /** Simple migrate callbacks for filtering an address out of fields from a source
  *  which might contain a building name + address separated by a comma, or just the address.
  *    "buildingDescription": "Athena, Siltavuorenpenger 3 A"
