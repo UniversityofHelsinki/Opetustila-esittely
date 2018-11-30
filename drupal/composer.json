@@ -69,7 +69,8 @@
         "drupal/permissions_by_term": "^1.44",
         "contrib/d8-termstatus": "*",
         "drupal/google_tag": "^1.0",
-        "drupal/xmlsitemap": "^1.0@alpha"
+        "drupal/xmlsitemap": "^1.0@alpha",
+        "drupal/cookieconsent": "^1.4"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
