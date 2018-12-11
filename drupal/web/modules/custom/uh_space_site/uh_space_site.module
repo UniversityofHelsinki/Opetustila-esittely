@@ -97,9 +97,9 @@ function uh_space_site_form_alter(&$form, &$form_state, $form_id) {
 
       // Remove options that aren't first level campus TIDs.
       foreach ($tids as $tid) {
-        /*if ($tid == 'All') {
+        if ($tid == 'All') {
           continue;
-        }*/
+        }
 
         if (!in_array($tid, $campus_tids)) {
           unset($form['field_campus']['#options'][$tid]);
