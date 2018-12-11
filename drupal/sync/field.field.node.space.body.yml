@@ -18,7 +18,7 @@ id: node.space.body
 field_name: body
 entity_type: node
 bundle: space
-label: Kuvaus
+label: Lisätietoja
 description: ''
 required: false
 translatable: true

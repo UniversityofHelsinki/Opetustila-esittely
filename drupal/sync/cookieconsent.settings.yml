@@ -1,0 +1,16 @@
+minified: 1
+headline_text: 'Tällä sivustolla käytetään evästeitä käyttökokemuksesi parantamiseksi'
+accept_button_text: Hyväksyn
+read_more_button_text: 'More info'
+theme: light-bottom
+path: /
+domain: ''
+expiry: '365'
+target: _blank
+_core:
+  default_config_hash: _tr-X8c0EtWB8CElgT53wtsgTQfB_Th-MMGaw7xA6bo
+langcode: fi
+theme_path: ''
+customise: 0
+cookie_policy: null
+container: ''
