@@ -132,7 +132,7 @@ third_party_settings:
       weight: 4
       format_type: html_element
       format_settings:
-        label: 'Rental Price'
+        label: Hinta
         element: div
         show_label: true
         label_element: h4
@@ -141,7 +141,7 @@ third_party_settings:
         speed: fast
         id: ''
         classes: space__pricing
-      label: 'Rental Price'
+      label: Hinta
       region: hidden
   ds_chains:
     fields: {  }

@@ -10,7 +10,6 @@ dependencies:
     - taxonomy.vocabulary.campus
   module:
     - image
-    - layout_discovery
     - path
     - text
 id: taxonomy_term.campus.default
@@ -74,4 +73,6 @@ content:
   translation:
     weight: 10
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

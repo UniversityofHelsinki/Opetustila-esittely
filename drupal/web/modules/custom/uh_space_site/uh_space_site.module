@@ -55,6 +55,18 @@ function uh_space_site_views_query_alter($view, $query) {
   if ($view->id() == 'space_navigation' && $view->current_display == 'campus_buildings') {
     $query->where[0]['type'] = 'OR';
   }
+
+  // Don't run space search query, if no exposed filter inputs provided.
+  if ($view->id() == 'space_search' && $view->current_display == 'main') {
+    $exposed_input = $view->getExposedInput();
+    if (count($exposed_input) == 1 && $exposed_input['search_api_fulltext'] == '') {
+      // We return with no query; this will force the empty text.
+      $view->built = TRUE;
+      $view->executed = TRUE;
+      $view->result = [];
+    }
+  }
+
 }
 
 /**

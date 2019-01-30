@@ -12,7 +12,7 @@ bundle: price_categories
 label: 'Price Unit'
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value:
   -
     value: '/ €'

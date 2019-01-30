@@ -115,14 +115,14 @@ third_party_settings:
         weight: 0
         label: hidden
         formatter: text_default
-      'dynamic_block_field:node-space_equipment_view':
-        plugin_id: 'dynamic_block_field:node-space_equipment_view'
-        weight: 13
-        label: hidden
-        formatter: default
       'dynamic_copy_field:node-referenced_address_clone':
         plugin_id: 'dynamic_copy_field:node-referenced_address_clone'
         weight: 0
+        label: hidden
+        formatter: default
+      'dynamic_block_field:node-space_equipment_view':
+        plugin_id: 'dynamic_block_field:node-space_equipment_view'
+        weight: 13
         label: hidden
         formatter: default
       'dynamic_token_field:node-referenced_address':
@@ -342,11 +342,18 @@ content:
     label: hidden
     settings:
       trim_length: 80
+      target: _blank
       url_only: false
       url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
+      rel: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 hidden:
   field_building: true
   field_building_id: true

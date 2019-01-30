@@ -1,0 +1,20 @@
+uuid: 2bf3da8f-b09a-453a-b57c-bbc21d8709a1
+langcode: fi
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.price_categories
+  module:
+    - path
+id: taxonomy_term.price_categories.path
+field_name: path
+entity_type: taxonomy_term
+bundle: price_categories
+label: Osoitealias
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

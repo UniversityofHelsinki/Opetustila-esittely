@@ -6,14 +6,22 @@ dependencies:
     - field.storage.taxonomy_term.field_contacts
     - taxonomy.vocabulary.building
     - taxonomy.vocabulary.contacts
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: none
+    edit_disable_roles: {  }
 id: taxonomy_term.building.field_contacts
 field_name: field_contacts
 entity_type: taxonomy_term
 bundle: building
-label: Contacts
+label: Yhteystiedot
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

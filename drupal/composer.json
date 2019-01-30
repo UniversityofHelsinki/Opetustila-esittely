@@ -33,7 +33,7 @@
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/console": "^1.0.2",
-        "drupal/core": "8.5.3",
+        "drupal/core": "8.6.3",
         "drush/drush": "^9.2",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
@@ -69,7 +69,8 @@
         "drupal/permissions_by_term": "^1.44",
         "contrib/d8-termstatus": "*",
         "drupal/google_tag": "^1.0",
-        "drupal/xmlsitemap": "^1.0@alpha"
+        "drupal/xmlsitemap": "^1.0@alpha",
+        "drupal/cookieconsent": "^1.4"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",

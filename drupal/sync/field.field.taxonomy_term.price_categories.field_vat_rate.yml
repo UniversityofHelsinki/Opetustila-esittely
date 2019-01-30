@@ -5,6 +5,14 @@ dependencies:
   config:
     - field.storage.taxonomy_term.field_vat_rate
     - taxonomy.vocabulary.price_categories
+  module:
+    - disable_field
+third_party_settings:
+  disable_field:
+    add_disable: none
+    add_disable_roles: {  }
+    edit_disable: none
+    edit_disable_roles: {  }
 id: taxonomy_term.price_categories.field_vat_rate
 field_name: field_vat_rate
 entity_type: taxonomy_term
@@ -12,12 +20,12 @@ bundle: price_categories
 label: 'VAT Rate'
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   min: !!float 0
   max: !!float 100
   prefix: ''
-  suffix: '% VAT'
+  suffix: '% ALV'
 field_type: decimal

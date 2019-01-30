@@ -1,0 +1,20 @@
+uuid: 35849d54-0163-43dc-bb1f-7a9b0fe9aae6
+langcode: fi
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.price_categories
+  module:
+    - text
+id: taxonomy_term.price_categories.description
+field_name: description
+entity_type: taxonomy_term
+bundle: price_categories
+label: Kuvaus
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

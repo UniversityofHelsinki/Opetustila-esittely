@@ -22,6 +22,7 @@ permissions:
   - 'administer migrate_optime_json configuration'
   - 'administer nodes'
   - 'administer redirects'
+  - 'administer site configuration'
   - 'administer taxonomy'
   - 'administer url aliases'
   - 'administer webform submission'
