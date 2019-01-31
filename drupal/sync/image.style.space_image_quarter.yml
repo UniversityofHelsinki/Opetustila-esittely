@@ -4,4 +4,12 @@ status: true
 dependencies: {  }
 name: space_image_quarter
 label: 'Space Image Quarter'
-effects: {  }
+effects:
+  69786721-42b3-49ca-947a-6d931eb0133f:
+    uuid: 69786721-42b3-49ca-947a-6d931eb0133f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 360
+      height: 240
+      anchor: center-center

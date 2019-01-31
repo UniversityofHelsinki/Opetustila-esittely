@@ -8,10 +8,11 @@ module:
   config_filter: 0
   config_ignore: 0
   config_split: 0
+  cookieconsent: 0
   ctools: 0
   datetime: 0
   datetime_range: 0
-  devel: 0
+  dblog: 0
   disable_field: 0
   ds_chains: 0
   dynamic_page_cache: 0

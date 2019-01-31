@@ -5,8 +5,10 @@
       margin-bottom: $line / 2;
     }
 
-    .field--name-field-images {
-      margin-bottom: $line * 2;
+    .group-header {
+      .field--name-field-images {
+        margin-bottom: $line * 2;
+      }
     }
   }
 

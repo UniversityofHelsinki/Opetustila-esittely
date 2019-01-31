@@ -6,12 +6,17 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.space.body
     - field.field.node.space.field_accessibility
+    - field.field.node.space.field_accessible_entry
     - field.field.node.space.field_building
     - field.field.node.space.field_building_id
     - field.field.node.space.field_campus
     - field.field.node.space.field_capacity
     - field.field.node.space.field_equipment
+    - field.field.node.space.field_equipment_information
+    - field.field.node.space.field_floor
     - field.field.node.space.field_images
+    - field.field.node.space.field_inactivate_in_optime
+    - field.field.node.space.field_inactivated_in_drupal
     - field.field.node.space.field_last_changed_in_optime
     - field.field.node.space.field_legacy_url
     - field.field.node.space.field_optime_comments
@@ -20,9 +25,9 @@ dependencies:
     - field.field.node.space.field_price_category
     - field.field.node.space.field_reservation_link
     - field.field.node.space.field_room_type
+    - field.field.node.space.field_street_address
     - node.type.space
   module:
-    - layout_discovery
     - text
     - user
 id: node.space.teaser
@@ -41,9 +46,13 @@ content:
   field_smart_equipment_information:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_accessibility: true
   field_accessible_entry: true
@@ -55,6 +64,8 @@ hidden:
   field_equipment_information: true
   field_floor: true
   field_images: true
+  field_inactivate_in_optime: true
+  field_inactivated_in_drupal: true
   field_last_changed_in_optime: true
   field_legacy_url: true
   field_optime_comments: true
@@ -63,4 +74,5 @@ hidden:
   field_price_category: true
   field_reservation_link: true
   field_room_type: true
+  field_street_address: true
   langcode: true

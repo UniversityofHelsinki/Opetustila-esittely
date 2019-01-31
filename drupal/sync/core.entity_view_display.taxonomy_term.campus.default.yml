@@ -28,6 +28,7 @@ third_party_settings:
         link_custom: ''
         classes:
           layout_class: {  }
+          ds_content: {  }
     regions:
       ds_content:
         - taxonomy_term_title
@@ -42,15 +43,17 @@ third_party_settings:
         ft:
           id: expert
           settings:
-            lb: ''
+            lb: Buildings
             prefix: ''
             lbw: true
-            lbw-el: ''
-            lbw-cl: visually-hidden
+            lbw-el: h2
+            lbw-cl: field__label--visually_hidden
             lbw-at: ''
-            ow-el: ''
-            ow-cl: ''
+            ow: true
+            ow-el: div
+            ow-cl: 'field field--name-field-campus-buildings'
             ow-at: ''
+            ow-def-cl: true
             fis-el: ''
             fis-cl: ''
             fis-at: ''
@@ -59,9 +62,7 @@ third_party_settings:
             fi-at: ''
             suffix: ''
             lb-col: false
-            ow: false
             ow-def-at: false
-            ow-def-cl: false
             fis: false
             fis-def-at: false
             fi: false

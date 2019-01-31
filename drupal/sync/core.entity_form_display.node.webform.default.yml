@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.webform.webform
     - node.type.webform
   module:
-    - layout_discovery
     - path
     - text
     - webform
@@ -87,6 +86,8 @@ content:
   url_redirects:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
   webform:
     weight: 0
     settings: {  }

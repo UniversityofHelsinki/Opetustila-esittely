@@ -18,10 +18,10 @@ id: node.space.field_price_category
 field_name: field_price_category
 entity_type: node
 bundle: space
-label: Hintaluokka
+label: Hinta
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

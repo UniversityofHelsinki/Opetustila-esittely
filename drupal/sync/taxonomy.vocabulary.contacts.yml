@@ -1,9 +1,9 @@
 uuid: 5c427be1-bd75-4c4f-a1d4-ad614758db33
-langcode: und
+langcode: fi
 status: true
 dependencies: {  }
-name: Contacts
+name: Yhteystiedot
 vid: contacts
-description: 'Contact details.'
+description: Yhteystiedot
 hierarchy: 0
 weight: 0

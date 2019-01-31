@@ -18,18 +18,21 @@
       <a class="links__link" href="{{ logo_path }}">Helsingin yliopisto</a>
     </div>
   </div>
+  {#
   <div class="l-top-bar__right">
     <div class="links theme-plain">
       {{ elements.languageswitcher }}
     </div>
   </div>
+  #}
 </div>
 
-<div class="l-header-bar {{ header_class }}">
+<div class="l-header-bar">
   <div class="l-header-bar__top">
     <div class="l-header-bar__left">
       {% if logo_path and logo_text %}
-        <a href="{{ url('<front>') }}" class="logo">
+        <a href="{{ url('<front>') }}" class="svg-logo">
+          {{ logo | raw }}
           <p class="logo__sitename">{{ site_name }}</p>
         </a>
       {% endif %}

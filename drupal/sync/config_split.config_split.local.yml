@@ -4,18 +4,22 @@ status: true
 dependencies: {  }
 id: local
 label: Local
+description: ''
 folder: ../conf/config_split/local
 module:
   kint: 0
+  stage_file_proxy: 0
 theme: {  }
 blacklist:
+  - uhsg_service_provider_details.settings
+  - google_tag.settings
   - redirect.settings
   - redirect_404.settings
-  - uhsg_service_provider_details.settings
+graylist:
   - xmlsitemap.settings
-  - 'system.site.page.*'
   - 'devel.*'
-graylist: {  }
+  - system.site.name
+  - 'system.site.page.*'
 graylist_dependents: true
 graylist_skip_equal: true
 weight: 0

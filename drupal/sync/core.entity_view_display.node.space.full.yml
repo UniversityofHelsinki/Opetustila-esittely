@@ -71,6 +71,7 @@ third_party_settings:
         - 'dynamic_copy_field:node-referenced_address_clone'
         - field_floor
         - field_accessible_entry
+        - 'ds_chains:node/space/field_building/field_location_map'
         - group_guidance
       left:
         - 'ds_chains:node/space/field_campus/field_reservation_instructions'
@@ -92,25 +93,36 @@ third_party_settings:
         label: inline
         formatter: entity_reference_entity_view
         settings:
-          view_mode: anonymous
+          view_mode: liftup
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
       'ds_chains:node/space/field_building/field_equipment_information':
         plugin_id: 'ds_chains:node/space/field_building/field_equipment_information'
         weight: 11
         label: hidden
         formatter: basic_string
+      'ds_chains:node/space/field_building/field_location_map':
+        plugin_id: 'ds_chains:node/space/field_building/field_location_map'
+        weight: 3
+        label: hidden
+        formatter: leaflet_formatter_default
       'ds_chains:node/space/field_campus/field_reservation_instructions':
         plugin_id: 'ds_chains:node/space/field_campus/field_reservation_instructions'
         weight: 0
         label: hidden
         formatter: text_default
-      'dynamic_block_field:node-space_equipment_view':
-        plugin_id: 'dynamic_block_field:node-space_equipment_view'
-        weight: 13
-        label: hidden
-        formatter: default
       'dynamic_copy_field:node-referenced_address_clone':
         plugin_id: 'dynamic_copy_field:node-referenced_address_clone'
         weight: 0
+        label: hidden
+        formatter: default
+      'dynamic_block_field:node-space_equipment_view':
+        plugin_id: 'dynamic_block_field:node-space_equipment_view'
+        weight: 13
         label: hidden
         formatter: default
       'dynamic_token_field:node-referenced_address':
@@ -174,6 +186,7 @@ third_party_settings:
         - 'dynamic_copy_field:node-referenced_address_clone'
         - field_floor
         - field_accessible_entry
+        - 'ds_chains:node/space/field_building/field_location_map'
       parent_name: ''
       weight: 6
       format_type: html_element
@@ -329,11 +342,18 @@ content:
     label: hidden
     settings:
       trim_length: 80
+      target: _blank
       url_only: false
       url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
+      rel: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 hidden:
   field_building: true
   field_building_id: true

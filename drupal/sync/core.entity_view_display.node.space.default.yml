@@ -53,11 +53,19 @@ third_party_settings:
         link_custom: ''
         classes:
           layout_class: {  }
+          header: {  }
+          left: {  }
+          right: {  }
+          footer: {  }
     regions:
       header:
         - links
         - field_reservation_link
         - field_images
+        - field_smart_equipment_information
+        - field_street_address
+        - field_inactivate_in_optime
+        - field_inactivated_in_drupal
       left:
         - group_key_information
         - field_equipment_information
@@ -155,14 +163,14 @@ content:
     type: entity_reference_entity_id
     weight: 4
     region: left
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
   field_equipment_information:
     type: basic_string
     weight: 3
     region: left
-    label: hidden
+    label: inline
     settings: {  }
     third_party_settings: {  }
   field_floor:
@@ -191,7 +199,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
+    region: header
   field_inactivated_in_drupal:
     weight: 103
     label: above
@@ -201,7 +209,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
+    region: header
   field_price_category:
     type: entity_reference_entity_view
     weight: 8
@@ -225,7 +233,9 @@ content:
     third_party_settings: {  }
   field_smart_equipment_information:
     weight: 100
-    region: content
+    region: header
+    settings: {  }
+    third_party_settings: {  }
   field_street_address:
     weight: 101
     label: above
@@ -233,7 +243,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
+    region: header
   links:
     weight: 0
     region: header

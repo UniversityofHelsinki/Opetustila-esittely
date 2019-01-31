@@ -19,7 +19,10 @@ dependencies:
   module:
     - ds
     - ds_chains
+    - field_group
     - leaflet
+    - responsive_image
+    - text
 third_party_settings:
   ds:
     layout:
@@ -36,16 +39,30 @@ third_party_settings:
         link_custom: ''
         classes:
           layout_class: {  }
-          ds_content: {  }
+          header: {  }
+          left: {  }
+          right: {  }
+          footer: {  }
     regions:
       ds_content:
         - taxonomy_term_title
+        - field_images
+      left:
+        - description
         - 'dynamic_block_field:taxonomy_term-building_spaces_view'
+      right:
+        - 'dynamic_token_field:taxonomy_term-building_address'
+        - group_building_info
+        - group_opening_hours
+        - field_contacts
         - field_location_map
+        - field_opening_times
+        - group_contacts
+        - field_contact_details
     fields:
       'dynamic_block_field:taxonomy_term-building_spaces_view':
         plugin_id: 'dynamic_block_field:taxonomy_term-building_spaces_view'
-        weight: 1
+        weight: 3
         label: above
         formatter: default
         ft:
@@ -85,21 +102,120 @@ third_party_settings:
           class: page__title
           link: false
         ft:
-          id: minimal
+          id: reset
           settings:
             lb: ''
-            lb-col: false
-            classes: {  }
   ds_chains:
     fields: {  }
+  field_group:
+    group_contacts:
+      children:
+        - field_contacts
+        - field_contact_details
+      parent_name: group_building_info
+      weight: 7
+      format_type: html_element
+      format_settings:
+        label: Contacts
+        element: div
+        show_label: true
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: building__contacts
+      label: Contacts
+      region: hidden
+    group_building_info:
+      children:
+        - 'dynamic_token_field:taxonomy_term-building_address'
+        - group_opening_hours
+        - field_location_map
+        - group_contacts
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        label: 'Building Info'
+        element: div
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: building__info
+      label: 'Building Info'
+      region: hidden
+    group_opening_hours:
+      children:
+        - field_opening_times
+      parent_name: group_building_info
+      weight: 5
+      format_type: html_element
+      format_settings:
+        label: 'Opening Hours'
+        element: div
+        show_label: true
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'building__opening-hours field-group--label-visually_hidden'
+      label: 'Opening Hours'
+      region: hidden
 id: taxonomy_term.building.default
 targetEntityType: taxonomy_term
 bundle: building
 mode: default
 content:
-  field_location_map:
+  description:
+    type: text_default
     weight: 2
+    region: left
     label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_contact_details:
+    type: text_default
+    weight: 7
+    region: right
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_contacts:
+    type: entity_reference_entity_view
+    weight: 6
+    region: right
+    label: hidden
+    settings:
+      view_mode: liftup
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: reset
+          settings:
+            lb: ''
+  field_images:
+    type: responsive_image
+    weight: 1
+    region: header
+    label: hidden
+    settings:
+      responsive_image_style: hero_image
+      image_link: ''
+    third_party_settings:
+      ds:
+        ds_limit: '1'
+  field_location_map:
+    type: leaflet_formatter_default
+    weight: 6
+    region: right
+    label: visually_hidden
     settings:
       leaflet_map: 'OSM Mapnik'
       zoom: '16'
@@ -132,18 +248,24 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: leaflet_formatter_default
-    region: ds_content
+  field_opening_times:
+    type: text_default
+    weight: 6
+    region: right
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
 hidden:
-  description: true
   field_building_id: true
   field_campus: true
   field_city: true
-  field_contact_details: true
-  field_contacts: true
   field_equipment_information: true
   field_geolocation_address: true
-  field_images: true
   field_navigation_link: true
   field_opening_times: true
   field_street_address: true

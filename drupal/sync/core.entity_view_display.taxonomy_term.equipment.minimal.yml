@@ -24,6 +24,7 @@ third_party_settings:
         link_custom: ''
         classes:
           layout_class: {  }
+          ds_content: {  }
     regions:
       ds_content:
         - taxonomy_term_title
@@ -37,6 +38,33 @@ third_party_settings:
           wrapper: ''
           class: equipment__name
           link: false
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: icon=done;
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   ds_chains:
     fields: {  }
 id: taxonomy_term.equipment.minimal

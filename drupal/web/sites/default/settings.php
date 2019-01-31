@@ -66,15 +66,15 @@ switch ($env) {
     $base_url = "https://opetustila-staging.it.helsinki.fi";
     break;
 
-    case 'local':
-      $settings['simple_environment_indicator'] = '#88b700 Local';
-      $base_url = "http://opetustila.local.helsinki.fi";
-      break;
+  case 'local':
+    $settings['simple_environment_indicator'] = '#88b700 Local';
+    $base_url = "https://local.tilat.fi";
+    break;
 
-    case 'lando':
-      $settings['simple_environment_indicator'] = '#88b700 Local';
-      $base_url = "http://tilat.lndo.site";
-      break;
+  case 'lando':
+    $settings['simple_environment_indicator'] = '#88b700 Local';
+    $base_url = "https://tilat.lndo.site";
+    break;
 }
 /**
  * Location of the site configuration files.
@@ -117,11 +117,12 @@ $import_period = time() - (168 * 3600); // Import last 7 days of changes.
 # */25 * * * * cd /var/www/opetustila-test.it.helsinki.fi/current/web/sites/default; /usr/lib/composer/vendor/bin/drush mim optime_integration --update
 
 // Fix warning on Drupal status page.
-$settings['trusted_host_patterns'] = array(
-'^tilat\.lndo\.site$',
-'^.*\.helsinki\.fi$',
-'^127\.0\.0\.1$',
-);
+$settings['trusted_host_patterns'] = [
+  '^local\.tilat\.fi$',
+  '^tilat\.lndo\.site$',
+  '^.*\.helsinki\.fi$',
+  '^127\.0\.0\.1$',
+];
 
 
 /**

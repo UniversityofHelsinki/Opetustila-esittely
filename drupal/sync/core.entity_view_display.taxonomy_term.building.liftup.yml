@@ -125,6 +125,8 @@ hidden:
   field_contact_details: true
   field_contacts: true
   field_equipment_information: true
+  field_geolocation_address: true
+  field_location_map: true
   field_navigation_link: true
   field_opening_times: true
   field_street_address: true
