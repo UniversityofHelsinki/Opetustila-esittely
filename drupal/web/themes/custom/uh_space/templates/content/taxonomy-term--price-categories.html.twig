@@ -30,12 +30,12 @@
 
   <div class="price-category__extra">
     <div class="price-category__name">
-      {{ "Price Category: " | trans }}
+      {{ 'Price Category: '|t }}
       {{ name }}
     </div>
     {% if content.field_vat_rate %}
       <div class="price-category__vat_excl">
-        {{ "Sis." }}
+        {{ 'Incl.'|t }}
         {{ content.field_vat_rate }}
       </div>
     {% endif %}
@@ -44,4 +44,5 @@
         {{ content.field_internal_price }}
       </div>
     {% endif %}
+  </div>
 </div>
