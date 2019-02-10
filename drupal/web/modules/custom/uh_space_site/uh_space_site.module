@@ -2,6 +2,8 @@
 
 use \Drupal\Core\Entity\EntityInterface;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
 
 /**
  *  Implements hook_theme().
@@ -117,6 +119,46 @@ function uh_space_site_form_alter(&$form, &$form_state, $form_id) {
           unset($form['field_campus']['#options'][$tid]);
         }
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_language_switch_links_alter().
+ */
+function uh_space_site_language_switch_links_alter(array &$links, $type, Url $url) {
+  // Get current language.
+  $language_interface = \Drupal::languageManager()->getCurrentLanguage();
+
+  // Language title texts.
+  $language_titles = [
+    'fi' => 'Suomi',
+    'sv' => 'Svenska',
+    'en' => 'English',
+  ];
+
+  // Get status code.
+  $exception = \Drupal::requestStack()->getCurrentRequest()->attributes->get('exception');
+  $not_found = !is_null($exception) && $exception->getStatusCode() == 404;
+
+  // Get current node from route.
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  foreach ($links as $langcode => &$link) {
+
+    if (array_key_exists($langcode, $language_titles)) {
+      $link['title'] = $language_titles[$langcode];
+    }
+
+    // Link to front page if status is 404 or current node (if page is node)
+    // doesn't have translation.
+    if ($not_found || ($node instanceof NodeInterface && !$node->hasTranslation($langcode))) {
+      $link['url'] = Url::fromRoute('<front>', [], ['absolute' => TRUE]);
+    }
+
+    // Is active link.
+    if ($langcode == $language_interface->getId()) {
+      $link['is_active'] = TRUE;
     }
   }
 }
