@@ -413,7 +413,7 @@ display:
           operator: or
           value: ''
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: search_api_fulltext_op
             label: 'Free search'
@@ -425,8 +425,8 @@ display:
             remember: true
             multiple: false
             remember_roles:
-              anonymous: anonymous
               authenticated: authenticated
+              anonymous: anonymous
               admin: '0'
               editor: '0'
             placeholder: ''
