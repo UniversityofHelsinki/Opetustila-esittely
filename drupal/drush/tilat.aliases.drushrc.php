@@ -8,12 +8,17 @@ if (file_exists(drush_server_home() . '/.vagrant.d')) {
   array_pop($path);
   $path[] = '.vagrant';
   $path = implode('/', $path);
-  $key = shell_exec('find ' . $path . ' -iname private_key');
-  if (!$key) {
-    $key = $home . '/.vagrant.d/insecure_private_key';
+  // Check that the folder actually exists.
+  if (file_exists($path)) {
+    $key = shell_exec('find ' . $path . ' -iname private_key');
+    if (!$key) {
+      $key = $home . '/.vagrant.d/insecure_private_key';
+    }
+    $key = rtrim($key);
   }
-  $key = rtrim($key);
-
+  else {
+    $key = "";
+  }
 } else {
   // .vagrant directory doesn't exist, just use empty key
   $key = "";
@@ -21,62 +26,47 @@ if (file_exists(drush_server_home() . '/.vagrant.d')) {
 
 $aliases['local'] = array(
   'parent' => '@parent',
-  'site' => 'wundertools',
+  'site' => 'tilat',
   'env' => 'vagrant',
-  'root' => '/vagrant/drupal/web',
-  'remote-host' => 'local.wundertools.com',
+  'root' => '/vagrant/drupal/current',
+  'remote-host' => 'local.tilat.fi',
   'remote-user' => 'vagrant',
   'ssh-options' => '-i ' . $key,
-  'path-aliases' => array(
-    '%files' => '/vagrant/drupal/files',
-    '%dump-dir' => '/home/vagrant',
-  ),
 );
 
-$aliases['dev'] = array(
-  'uri' => 'https://dev.wundertools.com',
-  'remote-user' => 'www-admin',
-  'remote-host' => 'dev.wundertools.com',
-  'root' => '/var/www/dev.wundertools.com/web',
-  'path-aliases' => array(
-    '%dump-dir' => '/home/www-admin',
-  ),
-  'command-specific' => array(
-    'sql-sync' => array(
-      'no-cache' => TRUE,
-    ),
-  ),
-);
+// Fetch personal remote account settings. This should give us
+// $remote_account_dev and $remote_account_prod variables.
+include dirname(__FILE__) . '/drush-alias-settings.php';
 
-$aliases['stage'] = array(
-  'uri' => 'https://stage.wundertools.com',
-  'remote-user' => 'www-admin',
-  'remote-host' => 'stage.wundertools.com',
-  'root' => '/var/www/stage.wundertools.com/web',
-  'path-aliases' => array(
-    '%dump-dir' => '/home/www-admin',
-  ),
-  'command-specific' => array(
-    'sql-sync' => array(
-      'no-cache' => TRUE,
-    ),
-  ),
-);
+// Develop.
+if (!empty($remote_account_dev)) {
+  $aliases['develop'] = array(
+    'uri' => 'opetustila-test.it.helsinki.fi',
+    'root' => '/var/www/opetustila-test.it.helsinki.fi/current',
+    'remote-host' => 'opetustila-test.it.helsinki.fi',
+    'remote-user' => $remote_account_dev,
+    'path-aliases' => array('%dump-dir' => '/home/' . $remote_account_dev),
+  );
+}
 
-$aliases['prod'] = array(
-  'uri' => 'https://wundertools.com',
-  'remote-user' => 'www-admin',
-  'remote-host' => 'wundertools.com',
-  'root' => '/var/www/wundertools.com/web',
-  'path-aliases' => array(
-    '%dump-dir' => '/home/www-admin',
-  ),
-  'command-specific' => array(
-    'sql-sync' => array(
-      'no-cache' => TRUE,
-    ),
-  ),
-);
+// Stage.
+if (!empty($remote_account_dev)) {
+  $aliases['stage'] = array(
+    'uri' => 'opetustila-staging.it.helsinki.fi',
+    'root' => '/var/www/opetustila-staging.it.helsinki.fi/current',
+    'remote-host' => 'opetustila-staging.it.helsinki.fi',
+    'remote-user' => $remote_account_dev,
+    'path-aliases' => array('%dump-dir' => '/home/' . $remote_account_dev),
+  );
+}
 
-
-$options['editor'] = 'nano';
+// Production.
+if (!empty($remote_account_prod)) {
+  $aliases['production'] = array(
+    'uri' => 'tilavaraus.helsinki.fi',
+    'root' => '/var/www/tilavaraus.helsinki.fi/current',
+    'remote-host' => 'tilavaraus.helsinki.fi',
+    'remote-user' => $remote_account_prod,
+    'path-aliases' => array('%dump-dir' => '/home/' . $remote_account_prod),
+  );
+}
