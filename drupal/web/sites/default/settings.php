@@ -47,6 +47,9 @@ if (!empty($_SERVER['SERVER_ADDR'])) {
   header('X-Webserver: ' . end($pcs));
 }
 
+// Be sure to have config_split.local disabled by default.
+$config['config_split.config_split.local']['status'] = FALSE;
+
 $env = getenv('WKV_SITE_ENV');
 global $base_url;
 
@@ -59,6 +62,8 @@ switch ($env) {
   case 'dev':
     $settings['simple_environment_indicator'] = '#004984 Development';
     $base_url = "https://opetustila-test.it.helsinki.fi";
+    // Enable config_split.dev on dev.
+    $config['config_split.config_split.local']['status'] = TRUE;
     break;
 
   case 'stage':
@@ -69,11 +74,15 @@ switch ($env) {
   case 'local':
     $settings['simple_environment_indicator'] = '#88b700 Local';
     $base_url = "https://local.tilat.fi";
+    // Enable config_split.dev on local.
+    $config['config_split.config_split.local']['status'] = TRUE;
     break;
 
   case 'lando':
     $settings['simple_environment_indicator'] = '#88b700 Local';
     $base_url = "https://tilat.lndo.site";
+    // Enable config_split.dev on local.
+    $config['config_split.config_split.local']['status'] = TRUE;
     break;
 }
 /**

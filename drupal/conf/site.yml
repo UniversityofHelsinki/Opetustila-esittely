@@ -41,12 +41,12 @@ default:
           - builds
       - make
       - drush: updb -y
+      - drush: cr
       - drush: cim -y
-      - drush: entup -y
       - cleanup
-      - shell:
-        - vendor/bin/codecept clean -c web/codeception.yml
-        - vendor/bin/codecept run -c web/codeception.yml
+      #- shell:
+        #- vendor/bin/codecept clean -c web/codeception.yml
+        #- vendor/bin/codecept run -c web/codeception.yml
 
     test:
       - shell:
@@ -62,15 +62,18 @@ ci:
     build:
       - make
       - shell: chmod -R a+w web
+
 # Development environment:
 dev:
 
   aliases: develop
 
+  # Allow development modules to be installed.
+  allow_composer_dev: true
+
   # Test environment only symlinks files
   link:
     - /var/www/opetustila-test.it.helsinki.fi/files: web/sites/default/files
-
 
   # You can use copy to put some custom files in place if needed
   #copy:
@@ -96,16 +99,14 @@ dev:
 
     update:
       - drush: updb -y
+      - drush: cr
       - drush: cim -y
-      - drush: entup -y
       - cleanup
       - shell: chmod -R a-w web
       - shell: sudo systemctl restart nginx php-fpm varnish
         #- shell:
         #- vendor/bin/codecept clean -c web/codeception.yml
         #- vendor/bin/codecept run -c web/codeception.yml --env test
-
-
 
 # Test environment:
 test:
@@ -116,7 +117,6 @@ test:
   link:
     - /var/www/opetustila-staging.it.helsinki.fi/files: web/sites/default/files
 
-
   # You can use copy to put some custom files in place if needed
   #copy:
     #- conf/_ping.php: web/_ping.php
@@ -141,15 +141,14 @@ test:
 
     update:
       - drush: updb -y
+      - drush: cr
       - drush: cim -y
-      - drush: entup -y
       - cleanup
       - shell: chmod -R a-w web
       - shell: sudo systemctl restart nginx php-fpm varnish
         #- shell:
         #- vendor/bin/codecept clean -c web/codeception.yml
         #- vendor/bin/codecept run -c web/codeception.yml --env test
-
 
 # Production environment:
 production:
@@ -173,7 +172,6 @@ production:
       - drush: site-install config_installer
       - cleanup
 
-
     # Basic site update functionality
     build:
       - backup:
@@ -185,11 +183,10 @@ production:
 
     update:
       - drush: updb -y
+      - drush: cr
       - drush: cim -y
-      - drush: entup -y
       - cleanup
       - shell: chmod -R a-w web
       - shell: sudo systemctl restart nginx php-fpm varnish
       #- shell: sudo systemctl -H [front2_ip] restart php-fpm nginx
       #- shell: sudo systemctl -H [lb_ip] restart varnish
-

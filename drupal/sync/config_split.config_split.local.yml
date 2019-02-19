@@ -8,6 +8,7 @@ description: ''
 folder: ../conf/config_split/local
 module:
   devel: 0
+  devel_php: 0
   kint: 0
   stage_file_proxy: 0
 theme: {  }
