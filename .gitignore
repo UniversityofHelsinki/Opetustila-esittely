@@ -21,3 +21,7 @@ secrets
 
 # Ignore python virtualenv created by provision.sh
 .virtualenv
+Pipfile
+
+# Ignore per-developer private settings file
+drupal/conf/settings.private.php
