@@ -5,5 +5,4 @@ dependencies: {  }
 name: Accessibility
 vid: accessibility
 description: 'Is the space easily accessible for everyone.'
-hierarchy: 0
 weight: 0
