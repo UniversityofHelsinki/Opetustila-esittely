@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Price Categories'
 vid: price_categories
 description: 'Pricing categories of spaces.'
-hierarchy: 0
 weight: 0

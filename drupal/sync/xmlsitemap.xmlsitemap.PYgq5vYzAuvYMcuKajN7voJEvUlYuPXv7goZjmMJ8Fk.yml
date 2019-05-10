@@ -4,9 +4,5 @@ status: true
 dependencies: {  }
 id: PYgq5vYzAuvYMcuKajN7voJEvUlYuPXv7goZjmMJ8Fk
 label: 'http://tilat.lndo.site/fi'
-chunks: 0
-links: 0
-max_filesize: 110
 context:
   language: fi
-updated: 1528381561

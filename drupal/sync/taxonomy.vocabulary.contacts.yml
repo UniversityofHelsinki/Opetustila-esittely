@@ -5,5 +5,4 @@ dependencies: {  }
 name: Yhteystiedot
 vid: contacts
 description: Yhteystiedot
-hierarchy: 0
 weight: 0
