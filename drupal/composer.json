@@ -1,5 +1,5 @@
 {
-    "name": "Tilat Composer File",
+    "name": "uh/tilat",
     "description": "HY-Tilat Composer file",
     "type": "project",
     "license": "GPL-2.0+",
@@ -54,7 +54,7 @@
         "drupal/libraries": "^3.0@alpha",
         "drupal/field_permissions": "^1.0@beta",
         "drupal/field_group": "3.0-beta1",
-        "drupal/ds": "3.1",
+        "drupal/ds": "^3.1",
         "drupal/ds_chains": "^1.0@alpha",
         "drupal/search_api": "^1.7",
         "drupal/search_api_autocomplete": "1.0-rc1",
@@ -69,7 +69,8 @@
         "contrib/d8-termstatus": "*",
         "drupal/google_tag": "^1.0",
         "drupal/xmlsitemap": "^1.0@alpha",
-        "drupal/cookieconsent": "^1.4"
+        "drupal/cookieconsent": "^1.4",
+        "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
