@@ -54,7 +54,7 @@
         "drupal/libraries": "^3.0@alpha",
         "drupal/field_permissions": "^1.0@beta",
         "drupal/field_group": "3.0-beta1",
-        "drupal/ds": "3.1",
+        "drupal/ds": "^3.1",
         "drupal/ds_chains": "^1.0@alpha",
         "drupal/search_api": "^1.7",
         "drupal/search_api_autocomplete": "1.0-rc1",
