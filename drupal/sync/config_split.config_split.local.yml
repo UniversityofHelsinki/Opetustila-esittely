@@ -18,10 +18,9 @@ blacklist:
   - redirect.settings
   - redirect_404.settings
 graylist:
-  - xmlsitemap.settings
   - 'devel.*'
   - system.site.name
   - 'system.site.page.*'
 graylist_dependents: true
-graylist_skip_equal: false
+graylist_skip_equal: true
 weight: 0
