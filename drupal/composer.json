@@ -68,7 +68,6 @@
         "drupal/permissions_by_term": "^1.44",
         "contrib/d8-termstatus": "*",
         "drupal/google_tag": "^1.0",
-        "drupal/xmlsitemap": "^1.0@alpha",
         "drupal/cookieconsent": "^1.4",
         "zaporylie/composer-drupal-optimizations": "^1.0",
         "drupal/simple_sitemap": "^3.1"
