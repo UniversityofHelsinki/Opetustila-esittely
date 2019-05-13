@@ -57,7 +57,7 @@
         "drupal/ds": "^3.1",
         "drupal/ds_chains": "^1.0@alpha",
         "drupal/search_api": "^1.7",
-        "drupal/search_api_autocomplete": "1.0-rc1",
+        "drupal/search_api_autocomplete": "^1.0",
         "drupal/disable_field": "^1.8",
         "drupal/taxonomy_publish": "^1.0",
         "drupal/field_group_link": "^3.0@RC",
@@ -121,7 +121,7 @@
         },
         "patches": {
           "drupal/search_api_autocomplete": {
-              "Fix uppercase search autocomplete": "https://www.drupal.org/files/issues/autocomplete-without-case-sensitive-2947273-4.patch"
+              "Fix uppercase search autocomplete": "https://www.drupal.org/files/issues/2019-02-20/2947273-25--fix-live-results-query-preprocessing.patch"
           }
         }
     }
