@@ -57,6 +57,8 @@ switch ($env) {
   case 'prod':
     $settings['simple_environment_indicator'] = '#d4000f Production';
     $base_url = "https://tilavaraus.helsinki.fi";
+    // Sitemap settings override.
+    $config['simple_sitemap.settings']['base_url'] = 'https://tilavaraus.helsinki.fi';
     break;
 
   case 'dev':
@@ -64,11 +66,15 @@ switch ($env) {
     $base_url = "https://opetustila-test.it.helsinki.fi";
     // Enable config_split.dev on dev.
     $config['config_split.config_split.local']['status'] = TRUE;
+    // Sitemap settings override.
+    $config['simple_sitemap.settings']['base_url'] = 'https://opetustila-test.it.helsinki.fi';
     break;
 
   case 'stage':
     $settings['simple_environment_indicator'] = '#e56716 Stage';
     $base_url = "https://opetustila-staging.it.helsinki.fi";
+    // Sitemap settings override.
+    $config['simple_sitemap.settings']['base_url'] = 'https://opetustila-staging.it.helsinki.fi';
     break;
 
   case 'local':
@@ -76,6 +82,8 @@ switch ($env) {
     $base_url = "https://local.tilat.fi";
     // Enable config_split.dev on local.
     $config['config_split.config_split.local']['status'] = TRUE;
+    // Sitemap settings override.
+    $config['simple_sitemap.settings']['base_url'] = 'https://local.tilat.fi';
     break;
 
   case 'lando':
@@ -83,8 +91,11 @@ switch ($env) {
     $base_url = "https://tilat.lndo.site";
     // Enable config_split.dev on local.
     $config['config_split.config_split.local']['status'] = TRUE;
+    // Sitemap settings override.
+    $config['simple_sitemap.settings']['base_url'] = 'https://tilat.lndo.site';
     break;
 }
+
 /**
  * Location of the site configuration files.
  */
