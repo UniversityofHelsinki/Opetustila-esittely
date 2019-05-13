@@ -111,7 +111,7 @@
 
 
     # Lets keep basicauth up until release
-    basicauth_enabled: True
+    basicauth_enabled: False
     basicauth_username: opetustila
     basicauth_password: stickinesss-Spenglerian-chastise-advocated
     # Basic auth can also be disabled for certain ip's

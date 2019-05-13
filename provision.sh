@@ -41,21 +41,6 @@ self_update() {
     MD5COMMAND="md5 -r"
   fi
 
-  SELF=$(basename $0)
-  UPDATEURL="https://raw.githubusercontent.com/wunderio/WunderTools/$GITBRANCH/provision.sh"
-  MD5SELF=$($MD5COMMAND $0 | awk '{print $1}')
-  MD5LATEST=$(curl -s $UPDATEURL | $MD5COMMAND | awk '{print $1}')
-  if [[ "$MD5SELF" != "$MD5LATEST" ]]; then
-    read -p "There is update for this script available. Update now ([y]es / [n]o)?" -n 1 -r;
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-      cd $ROOT
-      curl -s -o $SELF $UPDATEURL
-      echo "Update complete, please rerun any command you were running previously."
-      echo "See CHANGELOG for more info."
-      echo "Also remember to add updated script to git."
-      exit
-    fi
-  fi
   # Clone and update virtual environment configurations
   if [ ! -d "$ROOT/ansible" ]; then
     git clone  -b $ansible_branch $ansible_remote $ROOT/ansible
@@ -109,7 +94,7 @@ fi
 
 export wundersecrets_path=$ROOT/secrets
 
-#self_update
+self_update
 echo -e '\033[0;31mNOTICE: This project uses overridden provision.sh!\033[0m'
 OPTIND=1
 ANSIBLE_TAGS=""

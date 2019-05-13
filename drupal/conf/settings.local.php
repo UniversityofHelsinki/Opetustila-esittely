@@ -95,3 +95,18 @@ $settings['rebuild_access'] = TRUE;
  * directory.
  */
 $settings['skip_permissions_hardening'] = TRUE;
+
+/**
+ * Define the default list of folders that will be ignored by Drupal's file API.
+ */
+$settings['file_scan_ignore_directories'] = [
+  'node_modules',
+  'bower_components',
+];
+
+/**
+ * Allow per-developer private setting overrides.
+ */
+if (file_exists(__DIR__ . '/settings.private.php')) {
+  include __DIR__ . '/settings.private.php';
+}

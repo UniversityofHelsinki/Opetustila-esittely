@@ -5,5 +5,4 @@ dependencies: {  }
 name: Equipment
 vid: equipment
 description: 'Types of equipment available in rooms.'
-hierarchy: 0
 weight: 0

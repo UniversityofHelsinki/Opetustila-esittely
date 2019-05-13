@@ -5,5 +5,4 @@ dependencies: {  }
 name: Buildings
 vid: building
 description: 'A building belonging to a campus.'
-hierarchy: 0
 weight: 0
