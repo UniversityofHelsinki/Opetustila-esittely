@@ -18,7 +18,7 @@ id: node.space.field_optime_comments
 field_name: field_optime_comments
 entity_type: node
 bundle: space
-label: 'Optimen kommentit'
+label: 'Optime comments'
 description: ''
 required: false
 translatable: false

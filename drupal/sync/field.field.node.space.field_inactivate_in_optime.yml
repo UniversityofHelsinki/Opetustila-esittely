@@ -17,8 +17,8 @@ id: node.space.field_inactivate_in_optime
 field_name: field_inactivate_in_optime
 entity_type: node
 bundle: space
-label: 'Julkaisun esto Optimessa'
-description: 'Jos tämä kenttä on aktivoitu Optimessa, sisältö pysyy aina julkaisemattomassa tilassa. Tätä kenttää ei voi muuttaa Drupalissa, mutta myös Drupalissa voi estää julkaisemisen erillisen kentän kautta.'
+label: 'Publication blocked in Optime'
+description: 'If this field is activated in Optima, the content will always remain in unpublished mode. This field cannot be changed in Drupal, but also in Drupal can prevent publishing through a separate field.'
 required: false
 translatable: false
 default_value:
@@ -26,6 +26,6 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  on_label: 'Estä julkaisaminen'
-  off_label: Neutraali
+  on_label: 'Block publishing'
+  off_label: 'Unblock publishing'
 field_type: boolean
