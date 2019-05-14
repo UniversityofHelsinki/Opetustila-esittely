@@ -15,6 +15,7 @@ dependencies:
     - field.field.taxonomy_term.building.field_navigation_link
     - field.field.taxonomy_term.building.field_opening_times
     - field.field.taxonomy_term.building.field_street_address
+    - responsive_image.styles.hero_image
     - taxonomy.vocabulary.building
   module:
     - ds
@@ -26,13 +27,16 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: ds_1col
-      library: null
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
       disable_css: false
       entity_classes: all_classes
       settings:
         wrappers:
-          ds_content: div
+          header: div
+          left: div
+          right: div
+          footer: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
@@ -44,7 +48,7 @@ third_party_settings:
           right: {  }
           footer: {  }
     regions:
-      ds_content:
+      header:
         - taxonomy_term_title
         - field_images
       left:
@@ -92,6 +96,11 @@ third_party_settings:
             fis-def-at: false
             fi: false
             fi-def-at: false
+      'dynamic_token_field:taxonomy_term-building_address':
+        plugin_id: 'dynamic_token_field:taxonomy_term-building_address'
+        weight: 4
+        label: hidden
+        formatter: default
       taxonomy_term_title:
         plugin_id: taxonomy_term_title
         weight: 0
@@ -282,6 +291,5 @@ hidden:
   field_equipment_information: true
   field_geolocation_address: true
   field_navigation_link: true
-  field_opening_times: true
   field_street_address: true
   langcode: true
