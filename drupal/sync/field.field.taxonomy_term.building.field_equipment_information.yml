@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.taxonomy_term.field_equipment_information
     - taxonomy.vocabulary.building
+  module:
+    - disable_field
 third_party_settings:
   disable_field:
     add_disable: none
@@ -15,8 +17,8 @@ id: taxonomy_term.building.field_equipment_information
 field_name: field_equipment_information
 entity_type: taxonomy_term
 bundle: building
-label: 'Equipment Information'
-description: 'Default equipment information for all spaces in this building.'
+label: Varustetiedot
+description: 'Oletusarvoiset varustetiedot kaikkien tämän rakennuksen tilojen osalta'
 required: false
 translatable: false
 default_value: {  }
