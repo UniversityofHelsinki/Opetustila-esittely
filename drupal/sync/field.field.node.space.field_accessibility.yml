@@ -18,7 +18,7 @@ id: node.space.field_accessibility
 field_name: field_accessibility
 entity_type: node
 bundle: space
-label: Esteettömyys
+label: Accessibility
 description: ''
 required: false
 translatable: false

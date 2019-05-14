@@ -18,7 +18,7 @@ id: node.space.field_price_category
 field_name: field_price_category
 entity_type: node
 bundle: space
-label: Hinta
+label: Price
 description: ''
 required: false
 translatable: true
