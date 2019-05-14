@@ -147,7 +147,7 @@ third_party_settings:
           path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
           popup: 0
         ft:
-          id: default
+          id: minimal
           settings:
             lb: ''
             lb-col: false
