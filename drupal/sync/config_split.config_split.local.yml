@@ -19,8 +19,7 @@ blacklist:
   - redirect_404.settings
 graylist:
   - 'devel.*'
-  - system.site.name
-  - 'system.site.page.*'
+  - 'system.site.*'
 graylist_dependents: true
 graylist_skip_equal: true
 weight: 0
