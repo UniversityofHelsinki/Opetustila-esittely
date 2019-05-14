@@ -226,29 +226,44 @@ content:
     region: right
     label: visually_hidden
     settings:
+      multiple_map: '0'
+      popup_content: ''
       leaflet_map: 'OSM Mapnik'
-      zoom: '16'
-      minZoom: '10'
-      maxZoom: '18'
       height: '400'
+      hide_empty_map: '1'
+      disable_wheel: '1'
+      fullscreen_control: '1'
+      reset_map:
+        position: topright
+        control: 0
+      map_position:
+        zoom: '12'
+        minZoom: '1'
+        maxZoom: '18'
+        force: 0
       icon:
-        icon_url: ''
-        shadow_url: ''
-        icon_size:
-          x: '0'
-          'y': '0'
-        icon_anchor:
-          x: '0'
-          'y': '0'
-        shadow_anchor:
-          x: '0'
-          'y': '0'
-        popup_anchor:
-          x: '0'
-          'y': '0'
+        iconUrl: ''
+        shadowUrl: ''
+        iconSize:
+          x: ''
+          'y': ''
+        iconAnchor:
+          x: ''
+          'y': ''
+        shadowSize:
+          x: ''
+          'y': ''
+        shadowAnchor:
+          x: ''
+          'y': ''
+        popupAnchor:
+          x: ''
+          'y': ''
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
       popup: 0
-      minPossibleZoom: 0
-      maxPossibleZoom: 18
+      leaflet_markercluster:
+        control: 0
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
     third_party_settings:
       ds:
         ft:
