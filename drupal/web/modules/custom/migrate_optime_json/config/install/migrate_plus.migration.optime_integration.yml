@@ -13,7 +13,7 @@ label: JSON import of spaces and related metadata from Optime
 migration_group: optime
 source:
   # We use the JSON source plugin.
-  plugin: url
+  plugin: optime_url
   data_fetcher_plugin: http
   data_parser_plugin: json
   # We can include the original JSON for more dynamic mapping.
@@ -42,6 +42,11 @@ source:
   #item_selector: /response/variety
   constants:
     reservation_link_base: 'https://optime.helsinki.fi/Timetables/Room/'
+
+  # Track changes for each row.
+  track_changes: true
+  # Track latest import time for each row.
+  track_last_imported: true
 
   # Under 'fields', we list the data items to be imported. The first level keys
   # are the source field names we want to populate (the names to be used as
