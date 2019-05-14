@@ -18,7 +18,7 @@ id: node.space.field_room_type
 field_name: field_room_type
 entity_type: node
 bundle: space
-label: Huonetyyppi
+label: 'Room type'
 description: ''
 required: false
 translatable: false

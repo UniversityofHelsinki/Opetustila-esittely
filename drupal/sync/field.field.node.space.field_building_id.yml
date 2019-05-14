@@ -17,7 +17,7 @@ id: node.space.field_building_id
 field_name: field_building_id
 entity_type: node
 bundle: space
-label: 'Rakennuksen ID'
+label: 'Building ID'
 description: ''
 required: false
 translatable: false
