@@ -1,8 +1,10 @@
 <?php
+
 /*
  * Idea & basic source for this JSON parser extension came from:
  *  http://agileadam.com/2017/09/extending-the-migrate-plus-json-parser-in-drupal-8/
  */
+
 namespace Drupal\migrate_optime_json\Plugin\migrate_plus\data_parser;
 
 use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
