@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Contains migrate_optime_json.install.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function migrate_optime_json_uninstall() {
+  \Drupal::database()->query("DELETE FROM {config} WHERE name LIKE 'migrate_plus.migration.optime_integration'");
+  drupal_flush_all_caches();
+}
