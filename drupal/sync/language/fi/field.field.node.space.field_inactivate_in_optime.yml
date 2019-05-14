@@ -1,0 +1,5 @@
+label: 'Julkaisun esto Optimessa'
+description: 'Jos tämä kenttä on aktivoitu Optimessa, sisältö pysyy aina julkaisemattomassa tilassa. Tätä kenttää ei voi muuttaa Drupalissa, mutta myös Drupalissa voi estää julkaisemisen erillisen kentän kautta.'
+settings:
+  on_label: 'Estä julkaiseminen'
+  off_label: 'Salli julkaiseminen'
