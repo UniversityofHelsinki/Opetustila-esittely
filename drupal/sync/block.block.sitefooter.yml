@@ -16,10 +16,12 @@ provider: null
 plugin: 'system_menu_block:site-footer'
 settings:
   id: 'system_menu_block:site-footer'
-  label: 'Ota Yhteyttä'
+  label: Lisätietoja
   provider: system
   label_display: visible
   level: 1
   depth: 0
   expand_all_items: false
+  only_translated_labels: 0
+  only_translated_content: 0
 visibility: {  }

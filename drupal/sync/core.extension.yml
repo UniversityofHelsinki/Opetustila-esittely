@@ -36,6 +36,7 @@ module:
   leaflet_views: 0
   link: 0
   locale: 0
+  menu_multilingual: 0
   menu_ui: 0
   migrate: 0
   migrate_optime_json: 0
@@ -60,6 +61,7 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  translatable_menu_link_uri: 0
   uh_space_site: 0
   uh_space_site_information: 0
   user: 0

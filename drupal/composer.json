@@ -70,7 +70,8 @@
         "drupal/google_tag": "^1.0",
         "drupal/cookieconsent": "^1.4",
         "zaporylie/composer-drupal-optimizations": "^1.0",
-        "drupal/simple_sitemap": "^3.1"
+        "drupal/menu_multilingual": "^1.0@alpha",
+        "drupal/translatable_menu_link_uri": "^1.1"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
