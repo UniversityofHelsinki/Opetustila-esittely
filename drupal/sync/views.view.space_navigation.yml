@@ -250,6 +250,7 @@ display:
         css_class: false
         style: false
         row: false
+        query: false
       filters:
         vid:
           id: vid
@@ -500,6 +501,14 @@ display:
             advanced: false
       fields: {  }
       sorts: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: true
+          replica: false
+          query_comment: ''
+          query_tags: {  }
     cache_metadata:
       max-age: -1
       contexts:
