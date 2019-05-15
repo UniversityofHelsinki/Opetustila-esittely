@@ -1,0 +1,47 @@
+diff --git a/src/Plugin/DsField/ChainedField.php b/src/Plugin/DsField/ChainedField.php
+index ad15f0a..ac1bf81 100644
+--- a/src/Plugin/DsField/ChainedField.php
++++ b/src/Plugin/DsField/ChainedField.php
+@@ -6,6 +6,7 @@ use Drupal\Component\Plugin\Factory\DefaultFactory;
+ use Drupal\Core\Cache\CacheableMetadata;
+ use Drupal\Core\Entity\EntityFieldManagerInterface;
+ use Drupal\Core\Entity\EntityViewBuilderInterface;
++use Drupal\Core\Entity\TranslatableInterface;
+ use Drupal\Core\Field\FieldStorageDefinitionInterface;
+ use Drupal\Core\Field\FormatterPluginManager;
+ use Drupal\Core\Form\FormStateInterface;
+@@ -149,7 +150,22 @@ class ChainedField extends DsFieldBase {
+         break;
+       }
+       /** @var \Drupal\Core\Entity\ContentEntityInterface $chained_entity */
+-      if (!($chained_entity = $field_item->get('entity')->getValue()) || $chained_entity->get($chained_field)->isEmpty() || !$chained_entity->get($chained_field)->access('view')) {
++      $chained_entity = $field_item->get('entity')->getValue();
++
++      // For translatable entities, get the translation. This allow to render,
++      // for example, referenced entities in the same language than the current
++      // entity.
++      if (
++        $chained_entity instanceof TranslatableInterface &&
++        $chained_entity->isTranslatable()
++      ) {
++        $langcode = $this->entity()->language()->getId();
++        if ($chained_entity->hasTranslation($langcode)) {
++          $chained_entity = $chained_entity->getTranslation($langcode);
++        }
++      }
++
++      if (!($chained_entity) || $chained_entity->get($chained_field)->isEmpty() || !$chained_entity->get($chained_field)->access('view')) {
+         // Entity doesn't exist or chained field is empty.
+         if ($chained_entity) {
+           $cache->addCacheableDependency($chained_entity);
+@@ -244,7 +260,9 @@ class ChainedField extends DsFieldBase {
+    * {@inheritdoc}
+    */
+   public function getTitle() {
+-    return $this->configuration['field']['chained_field_title'];
++    $field_definitions = $this->entityFieldManager->getFieldDefinitions($this->pluginDefinition['target_entity_type'], $this->pluginDefinition['target_bundle']);
++    $field_definition = $field_definitions[$this->pluginDefinition['chained_field_name']];
++    return $field_definition->getLabel();
+   }
+ 
+ }
