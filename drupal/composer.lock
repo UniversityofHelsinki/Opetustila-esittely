@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a537ce4c681b2f5b4740561531c445e7",
+    "content-hash": "4e67453507796b09c648b2f873cd4ae2",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3508,17 +3508,17 @@
         },
         {
             "name": "drupal/geofield",
-            "version": "1.0.0-beta6",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geofield.git",
-                "reference": "8.x-1.0-beta6"
+                "reference": "8.x-1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.0-beta6.zip",
-                "reference": "8.x-1.0-beta6",
-                "shasum": "633f0574b9649fe43078f470446af143b24c08fe"
+                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "ab9691a959dd4e4ad48e7138f96a500caabb43a9"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -3530,11 +3530,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta6",
-                    "datestamp": "1547728680",
+                    "version": "8.x-1.3",
+                    "datestamp": "1555935785",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -3582,37 +3582,37 @@
             "description": "Stores geographic and location data (points, lines, and polygons).",
             "homepage": "https://www.drupal.org/project/geofield",
             "support": {
-                "source": "http://git.drupal.org/project/geofield.git",
+                "source": "https://git.drupalcode.org/project/geofield",
                 "issues": "https://www.drupal.org/project/issues/geofield",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {
             "name": "drupal/geofield_map",
-            "version": "1.45.0",
+            "version": "2.36.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geofield_map.git",
-                "reference": "8.x-1.45"
+                "reference": "8.x-2.36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geofield_map-8.x-1.45.zip",
-                "reference": "8.x-1.45",
-                "shasum": "2b5e60adb5e1627020ecf4529dd776db5de88724"
+                "url": "https://ftp.drupal.org/files/projects/geofield_map-8.x-2.36.zip",
+                "reference": "8.x-2.36",
+                "shasum": "d7e761e31abc187a1a30357fb30c5ff7d32e46c2"
             },
             "require": {
-                "drupal/core": "*",
-                "drupal/geofield": "1.0.*@beta"
+                "drupal/core": "~8.0",
+                "drupal/geofield": "^1.0"
             },
             "type": "drupal-module",
             "extra": {
                 "branch-alias": {
-                    "dev-1.x": "1.x-dev"
+                    "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.45",
-                    "datestamp": "1527220966",
+                    "version": "8.x-2.36",
+                    "datestamp": "1556644686",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -3627,13 +3627,13 @@
                 {
                     "name": "Italo Mairo",
                     "homepage": "https://www.drupal.org/u/itamair",
-                    "role": "Maintainer"
+                    "role": "Creator/Maintainer"
                 }
             ],
             "description": "Geofield Map is an advanced, complete and easy-to-use Geo Mapping solution for Drupal 8, based on and fully compatible with the Geofield module.",
             "homepage": "https://www.drupal.org/project/geofield_map",
             "support": {
-                "source": "http://git.drupal.org/project/geofield_map.git",
+                "source": "https://git.drupalcode.org/project/geofield_map",
                 "issues": "https://www.drupal.org/project/issues/geofield_map"
             }
         },
@@ -3686,17 +3686,17 @@
         },
         {
             "name": "drupal/leaflet",
-            "version": "1.0.0-beta16",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/leaflet.git",
-                "reference": "8.x-1.0-beta16"
+                "reference": "8.x-1.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/leaflet-8.x-1.0-beta16.zip",
-                "reference": "8.x-1.0-beta16",
-                "shasum": "7b47bb0cb91483e54de7280aa83bce86329f5d37"
+                "url": "https://ftp.drupal.org/files/projects/leaflet-8.x-1.10.zip",
+                "reference": "8.x-1.10",
+                "shasum": "5d52e77c7b26ecdc5821b2ff2d4e927ff3efd3c9"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -3708,11 +3708,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta16",
-                    "datestamp": "1543793580",
+                    "version": "8.x-1.10",
+                    "datestamp": "1557345782",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -3755,7 +3755,7 @@
             "description": "Integration with the Leaflet map scripting library.",
             "homepage": "https://www.drupal.org/project/leaflet",
             "support": {
-                "source": "http://cgit.drupalcode.org/leaflet",
+                "source": "https://git.drupalcode.org/project/leaflet",
                 "issues": "https://www.drupal.org/project/issues/leaflet"
             }
         },
@@ -4122,17 +4122,17 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.11.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.11"
+                "reference": "8.x-1.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.11.zip",
-                "reference": "8.x-1.11",
-                "shasum": "d2bf92afa2ee760977dde1fadcb5bb64a4c2d7c1"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.13.zip",
+                "reference": "8.x-1.13",
+                "shasum": "9f03dd5a4d9ee7c58d47aabc33d9229793d1195f"
             },
             "require": {
                 "drupal/core": "^8.5"
@@ -4152,8 +4152,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.11",
-                    "datestamp": "1552334285",
+                    "version": "8.x-1.13",
+                    "datestamp": "1557244685",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4193,17 +4193,17 @@
         },
         {
             "name": "drupal/search_api_autocomplete",
-            "version": "1.0.0-rc1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api_autocomplete.git",
-                "reference": "8.x-1.0-rc1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_autocomplete-8.x-1.0-rc1.zip",
-                "reference": "8.x-1.0-rc1",
-                "shasum": "9c086c9a27cea3c04b6ded7c2893f65b1c77ec2a"
+                "url": "https://ftp.drupal.org/files/projects/search_api_autocomplete-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "606908583c1e0aff57a4215355d1d3e07a1d50d2"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -4218,15 +4218,15 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc1",
-                    "datestamp": "1519829285",
+                    "version": "8.x-1.2",
+                    "datestamp": "1552333980",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 },
                 "patches_applied": {
-                    "Fix uppercase search autocomplete": "https://www.drupal.org/files/issues/autocomplete-without-case-sensitive-2947273-4.patch"
+                    "Fix uppercase search autocomplete": "https://www.drupal.org/files/issues/2019-02-20/2947273-25--fix-live-results-query-preprocessing.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -10500,7 +10500,6 @@
         "drupal/field_permissions": 10,
         "drupal/ds_chains": 15,
         "drupal/field_group_link": 5,
-        "drupal/leaflet": 10,
         "drupal/xmlsitemap": 15,
         "drupal/stage_file_proxy": 15
     },
