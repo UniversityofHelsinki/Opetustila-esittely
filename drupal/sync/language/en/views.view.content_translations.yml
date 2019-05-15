@@ -1,0 +1,59 @@
+label: 'Content translation jobs'
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+      fields:
+        title:
+          label: Title
+          separator: ', '
+        langcode:
+          label: From
+          separator: ', '
+        translation_target_language:
+          label: To
+        translation_status:
+          label: 'Translation status'
+          alter:
+            text: "<span class=\"status\">{{ translation_status }}</span>\n{% if translation_outdated  %} <span class=\"marker\">{{ 'outdated'|t }}</span>{% endif %}"
+        translation_changed:
+          label: Changed
+        translation_operations:
+          label: 'Translation operations'
+      filters:
+        langcode:
+          expose:
+            label: 'Source language'
+        content_translation_outdated:
+          expose:
+            label: 'Translation outdated'
+        translation_target_language:
+          expose:
+            label: 'Target language'
+        translation_outdated:
+          expose:
+            label: Outdated
+        translation_status:
+          expose:
+            label: 'Translation status'
+      title: 'Content Translation jobs'
+  page_1:
+    display_title: Page

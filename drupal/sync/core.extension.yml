@@ -62,6 +62,7 @@ module:
   token: 0
   toolbar: 0
   translatable_menu_link_uri: 0
+  translation_views: 0
   uh_space_site: 0
   uh_space_site_information: 0
   user: 0
