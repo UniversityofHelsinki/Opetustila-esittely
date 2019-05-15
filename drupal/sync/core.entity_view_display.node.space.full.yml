@@ -66,6 +66,7 @@ third_party_settings:
         - field_reservation_link
         - field_images
         - node_title
+        - field_optime_id
         - 'dynamic_token_field:node-referenced_address'
       right:
         - 'dynamic_copy_field:node-referenced_address_clone'
@@ -77,8 +78,8 @@ third_party_settings:
         - 'ds_chains:node/space/field_campus/field_reservation_instructions'
         - group_key_information
         - group_equipment
-        - field_capacity
         - group_rental
+        - field_capacity
         - field_accessibility
         - body
         - 'ds_chains:node/space/field_building/field_contacts'
@@ -169,7 +170,7 @@ third_party_settings:
         formatter: default
       'dynamic_token_field:node-referenced_address':
         plugin_id: 'dynamic_token_field:node-referenced_address'
-        weight: 3
+        weight: 4
         label: hidden
         formatter: default
       node_title:
@@ -265,6 +266,7 @@ third_party_settings:
       children:
         - node_title
         - 'dynamic_token_field:node-referenced_address'
+        - field_optime_id
       parent_name: ''
       weight: 0
       format_type: html_element
@@ -368,6 +370,14 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
+  field_optime_id:
+    type: string
+    weight: 3
+    region: header
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_price_category:
     type: entity_reference_entity_view
     weight: 9
@@ -406,7 +416,6 @@ hidden:
   field_last_changed_in_optime: true
   field_legacy_url: true
   field_optime_comments: true
-  field_optime_id: true
   field_optime_index: true
   field_room_type: true
   field_smart_equipment_information: true

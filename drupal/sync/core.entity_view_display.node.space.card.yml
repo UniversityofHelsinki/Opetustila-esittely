@@ -55,16 +55,17 @@ third_party_settings:
       ds_content:
         - node_title
         - field_images
+        - field_optime_id
         - 'dynamic_token_field:node-referenced_address'
-        - group_key_information
-        - group_pricing
         - field_capacity
+        - group_key_information
         - field_price_category
+        - group_pricing
         - field_accessibility
     fields:
       'dynamic_token_field:node-referenced_address':
         plugin_id: 'dynamic_token_field:node-referenced_address'
-        weight: 2
+        weight: 3
         label: hidden
         formatter: default
         ft:
@@ -92,7 +93,7 @@ third_party_settings:
         - field_capacity
         - field_accessibility
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: html_element
       format_settings:
         label: 'Key Information'
@@ -129,10 +130,10 @@ third_party_settings:
       children:
         - field_price_category
       parent_name: ''
-      weight: 4
+      weight: 5
       format_type: html_element
       format_settings:
-        label: Hinta
+        label: Price
         element: div
         show_label: true
         label_element: h4
@@ -141,7 +142,7 @@ third_party_settings:
         speed: fast
         id: ''
         classes: space__pricing
-      label: Hinta
+      label: Price
       region: hidden
   ds_chains:
     fields: {  }
@@ -240,6 +241,42 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
+  field_optime_id:
+    type: string
+    weight: 2
+    region: ds_content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: div
+            ow-cl: ''
+            ow-at: ''
+            fis: true
+            fis-el: small
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   field_price_category:
     type: entity_reference_entity_view
     weight: 5
@@ -263,7 +300,6 @@ hidden:
   field_last_changed_in_optime: true
   field_legacy_url: true
   field_optime_comments: true
-  field_optime_id: true
   field_optime_index: true
   field_reservation_link: true
   field_room_type: true
