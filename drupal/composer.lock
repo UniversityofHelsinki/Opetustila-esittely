@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5f7db06b2aec92f4865624dc3896d08",
+    "content-hash": "fecf02a38d6e69ba785fb2eb05ef3940",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2960,6 +2960,9 @@
                     "recurse": false,
                     "replace": false,
                     "merge-extra": false
+                },
+                "patches_applied": {
+                    "EntityViewBuilder::viewField() does not respect entity current language when used with an entity reference field": "https://www.drupal.org/files/issues/2019-05-09/2955392-44.patch"
                 }
             },
             "autoload": {
@@ -3236,6 +3239,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "ChainedField does not respect entity current language": "conf/patches/ChainedField_translatable.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
