@@ -149,6 +149,12 @@ function uh_space_site_language_switch_links_alter(array &$links, $type, Url $ur
 
   foreach ($links as $langcode => &$link) {
 
+    // Do not show "Svenska" on FI and EN pages until Swedish content is ready.
+    // @todo: remove this if once the Swedish content is ready to be published.
+    if ($langcode == 'sv' && $language_interface->getId() != 'sv') {
+      unset($links[$langcode]);
+    }
+
     if (array_key_exists($langcode, $language_titles)) {
       $link['title'] = $language_titles[$langcode];
     }
