@@ -1,4 +1,4 @@
-uuid: e3c59a73-f948-44a5-9704-d74d2e5d07ff
+uuid: 92f93e5f-28db-4897-9dba-dbfe3fee4dee
 langcode: fi
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - migrate_plus
 _core:
-  default_config_hash: Bl3LIhL32ab5GnXwTLGfwcYVSWDSIg726fGH0mEBV4M
+  default_config_hash: 1juC075RrTl83StkMhy_pyM5U5Qvjm8X8F4fHp0D1PI
 id: optime_integration
 class: null
 field_plugin_method: null
@@ -15,7 +15,7 @@ migration_tags: null
 migration_group: optime
 label: 'JSON import of spaces and related metadata from Optime'
 source:
-  plugin: url
+  plugin: optime_url
   data_fetcher_plugin: http
   data_parser_plugin: json
   include_raw_data: true
@@ -23,6 +23,8 @@ source:
   item_selector: 0
   constants:
     reservation_link_base: 'https://optime.helsinki.fi/Timetables/Room/'
+  track_changes: true
+  track_last_imported: true
   fields:
     -
       name: optime_id
@@ -98,7 +100,11 @@ process:
   field_optime_id: optime_id
   field_optime_index: optime_index
   field_building_id: building_id
-  field_capacity: capacity
+  field_capacity:
+    -
+      plugin: callback
+      callable: migrate_optime_json_get_capacity
+      source: capacity
   field_last_changed_in_optime:
     -
       plugin: concat
