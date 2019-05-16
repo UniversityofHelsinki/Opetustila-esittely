@@ -1,0 +1,44 @@
+display:
+  default:
+    display_title: Huvud
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Verkställ
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« Första'
+            last: 'Sista »'
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+      fields:
+        title:
+          label: Titel
+          separator: ', '
+        langcode:
+          label: Från
+          separator: ', '
+        translation_target_language:
+          label: Till
+        translation_status:
+          label: 'Status för översättning'
+        translation_changed:
+          label: Ändrad
+      filters:
+        langcode:
+          expose:
+            label: Källspråk
+        translation_status:
+          expose:
+            label: 'Status för översättning'
+  page_1:
+    display_title: Sida
