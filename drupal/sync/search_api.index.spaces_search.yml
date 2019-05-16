@@ -3,31 +3,31 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.body
     - field.storage.node.field_accessibility
     - field.storage.node.field_building
     - field.storage.node.field_building_id
+    - field.storage.taxonomy_term.field_building_id
     - field.storage.node.field_campus
+    - field.storage.taxonomy_term.field_campus
     - field.storage.node.field_capacity
-    - field.storage.node.body
+    - field.storage.taxonomy_term.field_city
     - field.storage.node.field_equipment
+    - field.storage.taxonomy_term.field_equipment_information
     - field.storage.node.field_last_changed_in_optime
     - field.storage.node.field_optime_id
     - field.storage.node.field_price_category
-    - field.storage.node.field_room_type
-    - field.storage.node.field_street_address
-    - field.storage.taxonomy_term.field_building_id
-    - field.storage.taxonomy_term.field_campus
-    - field.storage.taxonomy_term.field_city
-    - field.storage.taxonomy_term.field_equipment_information
     - field.storage.taxonomy_term.field_reservation_instructions
-    - field.storage.taxonomy_term.field_vat_rate
+    - field.storage.node.field_room_type
     - field.storage.taxonomy_term.field_street_address
+    - field.storage.node.field_street_address
+    - field.storage.taxonomy_term.field_vat_rate
     - search_api.server.opetustilat_drupal
     - core.entity_view_mode.node.full
   module:
-    - search_api
     - node
     - taxonomy
+    - search_api
 id: spaces_search
 name: 'Global spaces search'
 description: 'The index is used for the spaces search, the primary function of the site.'
@@ -46,26 +46,41 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: changed
     type: date
+    dependencies:
+      module:
+        - node
   changed_1:
     label: Changed
     datasource_id: 'entity:taxonomy_term'
     property_path: changed
     type: date
+    dependencies:
+      module:
+        - taxonomy
   changed_2:
     label: Changed
     datasource_id: 'entity:taxonomy_term'
     property_path: changed
     type: date
+    dependencies:
+      module:
+        - taxonomy
   created:
     label: 'Authored on'
     datasource_id: 'entity:node'
     property_path: created
     type: date
+    dependencies:
+      module:
+        - node
   description:
     label: Description
     datasource_id: 'entity:taxonomy_term'
     property_path: description
     type: text
+    dependencies:
+      module:
+        - taxonomy
   field_accessibility:
     label: Accessibility
     datasource_id: 'entity:node'
@@ -219,21 +234,33 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: langcode
     type: string
+    dependencies:
+      module:
+        - node
   langcode_1:
     label: Language
     datasource_id: 'entity:taxonomy_term'
     property_path: langcode
     type: string
+    dependencies:
+      module:
+        - taxonomy
   name:
     label: Name
     datasource_id: 'entity:taxonomy_term'
     property_path: name
     type: string
+    dependencies:
+      module:
+        - taxonomy
   nid:
     label: ID
     datasource_id: 'entity:node'
     property_path: nid
     type: integer
+    dependencies:
+      module:
+        - node
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -246,6 +273,9 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: promote
     type: boolean
+    dependencies:
+      module:
+        - node
   rendered_item:
     label: 'Rendered HTML output'
     property_path: rendered_item
@@ -271,22 +301,34 @@ field_settings:
     type: boolean
     indexed_locked: true
     type_locked: true
+    dependencies:
+      module:
+        - node
   tid:
     label: 'Term ID'
     datasource_id: 'entity:taxonomy_term'
     property_path: tid
     type: integer
+    dependencies:
+      module:
+        - taxonomy
   title:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
     type: text
     boost: !!float 8
+    dependencies:
+      module:
+        - node
   type:
     label: 'Content type'
     datasource_id: 'entity:node'
     property_path: type
     type: string
+    dependencies:
+      module:
+        - node
   uid:
     label: null
     datasource_id: 'entity:node'
@@ -294,6 +336,9 @@ field_settings:
     type: integer
     indexed_locked: true
     type_locked: true
+    dependencies:
+      module:
+        - node
   url:
     label: URI
     property_path: search_api_url
@@ -303,6 +348,9 @@ field_settings:
     datasource_id: 'entity:taxonomy_term'
     property_path: vid
     type: string
+    dependencies:
+      module:
+        - taxonomy
 datasource_settings:
   'entity:node':
     bundles:
@@ -325,6 +373,7 @@ processor_settings:
   content_access:
     weights:
       preprocess_query: -49
+  entity_status: {  }
   highlight:
     highlight: always
     highlight_partial: false

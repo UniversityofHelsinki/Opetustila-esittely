@@ -525,7 +525,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: '<h3>Found @total suitable spaces</h3>'
+          content: '<h3>@total facilities found with your search terms</h3>'
           plugin_id: result
       footer: {  }
       empty: {  }
