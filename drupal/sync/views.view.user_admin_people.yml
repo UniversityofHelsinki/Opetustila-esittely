@@ -883,7 +883,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Sivu
+    display_title: Page
     position: 1
     display_options:
       path: admin/people/list

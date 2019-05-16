@@ -265,6 +265,7 @@ third_party_settings:
     group_header_main:
       children:
         - node_title
+        - field_optime_id
         - 'dynamic_token_field:node-referenced_address'
         - field_optime_id
       parent_name: ''

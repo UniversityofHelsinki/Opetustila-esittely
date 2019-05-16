@@ -59,8 +59,9 @@ third_party_settings:
         - 'dynamic_token_field:node-referenced_address'
         - field_capacity
         - group_key_information
-        - field_price_category
+        - field_capacity
         - group_pricing
+        - field_price_category
         - field_accessibility
     fields:
       'dynamic_token_field:node-referenced_address':
