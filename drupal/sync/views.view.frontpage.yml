@@ -292,7 +292,7 @@ display:
       path: node
       display_extenders: {  }
     display_plugin: page
-    display_title: Sivu
+    display_title: Page
     id: page_1
     position: 1
     cache_metadata:
