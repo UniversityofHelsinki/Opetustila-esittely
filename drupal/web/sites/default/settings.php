@@ -47,6 +47,30 @@ if (!empty($_SERVER['SERVER_ADDR'])) {
   header('X-Webserver: ' . end($pcs));
 }
 
+// Disallow configuration changes via UI by default.
+$settings['config_readonly'] = TRUE;
+
+// Some configurations changes we want to allow like menu items and
+// configurations that are intentionally ignored with config_ignore.
+$settings['config_readonly_whitelist_patterns'] = [
+  'system.performance',
+  'system.site',
+  'system.menu.*',
+  'core.menu.static_menu_link_overrides',
+  'cookieconsent.settings',
+];
+
+// Allow submitting the taxonomy "Reset to alphabetical" confirmation form.
+// There is no configuration match so we cannot use the whitelist above.
+if (preg_match("/\/(.*)\/admin\/structure\/taxonomy\/manage(.*)reset/i", $_SERVER['REQUEST_URI'])) {
+  $settings['config_readonly'] = FALSE;
+}
+
+// Command line (like drush) should allow configuration changes.
+if (PHP_SAPI === 'cli') {
+  $settings['config_readonly'] = FALSE;
+}
+
 // Be sure to have config_split.local disabled by default.
 $config['config_split.config_split.local']['status'] = FALSE;
 
@@ -64,6 +88,8 @@ switch ($env) {
   case 'dev':
     $settings['simple_environment_indicator'] = '#004984 Development';
     $base_url = "https://opetustila-test.it.helsinki.fi";
+    // Disable config_readonly on dev.
+    $settings['config_readonly'] = FALSE;
     // Enable config_split.dev on dev.
     $config['config_split.config_split.local']['status'] = TRUE;
     // Sitemap settings override.
@@ -80,6 +106,8 @@ switch ($env) {
   case 'local':
     $settings['simple_environment_indicator'] = '#88b700 Local';
     $base_url = "https://local.tilat.fi";
+    // Disable config_readonly on local.
+    $settings['config_readonly'] = FALSE;
     // Enable config_split.dev on local.
     $config['config_split.config_split.local']['status'] = TRUE;
     // Sitemap settings override.
@@ -89,6 +117,8 @@ switch ($env) {
   case 'lando':
     $settings['simple_environment_indicator'] = '#88b700 Local';
     $base_url = "https://tilat.lndo.site";
+    // Disable config_readonly on local.
+    $settings['config_readonly'] = FALSE;
     // Enable config_split.dev on local.
     $config['config_split.config_split.local']['status'] = TRUE;
     // Sitemap settings override.
