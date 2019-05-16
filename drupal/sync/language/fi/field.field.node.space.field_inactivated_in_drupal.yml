@@ -1,0 +1,5 @@
+label: 'Julkaisun esto Drupalissa'
+description: 'Jos tämä kenttä on valittu, sisältö pysyy aina julkaisemattomassa tilassa. Optime-tiedoissa voi tulla myös vastaava julkaisemisen esto, jota ei voi ohittaa Drupalissa.'
+settings:
+  on_label: 'Estä julkaiseminen'
+  off_label: 'Salli julkaiseminen'

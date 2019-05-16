@@ -18,7 +18,7 @@ id: node.space.field_last_changed_in_optime
 field_name: field_last_changed_in_optime
 entity_type: node
 bundle: space
-label: 'Muutettu viimeksi optimessa'
+label: 'Last changed in Optime'
 description: ''
 required: false
 translatable: false
