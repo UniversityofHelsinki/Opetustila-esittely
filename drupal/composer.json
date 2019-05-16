@@ -73,7 +73,8 @@
         "drupal/menu_multilingual": "^1.0@alpha",
         "drupal/translatable_menu_link_uri": "^1.1",
         "drupal/simple_sitemap": "^3.1",
-        "drupal/translation_views": "^1.0"
+        "drupal/translation_views": "^1.0",
+        "drupal/config_readonly": "^1.0"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
