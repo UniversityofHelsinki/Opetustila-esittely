@@ -1,0 +1,27 @@
+system.site:
+  type: config_object
+  label: 'Extended site information'
+  mapping:
+    # Translatable config keys from system.site settings.
+    name:
+      type: label
+      label: 'Site name'
+    slogan:
+      type: label
+      label: 'Slogan'
+    # Extended config keys provided by this module.
+    logo_text:
+      type: label
+      label: 'Logo text'
+    logo_path:
+      type: label
+      label: 'Logo path'
+    copyright_text:
+      type: text
+      label: 'Copyright text'
+    contact_info:
+      type: text
+      label: 'Contact info (Service provider)'
+    spaces_contact_info:
+      type: text
+      label: 'Contact info (Spaces)'

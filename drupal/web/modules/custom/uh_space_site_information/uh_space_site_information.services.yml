@@ -1,0 +1,5 @@
+services:
+  uh_space_site_information.route_subscriber:
+    class: Drupal\uh_space_site_information\Routing\SpaceSiteInformationRouteSubscriber
+    tags:
+      - { name: event_subscriber }
