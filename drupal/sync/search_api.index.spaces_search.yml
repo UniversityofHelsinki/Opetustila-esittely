@@ -3,58 +3,84 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.body
     - field.storage.node.field_accessibility
     - field.storage.node.field_building
     - field.storage.node.field_building_id
+    - field.storage.taxonomy_term.field_building_id
     - field.storage.node.field_campus
+    - field.storage.taxonomy_term.field_campus
     - field.storage.node.field_capacity
-    - field.storage.node.body
+    - field.storage.taxonomy_term.field_city
     - field.storage.node.field_equipment
+    - field.storage.taxonomy_term.field_equipment_information
     - field.storage.node.field_last_changed_in_optime
     - field.storage.node.field_optime_id
     - field.storage.node.field_price_category
-    - field.storage.node.field_room_type
-    - field.storage.node.field_street_address
-    - field.storage.taxonomy_term.field_building_id
-    - field.storage.taxonomy_term.field_campus
-    - field.storage.taxonomy_term.field_city
-    - field.storage.taxonomy_term.field_equipment_information
     - field.storage.taxonomy_term.field_reservation_instructions
-    - field.storage.taxonomy_term.field_vat_rate
+    - field.storage.node.field_room_type
     - field.storage.taxonomy_term.field_street_address
+    - field.storage.node.field_street_address
+    - field.storage.taxonomy_term.field_vat_rate
     - search_api.server.opetustilat_drupal
     - core.entity_view_mode.node.full
   module:
-    - search_api
     - node
     - taxonomy
+    - search_api
 id: spaces_search
 name: 'Global spaces search'
 description: 'The index is used for the spaces search, the primary function of the site.'
 read_only: false
 field_settings:
-  rendered_item:
-    label: 'Rendered HTML output'
-    property_path: rendered_item
+  body:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: body
     type: text
-    configuration:
-      roles:
-        anonymous: anonymous
-      view_mode:
-        'entity:node':
-          space: full
-        'entity:taxonomy_term':
-          building: default
-          campus: default
-          contacts: default
-          equipment: default
-          price_categories: default
-          accessibility: ''
-          room_type: ''
-  url:
-    label: URI
-    property_path: search_api_url
-    type: string
+    dependencies:
+      config:
+        - field.storage.node.body
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - node
+  changed_1:
+    label: Changed
+    datasource_id: 'entity:taxonomy_term'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - taxonomy
+  changed_2:
+    label: Changed
+    datasource_id: 'entity:taxonomy_term'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - taxonomy
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - node
+  description:
+    label: Description
+    datasource_id: 'entity:taxonomy_term'
+    property_path: description
+    type: text
+    dependencies:
+      module:
+        - taxonomy
   field_accessibility:
     label: Accessibility
     datasource_id: 'entity:node'
@@ -63,11 +89,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_accessibility
-  created:
-    label: 'Authored on'
-    datasource_id: 'entity:node'
-    property_path: created
-    type: date
   field_building:
     label: Building
     datasource_id: 'entity:node'
@@ -85,14 +106,30 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_building_id
+  field_building_id_1:
+    label: 'Building ID'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: field_building_id
+    type: string
+    dependencies:
+      config:
+        - field.storage.taxonomy_term.field_building_id
   field_campus:
     label: Campus
     datasource_id: 'entity:node'
     property_path: field_campus
-    type: text
+    type: string
     dependencies:
       config:
         - field.storage.node.field_campus
+  field_campus_1:
+    label: Campus
+    datasource_id: 'entity:taxonomy_term'
+    property_path: field_campus
+    type: string
+    dependencies:
+      config:
+        - field.storage.taxonomy_term.field_campus
   field_capacity:
     label: Capacity
     datasource_id: 'entity:node'
@@ -101,24 +138,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_capacity
-  changed:
-    label: Changed
-    datasource_id: 'entity:node'
-    property_path: changed
-    type: date
-  type:
-    label: 'Content type'
-    datasource_id: 'entity:node'
-    property_path: type
+  field_city:
+    label: City
+    datasource_id: 'entity:taxonomy_term'
+    property_path: field_city
     type: string
-  body:
-    label: Description
-    datasource_id: 'entity:node'
-    property_path: body
-    type: text
     dependencies:
       config:
-        - field.storage.node.body
+        - field.storage.taxonomy_term.field_city
   field_equipment:
     label: Equipment
     datasource_id: 'entity:node'
@@ -127,16 +154,15 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_equipment
-  nid:
-    label: ID
-    datasource_id: 'entity:node'
-    property_path: nid
-    type: integer
-  langcode:
-    label: Language
-    datasource_id: 'entity:node'
-    property_path: langcode
-    type: string
+  field_equipment_information:
+    label: 'Equipment Information'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: field_equipment_information
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.taxonomy_term.field_equipment_information
   field_last_changed_in_optime:
     label: 'Last changed in optime'
     datasource_id: 'entity:node'
@@ -161,12 +187,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_price_category
-  title:
-    label: Title
-    datasource_id: 'entity:node'
-    property_path: title
+  field_reservation_instructions:
+    label: 'Reservation Instructions'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: field_reservation_instructions
     type: text
-    boost: !!float 8
+    dependencies:
+      config:
+        - field.storage.taxonomy_term.field_reservation_instructions
   field_room_type:
     label: 'Room type'
     datasource_id: 'entity:node'
@@ -176,18 +204,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_room_type
-  status:
-    label: Published
-    datasource_id: 'entity:node'
-    property_path: status
-    type: boolean
-    indexed_locked: true
-    type_locked: true
-  promote:
-    label: 'Promoted to front page'
-    datasource_id: 'entity:node'
-    property_path: promote
-    type: boolean
+  field_street_address:
+    label: 'Street address'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: field_street_address
+    type: string
+    dependencies:
+      config:
+        - field.storage.taxonomy_term.field_street_address
   field_street_address_1:
     label: 'Street address'
     datasource_id: 'entity:node'
@@ -197,57 +221,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_street_address
-  field_building_id_1:
-    label: 'Building ID'
-    datasource_id: 'entity:taxonomy_term'
-    property_path: field_building_id
-    type: string
-    dependencies:
-      config:
-        - field.storage.taxonomy_term.field_building_id
-  field_campus_1:
-    label: Campus
-    datasource_id: 'entity:taxonomy_term'
-    property_path: field_campus
-    type: string
-    dependencies:
-      config:
-        - field.storage.taxonomy_term.field_campus
-  changed_1:
-    label: Changed
-    datasource_id: 'entity:taxonomy_term'
-    property_path: changed
-    type: date
-  field_city:
-    label: City
-    datasource_id: 'entity:taxonomy_term'
-    property_path: field_city
-    type: string
-    dependencies:
-      config:
-        - field.storage.taxonomy_term.field_city
-  field_equipment_information:
-    label: 'Equipment Information'
-    datasource_id: 'entity:taxonomy_term'
-    property_path: field_equipment_information
-    type: text
-    boost: !!float 2
-    dependencies:
-      config:
-        - field.storage.taxonomy_term.field_equipment_information
-  field_reservation_instructions:
-    label: 'Reservation Instructions'
-    datasource_id: 'entity:taxonomy_term'
-    property_path: field_reservation_instructions
-    type: text
-    dependencies:
-      config:
-        - field.storage.taxonomy_term.field_reservation_instructions
-  vid:
-    label: Vocabulary
-    datasource_id: 'entity:taxonomy_term'
-    property_path: vid
-    type: string
   field_vat_rate:
     label: 'VAT Rate'
     datasource_id: 'entity:taxonomy_term'
@@ -256,46 +229,38 @@ field_settings:
     dependencies:
       config:
         - field.storage.taxonomy_term.field_vat_rate
-  tid:
-    label: 'Term ID'
-    datasource_id: 'entity:taxonomy_term'
-    property_path: tid
-    type: integer
-  field_street_address:
-    label: 'Street address'
-    datasource_id: 'entity:taxonomy_term'
-    property_path: field_street_address
+  langcode:
+    label: Language
+    datasource_id: 'entity:node'
+    property_path: langcode
     type: string
     dependencies:
-      config:
-        - field.storage.taxonomy_term.field_street_address
-  name:
-    label: Name
-    datasource_id: 'entity:taxonomy_term'
-    property_path: name
-    type: string
+      module:
+        - node
   langcode_1:
     label: Language
     datasource_id: 'entity:taxonomy_term'
     property_path: langcode
     type: string
-  description:
-    label: Description
+    dependencies:
+      module:
+        - taxonomy
+  name:
+    label: Name
     datasource_id: 'entity:taxonomy_term'
-    property_path: description
-    type: text
-  changed_2:
-    label: Changed
-    datasource_id: 'entity:taxonomy_term'
-    property_path: changed
-    type: date
-  uid:
-    label: null
+    property_path: name
+    type: string
+    dependencies:
+      module:
+        - taxonomy
+  nid:
+    label: ID
     datasource_id: 'entity:node'
-    property_path: uid
+    property_path: nid
     type: integer
-    indexed_locked: true
-    type_locked: true
+    dependencies:
+      module:
+        - node
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -303,6 +268,89 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
+  promote:
+    label: 'Promoted to front page'
+    datasource_id: 'entity:node'
+    property_path: promote
+    type: boolean
+    dependencies:
+      module:
+        - node
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          space: full
+        'entity:taxonomy_term':
+          accessibility: ''
+          building: default
+          campus: default
+          contacts: default
+          equipment: default
+          price_categories: default
+          room_type: ''
+  status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+  tid:
+    label: 'Term ID'
+    datasource_id: 'entity:taxonomy_term'
+    property_path: tid
+    type: integer
+    dependencies:
+      module:
+        - taxonomy
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 8
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
+  vid:
+    label: Vocabulary
+    datasource_id: 'entity:taxonomy_term'
+    property_path: vid
+    type: string
+    dependencies:
+      module:
+        - taxonomy
 datasource_settings:
   'entity:node':
     bundles:
@@ -325,6 +373,12 @@ processor_settings:
   content_access:
     weights:
       preprocess_query: -49
+  entity_status: {  }
+  hierarchy:
+    fields:
+      field_campus: taxonomy_term-parent
+    weights:
+      preprocess_index: -42
   highlight:
     highlight: always
     highlight_partial: false
@@ -338,57 +392,88 @@ processor_settings:
   ignorecase:
     all_fields: true
     fields:
-      - rendered_item
-      - url
+      - body
+      - description
       - field_accessibility
       - field_building
       - field_building_id
-      - field_campus
-      - type
-      - body
-      - field_equipment
-      - langcode
-      - field_optime_id
-      - field_price_category
-      - title
-      - field_room_type
-      - field_street_address_1
       - field_building_id_1
+      - field_campus
       - field_campus_1
       - field_city
+      - field_equipment
       - field_equipment_information
+      - field_optime_id
+      - field_price_category
       - field_reservation_instructions
-      - vid
-      - field_vat_rate
+      - field_room_type
       - field_street_address
-      - name
+      - field_street_address_1
+      - field_vat_rate
+      - langcode
       - langcode_1
-      - description
+      - name
+      - rendered_item
+      - title
+      - type
+      - url
+      - vid
     weights:
-      preprocess_index: -20
+      preprocess_index: -50
       preprocess_query: -50
   rendered_item: {  }
   tokenizer:
     all_fields: true
     fields:
-      - rendered_item
+      - body
+      - description
       - field_building
       - field_building_id
-      - field_campus
-      - body
+      - field_equipment_information
       - field_price_category
-      - title
+      - field_reservation_instructions
       - field_room_type
       - field_street_address_1
-      - field_equipment_information
-      - field_reservation_instructions
-      - description
+      - rendered_item
+      - title
     spaces: ''
     overlap_cjk: 1
     minimum_word_size: '3'
     weights:
-      preprocess_index: -6
+      preprocess_index: -46
       preprocess_query: -45
+  transliteration:
+    all_fields: true
+    fields:
+      - body
+      - description
+      - field_accessibility
+      - field_building
+      - field_building_id
+      - field_building_id_1
+      - field_campus
+      - field_campus_1
+      - field_city
+      - field_equipment
+      - field_equipment_information
+      - field_optime_id
+      - field_price_category
+      - field_reservation_instructions
+      - field_room_type
+      - field_street_address
+      - field_street_address_1
+      - field_vat_rate
+      - langcode
+      - langcode_1
+      - name
+      - rendered_item
+      - title
+      - type
+      - url
+      - vid
+    weights:
+      preprocess_index: -49
+      preprocess_query: -48
   type_boost:
     boosts:
       'entity:node':
@@ -406,39 +491,7 @@ processor_settings:
           price_categories: !!float 0
           room_type: 0.3
     weights:
-      preprocess_index: 0
-  transliteration:
-    all_fields: true
-    fields:
-      - rendered_item
-      - url
-      - field_accessibility
-      - field_building
-      - field_building_id
-      - field_campus
-      - type
-      - body
-      - field_equipment
-      - langcode
-      - field_optime_id
-      - field_price_category
-      - title
-      - field_room_type
-      - field_street_address_1
-      - field_building_id_1
-      - field_campus_1
-      - field_city
-      - field_equipment_information
-      - field_reservation_instructions
-      - vid
-      - field_vat_rate
-      - field_street_address
-      - name
-      - langcode_1
-      - description
-    weights:
-      preprocess_index: -20
-      preprocess_query: -48
+      preprocess_index: -43
 tracker_settings:
   default:
     indexing_order: lifo
