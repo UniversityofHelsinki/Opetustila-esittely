@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a67b78e3c60f123513fbe0ee47bbbba7",
+    "content-hash": "4747ddaf000afb9d0ddb8ab486f6d6c5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1152,17 +1152,6 @@
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
             "time": "2017-02-14T19:40:03+00:00"
-        },
-        {
-            "name": "contrib/d8-termstatus",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ainarend/D8-termstatus.git",
-                "reference": "master"
-            },
-            "type": "drupal-module",
-            "time": "2018-01-03T10:40:53+00:00"
         },
         {
             "name": "cweagans/composer-patches",
@@ -3520,66 +3509,6 @@
             }
         },
         {
-            "name": "drupal/field_permissions",
-            "version": "1.0.0-rc2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/field_permissions.git",
-                "reference": "8.x-1.0-rc2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/field_permissions-8.x-1.0-rc2.zip",
-                "reference": "8.x-1.0-rc2",
-                "shasum": "bbc0d4215b24f2613a02a365a22f2039ebcea421"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-rc2",
-                    "datestamp": "1545332280",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "RobLoach",
-                    "homepage": "https://www.drupal.org/user/61114"
-                },
-                {
-                    "name": "jhedstrom",
-                    "homepage": "https://www.drupal.org/user/208732"
-                },
-                {
-                    "name": "mariacha1",
-                    "homepage": "https://www.drupal.org/user/2210776"
-                },
-                {
-                    "name": "markus_petrux",
-                    "homepage": "https://www.drupal.org/user/39593"
-                }
-            ],
-            "description": "The Field Permissions module allows site administrators to set field-level permissions to edit, view and create fields on any entity.",
-            "homepage": "https://www.drupal.org/project/field_permissions",
-            "support": {
-                "source": "https://git.drupalcode.org/project/field_permissions",
-                "issues": "https://www.drupal.org/project/issues/field_permissions"
-            }
-        },
-        {
             "name": "drupal/geofield",
             "version": "1.3.0",
             "source": {
@@ -4143,58 +4072,6 @@
             }
         },
         {
-            "name": "drupal/permissions_by_term",
-            "version": "1.61.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/permissions_by_term.git",
-                "reference": "8.x-1.61"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/permissions_by_term-8.x-1.61.zip",
-                "reference": "8.x-1.61",
-                "shasum": "c984a00f1efaf8856b5804f5837672bf9fb527bb"
-            },
-            "require": {
-                "drupal/core": "^8.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.61",
-                    "datestamp": "1534865884",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Peter Majmesku",
-                    "homepage": "https://www.drupal.org/user/786132",
-                    "email": "p.majmesku@gmail.com"
-                },
-                {
-                    "name": "SaschaHannes",
-                    "homepage": "https://www.drupal.org/user/3536189"
-                }
-            ],
-            "description": "Restricts access to nodes by taxonomy terms in relation to users and their roles.",
-            "homepage": "https://www.drupal.org/project/permissions_by_term",
-            "support": {
-                "source": "https://git.drupalcode.org/project/permissions_by_term"
-            }
-        },
-        {
             "name": "drupal/redirect",
             "version": "1.3.0",
             "source": {
@@ -4490,53 +4367,6 @@
             "homepage": "https://www.drupal.org/project/simplei",
             "support": {
                 "source": "https://git.drupalcode.org/project/simplei"
-            }
-        },
-        {
-            "name": "drupal/taxonomy_publish",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/taxonomy_publish.git",
-                "reference": "8.x-1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/taxonomy_publish-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "f5eba76528a0ca461737b88ed8ee088f6da99207"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1528229880",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "vslklv",
-                    "homepage": "https://www.drupal.org/user/3239737"
-                }
-            ],
-            "description": "Option to unpublish content.",
-            "homepage": "https://www.drupal.org/project/taxonomy_publish",
-            "support": {
-                "source": "https://git.drupalcode.org/project/taxonomy_publish"
             }
         },
         {
@@ -10704,7 +10534,6 @@
     "stability-flags": {
         "drupal/webform": 5,
         "drupal/libraries": 15,
-        "drupal/field_permissions": 10,
         "drupal/ds_chains": 15,
         "drupal/field_group_link": 5,
         "drupal/menu_multilingual": 15,
