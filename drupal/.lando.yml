@@ -1,5 +1,6 @@
 name: tilat
 recipe: drupal8
+
 config:
   webroot: web
   via: nginx
@@ -13,6 +14,9 @@ tooling:
     description: Execute build.sh
     cmd:
       - ./build.sh
+  drush:
+    service: appserver
+    cmd: drush --root=/app/web
 
 services:
   mailhog:
@@ -36,7 +40,6 @@ services:
       #- "ln -sf /app/drush/drushrc.php /var/www/.drush/drushrc.php"
       - "ln -sf /app/drush/drush.yml /var/www/.drush/drush.yml"
     overrides:
-      services:
         environment:
           WKV_SITE_ENV: lando
           DB_PASS_DRUPAL: drupal8
@@ -51,4 +54,7 @@ proxy:
 events:
   # Clear caches after a database import
   post-db-import:
-    - appserver: cd $LANDO_WEBROOT && drush cr -y
+    - appserver: cd /app/web && drush cr -y
+  # Update modules after lando start.
+  post-start:
+    - appserver: cd /app && composer install
