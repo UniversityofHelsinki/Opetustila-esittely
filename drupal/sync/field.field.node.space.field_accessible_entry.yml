@@ -20,7 +20,7 @@ bundle: space
 label: 'Esteettömän pääsyn lisätiedot'
 description: 'Jos tilalla on esteetön sisäänkäynti, kuvaa sen sijainti tähän kenttään. '
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

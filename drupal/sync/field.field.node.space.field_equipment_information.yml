@@ -20,7 +20,7 @@ bundle: space
 label: Varustetiedot
 description: 'Tilaan liittyvat erilliset varusteet, jotka eivät ole rakennuksen yleisiä varusteita. Tämä ohittaa rakennuksen varustetiedot.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
