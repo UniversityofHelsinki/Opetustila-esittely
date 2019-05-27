@@ -18,7 +18,7 @@ id: taxonomy_term.building.field_contacts
 field_name: field_contacts
 entity_type: taxonomy_term
 bundle: building
-label: Yhteystiedot
+label: 'Contact details'
 description: ''
 required: false
 translatable: true

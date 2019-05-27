@@ -17,8 +17,8 @@ id: node.space.field_inactivated_in_drupal
 field_name: field_inactivated_in_drupal
 entity_type: node
 bundle: space
-label: 'Julkaisun esto Drupalissa'
-description: 'Jos tämä kenttä on valittu, sisältö pysyy aina julkaisemattomassa tilassa. Optime-tiedoissa voi tulla myös vastaava julkaisemisen esto, jota ei voi ohittaa Drupalissa.'
+label: 'Publication blocked in Drupal'
+description: 'If this field is selected, the content will always remain in the unpublished state. Optime information may also include a corresponding inactive status that cannot be overridden by Drupal.'
 required: false
 translatable: false
 default_value:
@@ -26,6 +26,6 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  on_label: 'Estä julkaiseminen'
-  off_label: Neutraali
+  on_label: 'Block publishing'
+  off_label: 'Unblock publishing'
 field_type: boolean

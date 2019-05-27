@@ -1,13 +1,16 @@
 module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
+  big_pipe: 0
   block: 0
   breakpoint: 0
   ckeditor: 0
   config: 0
   config_filter: 0
   config_ignore: 0
+  config_readonly: 0
   config_split: 0
+  config_translation: 0
   cookieconsent: 0
   ctools: 0
   datetime: 0
@@ -34,6 +37,7 @@ module:
   leaflet_views: 0
   link: 0
   locale: 0
+  menu_multilingual: 0
   menu_ui: 0
   migrate: 0
   migrate_optime_json: 0
@@ -58,8 +62,10 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  translatable_menu_link_uri: 0
+  translation_views: 0
   uh_space_site: 0
-  uhsg_service_provider_details: 0
+  uh_space_site_information: 0
   user: 0
   views_ui: 0
   webform: 0

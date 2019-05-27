@@ -15,15 +15,14 @@
 <div class="l-top-bar l-top-bar--small">
   <div class="l-top-bar__left">
     <div class="links theme-plain">
-      <a class="links__link" href="{{ logo_path }}">Helsingin yliopisto</a>
+      <a class="links__link" href="{{ logo_path }}">{{ 'University of Helsinki'|t }}</a>
     </div>
   </div>
-  {# Disable language switcher temporarily. #}
-  {#<div class="l-top-bar__right">#}
-    {#<div class="links theme-plain">#}
-      {#{{ elements.languageswitcher }}#}
-    {#</div>#}
-  {#</div>#}
+  <div class="l-top-bar__right">
+    <div class="links theme-plain">
+      {{ elements.languageswitcher }}
+    </div>
+  </div>
 </div>
 
 <div class="l-header-bar">

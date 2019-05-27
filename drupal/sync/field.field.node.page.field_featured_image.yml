@@ -24,7 +24,7 @@ id: node.page.field_featured_image
 field_name: field_featured_image
 entity_type: node
 bundle: page
-label: Esiinnostokuva
+label: 'Main image'
 description: ''
 required: false
 translatable: true

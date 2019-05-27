@@ -9,7 +9,6 @@ base_url: ''
 default_variant: default
 custom_links_include_images: false
 excluded_languages:
-  en: en
   sv: sv
 enabled_entity_types:
   - node
