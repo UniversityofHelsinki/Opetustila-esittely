@@ -1,5 +1,5 @@
 include_home_segment: true
-home_segment_title: Spaces
+home_segment_title: Opetustilat
 include_title_segment: false
 language_path_prefix_as_segment: false
 use_menu_title_as_fallback: false
@@ -13,3 +13,10 @@ title_segment_as_link: true
 title_from_page_when_available: true
 langcode: fi
 home_segment_keep: false
+applies_admin_routes: true
+replaced_titles: ''
+custom_paths: ''
+use_page_title_as_menu_title_fallback: false
+absolute_paths: false
+hide_single_home_item: false
+term_hierarchy: false
