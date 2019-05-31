@@ -515,7 +515,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: 'What kind of space do you need?'
+      title: 'What kind of a facility are you looking for?'
       header:
         result:
           id: result
