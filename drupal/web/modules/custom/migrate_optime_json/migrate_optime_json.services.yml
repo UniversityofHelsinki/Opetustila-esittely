@@ -1,6 +1,10 @@
 services:
   migrate_optime_json.event_subscriber:
     class: Drupal\migrate_optime_json\EventSubscriber\MigrateOptimeJsonSubscriber
-    arguments: ['@current_user']
+    arguments: ['@entity_type.manager', '@logger.channel.migrate_optime_json']
     tags:
       - { name: event_subscriber }
+
+  logger.channel.migrate_optime_json:
+    parent: logger.channel_base
+    arguments: ['migrate_optime_json']
