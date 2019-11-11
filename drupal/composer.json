@@ -28,7 +28,7 @@
         "drupal/warden": "*",
         "drupal/simplei": "^1.0",
         "wunderio/drupal-ping": "^1.0",
-        "drupal/admin_toolbar": "^1.23",
+        "drupal/admin_toolbar": "^2.0",
         "drupal/token": "^1.1",
         "drupal/pathauto": "^1.0",
         "drupal/config_split": "^1.3",
