@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07e151e7ab099c2eef1bb89d5850159c",
+    "content-hash": "6040c793f13e046fbdd0625189cc0a41",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3148,17 +3148,17 @@
         },
         {
             "name": "drupal/disable_field",
-            "version": "1.8.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/disable_field.git",
-                "reference": "8.x-1.8"
+                "reference": "8.x-2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/disable_field-8.x-1.8.zip",
-                "reference": "8.x-1.8",
-                "shasum": "546a51c7df1577b288c8c05c256712068cc1fe6f"
+                "url": "https://ftp.drupal.org/files/projects/disable_field-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "3d5159441e1b695e1fcba2e53c24d2e79f36eb0d"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -3166,11 +3166,11 @@
             "type": "drupal-module",
             "extra": {
                 "branch-alias": {
-                    "dev-1.x": "1.x-dev"
+                    "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.8",
-                    "datestamp": "1519376584",
+                    "version": "8.x-2.1",
+                    "datestamp": "1565016786",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3402,17 +3402,17 @@
         },
         {
             "name": "drupal/field_group",
-            "version": "3.0.0-beta1",
+            "version": "3.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/field_group.git",
-                "reference": "8.x-3.0-beta1"
+                "reference": "8.x-3.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/field_group-8.x-3.0-beta1.zip",
-                "reference": "8.x-3.0-beta1",
-                "shasum": "a5dfb66385be7a1b3db232e49779d5bc530a048e"
+                "url": "https://ftp.drupal.org/files/projects/field_group-8.x-3.0-rc1.zip",
+                "reference": "8.x-3.0-rc1",
+                "shasum": "e291b5468c834a344e9aa6cafd3a76171d473a22"
             },
             "require": {
                 "drupal/core": "*"
@@ -3423,11 +3423,11 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-beta1",
-                    "datestamp": "1510352338",
+                    "version": "8.x-3.0-rc1",
+                    "datestamp": "1558678323",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -10449,6 +10449,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/libraries": 15,
+        "drupal/field_group": 10,
         "drupal/ds_chains": 15,
         "drupal/field_group_link": 5,
         "drupal/menu_multilingual": 15,
