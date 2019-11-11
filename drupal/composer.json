@@ -28,7 +28,7 @@
         "drupal/warden": "*",
         "drupal/simplei": "^1.0",
         "wunderio/drupal-ping": "^1.0",
-        "drupal/admin_toolbar": "^1.23",
+        "drupal/admin_toolbar": "^2.0",
         "drupal/token": "^1.1",
         "drupal/pathauto": "^1.0",
         "drupal/config_split": "^1.3",
@@ -38,12 +38,12 @@
         "drupal/migrate_tools": "^4.0",
         "drupal/migrate_plus": "^4.0",
         "drupal/libraries": "^3.0@alpha",
-        "drupal/field_group": "3.0-beta1",
+        "drupal/field_group": "^3.0@beta",
         "drupal/ds": "^3.1",
         "drupal/ds_chains": "^1.0@alpha",
         "drupal/search_api": "^1.7",
         "drupal/search_api_autocomplete": "^1.0",
-        "drupal/disable_field": "^1.8",
+        "drupal/disable_field": "^2.1",
         "drupal/field_group_link": "^3.0@RC",
         "drupal/easy_breadcrumb": "^1.6",
         "drupal/leaflet": "^1.0",
@@ -61,11 +61,10 @@
     "require-dev": {
         "codeception/codeception": "^2.2",
         "codeception/visualception": "^0.9.0",
-        "guncha25/codecept-drupal-drush": "~0.3",
-        "guncha25/drupal-8-bootstrap": "0.3",
         "drupal/devel": "~2.0",
         "drupal/devel_php": "^1.0",
-        "drupal/stage_file_proxy": "^1.0@alpha"
+        "drupal/stage_file_proxy": "^1.0@alpha",
+        "guncha25/drupal-codeception": "^8.0"
     },
     "conflict": {
         "drupal/drupal": "*"
