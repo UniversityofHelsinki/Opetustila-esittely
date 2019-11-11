@@ -2,6 +2,7 @@
 
 namespace Drupal\migrate_optime_json\EventSubscriber;
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigrateImportEvent;
@@ -69,9 +70,12 @@ class MigrateOptimeJsonSubscriber implements EventSubscriberInterface {
           $nodes = $this->entityTypeManager->getStorage('node')->loadByProperties(['field_equipment' => $tid]);
           // Delete term if not referenced by any of spaces.
           if (!$nodes) {
+            // Delete term.
             $term = Term::load($tid);
             $this->logger->info('Unused term of "%term_name" deleted from Equipment vocabulary.', ['%term_name' => $term->getName()]);
             $term->delete();
+            // Invalidate space search view cache.
+            Cache::invalidateTags(['space_search']);
           }
         }
       }
