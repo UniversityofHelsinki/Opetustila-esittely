@@ -5,6 +5,7 @@ namespace Drupal\migrate_optime_json\EventSubscriber;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigrateImportEvent;
+use Drupal\taxonomy\Entity\Term;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -57,14 +58,18 @@ class MigrateOptimeJsonSubscriber implements EventSubscriberInterface {
       // After import operation check Equipment taxonomy terms that are not
       // referenced any more.
       if ($migration->id() == 'optime_integration') {
-        // Get Equipment taxonomy terms.
-        /** @var \Drupal\taxonomy\TermInterface[] $terms */
-        $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree('Equipment', 0, NULL, TRUE);
-        foreach ($terms as $term) {
+        // Get Equipment taxonomy term tids.
+        $equipment_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree('equipment', 0, 1, FALSE);
+        $equipment_tids = array_map(function ($term) {
+          return $term->tid;
+        }, $equipment_terms);
+
+        foreach ($equipment_tids as $tid) {
           // Check if term is referenced by any of spaces.
-          $nodes = $this->entityTypeManager->getStorage('node')->loadByProperties(['field_equipment' => $term->id()]);
+          $nodes = $this->entityTypeManager->getStorage('node')->loadByProperties(['field_equipment' => $tid]);
           // Delete term if not referenced by any of spaces.
           if (!$nodes) {
+            $term = Term::load($tid);
             $this->logger->info('Unused term of "%term_name" deleted from Equipment vocabulary.', ['%term_name' => $term->getName()]);
             $term->delete();
           }
