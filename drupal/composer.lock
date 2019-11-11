@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6040c793f13e046fbdd0625189cc0a41",
+    "content-hash": "6d7803379453d7559fdb75fc337adc26",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -8991,77 +8991,26 @@
             "time": "2018-07-12T10:23:15+00:00"
         },
         {
-            "name": "guncha25/codecept-drupal-drush",
-            "version": "0.5.0",
+            "name": "guncha25/drupal-codeception",
+            "version": "8.0.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guncha25/codecept-drupal-drush.git",
-                "reference": "cb61e67f738927f392bc5d6426287186eed97d10"
+                "url": "https://github.com/guncha25/drupal-codeception.git",
+                "reference": "7b51c2ce246963452c77b7163c3ca0c33b91e93a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guncha25/codecept-drupal-drush/zipball/cb61e67f738927f392bc5d6426287186eed97d10",
-                "reference": "cb61e67f738927f392bc5d6426287186eed97d10",
+                "url": "https://api.github.com/repos/guncha25/drupal-codeception/zipball/7b51c2ce246963452c77b7163c3ca0c33b91e93a",
+                "reference": "7b51c2ce246963452c77b7163c3ca0c33b91e93a",
                 "shasum": ""
             },
             "require": {
-                "codeception/codeception": "^2.2",
-                "symfony/process": "^3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.7"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Codeception\\Module\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andy Rigby",
-                    "email": "andy.rigby@ixis.co.uk"
-                },
-                {
-                    "name": "Guntis Jakovins",
-                    "email": "guntis.jakovins@wunder.io"
-                }
-            ],
-            "description": "A Codeception module to allow drush commands to be run during tests.",
-            "homepage": "https://github.com/guncha25/codecept-drupal-drush",
-            "abandoned": "guncha25/drupal-codeception",
-            "time": "2017-10-05T15:41:23+00:00"
-        },
-        {
-            "name": "guncha25/drupal-8-bootstrap",
-            "version": "0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guncha25/drupal-8-bootstrap.git",
-                "reference": "63231f2de970db03d58dce139b4129f754cea7b2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guncha25/drupal-8-bootstrap/zipball/63231f2de970db03d58dce139b4129f754cea7b2",
-                "reference": "63231f2de970db03d58dce139b4129f754cea7b2",
-                "shasum": ""
-            },
-            "require": {
-                "codeception/codeception": "^2.1",
-                "fzaninotto/faker": "^1.6"
+                "codeception/codeception": "^2.3 || ^3.0",
+                "fzaninotto/faker": "^1.8"
             },
             "require-dev": {
                 "composer/installers": "^1",
-                "drupal/core": "^8.2"
+                "drupal/core": "^8"
             },
             "type": "package",
             "autoload": {
@@ -9079,9 +9028,8 @@
                     "email": "guntis.jakovins@gmail.com"
                 }
             ],
-            "description": "Drupal 8 framework integration for Codeception",
-            "abandoned": "guncha25/drupal-codeception",
-            "time": "2017-05-29T20:23:22+00:00"
+            "description": "Codeception toolset for Drupal testing.",
+            "time": "2019-09-20T15:54:16+00:00"
         },
         {
             "name": "myclabs/deep-copy",
