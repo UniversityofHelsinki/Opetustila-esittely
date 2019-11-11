@@ -2,11 +2,12 @@
 
 namespace Drupal\migrate_optime_json\EventSubscriber;
 
-use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\migrate\Event\MigrateEvents;
+use Drupal\migrate\Event\MigrateImportEvent;
+use Drupal\taxonomy\Entity\Term;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * Migrate Optime JSON event subscriber.
@@ -14,41 +15,25 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class MigrateOptimeJsonSubscriber implements EventSubscriberInterface {
 
   /**
-   * Current logged in user.
+   * The entity type manager.
    *
-   * @var \Drupal\Core\Session\AccountProxyInterface
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  protected $currentUser;
+  protected $entityTypeManager;
+
+  /**
+   * The logger instance.
+   *
+   * @var \Psr\Log\LoggerInterface
+   */
+  protected $logger;
 
   /**
    * Constructs event subscriber.
-   *
-   * @param \Drupal\Core\Session\AccountProxyInterface $current_user
-   *   Current logged in user.
    */
-  public function __construct(AccountProxyInterface $current_user) {
-    $this->currentUser = $current_user;
-  }
-
-  /**
-   * Kernel request event handler.
-   *
-   * @param \Symfony\Component\HttpKernel\Event\GetResponseEvent $event
-   *   Response event.
-   */
-  public function onKernelRequest(GetResponseEvent $event) {
-    // DEBUG..
-    // drupal_set_message(__FUNCTION__);
-  }
-
-  /**
-   * Kernel response event handler.
-   *
-   * @param \Symfony\Component\HttpKernel\Event\FilterResponseEvent $event
-   *   Response event.
-   */
-  public function onKernelResponse(FilterResponseEvent $event) {
-    // drupal_set_message(__FUNCTION__);
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, LoggerInterface $logger) {
+    $this->entityTypeManager = $entity_type_manager;
+    $this->logger = $logger;
   }
 
   /**
@@ -56,9 +41,41 @@ class MigrateOptimeJsonSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     return [
-      KernelEvents::REQUEST => ['onKernelRequest'],
-      KernelEvents::RESPONSE => ['onKernelResponse'],
+      MigrateEvents::POST_IMPORT => ['afterImport'],
     ];
+  }
+
+  /**
+   * Function to process action after finishing a migration import operation.
+   *
+   * @param \Drupal\migrate\Event\MigrateImportEvent $event
+   *   Event for migration import operation.
+   */
+  public function afterImport(MigrateImportEvent $event) {
+    $migration = $event->getMigration();
+
+    if (!empty($migration)) {
+      // After import operation check Equipment taxonomy terms that are not
+      // referenced any more.
+      if ($migration->id() == 'optime_integration') {
+        // Get Equipment taxonomy term tids.
+        $equipment_terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree('equipment', 0, 1, FALSE);
+        $equipment_tids = array_map(function ($term) {
+          return $term->tid;
+        }, $equipment_terms);
+
+        foreach ($equipment_tids as $tid) {
+          // Check if term is referenced by any of spaces.
+          $nodes = $this->entityTypeManager->getStorage('node')->loadByProperties(['field_equipment' => $tid]);
+          // Delete term if not referenced by any of spaces.
+          if (!$nodes) {
+            $term = Term::load($tid);
+            $this->logger->info('Unused term of "%term_name" deleted from Equipment vocabulary.', ['%term_name' => $term->getName()]);
+            $term->delete();
+          }
+        }
+      }
+    }
   }
 
 }
