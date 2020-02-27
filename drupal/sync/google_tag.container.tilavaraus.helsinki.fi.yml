@@ -1,0 +1,30 @@
+uuid: c9790ff3-3608-431a-88a3-1fe79ae88145
+langcode: fi
+status: true
+dependencies:
+  module:
+    - ctools
+id: tilavaraus.helsinki.fi
+label: tilavaraus.helsinki.fi
+weight: 0
+container_id: GTM-59JBSDV
+data_layer: dataLayer
+include_classes: false
+whitelist_classes: ''
+blacklist_classes: ''
+include_environment: true
+environment_id: env-3
+environment_token: 4wv_dZbHBKfbJMZ5Y-Z7vg
+path_toggle: 'exclude listed'
+path_list: ''
+role_toggle: 'exclude listed'
+role_list: {  }
+status_toggle: 'exclude listed'
+status_list: ''
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles: {  }
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
