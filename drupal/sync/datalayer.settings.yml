@@ -7,10 +7,10 @@ entity_meta:
   created: created
   langcode: langcode
   status: status
-  uid: uid
   uuid: uuid
   vid: vid
   name: '0'
+  uid: '0'
 enable_ia: false
 ia_depth: 3
 ia_category_primary: primaryCategory
