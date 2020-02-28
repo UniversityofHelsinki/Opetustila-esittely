@@ -83,6 +83,9 @@ switch ($env) {
     $base_url = "https://tilavaraus.helsinki.fi";
     // Sitemap settings override.
     $config['simple_sitemap.settings']['base_url'] = 'https://tilavaraus.helsinki.fi';
+    // GTM settings override.
+    $config['google_tag.container.tilavaraus.helsinki.fi']['environment_id'] = 'env-1';
+    $config['google_tag.container.tilavaraus.helsinki.fi']['environment_token'] = 'RN8MQBhEX_4ifvbbJYqPnw';
     break;
 
   case 'dev':
