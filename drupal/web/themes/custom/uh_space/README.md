@@ -8,7 +8,7 @@ UH theme uses Display suite for most content types/layouting.
 
 _Note:_ Site uses Style Guide fork from here: git@github.com:wunderio/Styleguide.git
 
-The reason for the fork is that UH's Styleguide does not have enough contrast in the text colours to pass WCAG 2.1 AA level requirements, and it also doesn't work with Webpack. Both of these issues are fixed in the fork.
+The reason for the fork is that UH's Styleguide does not have enough contrast in the text colours to pass WCAG 2.1 AA level requirements. It also doesn't work with Webpack's image loading, because background URLs are relative to the styleguide folder. Both of these issues are fixed in the fork.
 
 If the theme doesn't compile without errors in a fresh environment, it's possible that the styleguide submodule has not been initialised correctly so please pay attention to its location in the theme folder and the submodule commit that should be checked out.
 
