@@ -8,8 +8,11 @@ UH theme uses Display suite for most content types/layouting.
 
 _Note:_ Site uses Style Guide fork from here: git@github.com:wunderio/Styleguide.git
 
-1. Checkout git submodules in repository root (Opetustila-esittely/) by running `git submodule update --recursive --remote`. This should add a specific version of UH’s Styleguide to drupal/web/themes/custom/uh_space/lib/uh_styleguide. The commit ref should be ‘37cee5b0a2a754bbbd54f725793b61d0d25a33b7’.
-    1. If you are pulling submodules for the first time for the project, run `git submodule update --init --recursive --remote` instead.
+The reason for the fork is that UH's Styleguide does not have enough contrast in the text colours to pass WCAG 2.1 AA level requirements, and it also doesn't work with Webpack. Both of these issues are fixed in the fork.
+
+If the theme doesn't compile without errors in a fresh environment, it's possible that the styleguide submodule has not been initialised correctly so please pay attention to its location in the theme folder and the submodule commit that should be checked out.
+
+1. Checkout git submodules in repository root (Opetustila-esittely/) by running `git submodule update --recursive`. This should add a specific version of UH’s Styleguide to drupal/web/themes/custom/uh_space/lib/uh_styleguide. The checked out commit should be ‘908d40b9be36457057f3b24ba706cc088b8e9c61’.
 
 #### Compiling frontend assets
 1. Setting up
