@@ -75,17 +75,18 @@
   </main>
 
   {{ page.footer_top }}
-
+  <footer>
   {% if page.footer_site %}
-    <footer role="contentinfo">
+    <div>
       {{ page.footer_site }}
-    </footer>
+    </div>
   {% endif %}
 
   {% if page.footer %}
-    <footer role="contentinfo">
+    <div>
       {{ page.footer }}
-    </footer>
+    </div>
   {% endif %}
+  </footer>
 
 </div>{# /.layout-container #}
