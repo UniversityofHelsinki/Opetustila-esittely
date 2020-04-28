@@ -46,6 +46,13 @@
 <div {{ attributes.addClass('page').addClass('layout-container') }}>
 
   <header role="banner">
+    {#
+      Keyboard navigation/accessibility link to main content section in
+      page.html.twig.
+    #}
+    <a href="#main-content" class="off-canvas off-canvas--focusable">
+      {{ 'Skip to main content'|t }}
+    </a>
     {{ page.header }}
   </header>
 
