@@ -26,10 +26,7 @@
  */
 #}
 
-{# Remove role attribute: #}
-
-
-
+{# And aria-label attribute & Remove role attribute. As a result twig outputs new attribute set: #}
 <nav{{ attributes.setAttribute('aria-label', 'Switch language'|t).removeAttribute('role') }}>
   {{ title_prefix }}
   {% if label %}
