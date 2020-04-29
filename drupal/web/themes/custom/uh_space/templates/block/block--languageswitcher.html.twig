@@ -27,10 +27,10 @@
 #}
 
 {# Remove role attribute: #}
-{{ attributes.setAttribute('aria-label', 'Switch language'|t) }}
-{{ attributes.removeAttribute('role') }}
 
-<nav{{ attributes }}>
+
+
+<nav{{ attributes.setAttribute('aria-label', 'Switch language'|t).removeAttribute('role') }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes }}>{{ label }}</h2>
