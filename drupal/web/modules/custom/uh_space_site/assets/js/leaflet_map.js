@@ -6,7 +6,7 @@
       const {currentLanguage} = settings['path'];
 
       // Prepare title texts depending on language
-      let titles = {};
+      const titles = {};
       switch (currentLanguage) {
         case 'fi':
           titles.zoomInTitle = 'Lähennä';
@@ -18,7 +18,7 @@
           titles.zoomOutTitle = 'Zoom Out';
       }
 
-      // Define dom elements
+      // Define DOM/jQuery elements of Zoom controls
       const zoomInElement = $('.leaflet-control-zoom-in');
       const zoomOutElement = $('.leaflet-control-zoom-out');
 
