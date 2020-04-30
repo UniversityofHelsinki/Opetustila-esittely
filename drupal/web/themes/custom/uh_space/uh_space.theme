@@ -165,7 +165,7 @@ function uh_space_preprocess_field(&$vars, $hook) {
 function uh_space_preprocess_field__ds_field_expert(&$vars) {
   // Make label translatable & wrap with h2 instead of div
   if ($vars['field_name'] == 'dynamic_block_field:taxonomy_term-building_spaces_view') {
-    $vars['label']['#markup'] = t('Space List');
+    $vars['label']['#markup'] = t('Space list');
     $vars['settings']['lbw-el'] = 'h2';
   }
 
