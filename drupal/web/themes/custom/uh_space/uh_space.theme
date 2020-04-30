@@ -163,6 +163,12 @@ function uh_space_preprocess_field(&$vars, $hook) {
  * Implements template_preprocess_field__ds_field_expert().
  */
 function uh_space_preprocess_field__ds_field_expert(&$vars) {
+  // Make label translatable & wrap with h2 instead of div
+  if ($vars['field_name'] == 'dynamic_block_field:taxonomy_term-building_spaces_view') {
+    $vars['label']['#markup'] = t('Space List');
+    $vars['settings']['lbw-el'] = 'h2';
+  }
+
   // Replace DIY icon definitions in field prefix/suffix with icon SVG contents
   foreach (['prefix', 'suffix'] as $sibling) {
     if (!empty($vars['settings'][$sibling]) && $sibling_content = $vars['settings'][$sibling]) {
@@ -234,6 +240,16 @@ function uh_space_preprocess_input__submit(&$vars) {
  */
 function uh_space_preprocess_search_api_autocomplete_suggestion(&$vars) {
   $vars['arrow_icon'] = _uh_space_load_wrapped_icon('arrow-right');
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function uh_space_preprocess_block(&$variables) {
+  // Make label translatable
+  if ($variables['elements']['#id'] == 'views_block__space_navigation_campus_list') {
+    $variables['label']['#markup'] = t('Campus List');
+  }
 }
 
 /**
