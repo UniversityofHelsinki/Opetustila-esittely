@@ -123,6 +123,10 @@ function uh_space_site_form_alter(&$form, &$form_state, $form_id) {
         }
       }
     }
+
+    // Change capacity field type to number and set minimum value to 0
+    $form['field_capacity']['#type'] = 'number';
+    $form['field_capacity']['#min'] = 0;
   }
 }
 
