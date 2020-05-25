@@ -16,47 +16,47 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.2",
+        "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
+        "drupal/admin_toolbar": "^2.0",
+        "drupal/config_filter": "^1.1",
+        "drupal/config_ignore": "^2.1",
+        "drupal/config_installer": "~1.0",
+        "drupal/config_readonly": "^1.0",
+        "drupal/config_split": "^1.3",
         "drupal/console": "^1.0.2",
-        "drupal/core": "~8.6",
+        "drupal/cookieconsent": "^1.4",
+        "drupal/core-recommended": "^8.8",
+        "drupal/ctools": "^3.0",
+        "drupal/disable_field": "^2.1",
+        "drupal/ds": "^3.1",
+        "drupal/ds_chains": "^1.0@alpha",
+        "drupal/easy_breadcrumb": "^1.6",
+        "drupal/field_group": "^3.0@beta",
+        "drupal/field_group_link": "^3.0@RC",
+        "drupal/geofield_map": "^2.36",
+        "drupal/google_tag": "^1.0",
+        "drupal/leaflet": "^1.0",
+        "drupal/libraries": "^3.0@alpha",
+        "drupal/menu_multilingual": "^1.0@alpha",
+        "drupal/migrate_plus": "^4.0",
+        "drupal/migrate_tools": "^4.0",
+        "drupal/pathauto": "^1.0",
+        "drupal/redirect": "^1.1",
+        "drupal/search_api": "^1.7",
+        "drupal/search_api_autocomplete": "^1.0",
+        "drupal/simple_sitemap": "^3.1",
+        "drupal/simplei": "^1.0",
+        "drupal/token": "^1.1",
+        "drupal/translatable_menu_link_uri": "^1.1",
+        "drupal/translation_views": "^1.0",
+        "drupal/warden": "*",
         "drush/drush": "^9.0.0",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "drupal/config_installer": "~1.0",
-        "drupal/warden": "*",
-        "drupal/simplei": "^1.0",
         "wunderio/drupal-ping": "^1.0",
-        "drupal/admin_toolbar": "^2.0",
-        "drupal/token": "^1.1",
-        "drupal/pathauto": "^1.0",
-        "drupal/config_split": "^1.3",
-        "drupal/config_filter": "^1.1",
-        "drupal/ctools": "^3.0",
-        "drupal/config_ignore": "^2.1",
-        "drupal/migrate_tools": "^4.0",
-        "drupal/migrate_plus": "^4.0",
-        "drupal/libraries": "^3.0@alpha",
-        "drupal/field_group": "^3.0@beta",
-        "drupal/ds": "^3.1",
-        "drupal/ds_chains": "^1.0@alpha",
-        "drupal/search_api": "^1.7",
-        "drupal/search_api_autocomplete": "^1.0",
-        "drupal/disable_field": "^2.1",
-        "drupal/field_group_link": "^3.0@RC",
-        "drupal/easy_breadcrumb": "^1.6",
-        "drupal/leaflet": "^1.0",
-        "drupal/redirect": "^1.1",
-        "drupal/geofield_map": "^2.36",
-        "drupal/google_tag": "^1.0",
-        "drupal/cookieconsent": "^1.4",
-        "zaporylie/composer-drupal-optimizations": "^1.0",
-        "drupal/menu_multilingual": "^1.0@alpha",
-        "drupal/translatable_menu_link_uri": "^1.1",
-        "drupal/simple_sitemap": "^3.1",
-        "drupal/translation_views": "^1.0",
-        "drupal/config_readonly": "^1.0"
+        "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
@@ -91,6 +91,9 @@
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "installer-paths": {
             "web/core": ["type:drupal-core"],
@@ -103,17 +106,6 @@
         "composer-exit-on-patch-failure": true,
         "dropin-paths": {
             "web/": ["type:web-dropin"]
-        },
-        "patches": {
-          "drupal/core": {
-              "EntityViewBuilder::viewField() does not respect entity current language when used with an entity reference field": "https://www.drupal.org/files/issues/2019-05-09/2955392-44.patch"
-          },
-          "drupal/ds_chains": {
-              "ChainedField does not respect entity current language" : "conf/patches/ChainedField_translatable.patch"
-          },
-          "drupal/search_api_autocomplete": {
-              "Fix uppercase search autocomplete": "https://www.drupal.org/files/issues/2019-02-20/2947273-25--fix-live-results-query-preprocessing.patch"
-          }
         }
     }
 }
