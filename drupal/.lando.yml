@@ -58,3 +58,6 @@ events:
   # Update modules after lando start.
   post-start:
     - appserver: cd /app && composer install
+
+# Tested with Lando version
+version: v3.0.3
