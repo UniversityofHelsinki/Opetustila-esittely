@@ -10,9 +10,7 @@ dependencies:
 third_party_settings:
   disable_field:
     add_disable: none
-    add_disable_roles: {  }
     edit_disable: none
-    edit_disable_roles: {  }
 id: node.space.field_equipment_information
 field_name: field_equipment_information
 entity_type: node

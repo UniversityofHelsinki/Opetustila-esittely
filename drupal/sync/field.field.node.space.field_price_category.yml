@@ -11,9 +11,7 @@ dependencies:
 third_party_settings:
   disable_field:
     add_disable: none
-    add_disable_roles: {  }
     edit_disable: none
-    edit_disable_roles: {  }
 id: node.space.field_price_category
 field_name: field_price_category
 entity_type: node
