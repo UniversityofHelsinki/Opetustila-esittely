@@ -17,6 +17,23 @@ tooling:
   drush:
     service: appserver
     cmd: drush --root=/app/web
+  node:
+    service: node
+  npm-install:
+    service: node
+    description: Execute `npm install`
+    cmd:
+      - "cd /app/web/themes/custom/uh_space && npm install"
+  npm-build:
+    service: node
+    description: Execute `npm run build`
+    cmd:
+      - "cd /app/web/themes/custom/uh_space && npm run build"
+  npm-fix:
+    service: node
+    description: Execute `npm audit fix --force`
+    cmd:
+      - "cd /app/web/themes/custom/uh_space && npm audit fix --force"
 
 services:
   mailhog:
@@ -28,6 +45,7 @@ services:
   # Edit, not strictly necessary.
   database:
     portforward: 33306
+    scanner: false
 
   appserver:
     extras:
@@ -46,7 +64,15 @@ services:
           DB_USER_DRUPAL: drupal8
           DB_HOST_DRUPAL: database
           DB_NAME_DRUPAL: drupal8
-
+  node:
+    type: node:10
+    extras:
+      - "apt-get update -y"
+      - "apt-get install curl php-cli php-mbstring git unzip -y"
+      - "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer"
+    run:
+      - "cd /app/web/themes/custom/uh_space && npm install"
+      - "cd /app/web/themes/custom/uh_space && npm run build"
 proxy:
   mailhog:
     - mail.lndo.site
