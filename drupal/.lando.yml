@@ -22,18 +22,19 @@ tooling:
   npm-install:
     service: node
     description: Execute `npm install`
-    cmd:
-      - "cd /app/web/themes/custom/uh_space && npm install"
+    cmd: "cd /app/web/themes/custom/uh_space && npm install"
   npm-build:
     service: node
     description: Execute `npm run build`
-    cmd:
-      - "cd /app/web/themes/custom/uh_space && npm run build"
+    cmd: "cd /app/web/themes/custom/uh_space && npm run build"
   npm-fix:
     service: node
     description: Execute `npm audit fix --force`
-    cmd:
-      - "cd /app/web/themes/custom/uh_space && npm audit fix --force"
+    cmd: "cd /app/web/themes/custom/uh_space && npm audit fix --force"
+  npm-sass-rebuild:
+    service: node
+    description: Execute `npm rebuild node-sass`
+    cmd: "cd /app/web/themes/custom/uh_space && npm rebuild node-sass"
 
 services:
   mailhog:
@@ -65,13 +66,14 @@ services:
           DB_HOST_DRUPAL: database
           DB_NAME_DRUPAL: drupal8
   node:
-    type: node:10
+    type: node
     extras:
       - "apt-get update -y"
       - "apt-get install curl php-cli php-mbstring git unzip -y"
       - "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer"
     run:
       - "cd /app/web/themes/custom/uh_space && npm install"
+      - "cd /app/web/themes/custom/uh_space && npm rebuild node-sass"
       - "cd /app/web/themes/custom/uh_space && npm run build"
 proxy:
   mailhog:
