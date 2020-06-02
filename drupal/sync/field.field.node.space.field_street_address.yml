@@ -10,9 +10,7 @@ dependencies:
 third_party_settings:
   disable_field:
     add_disable: none
-    add_disable_roles: {  }
     edit_disable: all
-    edit_disable_roles: {  }
 id: node.space.field_street_address
 field_name: field_street_address
 entity_type: node
