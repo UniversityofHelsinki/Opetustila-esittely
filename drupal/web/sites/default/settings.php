@@ -129,9 +129,10 @@ switch ($env) {
 /**
  * Location of the site configuration files.
  */
-$config_directories = array(
-  CONFIG_SYNC_DIRECTORY => '../sync',
-);
+$config_directories = [];
+
+// Location of the site configuration files.
+$settings['config_sync_directory'] = '../sync';
 
 /**
  * Access control for update.php script.
@@ -183,3 +184,4 @@ if (file_exists(__DIR__ . '/settings.local.php')) {
 }
 
 $settings['install_profile'] = 'config_installer';
+$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];

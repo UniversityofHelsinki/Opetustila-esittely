@@ -1,10 +1,10 @@
 ignored_config_entities:
-  0: 'webform.webform.*'
-  2: 'devel.*'
-  4: system.site
-  6: uhsg_service_provider_details.settings
-  8: 'xmlsitemap_engines.*'
-  10: 'google_tag.*'
+  - 'webform.webform.*'
+  - 'devel.*'
+  - system.site
+  - uhsg_service_provider_details.settings
+  - 'xmlsitemap_engines.*'
+  - 'google_tag.*'
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 langcode: fi

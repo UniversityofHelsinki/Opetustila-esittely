@@ -10,9 +10,7 @@ dependencies:
 third_party_settings:
   disable_field:
     add_disable: none
-    add_disable_roles: {  }
     edit_disable: none
-    edit_disable_roles: {  }
 id: node.page.field_lead_text
 field_name: field_lead_text
 entity_type: node

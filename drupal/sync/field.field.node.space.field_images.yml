@@ -17,9 +17,7 @@ third_party_settings:
       file: '0'
   disable_field:
     add_disable: none
-    add_disable_roles: {  }
     edit_disable: none
-    edit_disable_roles: {  }
 id: node.space.field_images
 field_name: field_images
 entity_type: node

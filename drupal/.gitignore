@@ -39,3 +39,5 @@ web/update.php
 web/web.config
 
 web/_ping.php
+/.editorconfig
+/.gitattributes
