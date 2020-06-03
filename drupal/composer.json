@@ -55,7 +55,8 @@
         "drupal/simple_sitemap": "^3.1",
         "drupal/translation_views": "^1.0",
         "drupal/config_readonly": "^1.0",
-        "drupal/core-recommended": "^8.8"
+        "drupal/core-recommended": "^8.8",
+        "drupal/core-composer-scaffold": "^8.8"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
@@ -92,6 +93,11 @@
     "extra": {
         "config": {
             "sort-packages": true
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "./web"
+            }
         },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
