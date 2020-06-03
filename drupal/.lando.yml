@@ -30,7 +30,7 @@ services:
     portforward: 33306
 
   appserver:
-    extras:
+    build_as_root:
       - "apt-get update -y"
       - "apt-get install python-yaml -y"
       - "apt-get install sudo nano vim mlocate -y"
