@@ -1,0 +1,5 @@
+logo_text: 'Facility booking of the University of Helsinki'
+logo_path: 'https://tilavaraus.helsinki.fi/en'
+copyright_text: '<p>(c) Facility booking of the University of Helsinki</p>'
+contact_info: "<div class=\"logo-block__sitename\">University of Helsinki</div>\r\n    <p>P.O. Box 3 \r\n      <br>(Fabianinkatu 33)\r\n      <br>00014 University of Helsinki</p>\r\n    <p>Switchboard:\r\n      <a class=\"is-tel\" href=\"tel:+3582941911\">+358 (0) 2941 911</a>\r\n    </p>"
+spaces_contact_info: "<div class=\"logo-block__sitename\">University of Helsinki</div>\r\n   Facility booking<br>\r\n        \r\n<a href=\"https://optime.helsinki.fi/Home\" target=\"_blank\">Optime facility booking system</a> <br> \r\ntilavaraus@helsinki.fi<br>\r\n+358 (0) 2941 24500<br>\r\n    </p>"

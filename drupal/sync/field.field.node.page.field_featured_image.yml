@@ -17,9 +17,7 @@ third_party_settings:
       file: '0'
   disable_field:
     add_disable: none
-    add_disable_roles: {  }
     edit_disable: none
-    edit_disable_roles: {  }
 id: node.page.field_featured_image
 field_name: field_featured_image
 entity_type: node

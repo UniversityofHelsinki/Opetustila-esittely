@@ -11,9 +11,7 @@ dependencies:
 third_party_settings:
   disable_field:
     add_disable: none
-    add_disable_roles: {  }
     edit_disable: none
-    edit_disable_roles: {  }
 id: taxonomy_term.building.field_location_map
 field_name: field_location_map
 entity_type: taxonomy_term

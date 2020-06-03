@@ -16,12 +16,10 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.2",
+        "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.6",
-        "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/console": "^1.0.2",
-        "drupal/core": "~8.6",
-        "drush/drush": "^9.0.0",
+        "drush/drush": "^10.2",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
         "drupal/config_installer": "~1.0",
@@ -51,12 +49,13 @@
         "drupal/geofield_map": "^2.36",
         "drupal/google_tag": "^1.0",
         "drupal/cookieconsent": "^1.4",
-        "zaporylie/composer-drupal-optimizations": "^1.0",
         "drupal/menu_multilingual": "^1.0@alpha",
         "drupal/translatable_menu_link_uri": "^1.1",
         "drupal/simple_sitemap": "^3.1",
         "drupal/translation_views": "^1.0",
-        "drupal/config_readonly": "^1.0"
+        "drupal/config_readonly": "^1.0",
+        "drupal/core-recommended": "^8.8",
+        "drupal/core-composer-scaffold": "^8.8"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
@@ -64,7 +63,8 @@
         "drupal/devel": "~2.0",
         "drupal/devel_php": "^1.0",
         "drupal/stage_file_proxy": "^1.0@alpha",
-        "guncha25/drupal-codeception": "^8.0"
+        "guncha25/drupal-codeception": "^8.0",
+        "zaporylie/composer-drupal-optimizations": "^1.1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -77,7 +77,6 @@
         ]
     },
     "scripts": {
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "pre-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
@@ -92,6 +91,14 @@
         ]
     },
     "extra": {
+        "config": {
+            "sort-packages": true
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "./web"
+            }
+        },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/libraries/{$name}": ["type:drupal-library"],
@@ -105,15 +112,6 @@
             "web/": ["type:web-dropin"]
         },
         "patches": {
-          "drupal/core": {
-              "EntityViewBuilder::viewField() does not respect entity current language when used with an entity reference field": "https://www.drupal.org/files/issues/2019-05-09/2955392-44.patch"
-          },
-          "drupal/ds_chains": {
-              "ChainedField does not respect entity current language" : "conf/patches/ChainedField_translatable.patch"
-          },
-          "drupal/search_api_autocomplete": {
-              "Fix uppercase search autocomplete": "https://www.drupal.org/files/issues/2019-02-20/2947273-25--fix-live-results-query-preprocessing.patch"
-          }
         }
     }
 }
