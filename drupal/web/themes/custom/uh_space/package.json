@@ -16,26 +16,28 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "audit": "0.0.6",
     "breakpoint-sass": "^2.7.0",
-    "css-loader": "^0.28.11",
+    "css-loader": "^3.5.3",
     "file-loader": "^1.1.6",
+    "fix": "0.0.6",
     "hoek": "~>5.0.3",
-    "image-webpack-loader": "^4.2.0",
+    "image-webpack-loader": "^6.0.0",
     "inert-polyfill": "^0.2.5",
     "normalize.css": "^3.0.0",
     "postcss": "^6.0.22",
     "postcss-discard-comments": "^2.0.4",
     "postcss-loader": "^2.1.4",
     "tabbable": "^1.1.1",
-    "webpack-cli": "^2.1.2"
+    "webpack-cli": "^3.3.11"
   },
   "devDependencies": {
     "autoprefixer": "^8.4.1",
     "clean-webpack-plugin": "^0.1.19",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.14.1",
     "node-sass-glob-importer": "^5.1.2",
     "sass-loader": "^6.0.7",
-    "webpack": "^4.6.0"
+    "webpack": "^4.43.0"
   }
 }
