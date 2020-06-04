@@ -1,0 +1,222 @@
+/*
+ section: 6.10.3
+ title: Box hero
+ template: 6_10_3_box-hero
+ description: Box-hero is the main story (for example, front page carousel content)
+*/
+
+%box-hero,
+.box-hero {
+  margin: 0 auto;
+  text-align: center;
+
+  @include breakpoint($large) {
+    text-align: left;
+
+    &:before {
+      background: rgba(0, 0, 0, 0.2);
+      bottom: 0;
+      content: '';
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  @include breakpoint($large) {
+    margin: 0;
+    width: 50%;
+  }
+
+  &.theme-prominent {
+    clear: none;
+    float: none;
+    padding: 0;
+    text-align: left;
+    width: auto;
+
+    .box-hero__title {
+      @include font-size(18px);
+      letter-spacing: -0.5px;
+
+      @include breakpoint($small) {
+        @include font-size(22px);
+        letter-spacing: -1px;
+      }
+
+      @include breakpoint($large) {
+        @include font-size(32px);
+        letter-spacing: -2px;
+      }
+    }
+
+    .box-hero__alt-title {
+      @include font-size(13px);
+
+      @include breakpoint($small) {
+        @include font-size(14px);
+      }
+      @include breakpoint($large) {
+        @include font-size(18px);
+      }
+    }
+  }
+
+  &.theme-small {
+    clear: none;
+    float: none;
+    text-align: left;
+    width: auto;
+
+    @include breakpoint($small) {
+      text-align: left;
+    }
+
+    .box-hero__title {
+      @include font-size(16px);
+      color: $black;
+      margin: 0;
+      letter-spacing: -0.5px;
+      padding-bottom: 0.25em;
+    }
+
+    .box-hero__alt-title {
+      @include font-size(14px);
+      color: $black;
+      line-height: 130%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.box-hero__shadow {
+  background: none;
+  background: #000;
+  background: rgba(#000, 0.4);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  display: inline;
+  line-height: 150%;
+  padding: 0 0.5rem;
+}
+
+.box-hero__pretitle {
+  margin-bottom: 0.4em;
+}
+
+.box-hero__title {
+  @include font-size(48px);
+  color: $white;
+  line-height: 105%;
+  margin-bottom: $vert-spacing-unit * 0.5;
+  padding: 0;
+  word-wrap: break-word;
+
+  &:only-child {
+    margin: 0;
+  }
+}
+
+.box-hero__alt-title {
+  @include font-size(20px);
+  color: $white;
+  letter-spacing: normal;
+  line-height: 105%;
+  margin-bottom: 20px;
+  padding: 0;
+  text-transform: none;
+  word-wrap: break-word;
+
+  @include breakpoint($small) {
+    @include font-size(24px);
+  }
+
+  @include breakpoint($medium) {
+    @include font-size(30px);
+  }
+}
+
+.box-hero__content {
+  @include font-family-main;
+  @include font-size(20px);
+  color: $white;
+  font-weight: 600;
+  line-height: 1.25em;
+  margin-bottom: $vert-spacing-unit * 0.7;
+}
+
+.box-hero__content-bottom {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint($small) {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .box-hero__link {
+    margin-bottom: 10px;
+
+    @include breakpoint($small) {
+      margin-bottom: 0;
+      margin-right: 4em;
+    }
+  }
+}
+
+.box-hero__link {
+  @include font-weight-medium;
+  display: inline-block;
+  padding-right: 6em;
+  text-align: left;
+}
+
+.box-hero__play {
+  @include font-weight-bold;
+  align-items: center;
+  color: $white;
+  display: flex;
+  text-transform: uppercase;
+
+  &:before {
+    @include icon($icon-video);
+    @include font-size(58px);
+    margin-right: 10px;
+  }
+}
+
+.box-hero__link.is-videolink {
+  a:after {
+    @include icon($icon-video);
+    @include font-size(30px);
+    @include font-weight-light;
+    line-height: 45px;
+    padding: 0 0.35em;
+  }
+}
+
+.box-hero-plain {
+  @include vertically-center;
+  margin: 0 auto;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 5;
+
+  .box-hero__link {
+    @include font-weight-medium;
+    display: none;
+    padding-right: 6em;
+    text-align: left;
+
+    @include breakpoint($small) {
+      display: inline-block;
+    }
+
+    .carousel-unwrapped__cell:first-of-type & {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+/*
+ section: 6.5
+ title: Breadcrumbs
+ template: 6_5_breadcumbs
+ description:
+*/
+.breadcrumbs {
+  @include font-size(12px);
+  margin: 0 0 0.3em;
+
+  @include breakpoint($small) {
+    margin: 0;
+  }
+
+  &.theme-hero {
+    .breadcrumbs__divider {
+      color: $white;
+    }
+    .breadcrumbs__item {
+      a {
+        color: $white;
+
+        &:hover {
+          color: $mediumsilver;
+        }
+      }
+    }
+  }
+}
+
+.breadcrumbs__item {
+  display: inline;
+  margin-right: 0.2em;
+
+  a {
+    @include font-weight-medium;
+    color: $blue;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $blue--active;
+    }
+  }
+}
+
+.breadcrumbs__divider {
+  @include font-weight-medium;
+  color: $blue;
+  display: inline;
+  margin-right: 0.5em;
+}

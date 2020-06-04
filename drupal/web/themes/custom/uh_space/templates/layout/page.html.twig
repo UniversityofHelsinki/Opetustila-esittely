@@ -46,6 +46,13 @@
 <div {{ attributes.addClass('page').addClass('layout-container') }}>
 
   <header role="banner">
+    {#
+      Keyboard navigation/accessibility link to main content section in
+      page.html.twig.
+    #}
+    <a href="#main-content" class="off-canvas off-canvas--focusable">
+      {{ 'Skip to main content'|t }}
+    </a>
     {{ page.header }}
   </header>
 
@@ -55,7 +62,7 @@
 
   {{ page.hero }}
 
-  <main role="main">
+  <main>
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
     {{ page.content_top }}
 
@@ -68,17 +75,18 @@
   </main>
 
   {{ page.footer_top }}
-
+  <footer>
   {% if page.footer_site %}
-    <footer role="contentinfo">
+    <div>
       {{ page.footer_site }}
-    </footer>
+    </div>
   {% endif %}
 
   {% if page.footer %}
-    <footer role="contentinfo">
+    <div>
       {{ page.footer }}
-    </footer>
+    </div>
   {% endif %}
+  </footer>
 
 </div>{# /.layout-container #}

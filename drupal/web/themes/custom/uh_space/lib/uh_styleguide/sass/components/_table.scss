@@ -1,0 +1,230 @@
+/*
+ section: 6.1
+ title: Table
+ description:
+*/
+
+/*
+ section: 6.1.1
+ title: Table sortable
+ template: 6_1_1_table-sortable
+ description:
+*/
+//TODO: Should be in its own file
+
+.table-sortable {
+  thead {
+    tr {
+      border: 2px solid $lightgray;
+
+      th {
+        background: $black;
+        color: $white;
+        padding: 0.6em 0.9em;
+
+        &, a, a.active {
+          @include font-size(16px);
+          @include font-weight-bold;
+          color: $white;
+          text-decoration: none;
+          text-transform: uppercase;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        &.active img {
+          margin-left: 0.5em;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        @include font-size(13px);
+        border: 2px dotted $mediumsilver;
+        color: $lightgray;
+        padding: 1.2em 0.9em;
+
+        a, a.active {
+          color: $blue;
+          text-decoration: none;
+
+          &:hover {
+            color: $blue--active;
+            text-decoration: none;
+          }
+        }
+
+        p {
+          font-size: inherit;
+        }
+
+        &.active {
+          color: $lightgray;
+        }
+      }
+
+      &.odd {
+        background-color: $lightsilver;
+
+        td.active {
+          background-color: $mediumsilver;
+        }
+      }
+
+      &.even {
+        background-color: $white;
+
+        td.active {
+          background-color: $lightsilver;
+        }
+      }
+    }
+  }
+}
+
+/*
+ section: 6.1.2
+ title: Table simple
+ template: 6_1_2_table-simple
+ description:
+*/
+//TODO: Should be in its own file
+%table-simple,
+.table-simple {
+  @include font-size(14px);
+
+  tr {
+    background-color: $lightsilver;
+
+    th {
+      background-color: $lightsilver;
+    }
+
+    &:nth-of-type(2n) {
+      background-color: $white;
+
+      th {
+        background-color: $lightsilver;
+      }
+    }
+  }
+
+  td, th {
+    @include font-family-main;
+    border: 2px dotted $mediumsilver;
+    color: $lightgray;
+    padding: 0.7em 0.9em;
+    vertical-align: top;
+
+    a, a.active {
+      color: $blue;
+      text-decoration: none;
+
+      &:hover {
+        color: $blue--active;
+        text-decoration: none;
+      }
+    }
+
+    p {
+      font-size: inherit;
+    }
+
+    &.active {
+      color: $lightgray;
+    }
+
+    &:first-child {
+      @include font-weight-bold;
+    }
+  }
+}
+
+/**
+ * Table states
+ */
+
+.is-table-wrapped {
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+
+  > table {
+    display: none;
+  }
+
+  table {
+    @include font-size(13px);
+    margin-bottom: 0 !important;
+  }
+
+  th, td {
+    white-space: nowrap;
+  }
+
+  &:before {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.0001) 100%);
+    content: " ";
+    height: 100%;
+    left: 35%;
+    margin-left: -1em;
+    position: absolute;
+    top: 0;
+    width: 1em;
+    z-index: 10;
+  }
+
+  &:after {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.0001) 100%);
+    content: " ";
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1em;
+    z-index: 10;
+  }
+}
+
+.is-table-pinned {
+  float: left;
+  overflow-x: auto;
+  position: relative;
+  width: 35%;
+
+  table {
+    width: 100%;
+
+    td, th {
+      border-right: none !important;
+    }
+  }
+}
+
+.is-table-scrollable {
+  border-right: 2px dotted $lightsilver;
+  margin-left: 35%;
+  overflow-x: auto;
+  position: relative;
+
+  td:first-child, th:first-child {
+    display: none;
+  }
+
+  td, th {
+    border-left: none !important;
+
+    &:last-child {
+      border-right: none !important;
+    }
+  }
+}
+
+.is-table-scrollable-horizontal {
+  overflow-x: auto;
+}

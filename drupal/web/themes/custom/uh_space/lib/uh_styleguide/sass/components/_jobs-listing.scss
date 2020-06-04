@@ -1,0 +1,89 @@
+/*
+ section: 10.1
+ title: Jobs listing
+ template: 10_1_1-jobs-listing
+*/
+
+// TODO: Refactoring needed
+$jobs-listing-header-padding: 14px 10px;
+
+table.jobs-listing {
+  height: inherit;
+
+  thead {
+    display: none;
+
+    @include breakpoint($medium) {
+      display: table-header-group;
+      width: 100%;
+    }
+
+    th {
+      @include font-size(12px);
+      @include font-weight-bold;
+      background-color: $black;
+      color: $white;
+      margin-top: 10px;
+      padding: $jobs-listing-header-padding;
+      text-transform: uppercase;
+      width: 40%;
+
+      &:last-child {
+        width: 20%;
+      }
+    }
+  }
+
+  td {
+    @include breakpoint($medium) {
+      padding: $jobs-listing-header-padding;
+    }
+  }
+}
+
+tr.jobs-listing__item {
+  @include border-side(bottom);
+  display: block;
+  padding: 10px 0;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  @include breakpoint($medium) {
+    @include light-zebra-color;
+    display: table-row;
+    padding: 0; // Add padding to child elements
+    width: 100%;
+  }
+}
+
+td.jobs-listing__title {
+  @include font-family-main;
+  @include font-size(14px);
+  @include font-weight-medium;
+  display: block;
+  width: 100%;
+
+  @include breakpoint($medium) {
+    display: table-cell;
+    vertical-align: middle;
+    width: 40%;
+  }
+}
+
+td.jobs-listing__date {
+  @include font-family-main;
+  @include font-size(14px);
+  display: inline;
+
+  @include breakpoint($medium) {
+    display: table-cell;
+    vertical-align: middle;
+    width: 20%;
+
+    &:before {
+      content: '';
+    }
+  }
+}

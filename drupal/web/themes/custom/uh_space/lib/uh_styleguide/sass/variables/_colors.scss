@@ -1,0 +1,37 @@
+/*
+ section: 1.1
+ title: Colors
+ description: The colors used through out the theme.
+*/
+
+/*
+ section: 1.1.1
+ title: Text colors
+ description: Main text colors for Helsingin yliopisto - Julkiset
+ color-list: grid
+ colors: $white, $black
+*/
+$white: #FFF;
+$black: #222;
+$pitchblack: #000;
+
+/*
+ section: 1.1.2
+ title: Other colors
+ description: The colors used through out the theme.
+ color-list: list
+ colors: $blue, $blue--active, $darkblue, $darkblue--active, $lightsilver, $mediumsilver, $silver, $lightgray, $darkgray, $red, $orange
+*/
+$blue: #0098d0;
+$blue--active: #0882B3;
+$darkblue: #005479;
+$darkblue--active: #003146;
+
+$lightsilver: #F8F8F8;
+$mediumsilver: #D2D2D2;
+$silver: #979797;
+$lightgray: #555555;
+$darkgray: #424242;
+
+$red: #e5053a;
+$orange: #fca311;
