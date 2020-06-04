@@ -1,0 +1,19 @@
+/*
+ section: 11.1
+ title: Panel
+ template: 11_1_panel
+ description:
+*/
+%panel,
+.panel {
+  @include clearfix;
+  position: relative;
+}
+
+.panel__title {
+  text-transform: uppercase;
+}
+
+.panel__more-link {
+  float: right;
+}

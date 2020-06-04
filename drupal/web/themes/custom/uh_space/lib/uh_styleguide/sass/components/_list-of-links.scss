@@ -1,0 +1,107 @@
+/*
+ section: 6.2
+ title: List of links
+ description:
+*/
+
+%list-of-links,
+.list-of-links {
+  display: block;
+  margin-bottom: $vert-spacing-unit;
+}
+
+.list-of-links__title {
+  margin-bottom: 0.5em;
+}
+
+.list-of-links__subtitle {
+  @include font-size(11px);
+  @include font-weight-medium;
+  color: $silver;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+.list-of-links__link {
+  margin-bottom: 2px;
+  padding-left: 10px;
+
+  &:hover {
+    &:after {
+      color: $white;
+    }
+  }
+
+  // Theme info footer
+  .theme-info-footer & {
+    border-bottom-color: $mediumsilver;
+    color: $black;
+
+    &:before,
+    &:after {
+      color: $lightgray;
+    }
+
+    &:hover {
+      color: $black;
+
+      &:before,
+      &:after {
+        color: $black;
+      }
+    }
+  }
+
+  // Theme footer
+  .theme-footer & {
+    border-bottom-color: $lightgray;
+    color: $white;
+
+    &:before,
+    &:after {
+      color: $white;
+    }
+
+    &:hover {
+      color: $mediumsilver;
+
+      &:before,
+      &:after {
+        color: $mediumsilver;
+      }
+    }
+  }
+}
+
+/*
+ section: 6.2.1
+ title: List of links
+ template: 6_2_1_list-of-links
+ description:
+*/
+
+/*
+ section: 6.2.2
+ title: List of links (with transparent and transparent-alt buttons)
+ template: 6_2_2_list-of-links-transparent
+ description:
+*/
+
+/*
+ section: 6.2.3
+ title: List of links condensed
+ template: 6_2_2_list-of-links-condensed
+ description: Condensed version with footer themes applied. Also uses transparent-alt theme on the buttons.
+*/
+
+.list-of-links--condensed {
+  @extend %list-of-links;
+  margin-bottom: 1em;
+
+  .list-of-links__link {
+    @include font-weight-book;
+    @include font-size(14px);
+    padding-bottom: 0.8em;
+    padding-top: 0.8em;
+  }
+}

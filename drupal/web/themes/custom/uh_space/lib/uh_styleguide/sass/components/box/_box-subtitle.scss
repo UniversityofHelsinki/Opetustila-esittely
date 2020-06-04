@@ -1,0 +1,65 @@
+/*
+ section:  6.10.7
+ title: Box subtitle
+ template: 6_10_7-box-subtitle
+ description: Provides supplementary text information below a title
+*/
+
+%box-subtitle,
+.box-subtitle {
+  display: block;
+
+  &.gridder-box {
+    margin: 0 0 15px 0;
+  }
+}
+
+.box-subtitle__title {
+  @include text-label;
+  @include font-size(16px);
+  margin-bottom: 0.2em;
+}
+
+.box-subtitle__link {
+  @include breakpoint($small) {
+    float: right;
+  }
+
+  a {
+    @include text-bold;
+  }
+}
+
+.box-subtitle__content {
+  @include text-bold;
+}
+
+
+/*
+ section:  6.10.7.1
+ title: Box subtitle icon
+ template: 6_10_7_1-box-subtitle-icon
+ description: Provides supplementary information (and a link) below an icon
+*/
+
+.box-subtitle--icon {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .box-subtitle__icon {
+    @include font-size(36px);
+  }
+
+  .box-subtitle__title {
+    letter-spacing: -0.51px;
+  }
+
+  .box-subtitle__link {
+    @include font-size(14px);
+    @include font-weight-bold;
+    margin-top: auto;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,343 @@
+/*
+ section: 3.7
+ title: Buttons
+ description:
+*/
+
+/*
+ section: 3.7.1
+ title: Button
+ template: 3_7_1-button
+ description:
+*/
+%button,
+.button {
+  @include font-family-main;
+  @include font-size(15px);
+  background-color: $blue;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.8em 1em;
+  transition-duration: 0.1s;
+  transition-property: all;
+  user-select: none;
+
+  &:focus,
+  &:hover {
+    background-color: $darkblue;
+    color: $white;
+  }
+
+  &:active,
+  &.is-active {
+    background-color: $darkblue--active;
+  }
+
+  &:before, &:after {
+    transition-duration: 0.1s;
+    transition-property: all;
+  }
+
+  &.theme-transparent,
+  &.theme-transparent-alt {
+    background-color: transparent;
+    color: $blue;
+
+    &:hover {
+      background-color: $blue;
+    }
+
+    a:hover,
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+/*
+ section: 3.7.1.1
+ title: Button small
+ template: 3_7_1_1-button--small
+ description:
+*/
+
+.button--small {
+  @extend %button;
+  background-color: $lightsilver;
+  color: $black;
+  line-height: 1;
+  padding: .4em .7em;
+
+  &:focus,
+  &:hover {
+    background-color: $silver;
+    color: $white;
+  }
+
+  &:active,
+  &.is-active {
+    background-color: $black;
+    color: $white;
+  }
+}
+
+/*
+ section: 3.7.2
+ title: Button accordion
+  template: 3_7_2-button--accordion
+ description:
+*/
+%button--accordion,
+.button--accordion {
+  @extend %button;
+  border: 2px solid $blue;
+  display: block;
+  line-height: normal;
+  overflow: hidden;
+  padding-left: 3em;
+  padding-right: 0;
+  position: relative;
+
+  &:before {
+    @include icon($icon-link-arrow);
+    @include vertically-center;
+    left: 1em;
+    position: absolute;
+    transform: translateY(-50%) rotate(270deg);
+    transition-duration: 0.1s;
+  }
+
+  &.is-active {
+    background-color: $blue;
+    color: $white;
+
+    &:before {
+      transform: translateY(-50%) rotate(90deg);
+      color: $white;
+    }
+  }
+
+  a:hover &:before,
+  &:hover:before {
+    color: $white;
+  }
+}
+
+/*
+ section: 3.7.3
+ title: Button action
+  template: 3_7_3-button--action
+ description:
+*/
+%button--action,
+.button--action {
+  @extend %button;
+  display: block;
+  font-weight: 600;
+  padding-left: 1em;
+  padding-right: 4em;
+  position: relative;
+
+  // Icon + background
+  &:after {
+    align-items: center;
+    background-color: $blue--active;
+    color: $white;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3rem;
+  }
+
+  &:focus:after,
+  &:active:after {
+    background: $darkblue--active;
+  }
+
+  &:hover {
+    &:after {
+      background: $darkblue--active;
+    }
+  }
+
+  &.theme-transparent,
+  &.theme-transparent-alt {
+    align-items: center;
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:after {
+      background: none;
+      color: $blue;
+      margin-left: 15px;
+      line-height: 0;
+      position: static;
+      width: auto;
+    }
+
+    &:hover,
+    &:before {
+      background-color: transparent;
+    }
+
+    a:hover,
+    &:hover,
+    &:hover:after {
+      color: $darkblue;
+    }
+  }
+
+  &.theme-transparent-alt {
+    border-bottom: 1px solid $lightsilver;
+    padding-right: 1rem;
+
+    &:after {
+      position: absolute;
+    }
+  }
+}
+
+/*
+ section: 3.7.4
+ title: Button action before
+  template: 3_7_4-button--action-before
+ description:
+*/
+%button--action-before,
+.button--action-before {
+  @extend %button--action;
+  padding-left: 4em;
+  padding-right: 1em;
+
+  &:after {
+    left: 0;
+    right: auto;
+  }
+
+  &.theme-transparent {
+    display: block;
+    padding-left: 2em;
+
+    &:after {
+      margin: 0;
+      position: absolute;
+      text-align: left;
+      transform: none;
+    }
+  }
+}
+
+/*
+ section: 3.7.5
+ title: Button anchor
+ template: 3_7_5-button--anchor
+ description:
+*/
+.button--anchor {
+  @extend %button;
+  @include font-size(13px);
+  @include font-weight-medium;
+  display: inline-block;
+  height: 60px;
+  line-height: 1.2em;
+  min-width: 60px;
+  padding-top: 30px;
+  position: relative;
+  text-align: center;
+
+  &:after {
+    @include font-size(15px);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 1em;
+    width: 100%;
+  }
+}
+
+.button--expand {
+  @extend %button;
+
+  .is-overflow-expandable & {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+  }
+}
+
+/*
+ section: 3.7.6
+ title: Button icon
+ template: 3_7_6-button--icon
+ description:
+*/
+.button--icon {
+  @extend %button;
+  @include font-size(28px);
+  @include font-weight-medium;
+  color: $white;
+  display: inline-block;
+  line-height: 0.8em;
+  padding: 0.5em 0.4em;
+  text-align: center;
+
+  &:after {
+    @include font-size(28px);
+    padding-left: 3px;
+    vertical-align: baseline
+  }
+
+  &.icon--facebook {
+    @include background-color(#547bb9);
+  }
+
+  &.icon--twitter {
+    @include background-color(#5ea9dd);
+  }
+
+  &.icon--youtube {
+    @include background-color(#e6644a);
+  }
+
+  &.icon--linkedin {
+    @include background-color(#1483c4);
+  }
+
+  &.icon--instagram {
+    @include background-color(#125688);
+  }
+}
+
+/*
+ section: 3.7.7
+ title: Button group
+ template: 3_7_7-button-group
+ description:
+*/
+%button-group,
+.button-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+
+  > .button-group__button {
+    margin-right: 4px;
+    margin-bottom: 4px;
+    position: relative;
+  }
+}
+
+/*
+ section: 3.7.8
+ title: Button group (small buttons)
+ template: 3_7_8-button-group--small
+ description:
+*/
+

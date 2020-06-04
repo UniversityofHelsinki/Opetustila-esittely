@@ -1,0 +1,72 @@
+/*
+ section: 6.3
+ title: Accordion
+ description:
+*/
+
+/*
+ section: 6.3.1
+ title: Accordion
+ template: 6_3_1_accordion
+ description:
+*/
+.accordion {
+  :focus {
+    outline: none;
+  }
+}
+
+.accordion__item {
+  margin-bottom: $vert-spacing-unit / 2;
+}
+
+.accordion__title {
+  @extend %button--accordion;
+  @include font-weight-medium;
+  @include font-size(14px);
+  text-transform: uppercase;
+}
+
+.accordion__content {
+  > .textarea {
+    padding: 20px 10px;
+
+    @include breakpoint($small) {
+      padding: 20px 40px;
+    }
+  }
+}
+
+.accordion--dark {
+  .accordion__title {
+    @extend %button;
+    height: auto;
+    line-height: 100%;
+    padding: 0;
+
+    &.ui-state-active {
+      background-color: $blue--active;
+    }
+  }
+}
+
+/*
+ section: 6.3.2
+ title: Accordion (with transparent buttons)
+ template: 6_3_2_accordion-transparent
+ description:
+*/
+
+/*
+ section: 6.3.3
+ title: Accordion (nested)
+ template: 6_3_3_accordion-nested
+ description:
+*/
+
+/*
+ section: 6.3.4
+ title: Accordion (nested with transparent buttons)
+ template: 6_3_4_accordion-nested-transparent
+ description:
+*/

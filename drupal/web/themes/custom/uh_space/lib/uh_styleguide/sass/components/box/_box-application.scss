@@ -1,0 +1,70 @@
+/*
+ section: 6.10.1
+ title: Box application
+ template: 6_10_1_box-application
+ description: A box used to display application type content.
+*/
+
+.box-application {
+  display: block;
+  margin-bottom: 2.5em;
+  position: relative;
+}
+
+.box-application__title {
+  margin-bottom: 1em;
+
+  > a {
+    @include font-size(24px);
+    @include font-weight-bold;
+  }
+}
+
+.box-application__table {
+  @extend %table-simple;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: table;
+  width: 100%;
+}
+
+.box-application__tr {
+  background-color: $lightsilver;
+  display: table-row;
+
+  &:nth-of-type(2n) {
+    background-color: $white;
+  }
+}
+
+.box-application__td {
+  @include font-family-main;
+  border: 2px dotted $mediumsilver;
+  color: $lightgray;
+  display: table-cell;
+  padding: 0.7em 0.9em;
+  vertical-align: top;
+  width: 50%;
+
+  a, a.active {
+    color: $blue;
+    text-decoration: none;
+
+    &:hover {
+      color: $blue--active;
+      text-decoration: none;
+    }
+  }
+
+  &.active {
+    color: $lightgray;
+  }
+
+  &:first-child {
+    @include font-weight-bold;
+  }
+}
+
+.box-application__link {
+  float: right;
+}

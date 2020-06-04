@@ -1,0 +1,67 @@
+@mixin arrow($direction: "left", $ball: false) {
+  &:after {
+    @include border-side(left);
+    @include border-side(bottom);
+    content: '';
+    height: 19px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform-origin: 0% 0%;
+    transform: rotate(45deg);
+    width: 19px;
+    z-index: -20;
+  }
+
+  @if $ball {
+    &:before {
+      @include border;
+      border-color: $mediumsilver;
+      border-radius: 50%;
+      content: " ";
+      height: 6px;
+      left: 0;
+      margin-top: -3px;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      width: 6px;
+      z-index: 10;
+    }
+  }
+}
+
+@mixin arrow-internal {
+  @include icon($icon-link-arrow);
+  color: $blue;
+}
+
+@mixin alternative-arrow($color: $white, $size: 10px, $direction: "down") {
+  width: 0;
+  height: 0;
+  content: '';
+
+  @if $direction == "up" {
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+    border-bottom: $size solid $color;
+  }
+
+  @if $direction == "down" {
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+    border-top: $size solid $color;
+  }
+
+  @if $direction == "right" {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  }
+
+  @if $direction == "left" {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  }
+}
