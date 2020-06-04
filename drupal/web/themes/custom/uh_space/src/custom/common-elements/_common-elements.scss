@@ -6,8 +6,119 @@ h3 {
 
 .visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
   position: absolute !important;
-  height: 1px; width: 1px;
+  height: 1px;
+  width: 1px;
   overflow: hidden;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
+}
+
+input[type="number"].search-form__input {
+  height: 3rem;
+}
+
+input[type="number"].search-form--dark__input {
+  background: $darkgray;
+  border: none;
+  color: $white;
+  height: 3rem;
+  margin-bottom: 0;
+  max-width: 100%;
+  min-height: 34px;
+  padding-left: 1em;
+  padding-right: 3em;
+  width: 100%;
+
+  &:focus {
+    outline-color: $blue;
+  }
+}
+
+
+input[type="number"].search-form-large__input {
+  @include font-size(15px);
+  border: 2px solid $lightsilver;
+  color: $silver;
+  display: block;
+  line-height: 1.7em;
+  margin-bottom: $vert-spacing-unit;
+  max-width: 50em;
+  padding: 0.3em 0.5em;
+  width: 100%;
+}
+
+
+.search-form--new {
+  input[type="number"].search-form__input {
+    border-radius: 0;
+    border: none;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    transition-duration: 0.2s;
+    transition-property: width, opacity, visibility;
+    visibility: hidden;
+    width: 0px;
+    z-index: 25;
+
+    &.is-open {
+      box-shadow: -3px 3px 7px 0 rgba($black, 0.4);
+      opacity: 1;
+      visibility: visible;
+      width: 220px;
+    }
+  }
+}
+
+
+.search-form--minimal {
+  input[type="number"].search-form__input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid $white;
+    border-color: white;
+    color: $white;
+    height: 3rem;
+    outline: none;
+
+    &:focus {
+      border-color: $blue;
+      outline: none;
+    }
+  }
+}
+
+
+input[type="number"] {
+  @include font-size(16px);
+  background: $white;
+  border-radius: 0;
+  border: 1px solid $silver;
+  color: $lightgray;
+  outline-color: rgba($blue, 0);
+  outline-offset: -2px;
+  outline-style: solid;
+  outline-width: 2px;
+  padding: 10px;
+  transition-duration: 0.2s;
+  transition-property: all;
+  width: 100%;
+
+  &:focus {
+    border-color: transparent;
+    outline-color: rgba($blue, 255);
+  }
+
+  &[disabled],
+  &[disabled]:active,
+  &[disabled]:focus,
+  &[disabled]:hover {
+    background-color: $lightsilver;
+  }
+
+  &::-ms-clear {
+    display: none;
+  }
 }
