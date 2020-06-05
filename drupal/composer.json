@@ -2,7 +2,7 @@
     "name": "uh/tilat",
     "description": "HY-Tilat Composer file",
     "type": "project",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "",
@@ -23,7 +23,7 @@
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
         "drupal/config_installer": "~1.0",
-        "drupal/warden": "*",
+        "drupal/warden": "^2",
         "drupal/simplei": "^1.0",
         "wunderio/drupal-ping": "^1.0",
         "drupal/admin_toolbar": "^2.0",
