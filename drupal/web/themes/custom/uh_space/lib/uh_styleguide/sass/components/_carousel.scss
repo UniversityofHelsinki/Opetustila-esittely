@@ -1,0 +1,342 @@
+/*
+ section: 7.1
+ title: Carousel
+ description:
+*/
+
+/*
+ section: 7.1.1
+ title: Carousel
+ template: 7_1_1-carousel
+ description:
+*/
+.carousel {
+  @include clearfix;
+  position: relative;
+}
+
+.carousel__slide {
+  background: $black;
+  color: $white;
+}
+
+.carousel__content {
+  @include font-size(12px);
+  background: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  color: $white;
+  left: 0;
+  padding: 10px 7px 10px 15px;
+  position: absolute;
+  right: 0;
+
+  @include breakpoint($small) {
+    @include font-size(14px);
+  }
+}
+
+.carousel__image {
+  img {
+    width: 100%;
+  }
+}
+
+.carousel__credits {
+  @include text-author;
+  bottom: auto;
+  color: $silver;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-top: 0.4em;
+  position: absolute;
+  right: 1em;
+  top: auto;
+}
+
+/* Control Nav */
+.carousel__control-nav {
+  bottom: 0;
+  height: $vert-spacing-unit;
+  line-height: $vert-spacing-unit;
+  position: absolute;
+  right: 0;
+  width: 100%;
+
+  @include breakpoint($small) {
+    height: $vert-spacing-unit * 1.5;
+    line-height: $vert-spacing-unit * 1.5;
+  }
+
+  li {
+    text-align: center;
+
+    a {
+      @include text-author;
+      @include font-size(12px);
+      display: none;
+      margin: 0;
+
+      &.carousel__active {
+        display: block;
+      }
+    }
+  }
+}
+
+/* Direction Nav */
+.carousel__direction-nav {
+  a {
+    @include font-size(40px);
+    @include font-weight-bold;
+    color: $white;
+    display: block;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0px 0px 1px #aaaaaa;
+    top: 0;
+    transition-duration: 0.1s;
+    transition-property: all;
+    width: 10%;
+    z-index: 10;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
+
+    &:before {
+      @include vertically-center;
+      display: block;
+      position: relative;
+    }
+
+    @include breakpoint($large) {
+      width: 5%;
+    }
+
+    &.carousel__prev {
+      left: 0;
+
+      &:before {
+        @include icon($icon-caret-left);
+      }
+    }
+
+    &.carousel__next {
+      right: 0;
+
+      &:before {
+        @include icon($icon-caret-right);
+      }
+    }
+  }
+}
+
+/*
+ section: 7.1.2
+ title: Carousel unwrapped
+ template: 7_1_2-carousel-unwrapped
+ description:
+*/
+%carousel-unwrapped,
+.carousel-unwrapped {
+  background-color: $lightsilver;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-unwrapped__slide,
+.carousel-unwrapped__slides {
+  height: 100%;
+}
+
+.carousel-unwrapped__content {
+  height: 100%;
+
+  // TODO: implement this in some other way than this generic layout class.
+  .l-subregion-wrapper {
+    @include vertically-center;
+    background: none;
+    border: none;
+    position: relative;
+    z-index: 5;
+  }
+
+  .l-subregion {
+    padding: 0 10%;
+
+    @include breakpoint($large) {
+      padding: 0 1em;
+    }
+  }
+
+  &.theme-raster:after {
+    background: url(#{$styleguide-root-path}/images/raster.svg);
+    background-size: 4px 4px;
+    -webkit-background-size: 4px 4px;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+/* Direction Nav */
+.carousel-unwrapped__direction-nav {
+  a {
+    @include font-size(40px);
+    @include font-weight-bold;
+    transition-property: all;
+    color: $white;
+    display: block;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transition-property: transform, color;
+    transition-duration: 0.1s;
+    width: 10%;
+    z-index: 10;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
+
+    &:before {
+      @include vertically-center;
+      display: block;
+      position: relative;
+    }
+
+    @include breakpoint($large) {
+      width: 5%;
+    }
+
+    &.carousel-unwrapped__prev {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0) 100%);
+      left: 0;
+
+      &:before {
+        @include icon($icon-caret-left);
+      }
+    }
+
+    &.carousel-unwrapped__next {
+      background-image: linear-gradient(to left, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0) 100%);
+      right: 0;
+
+      &:before {
+        @include icon($icon-caret-right);
+      }
+    }
+  }
+}
+
+.carousel-unwrapped__image {
+  transform: translate3d(0, 0, 0);
+  left: 70%;
+  max-height: 350px;
+  min-width: $bp-small;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  @include breakpoint($small) {
+    left: 50%;
+  }
+
+  @include breakpoint($medium) {
+    min-width: $bp-large;
+  }
+
+  @include breakpoint($large) {
+    min-width: 1750px;
+  }
+
+  img {
+    display: block;
+    margin-left: -70%;
+    width: 100%;
+
+    @include breakpoint($small) {
+      margin-left: -50%;
+      max-width: 130%;
+      width: auto;
+    }
+    @include breakpoint($medium) {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.carousel-unwrapped--horizontal {
+  @extend .carousel-unwrapped;
+  height: auto;
+
+  @include breakpoint($small) {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .carousel-unwrapped__row {
+    @include breakpoint($small) {
+      display: table-row;
+    }
+  }
+
+  .carousel-unwrapped__cell {
+    height: 200px;
+    overflow: hidden;
+
+    &:first-of-type {
+      height: 350px;
+    }
+
+    @include breakpoint($small) {
+      display: table-cell;
+      height: 350px;
+      vertical-align: top;
+    }
+  }
+
+  article {
+    &:before {
+      display: none;
+    }
+  }
+
+  .carousel-unwrapped__content {
+    display: block;
+    position: relative;
+    z-index: 10;
+
+    &:before {
+      transition-property: opacity;
+      transition-duration: 0.2s;
+      opacity: 0.6;
+    }
+
+    &:hover:before {
+      opacity: 0.8;
+    }
+  }
+
+  .carousel-unwrapped__image {
+    opacity: 0.5;
+  }
+}
