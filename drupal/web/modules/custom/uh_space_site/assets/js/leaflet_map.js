@@ -11,23 +11,32 @@
         case 'fi':
           titles.zoomInTitle = 'Lähennä';
           titles.zoomOutTitle = 'Pienennä';
+          titles.viewFullScreen = 'Vaihtaa koko näytön tilassa';
           break;
         // Assume default is English
         default:
           titles.zoomInTitle = 'Zoom In';
           titles.zoomOutTitle = 'Zoom Out';
+          titles.viewFullScreen = 'Toggle Fullscreen mode';
       }
 
       // Define DOM/jQuery elements of Zoom controls
       const zoomInElement = $('.leaflet-control-zoom-in');
       const zoomOutElement = $('.leaflet-control-zoom-out');
+      const viewFullScreenElement = $('.leaflet-control-fullscreen-button');
 
       // Set titles to the elements
       zoomInElement.attr('aria-label', titles.zoomInTitle);
       zoomInElement.prop('title', titles.zoomInTitle);
+      zoomInElement.removeAttr('role');
 
       zoomOutElement.attr('aria-label', titles.zoomOutTitle);
       zoomOutElement.prop('title', titles.zoomOutTitle);
+      zoomOutElement.removeAttr('role');
+
+      viewFullScreenElement.attr('aria-label', titles.viewFullScreen);
+      viewFullScreenElement.prop('title', titles.viewFullScreen);
+      viewFullScreenElement.removeAttr('role');
     },
   };
 }(jQuery, Drupal));
