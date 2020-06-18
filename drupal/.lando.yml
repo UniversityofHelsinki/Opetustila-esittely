@@ -4,7 +4,7 @@ recipe: drupal8
 config:
   webroot: web
   via: nginx
-  php: '7.1'
+  php: '7.2'
   database: mariadb:10.1
   xdebug: false
 
@@ -17,6 +17,24 @@ tooling:
   drush:
     service: appserver
     cmd: drush --root=/app/web
+  node:
+    service: node
+  npm-install:
+    service: node
+    description: Execute `npm install`
+    cmd: "cd /app/web/themes/custom/uh_space && npm install"
+  npm-build:
+    service: node
+    description: Execute `npm run build`
+    cmd: "cd /app/web/themes/custom/uh_space && npm run build"
+  npm-fix:
+    service: node
+    description: Execute `npm audit fix --force`
+    cmd: "cd /app/web/themes/custom/uh_space && npm audit fix --force"
+  npm-sass-rebuild:
+    service: node
+    description: Execute `npm rebuild node-sass`
+    cmd: "cd /app/web/themes/custom/uh_space && npm rebuild node-sass"
 
 services:
   mailhog:
@@ -28,6 +46,7 @@ services:
   # Edit, not strictly necessary.
   database:
     portforward: 33306
+    scanner: false
 
   appserver:
     build_as_root:
@@ -38,15 +57,24 @@ services:
       # - "/bin/cp /app/web/sites/default/drush.yml /var/www/.drush/drush.yml"
       #- "ln -sf /app/web/sites/default/drush.yml ~/.drush/drush.yml"
       #- "ln -sf /app/drush/drushrc.php /var/www/.drush/drushrc.php"
-      #- "ln -sf /app/drush/drush.yml /var/www/.drush/drush.yml"
+      - "ln -sf /app/drush/drush.yml /var/www/.drush/drush.yml"
     overrides:
-        environment:
-          WKV_SITE_ENV: lando
-          DB_PASS_DRUPAL: drupal8
-          DB_USER_DRUPAL: drupal8
-          DB_HOST_DRUPAL: database
-          DB_NAME_DRUPAL: drupal8
-
+      environment:
+        WKV_SITE_ENV: lando
+        DB_PASS_DRUPAL: drupal8
+        DB_USER_DRUPAL: drupal8
+        DB_HOST_DRUPAL: database
+        DB_NAME_DRUPAL: drupal8
+  node:
+    type: node
+    build_as_root:
+      - "apt-get update -y"
+      - "apt-get install curl php-cli php-mbstring git unzip -y"
+      - "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer"
+#    run:
+#      - "cd /app/web/themes/custom/uh_space && npm install"
+#      - "cd /app/web/themes/custom/uh_space && npm rebuild node-sass"
+#      - "cd /app/web/themes/custom/uh_space && npm run build"
 proxy:
   mailhog:
     - mail.lndo.site
@@ -58,3 +86,6 @@ events:
   # Update modules after lando start.
   post-start:
     - appserver: cd /app && composer install
+
+# Tested with Lando version
+version: v3.0.3

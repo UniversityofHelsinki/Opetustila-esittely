@@ -1,0 +1,38 @@
+/*
+ section: 6.9
+ title: Tag list
+ template: 6_9_1-tag-list
+ description:
+*/
+.tag-list {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.tag-list__item {
+  @include text-tag;
+  margin-left: 0;
+  margin-right: 0;
+
+  a {
+    @include text-tag;
+    color: $silver;
+    transition: color, 0.2s;
+
+    &:hover {
+      color: $lightgray;
+    }
+  }
+
+  &:after {
+    content: "|";
+    display: inline-block;
+    margin: 0 2px;
+  }
+
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+}

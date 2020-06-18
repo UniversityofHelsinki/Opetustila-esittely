@@ -1,0 +1,15 @@
+@mixin transition-scale($amount) {
+  transform: translateZ(0);
+  transition-duration: 0.1s;
+  transition-property: transform;
+
+  &:active,
+  &:hover {
+    transform: scale($amount);
+  }
+}
+
+@mixin transition-element($property, $time) {
+  transform: translate3d(0, 0, 0);
+  transition: $property $time ease;
+}

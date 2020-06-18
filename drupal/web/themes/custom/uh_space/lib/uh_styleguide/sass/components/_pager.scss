@@ -1,0 +1,46 @@
+/*
+ section: 6.8
+ title: Pagination
+ template: 6_8_pagination
+ description:
+*/
+%ul.pager,
+ul.pager {
+  @include font-size(15px);
+  align-items: center;
+  color: $white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: $vert-spacing-unit 0;
+
+  > li {
+    margin-right: 4px;
+
+    &:last-of-type {
+      margin: 0;
+    }
+
+    &.pager__ellipsis {
+      color: $black;
+      display: none;
+
+      @include breakpoint($small) {
+        display: block;
+      }
+    }
+
+    &.pager__page {
+      display: none;
+
+      @include breakpoint($small) {
+        display: block;
+      }
+
+      a {
+        display: block;
+      }
+    }
+  }
+}

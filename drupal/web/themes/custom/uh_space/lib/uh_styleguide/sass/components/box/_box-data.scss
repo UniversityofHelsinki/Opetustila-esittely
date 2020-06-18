@@ -1,0 +1,67 @@
+/*
+ section: 6.10.2
+ title: Box data
+ template: 6_10_2_box-data
+ description: Data is story-like component, but mainly with data insertions e.g. event list.
+*/
+
+%box-data,
+.box-data {
+  display: flex;
+  padding: 0 0 15px 0;
+
+  @include breakpoint($small) {
+    width: 100%;
+  }
+}
+
+.box-data__left {
+  align-items: center;
+  background-color: $lightgray;
+  color: $white;
+  display: flex;
+  flex-shrink: 0;
+  height: 55px;
+  justify-content: center;
+  margin: 0 20px 0px 0;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  width: 55px;
+
+  @include breakpoint($small) {
+    margin: 0 15px 0 0;
+  }
+
+  .box-data.theme-orange & {
+    background-color: $orange;
+  }
+
+  .box-data.theme-black & {
+    background-color: $black;
+  }
+}
+
+.box-data__date {
+  @include font-weight-medium;
+  @include font-size(14px);
+}
+
+.box-data__icon {
+  &:after {
+    @include font-size(38px);
+    @include icon($icon-helsinginyliopisto);
+  }
+}
+
+.box-data__container {
+  @include font-size(14px);
+}
+
+.box-data__title {
+  @include font-weight-medium;
+}
+
+.box-data__content {
+  color: $lightgray;
+}

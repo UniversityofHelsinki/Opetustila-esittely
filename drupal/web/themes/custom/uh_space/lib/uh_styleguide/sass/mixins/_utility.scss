@@ -1,0 +1,25 @@
+@mixin vertically-center {
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+}
+
+@mixin light-zebra-color {
+  &:nth-child(2n-1) {
+    background-color: $white;
+  }
+
+  &:nth-child(2n) {
+    background-color: $lightsilver;
+  }
+}
+
+@mixin background-color($bg-color) {
+  transition-duration: 0.1s;
+  transition-property: all;
+  background-color: $bg-color;
+
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}

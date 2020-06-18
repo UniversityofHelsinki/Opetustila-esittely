@@ -1,0 +1,357 @@
+/*
+ section: 5.1
+ title: Main menu
+ template: 5_1_main-menu
+ description: The main menu. To see the mobile menu, resize your browser to mobile width.
+*/
+
+.main-menu {
+  background-color: $white;
+  overflow: hidden;
+
+  @include breakpoint($small) {
+    border-bottom: 1px solid $mediumsilver;
+
+    &.is-open {
+      border-bottom-color: $white;
+    }
+  }
+
+  li {
+    display: flex;
+    flex-flow: column wrap;
+    list-style: none;
+    position: relative;
+
+    @include breakpoint($small) {
+      align-items: center;
+      flex-flow: row wrap;
+    }
+  }
+
+  a {
+    @include link-menu;
+  }
+
+  > ul.menu {
+    border-bottom: 1px solid $mediumsilver;
+
+    @include breakpoint($small) {
+      @include container;
+      border: none;
+      display: flex;
+      flex-flow: row wrap;
+      height: 100%;
+      padding: 0.6em 2em 0.6em 2em;
+      position: relative;
+    }
+  }
+
+  li.is-lvl1 {
+    border-top: 1px solid $mediumsilver;
+
+    &.is-open {
+      background: $lightsilver;
+    }
+
+    > a {
+      padding: 15px 20px 15px 60px;
+    }
+
+    @include breakpoint($small) {
+      border: none;
+
+      &.is-open {
+        background: none;
+      }
+
+      > a {
+        padding: 0.6em 0.55em 0.6em 1.25em;
+      }
+    }
+
+    @include breakpoint($medium) {
+      > a {
+        padding: 0.6em 1em 0.6em 1.8em;
+      }
+    }
+  }
+
+  li.is-lvl2 {
+    > .main-menu__expand {
+      left: 25px;
+    }
+
+    > a {
+      padding: 15px 30px 15px 80px;
+      text-transform: none;
+    }
+
+    @include breakpoint($small) {
+      display: none;
+    }
+
+    > ul.menu {
+      padding-bottom: 10px;
+    }
+  }
+
+  li.is-lvl3 {
+    > a {
+      @include font-weight-book;
+      color: $silver;
+      padding: 5px 30px 5px 80px;
+      text-transform: none;
+
+      &:hover,
+      &.active-trail,
+      &.active {
+        color: $darkblue;
+      }
+    }
+
+    > ul.menu {
+      display: none !important;
+    }
+  }
+}
+
+li.main-menu__front {
+  @include breakpoint($small) {
+    display: inline-block;
+    left: 1em;
+    position: absolute;
+    top: 50%;
+  }
+
+  > a {
+    @include breakpoint($small) {
+      font-size: 0;
+      padding-left: 0;
+      padding-right: 19px;
+
+      &:after {
+        @include icon($icon-home);
+        @include font-size(16px);
+        @include font-weight-light;
+        @include transition-element(opacity, 0.2s);
+      }
+    }
+
+    @include breakpoint($medium) {
+      padding-right: 35px;
+    }
+  }
+}
+
+.main-menu__expand {
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 50px;
+  z-index: 10;
+
+  &:before {
+    @include font-size(14px);
+    @include icon($icon-caret-down);
+    color: $mediumsilver;
+    cursor: pointer;
+    display: inline-block;
+    height: 2em;
+    line-height: 2em;
+    position: relative;
+    top: 10px;
+    transition-duration: 0.2s;
+    transition-property: color, border-color, transform;
+    width: 2em;
+  }
+
+  &:hover:before {
+    color: $silver;
+  }
+
+  @include breakpoint($small) {
+    align-items: center;
+    display: flex;
+    height: 1.2em;
+    justify-content: center;
+    order: 2;
+    position: static;
+    width: 1.2em;
+
+    &:before {
+      @include font-size(12px);
+      height: auto;
+      line-height: normal;
+      padding: 2px;
+      top: auto;
+      width: auto;
+    }
+  }
+
+  .is-open > & {
+    &:before {
+      color: $blue;
+      transform: rotate3d(1,0,0,180deg);
+    }
+
+    &:hover:before {
+      color: $darkblue;
+    }
+  }
+}
+
+.main-menu-v2 {
+  > .menu {
+    @include breakpoint($medium) {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -16px;
+    }
+
+    &.is-default {
+      > li {
+        opacity: 1;
+      }
+    }
+  }
+
+  a {
+    color: $white;
+    display: block;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $mediumsilver;
+    }
+
+    &.active {
+      color: $blue;
+
+      &:hover {
+        color: $blue--active;
+      }
+    }
+  }
+
+  li.is-lvl1 {
+    margin-bottom: 48px;
+    opacity: 0.5;
+    padding-left: 64px;
+    position: relative;
+    transition: opacity 0.2s;
+    width: 100%;
+
+    @include breakpoint($small) {
+      padding-left: 96px;
+    }
+
+    @include breakpoint($medium) {
+      opacity: 1;
+      padding: 0 16px;
+      width: 33%;
+    }
+
+    > a {
+      @include font-size(18px);
+      @include font-weight-bold;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    &.is-open {
+      opacity: 1;
+
+      > ul {
+        display: block;
+      }
+    }
+
+    > ul {
+      display: none;
+      margin-top: 24px;
+
+      @include breakpoint($medium) {
+        display: block;
+      }
+    }
+
+    &.theme-quicklinks {
+      > a {
+        @include font-size(14px);
+        color: $silver;
+        line-height: 25px;
+      }
+
+      > ul a {
+        @include font-size(14px);
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+
+  li.is-lvl2 {
+    > a {
+      @include font-size(16px);
+      @include font-weight-bold;
+      margin-bottom: 1em;
+    }
+
+    @include breakpoint($medium) {
+      > a {
+        margin-bottom: 0.5em;
+      }
+
+      &.theme-minor {
+        > a {
+          &:hover {
+            color: $white;
+          }
+
+          @include font-size(14px);
+          @include font-weight-medium;
+          color: $silver;
+        }
+      }
+    }
+  }
+}
+
+.main-menu-v2__expand {
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 2px;
+  width: 32px;
+  z-index: 10;
+
+  &:before {
+    @include font-size(16px);
+    @include icon($icon-caret-down);
+    color: $white;
+    cursor: pointer;
+    position: relative;
+    transition-duration: 0.2s;
+    transition-property: color, border-color, transform;
+    width: 32px;
+  }
+
+  @include breakpoint($medium) {
+    display: none;
+  }
+
+  .is-open > & {
+    &:before {
+      transform: rotate3d(1,0,0,180deg);
+    }
+
+    &:hover:before {
+    }
+  }
+}

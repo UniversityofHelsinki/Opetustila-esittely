@@ -1,0 +1,118 @@
+// Calculate rem (root em) units from pixel values with option for desired mobile size.
+@mixin font-size($font-size, $desired-mobile-size: "") {
+  @include breakpoint($mobile-only) {
+    @if $desired-mobile-size != "" {
+      font-size: ($desired-mobile-size / $base-font-size-mobile-px)*1rem;
+    }
+  }
+
+  font-size: ($font-size / $base-font-size-px)*1rem;
+}
+
+// Fonts
+@mixin font-family-main {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+@mixin font-family-bodytext {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+// Weights
+@mixin font-weight-light {
+  font-weight: 300;
+  font-style: normal;
+}
+
+@mixin font-weight-book {
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin font-weight-medium {
+  font-weight: 600;
+  font-style: normal;
+}
+
+@mixin font-weight-bold {
+  font-weight: 700;
+  font-style: normal;
+}
+
+// Links
+@mixin link-heading {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+// Common text stylings
+@mixin text-label {
+  @include font-size(18px);
+  @include font-weight-book;
+  color: $lightgray;
+  text-transform: none;
+}
+
+// TODO: Seems obsolete
+@mixin text-bold {
+  @include font-size(16px);
+  @include font-weight-medium;
+}
+
+@mixin text-informative {
+  @include font-size(16px);
+  @include font-weight-book;
+  color: $lightgray;
+  line-height: 1.5em;
+}
+
+@mixin text-filter-label {
+  @include font-size(14px);
+  @include font-weight-book;
+  color: $silver;
+  display: block;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+@mixin text-author {
+  @include font-size(12px);
+  @include font-weight-medium;
+  color: $silver;
+  display: block;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+@mixin text-tag {
+  @include font-size(12px);
+  @include font-weight-medium;
+  color: $silver;
+  text-transform: uppercase;
+}
+
+/**
+ * Mixin for subtitle
+ */
+
+@mixin subtitle {
+  @include font-weight-medium;
+  color: $lightgray;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * Mixin for subtitle thin
+ */
+
+@mixin subtitle-thin {
+  @include font-weight-light;
+  color: $lightgray;
+  font-size: 1.1em;
+  line-height: 2.4em;
+  padding: 0;
+  margin: 0;
+}

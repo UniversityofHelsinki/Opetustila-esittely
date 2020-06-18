@@ -1,0 +1,78 @@
+/*
+ section: 3.6
+ title: Page title
+ description: TODO: Move the following away from section 3, these are not common elements anymore
+*/
+
+/*
+ section: 3.6.1
+ title: Page title
+ template: 3_6_1-page-title
+*/
+
+/*
+ section: 3.6.2
+ title: Page title small
+ template: 3_6_2-page-title--small
+*/
+
+/*
+ section: 3.6.3
+ title: Page title suffix
+ template: 3_6_3-page-title--suffix
+*/
+
+/*
+ section: 3.6.4
+ title: Page title listing
+ template: 3_6_4-page-title--listing
+*/
+
+%page-title,
+.page-title {}
+
+.page-title--small {
+  @include font-size(40px);
+  line-height: 1em;
+}
+
+.page-title--lowercase {
+  @include font-size(50px, 30px);
+  text-transform: none;
+}
+
+.page-title--suffix {
+  @include border-side(bottom);
+  @include font-size(18px);
+  @include font-weight-light;
+  letter-spacing: 0px;
+  line-height: 1.2em;
+  margin-bottom: $vert-spacing-unit;
+  padding-bottom: $vert-spacing-unit/2;
+  text-transform: initial;
+
+  .page-title__firstrow {
+    margin-bottom: 0.5em;
+  }
+
+  .page-title__secondrow {
+    @include font-size(14px);
+
+    @include breakpoint($medium) {
+      @include font-size(16px);
+    }
+  }
+}
+
+.page-title--listing {
+  border-bottom: 1px solid $lightsilver;
+  margin-bottom: 1em;
+
+  .page-title__subheading {
+    @include font-size(16px);
+    color: $silver;
+    float: right;
+    font-weight: 400;
+    letter-spacing: normal;
+  }
+}

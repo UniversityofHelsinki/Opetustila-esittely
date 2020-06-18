@@ -1,0 +1,24 @@
+/*
+ section: 6.10.4
+ title: Box ingress
+ template: 6_10_4_box-ingress
+ description: Image on the left, ingress text on the right
+*/
+
+.box-ingress {
+  @include clearfix;
+}
+
+.box-ingress__image {
+  margin-bottom: 2em;
+
+  @include breakpoint($small) {
+    float: left;
+    margin-bottom: 0;
+    margin-right: 2em;
+    max-width: 270px;
+  }
+}
+
+.box-ingress__content {
+}

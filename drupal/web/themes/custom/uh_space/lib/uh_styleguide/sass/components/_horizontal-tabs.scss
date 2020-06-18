@@ -1,0 +1,101 @@
+/*
+ section: 6.7
+ title: Horizontal tabs
+ template: 6_7_horizontal-tabs
+ description:
+*/
+// NOTE: this is not smacss because the field group horizontal-tabs.js produces shitty markup
+.horizontal-tabs {
+  .horizontal-tabs-list {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $vert-spacing-unit;
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint($small) {
+      margin-bottom: $vert-spacing-unit * 2;
+    }
+  }
+
+  .horizontal-tabs-pane {
+    min-width: 0;
+
+    legend {
+      display: none;
+    }
+  }
+
+  .horizontal-tab-button {
+    border: 1px solid #eaeaea;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0;
+    text-align: center;
+
+    &:not(:last-child) {
+      border-right: none;
+    }
+
+    > a {
+      @include font-size(14px);
+      align-items: center;
+      background: $lightsilver;
+      color: $silver;
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      height: 5rem;
+      justify-content: center;
+      padding: 0;
+      transition-duration: 0.2s;
+      transition-property: color, background-color;
+
+      > strong {
+        font-weight: 400;
+      }
+
+      &[href='#programme'] {
+        &:before {
+          @include icon($icon-todo-list);
+          font-size: 2em;
+          margin-bottom: 5px;
+        }
+      }
+
+      &[href='#applying'] {
+        &:before {
+          @include icon($icon-edit-event);
+          font-size: 2em;
+          margin-bottom: 5px;
+        }
+      }
+
+      &[href='#organisation'] {
+        &:before {
+          @include icon($icon-units-and-faculties);
+          font-size: 2em;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    &.selected {
+      border-top-color: $blue;
+      border-bottom-color: transparent;
+      z-index: 2;
+
+      a {
+        background-color: $white;
+        box-shadow: inset 0 3px 0 $blue;
+        color: $blue;
+      }
+    }
+
+    &:hover > a {
+      color: $blue;
+    }
+  }
+}

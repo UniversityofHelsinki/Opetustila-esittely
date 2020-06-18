@@ -1,0 +1,105 @@
+.ui-tabs-hide {
+  display: none;
+}
+
+.border-bottom {
+  @include border-bottom;
+}
+
+.regional-rule-top {
+  @include regional-rule-top($lightsilver);
+}
+
+.regional-rule-bottom {
+  @include regional-rule-bottom($lightsilver);
+}
+
+.horizontal-rule-top {
+  @include horizontal-rule(top);
+}
+
+.horizontal-rule-bottom {
+  @include horizontal-rule(bottom);
+}
+
+.link-wrapper {
+  display: block;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+// Todo: Find better place for this.
+.element-invisible {
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px); /* IE6, IE7 */
+  position: absolute !important;
+}
+
+// Todo: Find better place for this.
+@mixin triangle($size) {
+  &:before {
+    border-bottom: $size solid $lightsilver;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    content: "";
+    height: 0;
+    left: -$size / 2;
+    position: absolute;
+    top: -$size;
+    width: 0;
+  }
+  &:after {
+    border-bottom: $size solid $white;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    content: "";
+    height: 0;
+    left: -$size / 2;
+    position: absolute;
+    top: -$size + 1;
+    width: 0;
+  }
+}
+
+// Todo: Find better place for this.
+@mixin center-vertical {
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+// Todo: Find better place for this.
+@mixin all-link-states {
+  &:link, &:hover, &:active, &:visited {
+    @content;
+  }
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+@mixin clearfix {
+  *zoom: 1;
+  clear: both;
+
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.clearfix {
+  @include clearfix;
+  clear: both;
+}
