@@ -3,18 +3,8 @@
     "description": "HY-Tilat Composer file",
     "type": "project",
     "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "",
-            "role": ""
-        }
-    ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        }
-    ],
+    "authors": [{"name": "", "role": ""}],
+    "repositories": [{"type": "composer", "url": "https://packages.drupal.org/8"}],
     "require": {
         "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.6",
@@ -66,39 +56,19 @@
         "guncha25/drupal-codeception": "^8.0",
         "zaporylie/composer-drupal-optimizations": "^1.1"
     },
-    "conflict": {
-        "drupal/drupal": "*"
-    },
+    "conflict": {"drupal/drupal": "*"},
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "autoload": {
-        "classmap": [
-            "scripts/composer/ScriptHandler.php"
-        ]
-    },
+    "autoload": {"classmap": ["scripts/composer/ScriptHandler.php"]},
     "scripts": {
-        "pre-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "pre-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ],
-        "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ]
+        "pre-install-cmd": ["DrupalProject\\composer\\ScriptHandler::checkComposerVersion"],
+        "pre-update-cmd": ["DrupalProject\\composer\\ScriptHandler::checkComposerVersion"],
+        "post-install-cmd": ["DrupalProject\\composer\\ScriptHandler::createRequiredFiles"],
+        "post-update-cmd": ["DrupalProject\\composer\\ScriptHandler::createRequiredFiles"]
     },
     "extra": {
-        "config": {
-            "sort-packages": true
-        },
-        "drupal-scaffold": {
-            "locations": {
-                "web-root": "./web"
-            }
-        },
+        "config": {"sort-packages": true},
+        "drupal-scaffold": {"locations": {"web-root": "./web"}},
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/libraries/{$name}": ["type:drupal-library"],
@@ -108,10 +78,14 @@
             "drush/contrib/{$name}": ["type:drupal-drush"]
         },
         "composer-exit-on-patch-failure": true,
-        "dropin-paths": {
-            "web/": ["type:web-dropin"]
-        },
+        "dropin-paths": {"web/": ["type:web-dropin"]},
         "patches": {
+            "drupal/core": {
+                "Referenced entity rendered in wrong language when parent entity does not have translation enabled - #2859202": "https://www.drupal.org/files/issues/2020-07-03/2859202-referenced_language_fix-29-8.9.x.patch"
+            }
         }
+    },
+    "config": {
+        "process-timeout": 9000
     }
 }
