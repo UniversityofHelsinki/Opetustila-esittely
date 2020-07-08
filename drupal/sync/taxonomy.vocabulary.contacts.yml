@@ -2,7 +2,7 @@ uuid: 5c427be1-bd75-4c4f-a1d4-ad614758db33
 langcode: und
 status: true
 dependencies: {  }
-name: 'Contact details'
+name: 'Yhteystiedot'
 vid: contacts
-description: 'Contact details'
+description: 'Yhteystiedot'
 weight: 0
