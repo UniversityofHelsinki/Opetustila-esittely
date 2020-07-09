@@ -1,9 +1,0 @@
-uri: 'public:/'
-compact_snippet: true
-include_file: true
-rebuild_snippets: true
-flush_snippets: false
-debug_output: true
-_default_container:
-  container_id: ''
-langcode: fi

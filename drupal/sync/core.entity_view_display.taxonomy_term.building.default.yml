@@ -32,6 +32,7 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        label: ''
         wrappers:
           header: div
           left: div
@@ -64,6 +65,11 @@ third_party_settings:
         - group_contacts
         - field_contact_details
     fields:
+      'dynamic_token_field:taxonomy_term-building_address':
+        plugin_id: 'dynamic_token_field:taxonomy_term-building_address'
+        weight: 4
+        label: hidden
+        formatter: default
       'dynamic_block_field:taxonomy_term-building_spaces_view':
         plugin_id: 'dynamic_block_field:taxonomy_term-building_spaces_view'
         weight: 3
@@ -96,11 +102,6 @@ third_party_settings:
             fis-def-at: false
             fi: false
             fi-def-at: false
-      'dynamic_token_field:taxonomy_term-building_address':
-        plugin_id: 'dynamic_token_field:taxonomy_term-building_address'
-        weight: 4
-        label: hidden
-        formatter: default
       taxonomy_term_title:
         plugin_id: taxonomy_term_title
         weight: 0
@@ -125,7 +126,6 @@ third_party_settings:
       weight: 7
       format_type: html_element
       format_settings:
-        label: Contacts
         element: div
         show_label: true
         label_element: h3
@@ -135,7 +135,7 @@ third_party_settings:
         id: ''
         classes: building__contacts
       label: Contacts
-      region: hidden
+      region: right
     group_building_info:
       children:
         - 'dynamic_token_field:taxonomy_term-building_address'
@@ -146,7 +146,6 @@ third_party_settings:
       weight: 4
       format_type: html_element
       format_settings:
-        label: 'Building Info'
         element: div
         show_label: true
         label_element: h2
@@ -156,7 +155,7 @@ third_party_settings:
         id: ''
         classes: building__info
       label: 'Building Info'
-      region: hidden
+      region: right
     group_opening_hours:
       children:
         - field_opening_times
@@ -164,7 +163,6 @@ third_party_settings:
       weight: 5
       format_type: html_element
       format_settings:
-        label: 'Opening Hours'
         element: div
         show_label: true
         label_element: h3
@@ -174,7 +172,7 @@ third_party_settings:
         id: ''
         classes: 'building__opening-hours field-group--label-visually_hidden'
       label: 'Opening Hours'
-      region: hidden
+      region: right
 id: taxonomy_term.building.default
 targetEntityType: taxonomy_term
 bundle: building
@@ -264,6 +262,19 @@ content:
       leaflet_markercluster:
         control: 0
         options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+      height_unit: px
+      gesture_handling: 0
+      geocoder:
+        control: 0
+        settings:
+          position: topright
+          input_size: 25
+          providers: {  }
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          popup: 0
+          options: ''
     third_party_settings:
       ds:
         ft:
@@ -293,3 +304,4 @@ hidden:
   field_navigation_link: true
   field_street_address: true
   langcode: true
+  search_api_excerpt: true

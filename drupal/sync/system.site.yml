@@ -15,6 +15,6 @@ _core:
 mail_notification: ''
 logo_text: 'Helsingin Yliopiston tilavaraus'
 logo_path: 'https://tilavaraus.helsinki.fi/fi'
-copyright_text: '<p>(c) Helsingin Yliopiston tilavaraus</p>'
+copyright_text: '<p>(c) Helsingin Yliopisto</p>'
 contact_info: "<div class=\"logo-block__sitename\">Helsingin yliopisto</div>\r\n    <p>PL 3 (Fabianinkatu 33)\r\n      <br>00014 Helsingin yliopisto</p>\r\n    <p>Puhelinvaihde:\r\n      <a class=\"is-tel\" href=\"tel:+3582941911\">0294 1911</a>\r\n    </p>"
 spaces_contact_info: "<div class=\"logo-block__sitename\">Helsingin Yliopisto</div>\r\n   Tilavaraus<br>\r\n        \r\n<a href=\"https://optime.helsinki.fi/Home\" target=\"_blank\">Tilavarausjärjestelmä Optime</a> <br> \r\ntilavaraus@helsinki.fi<br>\r\nMa-pe klo 12-13 puh. 02941 24500<br>\r\n    </p>"
