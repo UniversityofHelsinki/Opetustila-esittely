@@ -1,0 +1,6 @@
+third_party_settings:
+  field_group:
+    group_building_info:
+      label: 'Rakennuksen tiedot'
+    group_contacts:
+      label: Yhteystiedot
