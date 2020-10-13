@@ -129,10 +129,12 @@ switch ($env) {
 /**
  * Location of the site configuration files.
  */
-$config_directories = [];
-
-// Location of the site configuration files.
 $settings['config_sync_directory'] = '../sync';
+
+/**
+ * Exclude selected modules from configuration.
+ */
+$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
 
 /**
  * Access control for update.php script.
@@ -182,5 +184,3 @@ $settings['trusted_host_patterns'] = [
 if (file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
 }
-
-$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
