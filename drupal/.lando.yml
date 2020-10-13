@@ -19,6 +19,8 @@ tooling:
     cmd: drush --root=/app/web
   node:
     service: node
+  npm:
+    service: node
   npm-install:
     service: node
     description: Execute `npm install`
