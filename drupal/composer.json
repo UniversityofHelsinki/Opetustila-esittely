@@ -21,7 +21,7 @@
         "drupal/disable_field": "^2.1",
         "drupal/ds": "^3.1",
         "drupal/ds_chains": "^1.0@alpha",
-        "drupal/easy_breadcrumb": "^1.6",
+        "drupal/easy_breadcrumb": "^1.13",
         "drupal/field_group": "^3.0@beta",
         "drupal/field_group_link": "^3.0@RC",
         "drupal/geofield_map": "^2.36",
