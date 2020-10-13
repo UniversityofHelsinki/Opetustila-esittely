@@ -1,0 +1,5 @@
+# Drush site aliases, docs at https://github.com/drush-ops/drush/blob/master/examples/example.site.yml
+
+local:
+  root: /app/web
+  uri: https://tilat.lndo.site
