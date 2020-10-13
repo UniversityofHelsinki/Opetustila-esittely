@@ -18,7 +18,7 @@
         "drupal/core-recommended": "^8.8",
         "drupal/ctools": "^3.0",
         "drupal/disable_field": "^2.1",
-        "drupal/ds": "^3.1",
+        "drupal/ds": "^3.9",
         "drupal/ds_chains": "^1.0@alpha",
         "drupal/easy_breadcrumb": "^1.13",
         "drupal/field_group": "^3.0@beta",
