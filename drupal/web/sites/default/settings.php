@@ -123,6 +123,8 @@ switch ($env) {
     $config['config_split.config_split.local']['status'] = TRUE;
     // Sitemap settings override.
     $config['simple_sitemap.settings']['base_url'] = 'https://tilat.lndo.site';
+    // Skip file system permissions hardening in local development with Lando.
+    $settings['skip_permissions_hardening'] = TRUE;
     break;
 }
 
