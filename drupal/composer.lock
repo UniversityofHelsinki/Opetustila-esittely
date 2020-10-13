@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b6875a66c2fdbaabd705ba2324c8977",
+    "content-hash": "9413e878eafe839516a87643f91a4152",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2856,27 +2856,27 @@
         },
         {
             "name": "drupal/geofield",
-            "version": "1.13.0",
+            "version": "1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geofield.git",
-                "reference": "8.x-1.13"
+                "reference": "8.x-1.16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.13.zip",
-                "reference": "8.x-1.13",
-                "shasum": "e08c1d8aeb95d2ad1babb7c5a019202f02023d65"
+                "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.16.zip",
+                "reference": "8.x-1.16",
+                "shasum": "b759dbf3e0c7225bce8bcead6954115e255dc349"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^8.8 || ^9",
                 "phayes/geophp": "^1.2"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.13",
-                    "datestamp": "1588276833",
+                    "version": "8.x-1.16",
+                    "datestamp": "1601938843",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2885,7 +2885,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -2934,27 +2934,27 @@
         },
         {
             "name": "drupal/geofield_map",
-            "version": "2.63.0",
+            "version": "2.67.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geofield_map.git",
-                "reference": "8.x-2.63"
+                "reference": "8.x-2.67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geofield_map-8.x-2.63.zip",
-                "reference": "8.x-2.63",
-                "shasum": "a605ba6973bec849fc3b9e69235f234cd79d1adc"
+                "url": "https://ftp.drupal.org/files/projects/geofield_map-8.x-2.67.zip",
+                "reference": "8.x-2.67",
+                "shasum": "6b98bbcaf1de0c38da8683b39aa9c43ccf226d82"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^8.8 || ^9",
                 "drupal/geofield": "^1.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.63",
-                    "datestamp": "1589827076",
+                    "version": "8.x-2.67",
+                    "datestamp": "1597844476",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2963,7 +2963,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {

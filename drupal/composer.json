@@ -23,7 +23,7 @@
         "drupal/easy_breadcrumb": "^1.13",
         "drupal/field_group": "^3.0@beta",
         "drupal/field_group_link": "^3.0@RC",
-        "drupal/geofield_map": "^2.36",
+        "drupal/geofield_map": "^2.67",
         "drupal/google_tag": "^1.0",
         "drupal/leaflet": "^2.1",
         "drupal/libraries": "^3.0@alpha",
