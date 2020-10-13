@@ -35,6 +35,10 @@ tooling:
     service: node
     description: Execute `npm rebuild node-sass`
     cmd: "cd /app/web/themes/custom/uh_space && npm rebuild node-sass"
+  update:
+    description: Update local database.
+    cmd:
+      - appserver: /app/conf/lando/update.sh
 
 services:
   mailhog:
