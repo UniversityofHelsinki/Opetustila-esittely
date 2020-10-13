@@ -5,7 +5,7 @@ set -exu
 drush @tilat.local updb -y
 
 # Enable development modules.
-drush @tilat.local en update -y
+drush @tilat.local en update stage_file_proxy -y
 
 # Clear caches.
 drush @tilat.local cc drush

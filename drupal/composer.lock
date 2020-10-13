@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "555a4db9a3019796aef306846553d995",
+    "content-hash": "56c97686cc009cda1ce6f3fb0c5e8fe6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8434,17 +8434,17 @@
         },
         {
             "name": "drupal/stage_file_proxy",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/stage_file_proxy.git",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "f101a07e0096f476c91cf23137469a5c5c18e2df"
+                "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "bad4d500e56f4e77adb2704ec5d4efdf52340df8"
             },
             "require": {
                 "drupal/core": ">=8.7.7"
@@ -8452,17 +8452,22 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1580492032",
+                    "version": "8.x-1.1",
+                    "datestamp": "1601040732",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "stage_file_proxy.drush.services.yml": "^9 || ^10"
                     }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -10208,8 +10213,7 @@
         "drupal/field_group": 10,
         "drupal/field_group_link": 5,
         "drupal/libraries": 15,
-        "drupal/menu_multilingual": 15,
-        "drupal/stage_file_proxy": 15
+        "drupal/menu_multilingual": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,

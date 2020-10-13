@@ -50,7 +50,7 @@
         "codeception/visualception": "^0.9.0",
         "drupal/devel": "~2.0",
         "drupal/devel_php": "^1.0",
-        "drupal/stage_file_proxy": "^1.0@alpha",
+        "drupal/stage_file_proxy": "^1.1",
         "guncha25/drupal-codeception": "^8.0",
         "zaporylie/composer-drupal-optimizations": "^1.1"
     },

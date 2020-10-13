@@ -125,6 +125,8 @@ switch ($env) {
     $config['simple_sitemap.settings']['base_url'] = 'https://tilat.lndo.site';
     // Skip file system permissions hardening in local development with Lando.
     $settings['skip_permissions_hardening'] = TRUE;
+    // File proxy origin site.
+    $config['stage_file_proxy.settings']['origin'] = 'https://tilavaraus.helsinki.fi';
     break;
 }
 
