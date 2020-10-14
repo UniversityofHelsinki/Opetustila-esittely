@@ -33,7 +33,7 @@
         "drupal/pathauto": "^1.6",
         "drupal/redirect": "^1.1",
         "drupal/search_api": "^1.17",
-        "drupal/search_api_autocomplete": "^1.0",
+        "drupal/search_api_autocomplete": "^1.4",
         "drupal/simple_sitemap": "^3.7",
         "drupal/simplei": "^1.0",
         "drupal/token": "^1.6",
