@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e998f71e5575b5f37a8d34f46fa2558",
+    "content-hash": "bc4cc1d880abfdbdae5cbdf94e69b133",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1968,29 +1968,26 @@
         },
         {
             "name": "drupal/cookieconsent",
-            "version": "1.4.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/cookieconsent.git",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/cookieconsent-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "4b4d551d80fe133ab5df3d75f1e34f85c58dbed2"
+                "url": "https://ftp.drupal.org/files/projects/cookieconsent-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "3acb8380e230e3a01486e336197e5b543892c409"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1530539621",
+                    "version": "8.x-1.6",
+                    "datestamp": "1592402037",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2006,6 +2003,10 @@
                     "name": "Hans van Wezenbeek (Nitebreed)",
                     "homepage": "https://www.drupal.org/u/nitebreed",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "Steven Buteneers",
+                    "homepage": "https://www.drupal.org/user/3301055"
                 },
                 {
                     "name": "pjotr",
