@@ -39,7 +39,7 @@
         "drupal/token": "^1.6",
         "drupal/translatable_menu_link_uri": "^1.1",
         "drupal/translation_views": "^1.0",
-        "drupal/warden": "^2",
+        "drupal/warden": "^2.0",
         "drush/drush": "^10.3",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
