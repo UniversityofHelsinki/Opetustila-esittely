@@ -16,24 +16,6 @@ name: 'Name and location (deprecated)'
 description: 'Separate index for limiting a search a location based on addresses and building names.'
 read_only: false
 field_settings:
-  title:
-    label: Title
-    datasource_id: 'entity:node'
-    property_path: title
-    type: text
-    boost: !!float 13
-    dependencies:
-      module:
-        - node
-  field_street_address:
-    label: 'Street address'
-    datasource_id: 'entity:node'
-    property_path: field_street_address
-    type: text
-    boost: !!float 5
-    dependencies:
-      config:
-        - field.storage.node.field_street_address
   field_building:
     label: Building
     datasource_id: 'entity:node'
@@ -60,14 +42,22 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_campus
-  type:
-    label: 'Content type'
+  field_street_address:
+    label: 'Street address'
     datasource_id: 'entity:node'
-    property_path: type
-    type: string
+    property_path: field_street_address
+    type: text
+    boost: !!float 5
     dependencies:
-      module:
-        - node
+      config:
+        - field.storage.node.field_street_address
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
   status:
     label: Published
     datasource_id: 'entity:node'
@@ -75,6 +65,23 @@ field_settings:
     type: boolean
     indexed_locked: true
     type_locked: true
+    dependencies:
+      module:
+        - node
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 13
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
     dependencies:
       module:
         - node
@@ -88,13 +95,6 @@ field_settings:
     dependencies:
       module:
         - node
-  node_grants:
-    label: 'Node access information'
-    property_path: search_api_node_grants
-    type: string
-    indexed_locked: true
-    type_locked: true
-    hidden: true
 datasource_settings:
   'entity:node':
     bundles:
@@ -105,6 +105,11 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
   highlight:
     highlight: always
     highlight_partial: false
@@ -115,6 +120,34 @@ processor_settings:
     suffix: '</strong>'
     weights:
       postprocess_query: 0
+  ignorecase:
+    all_fields: true
+    fields:
+      - field_building
+      - field_building_id
+      - field_campus
+      - field_street_address
+      - title
+      - type
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
+  language_with_fallback: {  }
+  rendered_item: {  }
+  tokenizer:
+    all_fields: true
+    fields:
+      - field_building
+      - field_building_id
+      - field_campus
+      - field_street_address
+      - title
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
   type_boost:
     boosts:
       'entity:node':
@@ -123,39 +156,6 @@ processor_settings:
           space: !!float 1
     weights:
       preprocess_index: 0
-  add_url: {  }
-  ignorecase:
-    all_fields: true
-    fields:
-      - title
-      - field_street_address
-      - field_building
-      - field_building_id
-      - field_campus
-      - type
-    weights:
-      preprocess_index: -20
-      preprocess_query: -20
-  content_access:
-    weights:
-      preprocess_query: -30
-  aggregated_field: {  }
-  tokenizer:
-    all_fields: true
-    fields:
-      - title
-      - field_street_address
-      - field_building
-      - field_building_id
-      - field_campus
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
-    weights:
-      preprocess_index: -6
-      preprocess_query: -6
-  rendered_item: {  }
-  language_with_fallback: {  }
 tracker_settings:
   default:
     indexing_order: lifo

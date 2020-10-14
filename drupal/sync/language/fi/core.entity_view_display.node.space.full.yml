@@ -1,0 +1,8 @@
+third_party_settings:
+  field_group:
+    group_guidance:
+      label: Sijainti
+    group_equipment:
+      label: Laitteet
+    group_rental:
+      label: 'Haluatko varata tämän tilan?'

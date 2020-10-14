@@ -44,6 +44,7 @@ third_party_settings:
       disable_css: true
       entity_classes: all_classes
       settings:
+        label: ''
         wrappers:
           header: div
           left: div
@@ -158,6 +159,11 @@ third_party_settings:
         weight: 0
         label: hidden
         formatter: text_default
+      'dynamic_token_field:node-referenced_address':
+        plugin_id: 'dynamic_token_field:node-referenced_address'
+        weight: 4
+        label: hidden
+        formatter: default
       'dynamic_copy_field:node-referenced_address_clone':
         plugin_id: 'dynamic_copy_field:node-referenced_address_clone'
         weight: 0
@@ -166,11 +172,6 @@ third_party_settings:
       'dynamic_block_field:node-space_equipment_view':
         plugin_id: 'dynamic_block_field:node-space_equipment_view'
         weight: 13
-        label: hidden
-        formatter: default
-      'dynamic_token_field:node-referenced_address':
-        plugin_id: 'dynamic_token_field:node-referenced_address'
-        weight: 4
         label: hidden
         formatter: default
       node_title:
@@ -203,7 +204,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: 'Key Information'
-      region: hidden
+      region: left
     group_equipment:
       children:
         - 'ds_chains:node/space/field_building/field_equipment_information'
@@ -213,7 +214,6 @@ third_party_settings:
       weight: 4
       format_type: html_element
       format_settings:
-        label: Equipment
         element: section
         show_label: true
         label_element: h3
@@ -223,7 +223,7 @@ third_party_settings:
         id: ''
         classes: space__equipment
       label: Equipment
-      region: hidden
+      region: left
     group_guidance:
       children:
         - 'dynamic_copy_field:node-referenced_address_clone'
@@ -234,7 +234,6 @@ third_party_settings:
       weight: 6
       format_type: html_element
       format_settings:
-        label: Guidance
         element: aside
         show_label: true
         label_element: h3
@@ -244,7 +243,7 @@ third_party_settings:
         id: ''
         classes: space__guidance
       label: Guidance
-      region: hidden
+      region: right
     group_rental:
       children:
         - 'ds_chains:node/space/field_campus/field_reservation_instructions'
@@ -252,7 +251,6 @@ third_party_settings:
       weight: 5
       format_type: html_element
       format_settings:
-        label: 'Would you like to book this facility?'
         element: section
         show_label: true
         label_element: h3
@@ -262,7 +260,7 @@ third_party_settings:
         id: ''
         classes: space__rental
       label: 'Would you like to book this facility?'
-      region: hidden
+      region: left
     group_header_main:
       children:
         - node_title
@@ -282,7 +280,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: 'Header Main'
-      region: hidden
+      region: header
     group_hj:
       children:
         - field_reservation_link
@@ -299,7 +297,7 @@ third_party_settings:
         effect: none
         speed: fast
       label: 'Header Actions'
-      region: hidden
+      region: header
   ds_chains:
     fields:
       field_building: field_building
@@ -424,3 +422,4 @@ hidden:
   field_street_address: true
   langcode: true
   links: true
+  search_api_excerpt: true

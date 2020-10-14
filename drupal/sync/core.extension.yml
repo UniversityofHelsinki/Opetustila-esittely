@@ -69,6 +69,7 @@ module:
   translation_views: 0
   uh_space_site: 0
   uh_space_site_information: 0
+  update: 0
   user: 0
   views_ui: 0
   ds: 1

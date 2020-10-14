@@ -368,6 +368,17 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -49
+  entity_status: {  }
+  hierarchy:
+    fields:
+      field_campus: taxonomy_term-parent
+    weights:
+      preprocess_index: -42
   highlight:
     highlight: always
     highlight_partial: false
@@ -378,58 +389,6 @@ processor_settings:
     suffix: '</strong>'
     weights:
       postprocess_query: 0
-  entity_status: {  }
-  type_boost:
-    boosts:
-      'entity:node':
-        datasource_boost: !!float 1
-        bundle_boosts:
-          space: !!float 2
-      'entity:taxonomy_term':
-        datasource_boost: !!float 1
-        bundle_boosts:
-          accessibility: !!float 0
-          building: 0.3
-          campus: 0.1
-          contacts: !!float 0
-          equipment: !!float 0
-          price_categories: !!float 0
-          room_type: 0.3
-    weights:
-      preprocess_index: -43
-  add_url: {  }
-  transliteration:
-    all_fields: true
-    fields:
-      - body
-      - description
-      - field_accessibility
-      - field_building
-      - field_building_id
-      - field_building_id_1
-      - field_campus
-      - field_campus_1
-      - field_city
-      - field_equipment
-      - field_equipment_information
-      - field_optime_id
-      - field_price_category
-      - field_reservation_instructions
-      - field_room_type
-      - field_street_address
-      - field_street_address_1
-      - field_vat_rate
-      - langcode
-      - langcode_1
-      - name
-      - rendered_item
-      - title
-      - type
-      - url
-      - vid
-    weights:
-      preprocess_index: -49
-      preprocess_query: -48
   ignorecase:
     all_fields: true
     fields:
@@ -462,15 +421,8 @@ processor_settings:
     weights:
       preprocess_index: -50
       preprocess_query: -50
-  hierarchy:
-    fields:
-      field_campus: taxonomy_term-parent
-    weights:
-      preprocess_index: -42
-  content_access:
-    weights:
-      preprocess_query: -49
-  aggregated_field: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
   tokenizer:
     all_fields: true
     fields:
@@ -491,8 +443,56 @@ processor_settings:
     weights:
       preprocess_index: -46
       preprocess_query: -45
-  rendered_item: {  }
-  language_with_fallback: {  }
+  transliteration:
+    all_fields: true
+    fields:
+      - body
+      - description
+      - field_accessibility
+      - field_building
+      - field_building_id
+      - field_building_id_1
+      - field_campus
+      - field_campus_1
+      - field_city
+      - field_equipment
+      - field_equipment_information
+      - field_optime_id
+      - field_price_category
+      - field_reservation_instructions
+      - field_room_type
+      - field_street_address
+      - field_street_address_1
+      - field_vat_rate
+      - langcode
+      - langcode_1
+      - name
+      - rendered_item
+      - title
+      - type
+      - url
+      - vid
+    weights:
+      preprocess_index: -49
+      preprocess_query: -48
+  type_boost:
+    boosts:
+      'entity:node':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          space: !!float 2
+      'entity:taxonomy_term':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          accessibility: !!float 0
+          building: 0.3
+          campus: 0.1
+          contacts: !!float 0
+          equipment: !!float 0
+          price_categories: !!float 0
+          room_type: 0.3
+    weights:
+      preprocess_index: -43
 tracker_settings:
   default:
     indexing_order: lifo

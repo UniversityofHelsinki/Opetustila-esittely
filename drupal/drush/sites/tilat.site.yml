@@ -1,0 +1,23 @@
+# Drush site aliases, docs at https://github.com/drush-ops/drush/blob/master/examples/example.site.yml
+
+local:
+  root: /app/web
+  uri: https://tilat.lndo.site
+
+dev:
+  host: opetustila-test.it.helsinki.fi
+  root: /var/www/opetustila-test.it.helsinki.fi/current/web
+  uri: https://opetustila-test.it.helsinki.fi
+  user: www-admin
+
+stage:
+  host: opetustila-staging.it.helsinki.fi
+  root: /var/www/opetustila-staging.it.helsinki.fi/current/web
+  uri: https://opetustila-staging.it.helsinki.fi
+  user: www-admin
+
+prod:
+  host: tilavaraus.helsinki.fi
+  root: /var/www/tilavaraus.helsinki.fi/current/web
+  uri: https://tilavaraus.helsinki.fi
+  user: www-admin

@@ -19,6 +19,8 @@ tooling:
     cmd: drush --root=/app/web
   node:
     service: node
+  npm:
+    service: node
   npm-install:
     service: node
     description: Execute `npm install`
@@ -35,29 +37,19 @@ tooling:
     service: node
     description: Execute `npm rebuild node-sass`
     cmd: "cd /app/web/themes/custom/uh_space && npm rebuild node-sass"
+  update:
+    description: Update local database.
+    cmd:
+      - appserver: /app/conf/lando/update.sh
 
 services:
-  mailhog:
-    type: mailhog
-    hogfrom:
-      - appserver
-
-  # Making SequelPro access easier with static port: https://docs.devwithlando.io/tutorials/external-access.html
-  # Edit, not strictly necessary.
-  database:
-    portforward: 33306
-    scanner: false
-
   appserver:
+    build:
+      - composer install
     build_as_root:
       - "apt-get update -y"
       - "apt-get install python-yaml -y"
       - "apt-get install sudo nano vim mlocate -y"
-      # Make sure our custom drush.yml is active either by copying or symlinking.
-      # - "/bin/cp /app/web/sites/default/drush.yml /var/www/.drush/drush.yml"
-      #- "ln -sf /app/web/sites/default/drush.yml ~/.drush/drush.yml"
-      #- "ln -sf /app/drush/drushrc.php /var/www/.drush/drushrc.php"
-      - "ln -sf /app/drush/drush.yml /var/www/.drush/drush.yml"
     overrides:
       environment:
         WKV_SITE_ENV: lando
@@ -65,27 +57,24 @@ services:
         DB_USER_DRUPAL: drupal8
         DB_HOST_DRUPAL: database
         DB_NAME_DRUPAL: drupal8
+  database:
+    portforward: true
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
   node:
     type: node
+    build:
+      - "cd /app/web/themes/custom/uh_space && npm install"
     build_as_root:
       - "apt-get update -y"
       - "apt-get install curl php-cli php-mbstring git unzip -y"
       - "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer"
-#    run:
-#      - "cd /app/web/themes/custom/uh_space && npm install"
-#      - "cd /app/web/themes/custom/uh_space && npm rebuild node-sass"
-#      - "cd /app/web/themes/custom/uh_space && npm run build"
+
 proxy:
   mailhog:
-    - mail.lndo.site
+    - mail-tilat.lndo.site
 
-events:
-  # Clear caches after a database import
-  post-db-import:
-    - appserver: cd /app/web && drush cr -y
-  # Update modules after lando start.
-  post-start:
-    - appserver: cd /app && composer install
-
-# Tested with Lando version
-version: v3.0.3
+# Lando version
+version: v3.0.14

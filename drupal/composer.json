@@ -2,103 +2,71 @@
     "name": "uh/tilat",
     "description": "HY-Tilat Composer file",
     "type": "project",
-    "license": "GPL-2.0+",
-    "authors": [
-        {
-            "name": "",
-            "role": ""
-        }
-    ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        }
-    ],
+    "license": "GPL-2.0-or-later",
+    "authors": [{"name": "", "role": ""}],
+    "repositories": [{"type": "composer", "url": "https://packages.drupal.org/8"}],
     "require": {
         "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.6",
-        "drupal/console": "^1.0.2",
-        "drush/drush": "^10.2",
+        "drupal/admin_toolbar": "^2.4",
+        "drupal/config_filter": "^1.1",
+        "drupal/config_ignore": "^2.1",
+        "drupal/config_readonly": "^1.0",
+        "drupal/config_split": "^1.3",
+        "drupal/cookieconsent": "^1.6",
+        "drupal/core-composer-scaffold": "^8.8",
+        "drupal/core-recommended": "^8.8",
+        "drupal/ctools": "^3.0",
+        "drupal/disable_field": "^2.1",
+        "drupal/ds": "^3.9",
+        "drupal/ds_chains": "^1.0@alpha",
+        "drupal/easy_breadcrumb": "^1.13",
+        "drupal/field_group": "^3.1",
+        "drupal/field_group_link": "^3.0",
+        "drupal/geofield_map": "^2.67",
+        "drupal/google_tag": "^1.0",
+        "drupal/leaflet": "^2.1",
+        "drupal/libraries": "^3.0@alpha",
+        "drupal/menu_multilingual": "^1.0",
+        "drupal/migrate_plus": "^4.0",
+        "drupal/migrate_tools": "^4.0",
+        "drupal/pathauto": "^1.6",
+        "drupal/redirect": "^1.1",
+        "drupal/search_api": "^1.17",
+        "drupal/search_api_autocomplete": "^1.4",
+        "drupal/simple_sitemap": "^3.7",
+        "drupal/simplei": "^1.0",
+        "drupal/token": "^1.6",
+        "drupal/translatable_menu_link_uri": "^1.1",
+        "drupal/translation_views": "^1.0",
+        "drupal/warden": "^2.0",
+        "drush/drush": "^10.3",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "drupal/config_installer": "~1.0",
-        "drupal/warden": "*",
-        "drupal/simplei": "^1.0",
-        "wunderio/drupal-ping": "^1.0",
-        "drupal/admin_toolbar": "^2.0",
-        "drupal/token": "^1.6",
-        "drupal/pathauto": "^1.6",
-        "drupal/config_split": "^1.3",
-        "drupal/config_filter": "^1.1",
-        "drupal/ctools": "^3.0",
-        "drupal/config_ignore": "^2.1",
-        "drupal/migrate_tools": "^4.0",
-        "drupal/migrate_plus": "^4.0",
-        "drupal/libraries": "^3.0@alpha",
-        "drupal/field_group": "^3.0@beta",
-        "drupal/ds": "^3.1",
-        "drupal/ds_chains": "^1.0@alpha",
-        "drupal/search_api": "^1.7",
-        "drupal/search_api_autocomplete": "^1.0",
-        "drupal/disable_field": "^2.1",
-        "drupal/field_group_link": "^3.0@RC",
-        "drupal/easy_breadcrumb": "^1.6",
-        "drupal/leaflet": "^1.0",
-        "drupal/redirect": "^1.1",
-        "drupal/geofield_map": "^2.36",
-        "drupal/google_tag": "^1.0",
-        "drupal/cookieconsent": "^1.4",
-        "drupal/menu_multilingual": "^1.0@alpha",
-        "drupal/translatable_menu_link_uri": "^1.1",
-        "drupal/simple_sitemap": "^3.1",
-        "drupal/translation_views": "^1.0",
-        "drupal/config_readonly": "^1.0",
-        "drupal/core-recommended": "^8.8",
-        "drupal/core-composer-scaffold": "^8.8"
+        "wunderio/drupal-ping": "^1.0"
     },
     "require-dev": {
         "codeception/codeception": "^2.2",
         "codeception/visualception": "^0.9.0",
         "drupal/devel": "~2.0",
         "drupal/devel_php": "^1.0",
-        "drupal/stage_file_proxy": "^1.0@alpha",
+        "drupal/stage_file_proxy": "^1.1",
         "guncha25/drupal-codeception": "^8.0",
         "zaporylie/composer-drupal-optimizations": "^1.1"
     },
-    "conflict": {
-        "drupal/drupal": "*"
-    },
+    "conflict": {"drupal/drupal": "*"},
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "autoload": {
-        "classmap": [
-            "scripts/composer/ScriptHandler.php"
-        ]
-    },
+    "autoload": {"classmap": ["scripts/composer/ScriptHandler.php"]},
     "scripts": {
-        "pre-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "pre-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
-        ],
-        "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ],
-        "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ]
+        "pre-install-cmd": ["DrupalProject\\composer\\ScriptHandler::checkComposerVersion"],
+        "pre-update-cmd": ["DrupalProject\\composer\\ScriptHandler::checkComposerVersion"],
+        "post-install-cmd": ["DrupalProject\\composer\\ScriptHandler::createRequiredFiles"],
+        "post-update-cmd": ["DrupalProject\\composer\\ScriptHandler::createRequiredFiles"]
     },
     "extra": {
-        "config": {
-            "sort-packages": true
-        },
-        "drupal-scaffold": {
-            "locations": {
-                "web-root": "./web"
-            }
-        },
+        "config": {"sort-packages": true},
+        "drupal-scaffold": {"locations": {"web-root": "./web"}},
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/libraries/{$name}": ["type:drupal-library"],
@@ -108,10 +76,15 @@
             "drush/contrib/{$name}": ["type:drupal-drush"]
         },
         "composer-exit-on-patch-failure": true,
-        "dropin-paths": {
-            "web/": ["type:web-dropin"]
-        },
+        "dropin-paths": {"web/": ["type:web-dropin"]},
         "patches": {
+            "drupal/core": {
+                "Referenced entity rendered in wrong language when parent entity does not have translation enabled - #2859202": "https://www.drupal.org/files/issues/2020-07-03/2859202-referenced_language_fix-29-8.9.x.patch"
+            }
         }
+    },
+    "config": {
+        "discard-changes": true,
+        "sort-packages": true
     }
 }
