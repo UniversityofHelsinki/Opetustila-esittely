@@ -27,7 +27,7 @@
         "drupal/google_tag": "^1.0",
         "drupal/leaflet": "^2.1",
         "drupal/libraries": "^3.0@alpha",
-        "drupal/menu_multilingual": "^1.0@alpha",
+        "drupal/menu_multilingual": "^1.0",
         "drupal/migrate_plus": "^4.0",
         "drupal/migrate_tools": "^4.0",
         "drupal/pathauto": "^1.6",

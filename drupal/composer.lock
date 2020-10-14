@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a15ab1a501be64cf82db62978ded1762",
+    "content-hash": "2e998f71e5575b5f37a8d34f46fa2558",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3163,26 +3163,29 @@
         },
         {
             "name": "drupal/menu_multilingual",
-            "version": "1.0.0-alpha1",
+            "version": "1.0.0-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/menu_multilingual.git",
-                "reference": "8.x-1.0-alpha1"
+                "reference": "8.x-1.0-alpha2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/menu_multilingual-8.x-1.0-alpha1.zip",
-                "reference": "8.x-1.0-alpha1",
-                "shasum": "30fa8bd90a3296380fc694f08bb484ff4a2c3550"
+                "url": "https://ftp.drupal.org/files/projects/menu_multilingual-8.x-1.0-alpha2.zip",
+                "reference": "8.x-1.0-alpha2",
+                "shasum": "08ffd1fb058f9c51ca373d5ffe29cbdc46fff357"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8 || ^9"
+            },
+            "require-dev": {
+                "drupal/menu_block": "^1.5"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha1",
-                    "datestamp": "1518565980",
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1596229993",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -3191,22 +3194,23 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
-                    "name": "matsbla",
-                    "homepage": "https://www.drupal.org/user/2325394"
+                    "name": "vlad.dancer",
+                    "homepage": "https://www.drupal.org/u/vladdancer"
                 },
                 {
-                    "name": "vlad.dancer",
-                    "homepage": "https://www.drupal.org/user/903844"
+                    "name": "matsbla",
+                    "homepage": "https://www.drupal.org/u/matsbla"
                 }
             ],
             "description": "Filter menu links by current language.",
             "homepage": "https://www.drupal.org/project/menu_multilingual",
             "support": {
-                "source": "https://git.drupalcode.org/project/menu_multilingual"
+                "source": "http://git.drupal.org/project/menu_multilingual.git",
+                "issues": "https://www.drupal.org/project/issues/menu_multilingual"
             }
         },
         {
@@ -10211,8 +10215,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/ds_chains": 15,
-        "drupal/libraries": 15,
-        "drupal/menu_multilingual": 15
+        "drupal/libraries": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
