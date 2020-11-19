@@ -44,7 +44,7 @@
         "drupal/simple_sitemap": "^3.1",
         "drupal/translation_views": "^1.0",
         "drupal/config_readonly": "^1.0",
-        "drupal/core-recommended": "^8.8",
+        "drupal/core-recommended": "^8.9",
         "drupal/core-composer-scaffold": "^8.8"
     },
     "require-dev": {
