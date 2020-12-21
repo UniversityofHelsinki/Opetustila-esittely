@@ -58,6 +58,7 @@ services:
         DB_USER_DRUPAL: drupal8
         DB_HOST_DRUPAL: database
         DB_NAME_DRUPAL: drupal8
+        COMPOSER_PROCESS_TIMEOUT: 600
   database:
     portforward: true
   mailhog:
