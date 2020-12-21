@@ -4,9 +4,10 @@ recipe: drupal8
 config:
   webroot: web
   via: nginx
-  php: '7.2'
+  php: 7.2
   database: mariadb:10.1
   xdebug: false
+  composer_version: 1.10.17
 
 tooling:
   build.sh:
@@ -76,5 +77,5 @@ proxy:
   mailhog:
     - mail-tilat.lndo.site
 
-# Lando version
-version: v3.0.14
+# Tested with Lando version
+version: v3.0.19
