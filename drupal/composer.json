@@ -8,7 +8,6 @@
     "require": {
         "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.6",
-        "drupal/console": "^1.0.2",
         "drush/drush": "^10.2",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
@@ -45,15 +44,12 @@
         "drupal/translation_views": "^1.0",
         "drupal/config_readonly": "^1.0",
         "drupal/core-recommended": "^8.9",
-        "drupal/core-composer-scaffold": "^8.8"
+        "drupal/core-composer-scaffold": "^8.9"
     },
     "require-dev": {
-        "codeception/codeception": "^2.2",
-        "codeception/visualception": "^0.9.0",
         "drupal/devel": "~2.0",
         "drupal/devel_php": "^1.0",
         "drupal/stage_file_proxy": "^1.0@alpha",
-        "guncha25/drupal-codeception": "^8.0",
         "zaporylie/composer-drupal-optimizations": "^1.1"
     },
     "conflict": {"drupal/drupal": "*"},
@@ -86,6 +82,9 @@
         }
     },
     "config": {
+        "platform": {
+            "php": "7.1.33"
+        },
         "process-timeout": 9000
     }
 }
