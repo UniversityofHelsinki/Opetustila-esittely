@@ -3,7 +3,7 @@
 - hosts: prod
   become: true
   become_method: sudo
-  user: lu_jslin
+  user: lu_vv
   roles:
    - { role: base, tags: [ 'base' ] }
    - { role: papertrail, tags: [ 'papertrail' ] }
