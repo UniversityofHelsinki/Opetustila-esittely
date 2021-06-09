@@ -83,7 +83,7 @@
       - key: "OPTIME_URL"
         value: "{{ optime-url }}"
       - key: "OPTIME_API_KEY"
-        value: {{ optime-api-key }}
+        value: "{{ optime-api-key }}"
 
     ## Nginx ##
 

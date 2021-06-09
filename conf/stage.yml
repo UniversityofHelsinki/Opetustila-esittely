@@ -80,7 +80,7 @@
       - key: "OPTIME_URL"
         value: "{{ optime-url }}"
       - key: "OPTIME_API_KEY"
-        value: {{ optime-api-key }}
+        value: "{{ optime-api-key }}"
 
     # How to assign memory for each role and set the correct
     # memory_app and memory_db define how much total system memory is allocated to each.
