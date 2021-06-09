@@ -196,7 +196,12 @@ $settings['trusted_host_patterns'] = [
   '^127\.0\.0\.1$',
 ];
 
+/**
+ * local setup for switching between optime apis used.
+ */
 
+$settings['optime-url'] = "esb-api-test-1-19.it.helsinki.fi/optime/locations/?fromTimestamp=1";
+$settings['optime-api-key'] = "d08cd29e958b25f169f6953335bd2cc";
 /**
  * Environment specific override configuration, if available.
  */
