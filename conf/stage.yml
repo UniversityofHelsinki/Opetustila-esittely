@@ -4,7 +4,7 @@
 - hosts: stage
   become: true
   become_method: sudo
-  user: lu_jslin
+  user: lu_vv
   roles:
    - { role: base, tags: [ 'base' ] }
    - { role: papertrail, tags: [ 'papertrail' ] }
@@ -74,6 +74,13 @@
 
     # This is used in cronjob and varnish and nginx configs
     drupal_web_root: "/var/www/{{ domain_name }}/current/web"
+
+    # Variables to use optime API.
+    php_env_vars:
+      - key: "OPTIME_URL"
+        value: "{{ optime-url }}"
+      - key: "OPTIME_API_KEY"
+        value: {{ optime-api-key }}
 
     # How to assign memory for each role and set the correct
     # memory_app and memory_db define how much total system memory is allocated to each.
