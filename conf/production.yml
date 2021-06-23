@@ -3,7 +3,7 @@
 - hosts: prod
   become: true
   become_method: sudo
-  user: lu_jslin
+  user: lu_vv
   roles:
    - { role: base, tags: [ 'base' ] }
    - { role: papertrail, tags: [ 'papertrail' ] }
@@ -83,6 +83,11 @@
     php_env_vars:
       - key: "WARDEN_TOKEN"
         value: "{{ warden_token }}"
+        # Variables to use optime API.
+      - key: "OPTIME_URL"
+        value: "{{ optime-url }}"
+      - key: "OPTIME_API_KEY"
+        value: "{{ optime-api-key }}"
 
     ## Nginx ##
 
