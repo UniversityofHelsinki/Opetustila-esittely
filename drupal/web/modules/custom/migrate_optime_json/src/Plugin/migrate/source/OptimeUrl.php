@@ -40,6 +40,7 @@ class OptimeUrl extends Url {
   *   Migration source configuration.
   */
  private function handlePlaceholders(array &$configuration, array $source) {
+   // Handling placeholders for url and api key.
    foreach ($configuration['placeholders'] as $placeholder) {
      $value = Settings::get($placeholder, '');
      foreach ($configuration['urls'] as $key => $url) {
