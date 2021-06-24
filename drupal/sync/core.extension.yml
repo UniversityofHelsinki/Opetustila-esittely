@@ -64,6 +64,7 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  datalayer: 0
   translatable_menu_link_uri: 0
   translation_views: 0
   uh_space_site: 0
