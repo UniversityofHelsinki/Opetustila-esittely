@@ -43,7 +43,7 @@ class OptimeUrl extends Url {
    // Handling placeholders for url and api key.
    foreach ($configuration['placeholders'] as $placeholder) {
      if ($placeholder == "time-stamp") {
-       $import_period = time() - (30 * 24 * 3600); // Import last 30 days of changes
+       $import_period = time() - (3 * 24 * 3600); // Import last 3 days of changes
        $configuration['urls'] = str_replace('{' . $placeholder . '}', $import_period, $configuration['urls']);
      }
      // This needs state var to be set manually in every release.
