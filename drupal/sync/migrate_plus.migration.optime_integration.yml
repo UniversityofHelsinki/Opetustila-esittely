@@ -20,10 +20,11 @@ source:
   data_parser_plugin: json
   include_raw_data: true
   urls:
-    - 'https://{optime-url}'
+    - 'https://{optime-url}?fromTimestamp={time-stamp}'
   placeholders:
     - optime-api-key
     - optime-url
+    - time-stamp
   headers:
     apikey: optime-api-key
   item_selector: 0
