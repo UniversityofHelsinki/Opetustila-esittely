@@ -19,7 +19,14 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: json
   include_raw_data: true
-  urls: 'https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=1'
+  urls:
+    - 'https://{optime-url}?fromTimestamp={time-stamp}'
+  placeholders:
+    - optime-api-key
+    - optime-url
+    - time-stamp
+  headers:
+    apikey: optime-api-key
   item_selector: 0
   constants:
     reservation_link_base: 'https://optime.helsinki.fi/Timetables/Room/'
