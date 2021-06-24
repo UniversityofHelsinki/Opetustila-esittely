@@ -35,10 +35,11 @@ source:
   #   $config['migrate_plus']['migration']['optime_integration']['urls'] = 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json';
   #urls: 'https://helpdesk.it.helsinki.fi/sites/default/files/testdata/test_full.json'
   urls:
-    - https://{optime-url}
+    - https://{optime-url}?fromTimestamp={time-stamp}
   placeholders:
     - optime-api-key
     - optime-url
+    - time-stamp
   headers:
     apikey: optime-api-key
   # urls:  http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json

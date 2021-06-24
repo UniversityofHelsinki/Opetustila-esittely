@@ -175,12 +175,12 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
 //  https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=1 <-- PROD
 // It can also have a a date filter, including only the nodes that have changed after
 // a specific UNIX timestamp.
-#$config['migrate_plus.migration.optime_integration']['source']['urls'] =
-#  'https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=1';
+//$config['migrate_plus.migration.optime_integration']['source']['urls'] =
+//  'https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=1';
 
-$import_period = time() - (72 * 3600); // Import last 3 days of changes
-#  $config['migrate_plus.migration.optime_integration']['source']['urls'] =
-#    'https://esbmt1.it.helsinki.fi/optime/locations/?fromTimestamp=' . $import_period;
+// $import_period = time() - (72 * 3600); // Import last 3 days of changes
+//   $config['migrate_plus.migration.optime_integration']['source']['urls'] =
+//    'https://{optime-url}?fromTimestamp=' . $import_period;
 
 
 // To have optime integration running in any environment, we need this in crontab:
