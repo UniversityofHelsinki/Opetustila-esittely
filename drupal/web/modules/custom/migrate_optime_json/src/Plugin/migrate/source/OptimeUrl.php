@@ -42,11 +42,13 @@ class OptimeUrl extends Url {
  private function handlePlaceholders(array &$configuration, array $source) {
    // Handling placeholders for url and api key.
    foreach ($configuration['placeholders'] as $placeholder) {
+     if ($placeholder == "time-stamp") {
+       $import_period = time() - (30 * 24 * 3600); // Import last 30 days of changes
+       $configuration['urls'] = str_replace('{' . $placeholder . '}', $import_period, $configuration['urls']);
+     }
      $value = Settings::get($placeholder, '');
-     foreach ($configuration['urls'] as $key => $url) {
-       if ($placeholder == "optime-url") {
-         $configuration['urls'][$key] = str_replace('{' . $placeholder . '}', $value, $url);
-       }
+     if ($placeholder == "optime-url") {
+       $configuration['urls'] = str_replace('{' . $placeholder . '}', $value, $configuration['urls']);
      }
      foreach ($configuration['headers'] as $key => $header) {
        if ($placeholder == "optime-api-key") {
