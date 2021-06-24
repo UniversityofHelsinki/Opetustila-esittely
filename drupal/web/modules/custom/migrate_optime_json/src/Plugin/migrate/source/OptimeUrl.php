@@ -47,7 +47,7 @@ class OptimeUrl extends Url {
        $configuration['urls'] = str_replace('{' . $placeholder . '}', $import_period, $configuration['urls']);
      }
      // This needs state var to be set manually in every release.
-     \Drupal::state()->get($placeholder);
+     $value = \Drupal::state()->get($placeholder);
      // This can be used when env vars are set.
      //$value = Settings::get($placeholder, '');
      if ($placeholder == "optime-url") {
