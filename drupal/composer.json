@@ -32,7 +32,7 @@
         "drupal/search_api_autocomplete": "^1.5",
         "drupal/disable_field": "^2.1",
         "drupal/field_group_link": "^3.0@RC",
-        "drupal/easy_breadcrumb": "^1.6",
+        "drupal/easy_breadcrumb": "^2.0",
         "drupal/leaflet": "^2.1",
         "drupal/redirect": "^1.1",
         "drupal/geofield_map": "^2.70",
