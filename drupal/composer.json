@@ -6,7 +6,7 @@
     "authors": [{"name": "", "role": ""}],
     "repositories": [{"type": "composer", "url": "https://packages.drupal.org/8"}],
     "require": {
-        "composer/installers": "^1.7",
+        "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6",
         "drush/drush": "^10.2",
         "webflo/drupal-finder": "^1.0.0",
