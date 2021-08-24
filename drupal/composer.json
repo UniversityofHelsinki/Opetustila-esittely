@@ -6,7 +6,7 @@
     "authors": [{"name": "", "role": ""}],
     "repositories": [{"type": "composer", "url": "https://packages.drupal.org/8"}],
     "require": {
-        "composer/installers": "^1.7",
+        "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6",
         "drush/drush": "^10.2",
         "webflo/drupal-finder": "^1.0.0",
@@ -50,8 +50,7 @@
     "require-dev": {
         "drupal/devel": "~2.0",
         "drupal/devel_php": "^1.0",
-        "drupal/stage_file_proxy": "^1.0@alpha",
-        "zaporylie/composer-drupal-optimizations": "^1.1"
+        "drupal/stage_file_proxy": "^1.0@alpha"
     },
     "conflict": {"drupal/drupal": "*"},
     "minimum-stability": "dev",
@@ -83,9 +82,6 @@
         }
     },
     "config": {
-        "platform": {
-            "php": "7.1.33"
-        },
-        "process-timeout": 9000
+        "platform": {"php": "7.2"}
     }
 }
