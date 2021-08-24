@@ -15,15 +15,18 @@ _Note:_ Site uses Style Guide fork from here: git@github.com:wunderio/Styleguide
 1. Setting up
     1. Go to the theme folder with `cd drupal/web/themes/custom/uh_space`.
     2. Ensure that you are using node version <= 8.4.0 & npm
-    3. Run `npm install`.
+    3. Run `lando npm install`.
     4. If you get errors from node-sass saying that the current environment is not yet supported, please remove the node_modules folder with rm -rf node_modules in the theme folder. Then try running “npm install” again. This happens, because sometimes npm install fails to install the required node-sass native extensions.
 2. Compiling frontend assets
-    1. Run `npm run watch` to build development-friendly frontend files with auto-rebuild (watch).
-    2. Run `npm run build` to build production-ready frontend files without auto-rebuild.
+    1. Run `lando npm run watch` to build development-friendly frontend files with auto-rebuild (watch).
+    2. Run `lando npm run build` to build production-ready frontend files without auto-rebuild.
+
+#### Rebuilding sass
+Rebuild node-sass if needed when changing different environment - `npm rebuild node-sass`
 
 #### Compiling frontend assets
-Before committing changes, please run `npm run build`. 
+Before committing changes, please run `npm run build`.
 
-We deploy pre-built frontend files from this repo, they are NOT built during deployment. They are inside dist/ in the theme folder. 
+We deploy pre-built frontend files from this repo, they are NOT built during deployment. They are inside dist/ in the theme folder.
 
 They need to be PRODUCTION-READY. Please remember to do this!
