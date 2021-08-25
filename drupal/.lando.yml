@@ -7,7 +7,7 @@ config:
   php: 7.2
   database: mariadb:10.1
   xdebug: false
-  composer_version: 1-latest
+  composer_version: 2-latest
 
 tooling:
   build.sh:
@@ -20,22 +20,9 @@ tooling:
     cmd: drush --root=/app/web
   node:
     service: node
-  npm-install:
+  npm:
     service: node
-    description: Execute `npm install`
-    cmd: "cd /app/web/themes/custom/uh_space && npm install"
-  npm-build:
-    service: node
-    description: Execute `npm run build`
-    cmd: "cd /app/web/themes/custom/uh_space && npm run build"
-  npm-fix:
-    service: node
-    description: Execute `npm audit fix --force`
-    cmd: "cd /app/web/themes/custom/uh_space && npm audit fix --force"
-  npm-sass-rebuild:
-    service: node
-    description: Execute `npm rebuild node-sass`
-    cmd: "cd /app/web/themes/custom/uh_space && npm rebuild node-sass"
+    description: Execute npm commands
 
 services:
   mailhog:
@@ -66,12 +53,12 @@ services:
         DB_USER_DRUPAL: drupal8
         DB_HOST_DRUPAL: database
         DB_NAME_DRUPAL: drupal8
+        DRUSH_OPTIONS_URI: http://tilat.lndo.site
   node:
     type: node
     build_as_root:
       - "apt-get update -y"
       - "apt-get install curl php-cli php-mbstring git unzip -y"
-      - "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer"
 #    run:
 #      - "cd /app/web/themes/custom/uh_space && npm install"
 #      - "cd /app/web/themes/custom/uh_space && npm rebuild node-sass"
@@ -89,4 +76,4 @@ events:
     - appserver: cd /app && composer install
 
 # Lando version when config tested
-version: v3.0.23
+version: v3.1.4
