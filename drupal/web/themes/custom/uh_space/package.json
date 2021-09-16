@@ -18,7 +18,7 @@
   "dependencies": {
     "audit": "0.0.6",
     "breakpoint-sass": "^2.7.0",
-    "css-loader": "^3.6.0",
+    "css-loader": "^5.2.7",
     "cssnano": "^4.1.11",
     "file-loader": "^1.1.6",
     "fix": "0.0.6",
