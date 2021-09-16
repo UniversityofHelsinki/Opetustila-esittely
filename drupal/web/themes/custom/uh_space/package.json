@@ -20,7 +20,7 @@
     "breakpoint-sass": "^2.7.0",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.11",
-    "file-loader": "^1.1.6",
+    "file-loader": "^6.2.0",
     "fix": "0.0.6",
     "hoek": "^5.0.4",
     "image-webpack-loader": "^7.0.1",
