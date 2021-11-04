@@ -25,8 +25,13 @@
   overflow: hidden;
   padding: 3em;
   position: relative;
-  .field-group-link:focus {
-    outline-offset: -3px;
+  .field-group-link {
+    &:focus {
+      outline-offset: -3px;
+    }
+    &:focus-visible {
+      outline: $white solid 2px;
+    }
   }
 
   @include breakpoint($small) {
