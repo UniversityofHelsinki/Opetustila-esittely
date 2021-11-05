@@ -29,6 +29,12 @@
       @extend .icon--date;
       @extend %button--action-before;
       display: inline-block;
+      &:focus:after {
+       background-color: $darkblue;
+      }
+      &:focus-visible {
+        outline-offset: 2px;
+      }
     }
   }
 
