@@ -77,11 +77,13 @@
         "dropin-paths": {"web/": ["type:web-dropin"]},
         "patches": {
             "drupal/core": {
-                "Referenced entity rendered in wrong language when parent entity does not have translation enabled - #2859202": "https://www.drupal.org/files/issues/2020-07-03/2859202-referenced_language_fix-29-8.9.x.patch"
+                "Referenced entity rendered in wrong language when parent entity does not have translation enabled - #2859202": "https://www.drupal.org/files/issues/2020-07-03/2859202-referenced_language_fix-29-8.9.x.patch",
+                "False recursive rendering errors - #2940605": "https://www.drupal.org/files/issues/2021-07-05/2940605_D89.patch"
             }
         }
     },
     "config": {
-        "platform": {"php": "7.2"}
+        "platform": {"php": "7.2"},
+        "sort-packages": true
     }
 }
