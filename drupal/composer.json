@@ -8,49 +8,48 @@
     "require": {
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6",
+        "drupal/admin_toolbar": "^3.0",
+        "drupal/config_filter": "^1.1",
+        "drupal/config_ignore": "^2.1",
+        "drupal/config_readonly": "^1.0",
+        "drupal/config_split": "^1.3",
+        "drupal/cookieconsent": "^1.4",
+        "drupal/core-composer-scaffold": "9.2.*",
+        "drupal/core-recommended": "9.2.*",
+        "drupal/ctools": "^3.7",
+        "drupal/disable_field": "^2.1",
+        "drupal/ds": "^3.13",
+        "drupal/ds_chains": "^1.0@alpha",
+        "drupal/easy_breadcrumb": "^2.0",
+        "drupal/field_group": "^3.2",
+        "drupal/field_group_link": "^3.0@RC",
+        "drupal/geofield": "^1.34",
+        "drupal/geofield_map": "^2.70",
+        "drupal/google_tag": "^1.0",
+        "drupal/leaflet": "^2.1",
+        "drupal/libraries": "^3.0@alpha",
+        "drupal/menu_multilingual": "^1.0@alpha",
+        "drupal/migrate_plus": "^5",
+        "drupal/migrate_tools": "^4.0",
+        "drupal/pathauto": "^1.6",
+        "drupal/redirect": "^1.1",
+        "drupal/search_api": "^1.20",
+        "drupal/search_api_autocomplete": "^1.5",
+        "drupal/simple_sitemap": "^3.1",
+        "drupal/simplei": "^1.0",
+        "drupal/token": "^1.6",
+        "drupal/translatable_menu_link_uri": "^2.0",
+        "drupal/translation_views": "^1.0",
         "drush/drush": "^10.2",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "drupal/config_installer": "~1.0",
-        "drupal/warden": "^2",
-        "drupal/simplei": "^1.0",
-        "wunderio/drupal-ping": "^1.0",
-        "drupal/admin_toolbar": "^3.0",
-        "drupal/token": "^1.6",
-        "drupal/pathauto": "^1.6",
-        "drupal/config_split": "^1.3",
-        "drupal/config_filter": "^1.1",
-        "drupal/ctools": "^3.7",
-        "drupal/config_ignore": "^2.1",
-        "drupal/migrate_tools": "^4.0",
-        "drupal/migrate_plus": "^4.0",
-        "drupal/libraries": "^3.0@alpha",
-        "drupal/field_group": "^3.2",
-        "drupal/ds": "^3.13",
-        "drupal/ds_chains": "^1.0@alpha",
-        "drupal/search_api": "^1.20",
-        "drupal/search_api_autocomplete": "^1.5",
-        "drupal/disable_field": "^2.1",
-        "drupal/field_group_link": "^3.0@RC",
-        "drupal/easy_breadcrumb": "^2.0",
-        "drupal/leaflet": "^2.1",
-        "drupal/redirect": "^1.1",
-        "drupal/geofield_map": "^2.70",
-        "drupal/google_tag": "^1.0",
-        "drupal/cookieconsent": "^1.4",
-        "drupal/menu_multilingual": "^1.0@alpha",
-        "drupal/translatable_menu_link_uri": "^2.0",
-        "drupal/simple_sitemap": "^3.1",
-        "drupal/translation_views": "^1.0",
-        "drupal/config_readonly": "^1.0",
-        "drupal/core-recommended": "^8.9",
-        "drupal/core-composer-scaffold": "^8.9",
-        "drupal/geofield": "^1.34"
+        "wunderio/drupal-ping": "^1.0"
     },
     "require-dev": {
-        "drupal/devel": "~2.0",
+        "drupal/devel": "^4",
         "drupal/devel_php": "^1.0",
-        "drupal/stage_file_proxy": "^1.0@alpha"
+        "drupal/stage_file_proxy": "^1.0@alpha",
+        "drupal/upgrade_status": "^3.12"
     },
     "conflict": {"drupal/drupal": "*"},
     "minimum-stability": "dev",
@@ -64,7 +63,30 @@
     },
     "extra": {
         "config": {"sort-packages": true},
-        "drupal-scaffold": {"locations": {"web-root": "./web"}},
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "./web"
+            },
+            "file-mapping": {
+                "[web-root]/.csslintrc": false,
+                "[web-root]/.eslintignore": false,
+                "[web-root]/.eslintrc.json": false,
+                "[web-root]/example.gitignore": false,
+                "[web-root]/INSTALL.txt": false,
+                "[web-root]/README.md": false,
+                "[web-root]/README.txt": false,
+                "[web-root]/update.php": false,
+                "[web-root]/web.config": false,
+                "[web-root]/sites/example.settings.local.php": false,
+                "[web-root]/sites/example.sites.php": false,
+                "[web-root]/sites/default/default.services.yml": false,
+                "[web-root]/sites/default/default.settings.php": false,
+                "[web-root]/modules/README.txt": false,
+                "[web-root]/profiles/README.txt": false,
+                "[web-root]/themes/README.txt": false,
+                "[web-root]/sites/README.txt": false
+            }
+        },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/libraries/{$name}": ["type:drupal-library"],
@@ -77,13 +99,13 @@
         "dropin-paths": {"web/": ["type:web-dropin"]},
         "patches": {
             "drupal/core": {
-                "Referenced entity rendered in wrong language when parent entity does not have translation enabled - #2859202": "https://www.drupal.org/files/issues/2020-07-03/2859202-referenced_language_fix-29-8.9.x.patch",
-                "False recursive rendering errors - #2940605": "https://www.drupal.org/files/issues/2021-07-05/2940605_D89.patch"
+                "Referenced entity rendered in wrong language when parent entity does not have translation enabled - #2859202": "https://www.drupal.org/files/issues/2021-11-23/2859202-referenced_language_fix-34-9.2.x.patch",
+                "False recursive rendering errors - #2940605": "https://www.drupal.org/files/issues/2021-09-10/2940605_56.patch"
             }
         }
     },
     "config": {
-        "platform": {"php": "7.2"},
+        "platform": {"php": "7.4"},
         "sort-packages": true
     }
 }
