@@ -26,7 +26,7 @@
 
   &:focus,
   &:hover {
-    background-color: $darkblue;
+    background-color: $darkblue--active;
     color: $white;
   }
 
@@ -143,7 +143,7 @@
   // Icon + background
   &:after {
     align-items: center;
-    background-color: $blue--active;
+    background-color: $darkblue;
     color: $white;
     display: flex;
     height: 100%;
@@ -161,7 +161,7 @@
 
   &:hover {
     &:after {
-      background: $darkblue--active;
+      background: $darkblue;
     }
   }
 
