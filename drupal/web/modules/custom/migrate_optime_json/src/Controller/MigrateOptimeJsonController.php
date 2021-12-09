@@ -2,6 +2,7 @@
 
 namespace Drupal\migrate_optime_json\Controller;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -19,13 +20,21 @@ class MigrateOptimeJsonController extends ControllerBase {
   protected $dateFormatter;
 
   /**
+   * The time service.
+   *
+   * @var \Drupal\Component\Datetime\TimeInterface
+   */
+  protected $time;
+
+  /**
    * Constructs the controller object.
    *
    * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
    *   The date formatter service.
    */
-  public function __construct(DateFormatterInterface $date_formatter) {
+  public function __construct(DateFormatterInterface $date_formatter, TimeInterface $time) {
     $this->dateFormatter = $date_formatter;
+    $this->time = $time;
   }
 
   /**
@@ -33,7 +42,8 @@ class MigrateOptimeJsonController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('date.formatter')
+      $container->get('date.formatter'),
+      $container->get('datetime.time')
     );
   }
 
@@ -51,7 +61,7 @@ class MigrateOptimeJsonController extends ControllerBase {
     $build['date'] = [
       '#type' => 'item',
       '#title' => $this->t('Date'),
-      '#markup' => $this->dateFormatter->format(REQUEST_TIME),
+      '#markup' => $this->dateFormatter->format($this->time->getRequestTime()),
     ];
 
     return $build;
