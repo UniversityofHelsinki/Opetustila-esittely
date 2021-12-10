@@ -163,7 +163,7 @@ function migrate_optime_json_legacy_redirect($entity) {
   $http_code = 301;
   // Do we need further cleanup? Redirect will make sure there is no XSS etc.
   $source_path = strip_tags($legacy_url);
-  $target_path = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $entity->id());
+  $target_path = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $entity->id());
   //  dsm($target_path);
   if (empty($target_path)) {
     // Either redirect to node/123 or the alias.

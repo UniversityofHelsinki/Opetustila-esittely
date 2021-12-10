@@ -33,7 +33,9 @@ display:
         translation_status:
           label: 'Translation status'
           alter:
-            text: "<span class=\"status\">{{ translation_status }}</span>\n{% if translation_outdated  %} <span class=\"marker\">{{ 'outdated'|t }}</span>{% endif %}"
+            text: |-
+              <span class="status">{{ translation_status }}</span>
+              {% if translation_outdated  %} <span class="marker">{{ 'outdated'|t }}</span>{% endif %}
         translation_changed:
           label: Changed
         translation_operations:
