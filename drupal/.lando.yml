@@ -4,8 +4,8 @@ recipe: drupal8
 config:
   webroot: web
   via: nginx
-  php: 7.2
-  database: mariadb:10.1
+  php: 7.4
+  database: mariadb:10.3
   xdebug: false
   composer_version: 2-latest
 
@@ -45,7 +45,7 @@ services:
       # - "/bin/cp /app/web/sites/default/drush.yml /var/www/.drush/drush.yml"
       #- "ln -sf /app/web/sites/default/drush.yml ~/.drush/drush.yml"
       #- "ln -sf /app/drush/drushrc.php /var/www/.drush/drushrc.php"
-      - "ln -sf /app/drush/drush.yml /var/www/.drush/drush.yml"
+      #- "ln -sf /app/drush/drush.yml /var/www/.drush/drush.yml"
     overrides:
       environment:
         WKV_SITE_ENV: lando

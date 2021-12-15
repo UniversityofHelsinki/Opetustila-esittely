@@ -16,7 +16,7 @@
   }
 
   &:hover:after {
-    color: $darkblue;
+    color: $darkblue--active;
   }
 }
 
@@ -42,5 +42,10 @@
 
   &:hover {
     color: inherit;
+  }
+}
+a {
+  &:focus-visible {
+    outline: $blue solid 2px;
   }
 }
