@@ -39,7 +39,7 @@ services:
   appserver:
     build_as_root:
       - "apt-get update -y"
-      - "apt-get install python-yaml -y"
+      - "apt-get install python3-yaml -y"
       - "apt-get install sudo nano vim mlocate -y"
       # Make sure our custom drush.yml is active either by copying or symlinking.
       # - "/bin/cp /app/web/sites/default/drush.yml /var/www/.drush/drush.yml"
@@ -53,7 +53,7 @@ services:
         DB_USER_DRUPAL: drupal8
         DB_HOST_DRUPAL: database
         DB_NAME_DRUPAL: drupal8
-        DRUSH_OPTIONS_URI: http://tilat.lndo.site
+        DRUSH_OPTIONS_URI: https://tilat.lndo.site
   node:
     type: node
     build_as_root:
@@ -76,4 +76,4 @@ events:
     - appserver: cd /app && composer install
 
 # Lando version when config tested
-version: v3.1.4
+version: v3.6.0

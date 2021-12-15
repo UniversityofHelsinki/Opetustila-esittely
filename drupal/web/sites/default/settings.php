@@ -233,3 +233,5 @@ $settings['optime-api-key'] = getenv("OPTIME_API_KEY");
 if (file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
 }
+
+$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
