@@ -106,6 +106,12 @@
     },
     "config": {
         "platform": {"php": "7.4"},
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "koodimonni/composer-dropin-installer": true,
+            "drupal/core-composer-scaffold": true
+        }
     }
 }
