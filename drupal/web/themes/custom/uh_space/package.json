@@ -23,7 +23,7 @@
     "file-loader": "^1.1.6",
     "fix": "0.0.6",
     "hoek": "^5.0.4",
-    "image-webpack-loader": "^7.0.1",
+    "image-webpack-loader": "^8.1.0",
     "inert-polyfill": "^0.2.5",
     "normalize.css": "^3.0.0",
     "postcss": "^6.0.23",
