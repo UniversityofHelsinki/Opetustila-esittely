@@ -10,6 +10,7 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityPublishedInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\redirect\Entity\Redirect;
 
@@ -57,14 +58,14 @@ function migrate_optime_json_get_trimmed_part($value = "", $key = 0) {
 /**
  * Implements hook_entity_presave().
  */
-function migrate_optime_json_entity_presave(EntityInterface $entity) {
+function migrate_optime_json_entity_presave(EntityPublishedInterface $entity) {
   switch ($entity->bundle()) {
     case 'space':
       // 'Space' node status might be turned off if either Optime or Drupal data says so.
       // This may still be bit confusing, because the "Publish" checkbox is currently
       // also visible, but these 2 fields may override it.
       if (!empty($entity->get('field_inactivated_in_drupal')->value) || !empty($entity->get('field_inactivate_in_optime')->value)) {
-        $entity->setPublished(FALSE);
+        $entity->setUnpublished();
       }
 
       // Buildings have a campus reference just like space nodes. Optime migration
