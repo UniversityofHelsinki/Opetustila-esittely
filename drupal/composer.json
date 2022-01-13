@@ -30,7 +30,7 @@
         "drupal/libraries": "^3.0@alpha",
         "drupal/menu_multilingual": "^1.0@alpha",
         "drupal/migrate_plus": "^5",
-        "drupal/migrate_tools": "^4.0",
+        "drupal/migrate_tools": "^5.0",
         "drupal/pathauto": "^1.6",
         "drupal/redirect": "^1.1",
         "drupal/search_api": "^1.20",
@@ -40,7 +40,7 @@
         "drupal/token": "^1.6",
         "drupal/translatable_menu_link_uri": "^2.0",
         "drupal/translation_views": "^1.0",
-        "drush/drush": "^10.2",
+        "drush/drush": "^11.0",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
         "wunderio/drupal-ping": "^1.0"
