@@ -64,7 +64,7 @@ function migrate_optime_json_entity_presave(EntityInterface $entity) {
       // This may still be bit confusing, because the "Publish" checkbox is currently
       // also visible, but these 2 fields may override it.
       if (!empty($entity->get('field_inactivated_in_drupal')->value) || !empty($entity->get('field_inactivate_in_optime')->value)) {
-        $entity->setPublished(FALSE);
+        $entity->setUnpublished();
       }
 
       // Buildings have a campus reference just like space nodes. Optime migration
