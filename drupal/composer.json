@@ -30,7 +30,7 @@
         "drupal/libraries": "^3.0@alpha",
         "drupal/menu_multilingual": "^1.0@alpha",
         "drupal/migrate_plus": "^5",
-        "drupal/migrate_tools": "^5.0",
+        "drupal/migrate_tools": "^5.1",
         "drupal/pathauto": "^1.6",
         "drupal/redirect": "^1.1",
         "drupal/search_api": "^1.20",
