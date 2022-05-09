@@ -1,17 +1,17 @@
 id: building_spaces_view
 label: 'Building Spaces View'
 ui_limit: 'building|*'
+type: block
+type_label: 'Block field'
+entities:
+  taxonomy_term: taxonomy_term
 properties:
   block: 'views_block:spaces-building_spaces'
   use_block_title: true
   config:
     id: 'views_block:spaces-building_spaces'
     label: ''
-    provider: views
     label_display: visible
+    provider: views
     views_label: ''
     items_per_page: none
-type: block
-type_label: 'Block field'
-entities:
-  taxonomy_term: taxonomy_term

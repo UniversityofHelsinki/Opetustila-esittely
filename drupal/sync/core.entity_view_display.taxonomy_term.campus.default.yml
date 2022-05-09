@@ -20,15 +20,15 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        classes:
+          layout_class: {  }
+          ds_content: {  }
         wrappers:
           ds_content: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
-        classes:
-          layout_class: {  }
-          ds_content: {  }
     regions:
       ds_content:
         - taxonomy_term_title
@@ -44,38 +44,38 @@ third_party_settings:
           id: expert
           settings:
             lb: Buildings
-            prefix: ''
             lbw: true
             lbw-el: h2
             lbw-cl: field__label--visually_hidden
             lbw-at: ''
+            lb-col: false
             ow: true
             ow-el: div
             ow-cl: 'field field--name-field-campus-buildings'
             ow-at: ''
+            ow-def-at: false
             ow-def-cl: true
+            fis: false
             fis-el: ''
             fis-cl: ''
             fis-at: ''
+            fis-def-at: false
+            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            suffix: ''
-            lb-col: false
-            ow-def-at: false
-            fis: false
-            fis-def-at: false
-            fi: false
             fi-def-at: false
+            prefix: ''
+            suffix: ''
       taxonomy_term_title:
         plugin_id: taxonomy_term_title
         weight: 0
         label: hidden
         formatter: default
         settings:
+          link: false
           wrapper: h1
           class: page__title
-          link: false
         ft:
           id: minimal
           settings:
@@ -90,7 +90,7 @@ bundle: campus
 mode: default
 content:
   field_images:
-    weight: 1
+    type: responsive_image
     label: hidden
     settings:
       responsive_image_style: hero_image
@@ -104,7 +104,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: responsive_image
+    weight: 1
     region: ds_content
 hidden:
   description: true

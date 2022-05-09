@@ -1,7 +1,32 @@
 uuid: a4fff365-d83d-4f5a-a54e-b8b330d6059c
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.wysiwyg
+    - node.type.page
+    - node.type.space
+    - taxonomy.vocabulary.accessibility
+    - taxonomy.vocabulary.building
+    - taxonomy.vocabulary.campus
+    - taxonomy.vocabulary.contacts
+    - taxonomy.vocabulary.equipment
+    - taxonomy.vocabulary.price_categories
+    - taxonomy.vocabulary.room_type
+  module:
+    - block
+    - config_translation
+    - content_translation
+    - file
+    - filter
+    - locale
+    - migrate_optime_json
+    - node
+    - path
+    - redirect
+    - system
+    - taxonomy
+    - toolbar
 id: editor
 label: Editor
 weight: 3
@@ -14,8 +39,6 @@ permissions:
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
-  - 'access webform overview'
-  - 'access webform submission log'
   - 'administer blocks'
   - 'administer content translation'
   - 'administer menu'
@@ -25,7 +48,6 @@ permissions:
   - 'administer site configuration'
   - 'administer taxonomy'
   - 'administer url aliases'
-  - 'administer webform submission'
   - 'bypass node access'
   - 'create content translations'
   - 'create page content'
@@ -38,20 +60,12 @@ permissions:
   - 'create terms in price_categories'
   - 'create terms in room_type'
   - 'create url aliases'
-  - 'create webform'
-  - 'create webform content'
   - 'delete all revisions'
   - 'delete any page content'
   - 'delete any space content'
-  - 'delete any webform'
-  - 'delete any webform content'
-  - 'delete any webform submission'
   - 'delete content translations'
   - 'delete own page content'
   - 'delete own space content'
-  - 'delete own webform'
-  - 'delete own webform content'
-  - 'delete own webform submission'
   - 'delete space revisions'
   - 'delete terms in accessibility'
   - 'delete terms in building'
@@ -60,19 +74,10 @@ permissions:
   - 'delete terms in equipment'
   - 'delete terms in price_categories'
   - 'delete terms in room_type'
-  - 'delete webform revisions'
-  - 'delete webform submissions any node'
-  - 'delete webform submissions own node'
   - 'edit any page content'
   - 'edit any space content'
-  - 'edit any webform'
-  - 'edit any webform content'
-  - 'edit any webform submission'
   - 'edit own page content'
   - 'edit own space content'
-  - 'edit own webform'
-  - 'edit own webform content'
-  - 'edit own webform submission'
   - 'edit terms in accessibility'
   - 'edit terms in building'
   - 'edit terms in campus'
@@ -80,13 +85,9 @@ permissions:
   - 'edit terms in equipment'
   - 'edit terms in price_categories'
   - 'edit terms in room_type'
-  - 'edit webform assets'
-  - 'edit webform submissions any node'
-  - 'edit webform submissions own node'
   - 'link to any page'
   - 'revert all revisions'
   - 'revert space revisions'
-  - 'revert webform revisions'
   - 'translate accessibility taxonomy_term'
   - 'translate any entity'
   - 'translate building taxonomy_term'
@@ -102,20 +103,7 @@ permissions:
   - 'update content translations'
   - 'use text format wysiwyg'
   - 'view all revisions'
-  - 'view any webform submission'
   - 'view own unpublished content'
-  - 'view own webform submission'
   - 'view page revisions'
-  - 'view published terms in accessibility'
-  - 'view published terms in building'
-  - 'view published terms in campus'
-  - 'view published terms in contacts'
-  - 'view published terms in equipment'
-  - 'view published terms in price_categories'
-  - 'view published terms in room_type'
   - 'view space revisions'
   - 'view the administration theme'
-  - 'view unpublished terms'
-  - 'view webform revisions'
-  - 'view webform submissions any node'
-  - 'view webform submissions own node'

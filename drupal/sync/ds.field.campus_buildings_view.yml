@@ -1,18 +1,18 @@
 id: campus_buildings_view
 label: 'Campus Buildings View'
 ui_limit: 'campus|*'
+type: block
+type_label: 'Block field'
+entities:
+  taxonomy_term: taxonomy_term
 properties:
   block: 'views_block:space_navigation-campus_buildings'
   use_block_title: true
   config:
     id: 'views_block:space_navigation-campus_buildings'
     label: ''
-    provider: views
     label_display: visible
+    provider: views
+    context_mapping: {  }
     views_label: ''
     items_per_page: none
-    context_mapping: {  }
-type: block
-type_label: 'Block field'
-entities:
-  taxonomy_term: taxonomy_term

@@ -17,18 +17,18 @@ plugin: hero_block
 settings:
   id: hero_block
   label: 'Hero Block'
-  provider: uh_space_site
   label_display: '0'
+  provider: uh_space_site
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
-    bundles:
-      page: page
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      page: page
   request_path:
     id: request_path
-    pages: '<front>'
     negate: false
     context_mapping: {  }
+    pages: '<front>'

@@ -12,7 +12,7 @@ dependencies:
     - search_api
     - user
 id: space_search
-label: 'Space search'
+label: Tilahaku
 module: views
 description: ''
 tag: ''
@@ -20,73 +20,12 @@ base_table: search_api_index_spaces_search
 base_field: search_api_id
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'access content'
-      cache:
-        type: none
-        options: {  }
-      query:
-        type: views_query
-        options:
-          bypass_access: false
-          skip_access: false
-      exposed_form:
-        type: input_required
-        options:
-          submit_button: Search
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: false
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-          text_input_required: ''
-          text_input_required_format: plain_text
-      pager:
-        type: mini
-        options:
-          items_per_page: 12
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-      style:
-        type: default
-        options:
-          row_class: .space-list__item
-          default_row_class: false
-          uses_fields: false
-      row:
-        type: search_api
-        options:
-          view_modes:
-            'entity:node':
-              space: card
-            'entity:taxonomy_term':
-              accessibility: ''
-              building: default
-              campus: default
-              contacts: default
-              equipment: default
-              price_categories: default
-              room_type: ''
+      title: 'Millaista tilaa tarvitset?'
       fields:
         rendered_item:
           id: rendered_item
@@ -95,6 +34,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api
           label: ''
           exclude: false
           alter:
@@ -140,9 +82,72 @@ display:
           use_highlighting: false
           multi_type: separator
           multi_separator: ', '
-          entity_type: null
-          entity_field: null
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 12
+          total_pages: null
+          id: 0
+          tags:
+            next: Seuraava
+            previous: Edellinen
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Tulosta per sivu'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- Kaikki -'
+            offset: false
+            offset_label: Ohita
+      exposed_form:
+        type: input_required
+        options:
+          submit_button: Etsi
+          reset_button: false
+          reset_button_label: Tyhjennä
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: false
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          text_input_required: ''
+          text_input_required_format: plain_text
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: none
+        options: {  }
+      empty: {  }
+      sorts:
+        field_capacity:
+          id: field_capacity
+          table: search_api_index_spaces_search
+          field: field_capacity
+          relationship: none
+          group_type: group
+          admin_label: ''
           plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: field_capacity
+          exposed: false
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_spaces_search
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: search_api_relevance
+          exposed: false
+      arguments: {  }
       filters:
         field_campus:
           id: field_campus
@@ -151,16 +156,19 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_term
           operator: or
           value: {  }
           group: 1
           exposed: true
           expose:
             operator_id: field_campus_op
-            label: Campus
+            label: Sijainti
             description: ''
             use_operator: false
             operator: field_campus_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_campus
             required: false
             remember: true
@@ -171,8 +179,6 @@ display:
               admin: '0'
               editor: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -186,12 +192,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: campus
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: search_api_term
         field_capacity:
           id: field_capacity
           table: search_api_index_spaces_search
@@ -199,6 +204,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_numeric
           operator: '>='
           value:
             min: ''
@@ -208,10 +214,12 @@ display:
           exposed: true
           expose:
             operator_id: field_capacity_op
-            label: 'Minimum capacity'
+            label: 'Paikkoja vähintään'
             description: ''
             use_operator: false
             operator: field_capacity_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_capacity
             required: false
             remember: true
@@ -221,11 +229,9 @@ display:
               authenticated: authenticated
               admin: '0'
               editor: '0'
-            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -238,7 +244,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: search_api_numeric
         field_accessibility:
           id: field_accessibility
           table: search_api_index_spaces_search
@@ -246,16 +251,19 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_term
           operator: or
           value: {  }
           group: 1
           exposed: true
           expose:
             operator_id: field_accessibility_op
-            label: Accessibility
+            label: Esteettömyys
             description: ''
             use_operator: false
             operator: field_accessibility_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_accessibility
             required: false
             remember: true
@@ -266,8 +274,6 @@ display:
               admin: '0'
               editor: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -281,12 +287,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: accessibility
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: search_api_term
         field_equipment:
           id: field_equipment
           table: search_api_index_spaces_search
@@ -294,16 +299,19 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_term
           operator: or
           value: {  }
           group: 1
           exposed: true
           expose:
             operator_id: field_equipment_op
-            label: 'Available equipment'
-            description: 'Add one or more pieces of equipment by clicking on the text field. You can limit the scope of the equipment list by entering a part of the equipment you are looking for.'
+            label: 'Tilan varusteet'
+            description: 'Lisää yksi tai useampi varuste painamalla teksikenttää. Voit rajata varustelistaa kirjoittamalla osan etsimästäsi varusteesta.'
             use_operator: false
             operator: field_equipment_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_equipment
             required: false
             remember: true
@@ -314,8 +322,6 @@ display:
               admin: '0'
               editor: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -329,12 +335,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: equipment
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: search_api_term
         type:
           id: type
           table: search_api_index_spaces_search
@@ -342,6 +347,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_options
           operator: or
           value:
             space: space
@@ -353,6 +359,8 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -360,8 +368,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -375,7 +381,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: search_api_options
         status:
           id: status
           table: search_api_index_spaces_search
@@ -383,6 +388,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_boolean
           operator: '='
           value: '1'
           group: 1
@@ -393,14 +399,14 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -413,7 +419,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: search_api_boolean
         search_api_fulltext:
           id: search_api_fulltext
           table: search_api_index_spaces_search
@@ -421,16 +426,19 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_fulltext
           operator: or
           value: ''
           group: 1
           exposed: false
           expose:
             operator_id: search_api_fulltext_op
-            label: 'Free search'
+            label: 'Vapaa haku'
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: search_api_fulltext
             required: false
             remember: true
@@ -441,8 +449,6 @@ display:
               admin: '0'
               editor: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -464,7 +470,6 @@ display:
             - field_room_type
             - field_street_address_1
             - title
-          plugin_id: search_api_fulltext
         search_api_language:
           id: search_api_language
           table: search_api_index_spaces_search
@@ -472,6 +477,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_language
           operator: in
           value:
             '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
@@ -483,6 +489,8 @@ display:
             description: null
             use_operator: false
             operator: search_api_language_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: search_api_language
             required: false
             remember: false
@@ -490,8 +498,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -504,33 +510,38 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: search_api_language
-      sorts:
-        field_capacity:
-          id: field_capacity
-          table: search_api_index_spaces_search
-          field: field_capacity
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: search_api
-        search_api_relevance:
-          id: search_api_relevance
-          table: search_api_index_spaces_search
-          field: search_api_relevance
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: search_api
-      title: 'What kind of a facility are you looking for?'
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          row_class: .space-list__item
+          default_row_class: false
+          uses_fields: false
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:node':
+              space: card
+            'entity:taxonomy_term':
+              accessibility: ''
+              building: default
+              campus: default
+              contacts: default
+              equipment: default
+              price_categories: default
+              room_type: ''
+      query:
+        type: views_query
+        options:
+          bypass_access: false
+          skip_access: false
+      relationships: {  }
+      css_class: space-list
+      use_ajax: true
       header:
         result:
           id: result
@@ -539,20 +550,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: false
-          content: '<h3>@total facilities found with your search terms</h3>'
           plugin_id: result
+          empty: false
+          content: '<h3>Ehdoillasi löytyi @total tilaa</h3>'
       footer: {  }
-      empty: {  }
-      relationships: {  }
-      arguments: {  }
       display_extenders: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      css_class: space-list
-      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -563,23 +565,16 @@ display:
         - user.permissions
       tags: {  }
   admin_page:
-    display_plugin: page
     id: admin_page
     display_title: 'Space Search Admin Page'
+    display_plugin: page
     position: 2
     display_options:
-      display_extenders: {  }
-      menu:
-        type: normal
-        title: 'Space search (admin)'
-        description: ''
-        expanded: false
-        parent: system.admin_config_search
-        weight: 0
-        context: '0'
-        menu_name: admin
-      path: admin/space-search
-      display_description: ''
+      title: 'Space Search for admins'
+      access:
+        type: perm
+        options:
+          perm: 'administer nodes'
       filters:
         field_campus:
           id: field_campus
@@ -588,6 +583,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_term
           operator: or
           value: {  }
           group: 1
@@ -598,6 +594,8 @@ display:
             description: ''
             use_operator: false
             operator: field_campus_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_campus
             required: false
             remember: false
@@ -608,8 +606,6 @@ display:
               admin: '0'
               editor: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -623,12 +619,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: campus
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: search_api_term
         field_capacity:
           id: field_capacity
           table: search_api_index_spaces_search
@@ -636,6 +631,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_numeric
           operator: '>='
           value:
             min: ''
@@ -649,6 +645,8 @@ display:
             description: ''
             use_operator: false
             operator: field_capacity_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_capacity
             required: false
             remember: false
@@ -658,8 +656,6 @@ display:
               anonymous: '0'
               admin: '0'
               editor: '0'
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -672,7 +668,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: search_api_numeric
         field_accessibility:
           id: field_accessibility
           table: search_api_index_spaces_search
@@ -680,6 +675,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_term
           operator: or
           value: {  }
           group: 1
@@ -690,6 +686,8 @@ display:
             description: ''
             use_operator: false
             operator: field_accessibility_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_accessibility
             required: false
             remember: false
@@ -700,8 +698,6 @@ display:
               admin: '0'
               editor: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -715,12 +711,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: accessibility
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: search_api_term
         field_equipment:
           id: field_equipment
           table: search_api_index_spaces_search
@@ -728,6 +723,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_term
           operator: or
           value: {  }
           group: 1
@@ -738,6 +734,8 @@ display:
             description: ''
             use_operator: false
             operator: field_equipment_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_equipment
             required: false
             remember: false
@@ -748,8 +746,6 @@ display:
               admin: '0'
               editor: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -763,12 +759,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: textfield
-          limit: true
           vid: equipment
+          type: textfield
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: search_api_term
         type:
           id: type
           table: search_api_index_spaces_search
@@ -776,6 +771,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_options
           operator: or
           value:
             space: space
@@ -787,6 +783,8 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -794,8 +792,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -809,7 +805,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          plugin_id: search_api_options
         search_api_fulltext:
           id: search_api_fulltext
           table: search_api_index_spaces_search
@@ -817,6 +812,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_fulltext
           operator: or
           value: ''
           group: 1
@@ -827,6 +823,8 @@ display:
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: search_api_fulltext
             required: false
             remember: false
@@ -836,8 +834,6 @@ display:
               anonymous: '0'
               admin: '0'
               editor: '0'
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -859,7 +855,6 @@ display:
             - field_room_type
             - field_street_address_1
             - title
-          plugin_id: search_api_fulltext
         status:
           id: status
           table: search_api_index_spaces_search
@@ -867,6 +862,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_boolean
           operator: '='
           value: All
           group: 1
@@ -877,6 +873,8 @@ display:
             description: ''
             use_operator: false
             operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: status
             required: false
             remember: false
@@ -886,8 +884,6 @@ display:
               anonymous: '0'
               admin: '0'
               editor: '0'
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -900,7 +896,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: search_api_boolean
         search_api_language:
           id: search_api_language
           table: search_api_index_spaces_search
@@ -908,6 +903,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_language
           operator: in
           value:
             all: all
@@ -926,6 +922,8 @@ display:
             description: ''
             use_operator: false
             operator: search_api_language_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: search_api_language
             required: false
             remember: false
@@ -936,8 +934,6 @@ display:
               admin: '0'
               editor: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -950,21 +946,27 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: search_api_language
-      defaults:
-        filters: false
-        filter_groups: false
-        title: false
-        access: false
       filter_groups:
         operator: AND
         groups:
           1: AND
-      title: 'Space Search for admins'
-      access:
-        type: perm
-        options:
-          perm: 'administer nodes'
+      defaults:
+        access: false
+        title: false
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders: {  }
+      path: admin/space-search
+      menu:
+        type: normal
+        title: 'Space search (admin)'
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: admin
+        parent: system.admin_config_search
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -975,18 +977,18 @@ display:
         - user.permissions
       tags: {  }
   main:
-    display_plugin: block
     id: main
     display_title: 'Search Block'
+    display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
       display_description: ''
+      display_extenders: {  }
       block_description: 'Space search block'
       block_category: 'Space Search (Views)'
+      block_hide_empty: false
       allow:
         items_per_page: true
-      block_hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
