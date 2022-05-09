@@ -1,9 +1,9 @@
 id: referenced_address_clone
 label: 'Referenced Address Clone'
 ui_limit: 'space|*'
-properties:
-  ds_plugin: 'dynamic_token_field:node-referenced_address'
 type: copy
 type_label: 'Copy field'
 entities:
   node: node
+properties:
+  ds_plugin: 'dynamic_token_field:node-referenced_address'

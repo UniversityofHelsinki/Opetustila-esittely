@@ -21,15 +21,15 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        classes:
+          layout_class: {  }
+          ds_content: {  }
         wrappers:
           ds_content: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
-        classes:
-          layout_class: {  }
-          ds_content: {  }
     regions:
       ds_content:
         - field_role
@@ -44,21 +44,21 @@ bundle: contacts
 mode: liftup
 content:
   description:
-    label: hidden
     type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     weight: 3
     region: ds_content
-    settings: {  }
-    third_party_settings:
-      ds:
-        ft:
-          id: minimal
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
   field_email:
-    weight: 2
+    type: email_mailto
     label: hidden
     settings: {  }
     third_party_settings:
@@ -69,10 +69,10 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: email_mailto
+    weight: 2
     region: ds_content
   field_phone_number:
-    weight: 1
+    type: telephone_link
     label: hidden
     settings:
       title: ''
@@ -84,10 +84,10 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: telephone_link
+    weight: 1
     region: ds_content
   field_role:
-    weight: 0
+    type: string
     label: hidden
     settings:
       link_to_entity: false
@@ -98,30 +98,30 @@ content:
           id: expert
           settings:
             lb: ''
-            prefix: ''
+            lbw: false
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
+            lb-col: false
             ow: true
             ow-el: div
             ow-cl: contact__role
             ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
-    type: string
+            prefix: ''
+            suffix: ''
+    weight: 0
     region: ds_content
 hidden:
   langcode: true

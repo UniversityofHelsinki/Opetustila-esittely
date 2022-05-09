@@ -42,15 +42,15 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        classes:
+          layout_class: {  }
+          ds_content: {  }
         wrappers:
           ds_content: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
-        classes:
-          layout_class: {  }
-          ds_content: {  }
     regions:
       ds_content:
         - node_title
@@ -92,58 +92,58 @@ third_party_settings:
       children:
         - field_capacity
         - field_accessibility
+      label: 'Key Information'
       parent_name: ''
+      region: hidden
       weight: 4
       format_type: html_element
       format_settings:
         label: 'Key Information'
+        classes: space__key-information
+        id: ''
         element: div
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: space__key-information
-      label: 'Key Information'
-      region: hidden
     group_equipment:
       children:
         - field_equipment
         - field_equipment_information
+      label: Equipment
       parent_name: ''
+      region: hidden
       weight: 34
       format_type: html_element
       format_settings:
         label: Equipment
+        classes: space__equipment
+        id: ''
         element: section
         show_label: true
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: space__equipment
-      label: Equipment
-      region: hidden
     group_pricing:
       children:
         - field_price_category
+      label: Price
       parent_name: ''
+      region: hidden
       weight: 5
       format_type: html_element
       format_settings:
         label: Price
+        classes: space__pricing
+        id: ''
         element: div
         show_label: true
         label_element: h4
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: space__pricing
-      label: Price
-      region: hidden
   ds_chains:
     fields: {  }
 id: node.space.card
@@ -153,8 +153,6 @@ mode: card
 content:
   field_accessibility:
     type: entity_reference_label
-    weight: 5
-    region: ds_content
     label: visually_hidden
     settings:
       link: false
@@ -164,33 +162,33 @@ content:
           id: expert
           settings:
             lb: ''
-            prefix: icon=accessibility;
+            lbw: false
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
+            lb-col: false
             ow: true
             ow-el: ''
             ow-cl: field--name-field-accessibility
             ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
+            prefix: icon=accessibility;
+            suffix: ''
+    weight: 5
+    region: ds_content
   field_capacity:
     type: number_integer
-    weight: 4
-    region: ds_content
     label: visually_hidden
     settings:
       thousand_separator: ''
@@ -201,37 +199,37 @@ content:
           id: expert
           settings:
             lb: ''
-            prefix: icon=avatar;
+            lbw: false
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
+            lb-col: false
             ow: true
             ow-el: ''
             ow-cl: field--name-field-capacity
             ow-at: ''
             ow-def-at: true
+            ow-def-cl: false
+            fis: false
             fis-el: ''
             fis-cl: ''
             fis-at: ''
+            fis-def-at: false
+            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-cl: false
-            fis: false
-            fis-def-at: false
-            fi: false
             fi-def-at: false
+            prefix: icon=avatar;
+            suffix: ''
+    weight: 4
+    region: ds_content
   field_images:
     type: image
-    weight: 1
-    region: ds_content
     label: hidden
     settings:
-      image_style: large
       image_link: ''
+      image_style: large
     third_party_settings:
       ds:
         ds_limit: '1'
@@ -241,10 +239,10 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
+    weight: 1
+    region: ds_content
   field_optime_id:
     type: string
-    weight: 2
-    region: ds_content
     label: hidden
     settings:
       link_to_entity: false
@@ -254,38 +252,40 @@ content:
           id: expert
           settings:
             lb: ''
-            prefix: ''
+            lbw: false
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
+            lb-col: false
             ow: true
             ow-el: div
             ow-cl: ''
             ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
             fis: true
             fis-el: small
             fis-cl: ''
             fis-at: ''
+            fis-def-at: false
+            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis-def-at: false
-            fi: false
             fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 2
+    region: ds_content
   field_price_category:
     type: entity_reference_entity_view
-    weight: 5
-    region: ds_content
     label: hidden
     settings:
       view_mode: minimal
       link: false
     third_party_settings: {  }
+    weight: 5
+    region: ds_content
 hidden:
   body: true
   field_accessible_entry: true

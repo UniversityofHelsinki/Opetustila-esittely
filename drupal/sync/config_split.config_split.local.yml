@@ -5,6 +5,7 @@ dependencies: {  }
 id: local
 label: Local
 description: ''
+weight: 0
 folder: ../conf/config_split/local
 module:
   devel: 0
@@ -22,4 +23,3 @@ graylist:
   - 'system.site.page.*'
 graylist_dependents: true
 graylist_skip_equal: true
-weight: 0

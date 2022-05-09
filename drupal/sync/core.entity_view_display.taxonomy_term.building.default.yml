@@ -32,7 +32,12 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
-        label: ''
+        classes:
+          layout_class: {  }
+          header: {  }
+          left: {  }
+          right: {  }
+          footer: {  }
         wrappers:
           header: div
           left: div
@@ -42,12 +47,7 @@ third_party_settings:
         attributes: ''
         link_attribute: ''
         link_custom: ''
-        classes:
-          layout_class: {  }
-          header: {  }
-          left: {  }
-          right: {  }
-          footer: {  }
+        label: ''
     regions:
       header:
         - taxonomy_term_title
@@ -79,38 +79,38 @@ third_party_settings:
           id: expert
           settings:
             lb: ''
-            prefix: ''
             lbw: true
             lbw-el: ''
             lbw-cl: visually-hidden
             lbw-at: ''
+            lb-col: false
+            ow: false
             ow-el: ''
             ow-cl: ''
             ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
+            prefix: ''
+            suffix: ''
       taxonomy_term_title:
         plugin_id: taxonomy_term_title
         weight: 0
         label: hidden
         formatter: default
         settings:
+          link: false
           wrapper: h1
           class: page__title
-          link: false
         ft:
           id: reset
           settings:
@@ -122,57 +122,57 @@ third_party_settings:
       children:
         - field_contacts
         - field_contact_details
+      label: Contacts
       parent_name: group_building_info
+      region: right
       weight: 7
       format_type: html_element
       format_settings:
+        classes: building__contacts
+        id: ''
         element: div
         show_label: true
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: building__contacts
-      label: Contacts
-      region: right
     group_building_info:
       children:
         - 'dynamic_token_field:taxonomy_term-building_address'
         - group_opening_hours
         - field_location_map
         - group_contacts
+      label: 'Building Info'
       parent_name: ''
+      region: right
       weight: 4
       format_type: html_element
       format_settings:
+        classes: building__info
+        id: ''
         element: div
         show_label: true
         label_element: h2
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: building__info
-      label: 'Building Info'
-      region: right
     group_opening_hours:
       children:
         - field_opening_times
+      label: 'Opening Hours'
       parent_name: group_building_info
+      region: right
       weight: 5
       format_type: html_element
       format_settings:
+        classes: 'building__opening-hours field-group--label-visually_hidden'
+        id: ''
         element: div
         show_label: true
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: 'building__opening-hours field-group--label-visually_hidden'
-      label: 'Opening Hours'
-      region: right
 id: taxonomy_term.building.default
 targetEntityType: taxonomy_term
 bundle: building
@@ -180,22 +180,20 @@ mode: default
 content:
   description:
     type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 2
     region: left
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_contact_details:
     type: text_default
-    weight: 7
-    region: right
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 7
+    region: right
   field_contacts:
     type: entity_reference_entity_view
-    weight: 6
-    region: right
     label: hidden
     settings:
       view_mode: liftup
@@ -207,10 +205,10 @@ content:
           id: reset
           settings:
             lb: ''
+    weight: 6
+    region: right
   field_images:
     type: responsive_image
-    weight: 1
-    region: header
     label: hidden
     settings:
       responsive_image_style: hero_image
@@ -218,27 +216,30 @@ content:
     third_party_settings:
       ds:
         ds_limit: '1'
+    weight: 1
+    region: header
   field_location_map:
     type: leaflet_formatter_default
-    weight: 6
-    region: right
     label: visually_hidden
     settings:
-      multiple_map: '0'
-      popup_content: ''
+      multiple_map: false
       leaflet_map: 'OSM Mapnik'
-      height: '400'
-      hide_empty_map: '1'
-      disable_wheel: '1'
-      fullscreen_control: '1'
+      height: 400
+      height_unit: px
+      hide_empty_map: true
+      disable_wheel: true
+      fullscreen_control: true
+      gesture_handling: false
       reset_map:
+        control: false
         position: topright
-        control: 0
+      popup: false
+      popup_content: ''
       map_position:
-        zoom: '12'
-        minZoom: '1'
-        maxZoom: '18'
-        force: 0
+        force: false
+        zoom: 12
+        minZoom: 1
+        maxZoom: 18
       icon:
         iconUrl: ''
         shadowUrl: ''
@@ -257,15 +258,12 @@ content:
         popupAnchor:
           x: ''
           'y': ''
-      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
-      popup: 0
       leaflet_markercluster:
-        control: 0
+        control: false
         options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
-      height_unit: px
-      gesture_handling: 0
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
       geocoder:
-        control: 0
+        control: false
         settings:
           position: topright
           input_size: 25
@@ -273,7 +271,7 @@ content:
           min_terms: 4
           delay: 800
           zoom: 16
-          popup: 0
+          popup: false
           options: ''
     third_party_settings:
       ds:
@@ -283,10 +281,10 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-  field_opening_times:
-    type: text_default
     weight: 6
     region: right
+  field_opening_times:
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings:
@@ -295,6 +293,8 @@ content:
           id: reset
           settings:
             lb: ''
+    weight: 6
+    region: right
 hidden:
   field_building_id: true
   field_campus: true

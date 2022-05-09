@@ -10,8 +10,6 @@ id: space_image
 label: 'Space Image'
 image_style_mappings:
   -
-    breakpoint_id: responsive_image.viewport_sizing
-    multiplier: 1x
     image_mapping_type: sizes
     image_mapping:
       sizes: '(min-width: 1280px) 720px, (min-width: 800px) 480px, 220px'
@@ -19,5 +17,7 @@ image_style_mappings:
         - space_image_full
         - space_image_half
         - space_image_quarter
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
 breakpoint_group: responsive_image
 fallback_image_style: space_image_half
