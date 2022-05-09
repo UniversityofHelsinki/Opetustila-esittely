@@ -266,9 +266,7 @@ third_party_settings:
         - node_title
         - field_optime_id
         - 'dynamic_token_field:node-referenced_address'
-      label: 'Header Main'
       parent_name: ''
-      region: header
       weight: 0
       format_type: html_element
       format_settings:
@@ -280,6 +278,8 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
+      label: 'Header Main'
+      region: header
     group_hj:
       children:
         - field_reservation_link
