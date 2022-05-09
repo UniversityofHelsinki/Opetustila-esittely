@@ -1,3 +1,6 @@
+_core:
+  default_config_hash: LWI5gcV7qtIl5h1xg7AWMtepAzBAvTaw_TOmsQbw9Tk
+langcode: fi
 max_links: 2000
 cron_generate: true
 cron_generate_interval: 168
@@ -13,7 +16,4 @@ excluded_languages:
 enabled_entity_types:
   - node
   - taxonomy_term
-_core:
-  default_config_hash: LWI5gcV7qtIl5h1xg7AWMtepAzBAvTaw_TOmsQbw9Tk
-langcode: fi
 entities_per_queue_item: 50

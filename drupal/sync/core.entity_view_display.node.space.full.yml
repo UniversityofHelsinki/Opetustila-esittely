@@ -44,7 +44,12 @@ third_party_settings:
       disable_css: true
       entity_classes: all_classes
       settings:
-        label: ''
+        classes:
+          layout_class: {  }
+          header: {  }
+          left: {  }
+          right: {  }
+          footer: {  }
         wrappers:
           header: div
           left: div
@@ -54,12 +59,7 @@ third_party_settings:
         attributes: ''
         link_attribute: ''
         link_custom: ''
-        classes:
-          layout_class: {  }
-          header: {  }
-          left: {  }
-          right: {  }
-          footer: {  }
+        label: ''
     regions:
       header:
         - group_header_main
@@ -113,21 +113,22 @@ third_party_settings:
         label: hidden
         formatter: leaflet_formatter_default
         settings:
-          multiple_map: '0'
-          popup_content: ''
+          multiple_map: false
           leaflet_map: 'OSM Mapnik'
-          height: '400'
-          hide_empty_map: '1'
-          disable_wheel: '1'
-          fullscreen_control: '1'
+          height: 400
+          hide_empty_map: true
+          disable_wheel: true
+          fullscreen_control: true
           reset_map:
+            control: false
             position: topright
-            control: 0
+          popup: false
+          popup_content: ''
           map_position:
-            zoom: '12'
-            minZoom: '1'
-            maxZoom: '18'
-            force: 0
+            force: false
+            zoom: 12
+            minZoom: 1
+            maxZoom: 18
           icon:
             iconUrl: ''
             shadowUrl: ''
@@ -147,7 +148,6 @@ third_party_settings:
               x: ''
               'y': ''
           path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
-          popup: 0
         ft:
           id: minimal
           settings:
@@ -180,9 +180,9 @@ third_party_settings:
         label: hidden
         formatter: default
         settings:
+          link: false
           wrapper: h1
           class: page-title
-          link: false
   field_group:
     group_key_information:
       children:
@@ -191,112 +191,112 @@ third_party_settings:
         - body
         - 'ds_chains:node/space/field_building/field_contacts'
         - field_price_category
+      label: 'Key Information'
       parent_name: ''
+      region: left
       weight: 3
       format_type: html_element
       format_settings:
-        id: ''
         classes: space__key-information
+        id: ''
         element: section
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-      label: 'Key Information'
-      region: left
     group_equipment:
       children:
         - 'ds_chains:node/space/field_building/field_equipment_information'
         - field_equipment_information
         - 'dynamic_block_field:node-space_equipment_view'
+      label: Equipment
       parent_name: ''
+      region: left
       weight: 4
       format_type: html_element
       format_settings:
+        classes: space__equipment
+        id: ''
         element: section
         show_label: true
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: space__equipment
-      label: Equipment
-      region: left
     group_guidance:
       children:
         - 'dynamic_copy_field:node-referenced_address_clone'
         - field_floor
         - field_accessible_entry
         - 'ds_chains:node/space/field_building/field_location_map'
+      label: Guidance
       parent_name: ''
+      region: right
       weight: 6
       format_type: html_element
       format_settings:
+        classes: space__guidance
+        id: ''
         element: aside
         show_label: true
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: space__guidance
-      label: Guidance
-      region: right
     group_rental:
       children:
         - 'ds_chains:node/space/field_campus/field_reservation_instructions'
+      label: 'Would you like to book this facility?'
       parent_name: ''
+      region: left
       weight: 5
       format_type: html_element
       format_settings:
+        classes: space__rental
+        id: ''
         element: section
         show_label: true
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: space__rental
-      label: 'Would you like to book this facility?'
-      region: left
     group_header_main:
       children:
         - node_title
         - field_optime_id
         - 'dynamic_token_field:node-referenced_address'
+      label: 'Header Main'
       parent_name: ''
+      region: header
       weight: 0
       format_type: html_element
       format_settings:
-        id: ''
         classes: space__header-main
+        id: ''
         element: div
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-      label: 'Header Main'
-      region: header
     group_hj:
       children:
         - field_reservation_link
+      label: 'Header Actions'
       parent_name: ''
+      region: header
       weight: 1
       format_type: html_element
       format_settings:
-        id: ''
         classes: space__header-actions
+        id: ''
         element: div
         show_label: false
         label_element: h3
         attributes: ''
         effect: none
         speed: fast
-      label: 'Header Actions'
-      region: header
   ds_chains:
     fields:
       field_building: field_building
@@ -308,54 +308,52 @@ mode: full
 content:
   body:
     type: text_default
-    weight: 7
-    region: left
     label: inline
     settings: {  }
     third_party_settings: {  }
+    weight: 7
+    region: left
   field_accessibility:
     type: entity_reference_label
-    weight: 6
-    region: left
     label: inline
     settings:
       link: false
     third_party_settings: {  }
+    weight: 6
+    region: left
   field_accessible_entry:
     type: basic_string
-    weight: 2
-    region: right
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: right
   field_capacity:
     type: number_integer
-    weight: 5
-    region: left
     label: inline
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    weight: 5
+    region: left
   field_equipment_information:
     type: basic_string
-    weight: 12
-    region: left
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 12
+    region: left
   field_floor:
     type: string
-    weight: 1
-    region: right
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: right
   field_images:
     type: responsive_image
-    weight: 2
-    region: header
     label: hidden
     settings:
       responsive_image_style: space_image
@@ -369,34 +367,34 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
+    weight: 2
+    region: header
   field_optime_id:
     type: string
-    weight: 3
-    region: header
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 3
+    region: header
   field_price_category:
     type: entity_reference_entity_view
-    weight: 9
-    region: left
     label: inline
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+    weight: 9
+    region: left
   field_reservation_link:
     type: link
-    weight: 2
-    region: header
     label: hidden
     settings:
       trim_length: 80
-      target: _blank
       url_only: false
       url_plain: false
       rel: '0'
+      target: _blank
     third_party_settings:
       ds:
         ft:
@@ -405,6 +403,8 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
+    weight: 2
+    region: header
 hidden:
   field_building: true
   field_building_id: true

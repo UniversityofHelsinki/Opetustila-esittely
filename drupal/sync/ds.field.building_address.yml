@@ -1,11 +1,11 @@
 id: building_address
 label: 'Building Address'
 ui_limit: 'building|*'
-properties:
-  content:
-    value: '[term:field_street_address], [term:field_city]'
-    format: plain_text
 type: token
 type_label: 'Token field'
 entities:
   taxonomy_term: taxonomy_term
+properties:
+  content:
+    value: '[term:field_street_address], [term:field_city]'
+    format: plain_text

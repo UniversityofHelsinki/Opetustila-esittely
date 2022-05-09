@@ -17,14 +17,14 @@ bundle: price_categories
 mode: default
 content:
   field_internal_price:
-    weight: 3
+    type: link
     label: hidden
     settings:
       trim_length: 80
-      target: _blank
       url_only: false
       url_plain: false
       rel: '0'
+      target: _blank
     third_party_settings:
       ds:
         ft:
@@ -33,10 +33,10 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: link
+    weight: 3
     region: content
   field_price_per_unit:
-    weight: 0
+    type: number_decimal
     label: hidden
     settings:
       thousand_separator: ''
@@ -44,18 +44,18 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_decimal
+    weight: 0
     region: content
   field_price_unit:
-    weight: 1
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 1
     region: content
   field_vat_rate:
-    weight: 2
+    type: number_decimal
     label: hidden
     settings:
       thousand_separator: ''
@@ -63,7 +63,7 @@ content:
       scale: 0
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_decimal
+    weight: 2
     region: content
 hidden:
   description: true

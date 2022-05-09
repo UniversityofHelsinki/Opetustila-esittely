@@ -16,15 +16,15 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        classes:
+          layout_class: {  }
+          ds_content: {  }
         wrappers:
           ds_content: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
-        classes:
-          layout_class: {  }
-          ds_content: {  }
     regions:
       ds_content:
         - taxonomy_term_title
@@ -35,36 +35,36 @@ third_party_settings:
         label: hidden
         formatter: default
         settings:
+          link: false
           wrapper: ''
           class: equipment__name
-          link: false
         ft:
           id: expert
           settings:
             lb: ''
-            prefix: icon=done;
+            lbw: false
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
+            lb-col: false
+            ow: false
             ow-el: ''
             ow-cl: ''
             ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
+            prefix: icon=done;
+            suffix: ''
   ds_chains:
     fields: {  }
 id: taxonomy_term.equipment.minimal

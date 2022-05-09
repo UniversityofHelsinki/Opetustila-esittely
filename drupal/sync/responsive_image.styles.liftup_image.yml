@@ -11,8 +11,6 @@ id: liftup_image
 label: 'Liftup Image'
 image_style_mappings:
   -
-    breakpoint_id: responsive_image.viewport_sizing
-    multiplier: 1x
     image_mapping_type: sizes
     image_mapping:
       sizes: 100vw
@@ -20,5 +18,7 @@ image_style_mappings:
         - liftup_image_full
         - liftup_image_half
         - liftup_image_quarter
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
 breakpoint_group: responsive_image
 fallback_image_style: space_image_quarter

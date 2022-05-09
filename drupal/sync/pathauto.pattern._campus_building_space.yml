@@ -11,12 +11,12 @@ pattern: '[node:field_campus]/[node:field_building]/[node:title]'
 selection_criteria:
   880e5eae-ef53-4211-a93a-6b6882afd751:
     id: node_type
-    bundles:
-      space: space
     negate: false
+    uuid: 880e5eae-ef53-4211-a93a-6b6882afd751
     context_mapping:
       node: node
-    uuid: 880e5eae-ef53-4211-a93a-6b6882afd751
+    bundles:
+      space: space
 selection_logic: and
 weight: -10
 relationships: {  }

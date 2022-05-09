@@ -1,11 +1,11 @@
 id: referenced_address
 label: 'Referenced Address'
 ui_limit: 'space|*'
-properties:
-  content:
-    value: '[node:field_building:entity:field_street_address], [node:field_campus:entity:field_city]'
-    format: plain_text
 type: token
 type_label: 'Token field'
 entities:
   node: node
+properties:
+  content:
+    value: '[node:field_building:entity:field_street_address], [node:field_campus:entity:field_city]'
+    format: plain_text
