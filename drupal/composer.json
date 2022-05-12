@@ -43,7 +43,7 @@
         "drush/drush": "^10.2",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "wunderio/drupal-ping": "^1.0"
+        "wunderio/drupal-ping": "^2.3"
     },
     "require-dev": {
         "drupal/devel": "^4",
