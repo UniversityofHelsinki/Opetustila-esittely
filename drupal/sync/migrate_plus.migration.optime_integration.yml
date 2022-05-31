@@ -1,4 +1,4 @@
-uuid: 92f93e5f-28db-4897-9dba-dbfe3fee4dee
+uuid: c7b178e3-a142-462e-bccb-939b4f82c470
 langcode: fi
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     module:
       - migrate_plus
 _core:
-  default_config_hash: 1juC075RrTl83StkMhy_pyM5U5Qvjm8X8F4fHp0D1PI
+  default_config_hash: J4rUVbT0oTDelYiZ4T1pLOVoUj56t3sbVLlFws-VwPs
 id: optime_integration
 class: null
 field_plugin_method: null
@@ -20,7 +20,7 @@ source:
   data_parser_plugin: json
   include_raw_data: true
   urls:
-    - 'https://{optime-url}?fromTimestamp={time-stamp}'
+    - 'http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json'
   placeholders:
     - optime-api-key
     - optime-url

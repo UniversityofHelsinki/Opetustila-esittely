@@ -20,16 +20,16 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        classes:
+          layout_class:
+            ds-container: ds-container
+          ds_content: {  }
         wrappers:
           ds_content: article
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
-        classes:
-          layout_class:
-            ds-container: ds-container
-          ds_content: {  }
     regions:
       ds_content:
         - body
@@ -42,17 +42,17 @@ bundle: page
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 0
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
     region: ds_content
   links:
-    weight: 0
-    region: ds_content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: ds_content
 hidden:
   field_featured_image: true
   field_lead_text: true

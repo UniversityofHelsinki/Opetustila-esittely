@@ -38,6 +38,6 @@ options:
   limit: 5
   min_length: 2
   show_count: true
-  autosubmit: true
-  submit_button_selector: ':submit'
   delay: 330
+  submit_button_selector: ':submit'
+  autosubmit: true

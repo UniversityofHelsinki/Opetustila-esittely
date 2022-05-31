@@ -12,12 +12,12 @@ pattern: '[term:name]'
 selection_criteria:
   e9286504-2309-45da-b381-f3fdf6ebc816:
     id: 'entity_bundle:taxonomy_term'
-    bundles:
-      campus: campus
     negate: false
+    uuid: e9286504-2309-45da-b381-f3fdf6ebc816
     context_mapping:
       taxonomy_term: taxonomy_term
-    uuid: e9286504-2309-45da-b381-f3fdf6ebc816
+    bundles:
+      campus: campus
 selection_logic: and
 weight: -8
 relationships: {  }

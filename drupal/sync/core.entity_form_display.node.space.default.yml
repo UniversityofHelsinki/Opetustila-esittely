@@ -54,18 +54,18 @@ third_party_settings:
         - field_last_changed_in_optime
         - field_reservation_link
         - field_legacy_url
+      label: Optime
+      region: content
       parent_name: group_data
       weight: 22
       format_type: tab
       format_settings:
         label: Optime
+        classes: optime-data
+        id: optime_data
         formatter: open
         description: 'Nämä tiedot haetaan ja päivitetään automaattisesti Optime-järjestelmästä.'
-        id: optime_data
-        classes: optime-data
         required_fields: false
-      label: Optime
-      region: content
     group_optional_information:
       children:
         - body
@@ -75,18 +75,18 @@ third_party_settings:
         - field_images
         - field_price_category
         - url_redirects
+      label: 'Optionaaliset lisätiedot'
+      region: content
       parent_name: group_data
       weight: 23
       format_type: tab
       format_settings:
         label: 'Optionaaliset lisätiedot'
+        classes: additional-data
+        id: additional_data
         formatter: closed
         description: ''
         required_fields: true
-        id: additional_data
-        classes: additional-data
-      label: 'Optionaaliset lisätiedot'
-      region: content
     group_publishing_settings:
       children:
         - langcode
@@ -98,32 +98,32 @@ third_party_settings:
         - path
         - field_inactivated_in_drupal
         - translation
+      label: 'Julkaisu ja kieli'
+      region: content
       parent_name: group_data
       weight: 24
       format_type: tab
       format_settings:
         label: 'Julkaisu ja kieli'
+        classes: publishing-settings
+        id: publishing-settings
         formatter: closed
         description: ''
         required_fields: true
-        id: publishing-settings
-        classes: publishing-settings
-      label: 'Julkaisu ja kieli'
-      region: content
     group_data:
       children:
         - group_optime
         - group_optional_information
         - group_publishing_settings
+      label: Data
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
       format_settings:
-        id: node_data
         classes: node-data-wrapper
+        id: node_data
         direction: vertical
-      label: Data
-      region: content
 id: node.space.default
 targetEntityType: node
 bundle: space
@@ -151,9 +151,9 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
   field_accessible_entry:
     type: string_textarea
@@ -169,9 +169,9 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
   field_building_id:
     type: string_textfield
@@ -187,9 +187,9 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
   field_capacity:
     type: number
@@ -204,9 +204,9 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
   field_equipment_information:
     type: string_textarea
@@ -233,12 +233,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_inactivate_in_optime:
+    type: boolean_checkbox
     weight: 7
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_inactivated_in_drupal:
     type: boolean_checkbox
     weight: 7
@@ -289,9 +289,9 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
   field_reservation_link:
     type: link_default
@@ -307,18 +307,18 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
   field_street_address:
+    type: string_textfield
     weight: 11
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   langcode:
     type: language_select
     weight: 0
@@ -372,9 +372,9 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
   url_redirects:
     weight: 6

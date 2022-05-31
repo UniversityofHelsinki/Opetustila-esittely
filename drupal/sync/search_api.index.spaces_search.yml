@@ -375,21 +375,24 @@ processor_settings:
       preprocess_query: -49
   entity_status: {  }
   hierarchy:
-    fields:
-      field_campus: taxonomy_term-parent
     weights:
       preprocess_index: -42
+    fields:
+      field_campus: taxonomy_term-parent
   highlight:
-    highlight: always
-    highlight_partial: false
+    weights:
+      postprocess_query: 0
+    prefix: '<strong>'
+    suffix: '</strong>'
     excerpt: true
     excerpt_length: 128
     exclude_fields: {  }
-    prefix: '<strong>'
-    suffix: '</strong>'
-    weights:
-      postprocess_query: 0
+    highlight: always
+    highlight_partial: false
   ignorecase:
+    weights:
+      preprocess_index: -50
+      preprocess_query: -50
     all_fields: true
     fields:
       - body
@@ -418,12 +421,12 @@ processor_settings:
       - type
       - url
       - vid
-    weights:
-      preprocess_index: -50
-      preprocess_query: -50
   language_with_fallback: {  }
   rendered_item: {  }
   tokenizer:
+    weights:
+      preprocess_index: -46
+      preprocess_query: -45
     all_fields: true
     fields:
       - body
@@ -440,10 +443,10 @@ processor_settings:
     spaces: ''
     overlap_cjk: 1
     minimum_word_size: '3'
-    weights:
-      preprocess_index: -46
-      preprocess_query: -45
   transliteration:
+    weights:
+      preprocess_index: -49
+      preprocess_query: -48
     all_fields: true
     fields:
       - body
@@ -472,10 +475,9 @@ processor_settings:
       - type
       - url
       - vid
-    weights:
-      preprocess_index: -49
-      preprocess_query: -48
   type_boost:
+    weights:
+      preprocess_index: -43
     boosts:
       'entity:node':
         datasource_boost: !!float 1
@@ -491,12 +493,10 @@ processor_settings:
           equipment: !!float 0
           price_categories: !!float 0
           room_type: 0.3
-    weights:
-      preprocess_index: -43
 tracker_settings:
   default:
     indexing_order: lifo
 options:
-  index_directly: true
   cron_limit: 50
+  index_directly: true
 server: opetustilat_drupal

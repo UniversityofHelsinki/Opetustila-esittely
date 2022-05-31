@@ -29,14 +29,14 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        classes:
+          layout_class: {  }
         wrappers:
           ds_content: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
-        classes:
-          layout_class: {  }
     regions:
       ds_content:
         - group_link_wrapper
@@ -49,9 +49,9 @@ third_party_settings:
         label: hidden
         formatter: default
         settings:
+          link: false
           wrapper: h3
           class: liftup-grid__title
-          link: false
         ft:
           id: reset
           settings:
@@ -62,18 +62,18 @@ third_party_settings:
     group_link_wrapper:
       children:
         - taxonomy_term_title
+      label: 'Link Wrapper'
       parent_name: ''
+      region: hidden
       weight: 0
       format_type: link
       format_settings:
         label: 'Link Wrapper'
+        classes: liftup-grid__content
+        id: ''
         target: entity
         custom_uri: ''
         target_attribute: default
-        id: ''
-        classes: liftup-grid__content
-      label: 'Link Wrapper'
-      region: hidden
 id: taxonomy_term.building.liftup
 targetEntityType: taxonomy_term
 bundle: building
@@ -81,8 +81,6 @@ mode: liftup
 content:
   field_images:
     type: responsive_image
-    weight: 1
-    region: ds_content
     label: hidden
     settings:
       responsive_image_style: liftup_image
@@ -94,29 +92,31 @@ content:
           id: expert
           settings:
             lb: ''
-            prefix: ''
+            lbw: false
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
+            lb-col: false
+            ow: false
             ow-el: ''
             ow-cl: ''
             ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
             fis: true
             fis-el: ''
             fis-cl: liftup-grid__image
             fis-at: 'role="presentation" aria-hidden="true"'
+            fis-def-at: false
+            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            suffix: ''
-            lbw: false
-            lb-col: false
-            ow: false
-            ow-def-at: false
-            ow-def-cl: false
-            fis-def-at: false
-            fi: false
             fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 1
+    region: ds_content
 hidden:
   description: true
   field_building_id: true

@@ -20,14 +20,14 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        classes:
+          layout_class: {  }
         wrappers:
           ds_content: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
-        classes:
-          layout_class: {  }
     regions:
       ds_content:
         - field_price_per_unit
@@ -41,8 +41,6 @@ mode: minimal
 content:
   field_price_per_unit:
     type: number_decimal
-    weight: 0
-    region: ds_content
     label: hidden
     settings:
       thousand_separator: ''
@@ -50,13 +48,15 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
+    weight: 0
+    region: ds_content
   field_price_unit:
-    weight: 1
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 1
     region: ds_content
 hidden:
   description: true
