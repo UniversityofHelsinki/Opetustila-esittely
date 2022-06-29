@@ -20,7 +20,7 @@ source:
   data_parser_plugin: json
   include_raw_data: true
   urls:
-    - 'http://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json'
+    - 'https://{optime-url}?fromTimestamp={time-stamp}'
   placeholders:
     - optime-api-key
     - optime-url
