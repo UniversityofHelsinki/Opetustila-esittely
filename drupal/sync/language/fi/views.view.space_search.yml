@@ -1,10 +1,6 @@
 display:
   default:
     display_options:
-      pager:
-        options:
-          tags: {  }
-          expose: {  }
       filters:
         field_campus:
           expose:
@@ -19,8 +15,6 @@ display:
           expose:
             label: 'Tilan varusteet'
             description: 'Lisää yksi tai useampi varuste painamalla tekstikenttää. Voit rajata varustelistaa kirjoittamalla osan etsimästäsi varusteesta.'
-        search_api_fulltext:
-          expose: {  }
         search_api_language:
           expose:
             description: ''
@@ -31,3 +25,8 @@ display:
       exposed_form:
         options:
           submit_button: Etsi
+      pager:
+        options:
+          tags:
+            next: Seuraava
+            previous: Edellinen
