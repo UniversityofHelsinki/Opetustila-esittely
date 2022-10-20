@@ -535,7 +535,7 @@ display:
               price_categories: default
               room_type: ''
       query:
-        type: views_query
+        type: search_api_query
         options:
           bypass_access: false
           skip_access: false
@@ -562,8 +562,10 @@ display:
         - url
         - url.query_args
         - user
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:search_api.index.spaces_search'
   admin_page:
     id: admin_page
     display_title: 'Space Search Admin Page'
@@ -974,8 +976,10 @@ display:
         - url
         - url.query_args
         - user
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:search_api.index.spaces_search'
   main:
     id: main
     display_title: 'Search Block'
@@ -996,5 +1000,7 @@ display:
         - url
         - url.query_args
         - user
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:search_api.index.spaces_search'
