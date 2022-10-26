@@ -1,15 +1,6 @@
 display:
   default:
     display_options:
-      pager:
-        options:
-          tags:
-            previous: Edellinen
-            next: Seuraava
-          expose:
-            items_per_page_label: 'Tulosta per sivu'
-            items_per_page_options_all_label: '- Kaikki -'
-            offset_label: Ohita
       filters:
         field_campus:
           expose:
@@ -23,10 +14,10 @@ display:
         field_equipment:
           expose:
             label: 'Tilan varusteet'
-            description: 'Lisää yksi tai useampi varuste painamalla teksikenttää. Voit rajata varustelistaa kirjoittamalla osan etsimästäsi varusteesta.'
-        search_api_fulltext:
+            description: 'Lisää yksi tai useampi varuste painamalla tekstikenttää. Voit rajata varustelistaa kirjoittamalla osan etsimästäsi varusteesta.'
+        search_api_language:
           expose:
-            label: 'Vapaa haku'
+            description: ''
       title: 'Millaista tilaa tarvitset?'
       header:
         result:
@@ -34,5 +25,8 @@ display:
       exposed_form:
         options:
           submit_button: Etsi
-          reset_button_label: Tyhjennä
-label: Tilahaku
+      pager:
+        options:
+          tags:
+            next: Seuraava
+            previous: Edellinen
