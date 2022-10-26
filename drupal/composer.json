@@ -17,7 +17,7 @@
         "drupal/core-composer-scaffold": "9.3.*",
         "drupal/core-recommended": "9.3.*",
         "drupal/ctools": "^3.7",
-        "drupal/disable_field": "^2.1",
+        "drupal/disable_field": "^3.0",
         "drupal/ds": "^3.13",
         "drupal/ds_chains": "^1.0@alpha",
         "drupal/easy_breadcrumb": "^2.0",
