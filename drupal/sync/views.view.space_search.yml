@@ -214,7 +214,7 @@ display:
           exposed: true
           expose:
             operator_id: field_capacity_op
-            label: 'Minimun number of seats'
+            label: 'Minimum number of seats'
             description: ''
             use_operator: false
             operator: field_capacity_op
