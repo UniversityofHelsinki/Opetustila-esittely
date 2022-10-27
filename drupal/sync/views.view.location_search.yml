@@ -128,7 +128,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
+        type: search_api_tag
         options: {  }
       empty: {  }
       sorts:
@@ -275,7 +275,7 @@ display:
       row:
         type: fields
       query:
-        type: views_query
+        type: search_api_query
         options:
           bypass_access: false
           skip_access: false
@@ -290,7 +290,9 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+        - 'user.node_grants:view'
+      tags:
+        - 'config:search_api.index.name_and_location'
   block_1:
     id: block_1
     display_title: 'Search location Block (deprecated)'
@@ -308,4 +310,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+        - 'user.node_grants:view'
+      tags:
+        - 'config:search_api.index.name_and_location'

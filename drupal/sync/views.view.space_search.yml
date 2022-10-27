@@ -25,7 +25,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Millaista tilaa tarvitset?'
+      title: 'What kind of facility do you need?'
       fields:
         rendered_item:
           id: rendered_item
@@ -90,8 +90,8 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: Seuraava
-            previous: Edellinen
+            next: Next
+            previous: Previous
           expose:
             items_per_page: false
             items_per_page_label: 'Tulosta per sivu'
@@ -103,7 +103,7 @@ display:
       exposed_form:
         type: input_required
         options:
-          submit_button: Etsi
+          submit_button: Find
           reset_button: false
           reset_button_label: Tyhjennä
           exposed_sorts_label: 'Sort by'
@@ -163,7 +163,7 @@ display:
           exposed: true
           expose:
             operator_id: field_campus_op
-            label: Sijainti
+            label: Location
             description: ''
             use_operator: false
             operator: field_campus_op
@@ -214,7 +214,7 @@ display:
           exposed: true
           expose:
             operator_id: field_capacity_op
-            label: 'Paikkoja vähintään'
+            label: 'Minimum number of seats'
             description: ''
             use_operator: false
             operator: field_capacity_op
@@ -258,7 +258,7 @@ display:
           exposed: true
           expose:
             operator_id: field_accessibility_op
-            label: Esteettömyys
+            label: Accessibility
             description: ''
             use_operator: false
             operator: field_accessibility_op
@@ -306,8 +306,8 @@ display:
           exposed: true
           expose:
             operator_id: field_equipment_op
-            label: 'Tilan varusteet'
-            description: 'Lisää yksi tai useampi varuste painamalla teksikenttää. Voit rajata varustelistaa kirjoittamalla osan etsimästäsi varusteesta.'
+            label: 'Equipment of the facility'
+            description: 'Add one or more equipment by opening the drop-down menu. You can narrow down the list of equipment by starting to write the name'
             use_operator: false
             operator: field_equipment_op
             operator_limit_selection: false
@@ -535,7 +535,7 @@ display:
               price_categories: default
               room_type: ''
       query:
-        type: views_query
+        type: search_api_query
         options:
           bypass_access: false
           skip_access: false
@@ -552,7 +552,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: '<h3>Ehdoillasi löytyi @total tilaa</h3>'
+          content: '<h3>@total facilities match your search</h3>'
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -562,8 +562,10 @@ display:
         - url
         - url.query_args
         - user
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:search_api.index.spaces_search'
   admin_page:
     id: admin_page
     display_title: 'Space Search Admin Page'
@@ -974,8 +976,10 @@ display:
         - url
         - url.query_args
         - user
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:search_api.index.spaces_search'
   main:
     id: main
     display_title: 'Search Block'
@@ -996,5 +1000,7 @@ display:
         - url
         - url.query_args
         - user
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:search_api.index.spaces_search'
