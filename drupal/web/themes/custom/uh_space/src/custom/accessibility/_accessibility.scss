@@ -1,0 +1,26 @@
+*:focus-visible{
+  outline: 2px solid $blue;
+  outline-offset: 2px;
+}
+
+.l-top-bar{
+  *:focus-visible{
+    outline: 2px solid $blue;
+    outline-offset: -3px;
+  }
+}
+
+form{
+  select,textarea,input[type="number"],input[type="text"],.select2-container{
+    &:focus{
+      outline: 2px solid $blue;
+      outline-offset: 2px;
+      border: 1px solid #979797;
+    }
+    &:focus-visible{
+      outline-offset: 3px;
+      outline: 2px solid $blue;
+    }
+  }
+}
+
