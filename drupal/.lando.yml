@@ -4,7 +4,7 @@ recipe: drupal8
 config:
   webroot: web
   via: nginx
-  php: 7.4
+  php: '8.0'
   database: mariadb:10.3
   xdebug: false
   composer_version: 2-latest
