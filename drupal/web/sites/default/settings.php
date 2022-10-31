@@ -104,6 +104,25 @@ switch ($env) {
     $base_url = "https://tilavaraus.helsinki.fi";
     // Sitemap settings override.
     $config['simple_sitemap.settings']['base_url'] = 'https://tilavaraus.helsinki.fi';
+    // GTM settings override.
+    $config['google_tag.container.tilavaraus.helsinki.fi']['environment_id'] = 'env-1';
+    $config['google_tag.container.tilavaraus.helsinki.fi']['environment_token'] = 'RN8MQBhEX_4ifvbbJYqPnw';
+    // Warden settings.
+    // Shared security token between the site and Warden server.
+    $config['warden.settings']['warden_token'] = getenv('WARDEN_TOKEN');
+    // Location of the Warden server, no trailing slash.
+    $config['warden.settings']['warden_server_host_path'] = 'https://warden.wunder.io';
+    // Allow refreshing site data from the Warden server.
+    $config['warden.settings']['warden_allow_requests'] = TRUE;
+    // Basic HTTP authorization credentials.
+    $config['warden.settings']['warden_http_username'] = 'warden';
+    $config['warden.settings']['warden_http_password'] = 'wunder';
+    // IP addresses of the Warden server allowed to make callback requests.
+    $config['warden.settings']['warden_public_allow_ips'] = '35.228.188.78,35.228.81.50';
+    // Define the module locations.
+    $config['warden.settings']['warden_preg_match_custom'] = '{^modules\/custom\/*}';
+    $config['warden.settings']['warden_preg_match_contrib'] = '{^modules\/contrib\/*}';
+    $config['warden.settings']['warden_match_contrib'] = TRUE;
     break;
 
   case 'dev':
@@ -146,16 +165,22 @@ switch ($env) {
     $config['simple_sitemap.settings']['base_url'] = 'https://tilat.lndo.site';
     // Override optime migration url for Lando
     $config['migrate_plus.migration.optime_integration']['source']['urls'] = 'https://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json';
+    // Skip file system permissions hardening in local development with Lando.
+    $settings['skip_permissions_hardening'] = TRUE;
+    // File proxy origin site.
+    $config['stage_file_proxy.settings']['origin'] = 'https://tilavaraus.helsinki.fi';
     break;
 }
 
 /**
  * Location of the site configuration files.
  */
-$config_directories = [];
-
-// Location of the site configuration files.
 $settings['config_sync_directory'] = '../sync';
+
+/**
+ * Exclude selected modules from configuration.
+ */
+$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy', 'warden'];
 
 /**
  * Access control for update.php script.

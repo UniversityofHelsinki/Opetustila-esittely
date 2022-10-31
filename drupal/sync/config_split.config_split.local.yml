@@ -14,7 +14,6 @@ module:
 theme: {  }
 blacklist:
   - uhsg_service_provider_details.settings
-  - google_tag.settings
   - redirect.settings
   - redirect_404.settings
 graylist:
