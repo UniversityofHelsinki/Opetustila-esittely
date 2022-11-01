@@ -57,6 +57,7 @@ third_party_settings:
         - field_images
         - field_optime_id
         - 'dynamic_token_field:node-referenced_address'
+        - field_capacity
         - group_key_information
         - field_capacity
         - group_pricing

@@ -73,6 +73,10 @@
     drupal_web_root: "/var/www/{{ domain_name }}/current/web"
     project_name: opetustilat
 
+    php_extra_env_vars:
+      - key: "WARDEN_TOKEN"
+        value: "{{ WARDEN_TOKEN }}"
+
     memory_db: 1024 # In MB
     memory_app: 2048 # In MB should be atleast 4x php_memory_limit
 

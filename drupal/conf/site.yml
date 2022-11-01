@@ -187,6 +187,8 @@ production:
       - drush: updb -y
       - drush: cr
       - drush: cim -y
+      - shell: cd web && drush en warden -y
+      - drush: cr -y
       - cleanup
       - shell: chmod -R a-w web
       - shell: sudo systemctl restart nginx php-fpm varnish
