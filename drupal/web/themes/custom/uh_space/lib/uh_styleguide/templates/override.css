@@ -10,7 +10,7 @@
 	left: 10px;
 	top: 50%;
 	transform: translate(0, -50%);
-
+	
 	background-image: url('../images/hy_logo_white.svg');
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -29,7 +29,7 @@
 }
 
 #idean-styleguide .idean-styleguide-section-title{
-	color: #0479A4;
+	color: #0098d0;
 }
 
 #idean-styleguide .idean-styleguide-collapse{
@@ -39,17 +39,17 @@
 	background: #fff;
 }
 #idean-styleguide .idean-styleguide-menu-container ul{
-	width: 100%;
+	width: 100%;	
 }
 
 #idean-styleguide .idean-styleguide-menu-button{
 	background: #fff;
 }
 
-#idean-styleguide .idean-styleguide-menu-button .lines{
+#idean-styleguide .idean-styleguide-menu-button .lines{ 
     background: #222;
 }
-#idean-styleguide .idean-styleguide-menu-button .lines:before,
+#idean-styleguide .idean-styleguide-menu-button .lines:before, 
 #idean-styleguide .idean-styleguide-menu-button .lines:after{
     background: #222;
 }
