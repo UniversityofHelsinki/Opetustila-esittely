@@ -27,7 +27,7 @@
   position: relative;
   .field-group-link {
     &:focus {
-      outline-offset: -3px;
+      outline-offset: -0.75rem;
     }
     &:focus-visible {
       outline: $white solid 2px;
