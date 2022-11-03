@@ -5,8 +5,32 @@
 
 .l-top-bar{
   *:focus-visible{
-    outline: 2px solid $blue;
+    outline: 2px solid $white;
     outline-offset: -3px;
+  }
+}
+
+.page--with-hero .l-header-bar, .l-footer{
+  *:focus,*:focus-visible{
+    outline: 2px solid $white;
+    outline-offset: 2px;
+  }
+}
+
+.l-footer{
+  *:focus,*:focus-visible{
+    outline: 2px solid $white;
+    outline-offset: 2px;
+  }
+}
+
+a[href="#main-conent"]{
+  &:hover{
+    color: #808080;
+  }
+  &:focus,&:focus-visible{
+    outline: 2px solid $white;
+    outline-offset: 2px;
   }
 }
 
