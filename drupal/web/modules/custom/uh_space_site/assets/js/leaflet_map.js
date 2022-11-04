@@ -25,7 +25,7 @@
       }
 
       document.getElementById(mapid[0]).innerHTML = "<div id='map' style='width: 100%; height: 100%;' tabindex='0'></div>";
-      var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         osmAttribution = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a>',
         osmLayer = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution});
       var map = new L.Map('map', {zoomControl: false, scrollWheelZoom: false, fullscreenControl: false});
