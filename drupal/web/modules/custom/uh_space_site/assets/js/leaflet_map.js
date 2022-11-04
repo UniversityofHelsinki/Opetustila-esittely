@@ -3,7 +3,7 @@
     attach(context, settings) {
       const mapid = Object.keys(settings['leaflet']);
       var loadedMap = settings['leaflet'][mapid[0]]['lMap'];
-      console.log(loadedMap);
+
       let lat = loadedMap._lastCenter.lat;
       let lon = loadedMap._lastCenter.lng;
       // Get language code
@@ -36,17 +36,15 @@
       // map.addLayer(validatorsLayer);
       var plusUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYJFTodgbZtSwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABoSURBVEjHY2AYBaNg2AJmMvQkMTAwGDAwMHAzMDA8JlYTIxkW/SdHPxO9gm7kWWQNjRNkjB5fMPyXgYEhg1yL1Eh0tCm5FpGSKr/jUz+avOlq0Xco/Y8UTSxkWLQCGk+nR6uKUTC4AQC8oBHyYLAfhwAAAABJRU5ErkJggg=='
       var minusUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYJFgAjZzgQwAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAvSURBVEjHY2AYBaNgFIyCUcDAwMAQzsDA8J8InIPPECZ6uZZpNMJGwSgYBSMAAADZ/wm/p4Wt3gAAAABJRU5ErkJggg=='
-      var fullScreenUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAABqklEQVR4nO3cMU/CUBSG4RcGEkz837gYIxqZUX8aRBdhEEZxKC5a0d7enkvhfZIuJL095wu0SWkPSJIkSZIknbcRcAUsgV2LbQXcAeOAmi+Ae2DdsuYFMKHKoHOTlsV+32YBNc8y1zwJqJlF5qI3wLDDeofANnPNi6ZFDBIK3yXsc8gWuAQ+Mq/7ZQi8k/8U1Si7Lr9J/zWnu5DZrz3vcP3O5Pr5vQG3xFwMx8CU6gKcq/5Gcp46Utbqgyz9HsOp4ywYdBCDDmLQQQw6iEEHMeggBh3EoIMYdBCDDpIS9Lrms1XbQo5Yln5Tgn6u+ewpYZ2+KNbvmOqvoc1+eyDmVmcpxfsdcLq3RuucW7+SJEmSJEmSJEmSJHXg3B4nC+93TPWy/Hq/TTn9B2iK9HvDz5cbryMOXEixfl9qDvwaceBCsvTrm7N/883ZPjHoIAYdxKCDGHQQgw5i0EEMOohBBzHoIAYdJGfQTceZ9WU2aTE5R0/u6Ods0qJz71I5MvMXy4R9Tk3jDFKCfkzY55A+ziYNmXU6opqf3Ha8cR9nk4YO6pYkSZIkSTpWnzEaQvQ9Q7BGAAAAAElFTkSuQmCC';
+      // var fullScreenUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAABqklEQVR4nO3cMU/CUBSG4RcGEkz837gYIxqZUX8aRBdhEEZxKC5a0d7enkvhfZIuJL095wu0SWkPSJIkSZIknbcRcAUsgV2LbQXcAeOAmi+Ae2DdsuYFMKHKoHOTlsV+32YBNc8y1zwJqJlF5qI3wLDDeofANnPNi6ZFDBIK3yXsc8gWuAQ+Mq/7ZQi8k/8U1Si7Lr9J/zWnu5DZrz3vcP3O5Pr5vQG3xFwMx8CU6gKcq/5Gcp46Utbqgyz9HsOp4ywYdBCDDmLQQQw6iEEHMeggBh3EoIMYdBCDDpIS9Lrms1XbQo5Yln5Tgn6u+ewpYZ2+KNbvmOqvoc1+eyDmVmcpxfsdcLq3RuucW7+SJEmSJEmSJEmSJHXg3B4nC+93TPWy/Hq/TTn9B2iK9HvDz5cbryMOXEixfl9qDvwaceBCsvTrm7N/883ZPjHoIAYdxKCDGHQQgw5i0EEMOohBBzHoIAYdJGfQTceZ9WU2aTE5R0/u6Ods0qJz71I5MvMXy4R9Tk3jDFKCfkzY55A+ziYNmXU6opqf3Ha8cR9nk4YO6pYkSZIkSTpWnzEaQvQ9Q7BGAAAAAElFTkSuQmCC';
       var zoomIn = L.easyButton('<img class="zoom-in zoom-btn" src="'+ plusUri +'" alt="'+ titles.zoomInTitle +'"/>',
         function(control, map){map.setZoom(map.getZoom()+1);});
       var zoomOut = L.easyButton('<img class="zoom-out zoom-btn" src="' + minusUri + '" alt="'+ titles.zoomOutTitle +'"/>',
         function(control, map){map.setZoom(map.getZoom()-1);});
-      var fullScreen = L.easyButton('<img class="map-full-screen" src="' + fullScreenUri + '" alt="'+ titles.viewFullScreen +'"/>',
-        function(control, map){map.toggleFullscreen()});
+      // var fullScreen = L.easyButton('<img class="map-full-screen" src="' + fullScreenUri + '" alt="'+ titles.viewFullScreen +'"/>',
+      //   function(control, map){map.toggleFullscreen()});
       var zoomBar = L.easyBar([ zoomIn, zoomOut, fullScreen ]);
       zoomBar.addTo(map);
-
-      console.log(map);
 
 
       // Define DOM/jQuery elements of Zoom controls
