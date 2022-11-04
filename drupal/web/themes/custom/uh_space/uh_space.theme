@@ -81,7 +81,7 @@ function uh_space_preprocess_region(&$variables) {
       $variables['site_name'] = \Drupal::config('system.site')->get('name');
       $variables['logo_text'] = \Drupal::config('system.site')->get('logo_text');
       $variables['logo'] = _uh_space_load_wrapped_icon('helsinginyliopisto');
-      $variables['frontPageAriaLabel'] = t('%site_name% Front page', ['%site_name%' => \Drupal::config('system.site')->get('name')]);
+      $variables['frontPageAriaLabel'] = t('%site_name% front page', ['%site_name%' => \Drupal::config('system.site')->get('name')]);
       break;
     case 'footer':
       $variables['site_name'] = \Drupal::config('system.site')->get('name');
