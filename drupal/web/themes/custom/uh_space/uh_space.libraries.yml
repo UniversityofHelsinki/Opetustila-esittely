@@ -5,6 +5,7 @@ global:
       dist/app.css: {}
   js:
     dist/app.js: {}
+    src/custom/easy-button.js: {}
 
 select2:
   version: 1.0.1
