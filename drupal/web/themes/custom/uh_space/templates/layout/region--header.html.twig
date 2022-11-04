@@ -31,7 +31,7 @@
       {% if logo_path and logo_text %}
         <a href="{{ url('<front>') }}" class="svg-logo">
           {{ logo | raw }}
-          <p class="logo__sitename">{{ site_name }}</p>
+          <p class="logo__sitename" aria-label="{{ frontPageAriaLabel|striptags }}" >{{ site_name }}</p>
         </a>
       {% endif %}
     </div>

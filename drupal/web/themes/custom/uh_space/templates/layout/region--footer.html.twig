@@ -19,7 +19,7 @@
       <div class="logo-block">
         {% if logo_path %}
           <div class="logo-block__logo">
-            {{ link('', logo_path, { 'class':['logo theme-big'], 'aria-label': logo_text }) }}
+            {{ link('', logo_path, { 'class':['logo theme-big'], 'aria-label': frontPageAriaLabel, 'aria-description': logo_text }) }}
           </div>
         {% endif %}
         {% if contact_info %}

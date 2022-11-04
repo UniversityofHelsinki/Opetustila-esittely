@@ -77,16 +77,19 @@ function uh_space_preprocess_page(&$variables) {
 function uh_space_preprocess_region(&$variables) {
   switch ($variables['region']) {
     case 'header':
-      $variables['site_name'] = \Drupal::config('system.site')->get('name');
       $variables['logo_path'] = \Drupal::config('system.site')->get('logo_path');
+      $variables['site_name'] = \Drupal::config('system.site')->get('name');
       $variables['logo_text'] = \Drupal::config('system.site')->get('logo_text');
       $variables['logo'] = _uh_space_load_wrapped_icon('helsinginyliopisto');
+      $variables['frontPageAriaLabel'] = t('%site_name% Front page', ['%site_name%' => \Drupal::config('system.site')->get('name')]);
       break;
     case 'footer':
+      $variables['site_name'] = \Drupal::config('system.site')->get('name');
       $variables['logo_path'] = \Drupal::config('system.site')->get('logo_path');
       $variables['logo_text'] = \Drupal::config('system.site')->get('logo_text');
       $variables['copyright_text'] = \Drupal::config('system.site')->get('copyright_text');
       $variables['contact_info'] = \Drupal::config('system.site')->get('contact_info');
+      $variables['frontPageAriaLabel'] = t('%site_name% Front page', ['%site_name%' => \Drupal::config('system.site')->get('name')]);
       break;
     case 'footer_site':
       $variables['spaces_contact_info'] = \Drupal::config('system.site')->get('spaces_contact_info');
