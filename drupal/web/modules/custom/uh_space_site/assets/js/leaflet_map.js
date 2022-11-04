@@ -43,7 +43,7 @@
         function(control, map){map.setZoom(map.getZoom()-1);});
       // var fullScreen = L.easyButton('<img class="map-full-screen" src="' + fullScreenUri + '" alt="'+ titles.viewFullScreen +'"/>',
       //   function(control, map){map.toggleFullscreen()});
-      var zoomBar = L.easyBar([ zoomIn, zoomOut, fullScreen ]);
+      var zoomBar = L.easyBar([ zoomIn, zoomOut ]);
       zoomBar.addTo(map);
 
 
