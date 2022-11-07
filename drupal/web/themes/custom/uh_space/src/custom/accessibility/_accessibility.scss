@@ -48,6 +48,13 @@ form{
   }
 }
 
+
+.liftup-grid__item:focus-within {
+  &:before{
+    opacity: 0.2;
+  }
+}
+
 /** Map */
 
 .leaflet-container{

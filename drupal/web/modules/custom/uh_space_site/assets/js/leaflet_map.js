@@ -382,7 +382,6 @@
 
       const mapid = Object.keys(settings['leaflet']);
       var loadedMap = settings['leaflet'][mapid[0]]['lMap'];
-      console.log(settings['leaflet']);
       let lat = loadedMap._lastCenter.lat;
       let lon = loadedMap._lastCenter.lng;
       // Get language code
