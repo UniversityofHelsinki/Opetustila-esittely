@@ -49,13 +49,21 @@ form{
 }
 
 /** Map */
+
+.leaflet-container{
+  *:focus,*:focus-visible{
+    outline: 2px solid $black;
+    outline-offset: 2px;
+  }
+}
+
 .easy-button-button{
   transition-duration: .3s;
   position: relative;
   padding: 2px;
-  //&:last-of-type{
-  //  padding: 0;
-  //}
+  &:last-of-type{
+    padding: 0;
+  }
   img{
     vertical-align: middle;
   }
@@ -63,9 +71,9 @@ form{
 
 .easy-button-container{
   border: none !important;
-  //button:last-child{
-  //  margin-top: 1rem;
-  //}
+  button:last-child{
+    margin-top: 1rem;
+  }
 }
 
 .zoom-btn{

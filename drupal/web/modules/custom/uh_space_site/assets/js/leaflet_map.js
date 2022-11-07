@@ -1,9 +1,388 @@
 (function ($, Drupal) {
   Drupal.behaviors.leaflet_map = {
     attach(context, settings) {
+
+      (function(){
+
+        // This is for grouping buttons into a bar
+        // takes an array of `L.easyButton`s and
+        // then the usual `.addTo(map)`
+        L.Control.EasyBar = L.Control.extend({
+
+          options: {
+            position:       'topleft',  // part of leaflet's defaults
+            id:             null,       // an id to tag the Bar with
+            leafletClasses: true        // use leaflet classes?
+          },
+
+
+          initialize: function(buttons, options){
+
+            if(options){
+              L.Util.setOptions( this, options );
+            }
+
+            this._buildContainer();
+            this._buttons = [];
+
+            for(var i = 0; i < buttons.length; i++){
+              buttons[i]._bar = this;
+              buttons[i]._container = buttons[i].button;
+              this._buttons.push(buttons[i]);
+              this.container.appendChild(buttons[i].button);
+            }
+
+          },
+
+
+          _buildContainer: function(){
+            this._container = this.container = L.DomUtil.create('div', '');
+            this.options.leafletClasses && L.DomUtil.addClass(this.container, 'leaflet-bar easy-button-container leaflet-control');
+            this.options.id && (this.container.id = this.options.id);
+          },
+
+
+          enable: function(){
+            L.DomUtil.addClass(this.container, 'enabled');
+            L.DomUtil.removeClass(this.container, 'disabled');
+            this.container.setAttribute('aria-hidden', 'false');
+            return this;
+          },
+
+
+          disable: function(){
+            L.DomUtil.addClass(this.container, 'disabled');
+            L.DomUtil.removeClass(this.container, 'enabled');
+            this.container.setAttribute('aria-hidden', 'true');
+            return this;
+          },
+
+
+          onAdd: function () {
+            return this.container;
+          },
+
+          addTo: function (map) {
+            this._map = map;
+
+            for(var i = 0; i < this._buttons.length; i++){
+              this._buttons[i]._map = map;
+            }
+
+            var container = this._container = this.onAdd(map),
+              pos = this.getPosition(),
+              corner = map._controlCorners[pos];
+
+            L.DomUtil.addClass(container, 'leaflet-control');
+
+            if (pos.indexOf('bottom') !== -1) {
+              corner.insertBefore(container, corner.firstChild);
+            } else {
+              corner.appendChild(container);
+            }
+
+            return this;
+          }
+
+        });
+
+        L.easyBar = function(){
+          var args = [L.Control.EasyBar];
+          for(var i = 0; i < arguments.length; i++){
+            args.push( arguments[i] );
+          }
+          return new (Function.prototype.bind.apply(L.Control.EasyBar, args));
+        };
+
+// L.EasyButton is the actual buttons
+// can be called without being grouped into a bar
+        L.Control.EasyButton = L.Control.extend({
+
+          options: {
+            position:  'topleft',       // part of leaflet's defaults
+
+            id:        null,            // an id to tag the button with
+
+            type:      'replace',       // [(replace|animate)]
+                                        // replace swaps out elements
+                                        // animate changes classes with all elements inserted
+
+            states:    [],              // state names look like this
+                                        // {
+                                        //   stateName: 'untracked',
+                                        //   onClick: function(){ handle_nav_manually(); };
+                                        //   title: 'click to make inactive',
+                                        //   icon: 'fa-circle',    // wrapped with <a>
+                                        // }
+
+            leafletClasses:   true,     // use leaflet styles for the button
+            tagName:          'button',
+          },
+
+
+
+          initialize: function(icon, onClick, title, id){
+
+            // clear the states manually
+            this.options.states = [];
+
+            // add id to options
+            if(id != null){
+              this.options.id = id;
+            }
+
+            // storage between state functions
+            this.storage = {};
+
+            // is the last item an object?
+            if( typeof arguments[arguments.length-1] === 'object' ){
+
+              // if so, it should be the options
+              L.Util.setOptions( this, arguments[arguments.length-1] );
+            }
+
+            // if there aren't any states in options
+            // use the early params
+            if( this.options.states.length === 0 &&
+              typeof icon  === 'string' &&
+              typeof onClick === 'function'){
+
+              // turn the options object into a state
+              this.options.states.push({
+                icon: icon,
+                onClick: onClick,
+                title: typeof title === 'string' ? title : ''
+              });
+            }
+
+            // curate and move user's states into
+            // the _states for internal use
+            this._states = [];
+
+            for(var i = 0; i < this.options.states.length; i++){
+              this._states.push( new State(this.options.states[i], this) );
+            }
+
+            this._buildButton();
+
+            this._activateState(this._states[0]);
+
+          },
+
+          _buildButton: function(){
+
+            this.button = L.DomUtil.create(this.options.tagName, '');
+
+            if (this.options.tagName === 'button') {
+              this.button.setAttribute('type', 'button');
+              this.button.setAttribute('role', 'button');
+            }
+
+            if (this.options.id ){
+              this.button.id = this.options.id;
+            }
+
+            if (this.options.leafletClasses){
+              L.DomUtil.addClass(this.button, 'easy-button-button leaflet-bar-part leaflet-interactive');
+            }
+
+            // don't let double clicks and mousedown get to the map
+            L.DomEvent.addListener(this.button, 'dblclick', L.DomEvent.stop);
+            L.DomEvent.addListener(this.button, 'mousedown', L.DomEvent.stop);
+            L.DomEvent.addListener(this.button, 'mouseup', L.DomEvent.stop);
+
+            // take care of normal clicks
+            L.DomEvent.addListener(this.button,'click', function(e){
+              L.DomEvent.stop(e);
+              this._currentState.onClick(this, this._map ? this._map : null );
+              this._map && this._map.getContainer().focus();
+            }, this);
+
+            // prep the contents of the control
+            if(this.options.type == 'replace'){
+              this.button.appendChild(this._currentState.icon);
+            } else {
+              for(var i=0;i<this._states.length;i++){
+                this.button.appendChild(this._states[i].icon);
+              }
+            }
+          },
+
+
+          _currentState: {
+            // placeholder content
+            stateName: 'unnamed',
+            icon: (function(){ return document.createElement('span'); })()
+          },
+
+
+
+          _states: null, // populated on init
+
+
+
+          state: function(newState){
+
+            // when called with no args, it's a getter
+            if (arguments.length === 0) {
+              return this._currentState.stateName;
+            }
+
+            // activate by name
+            if(typeof newState == 'string'){
+
+              this._activateStateNamed(newState);
+
+              // activate by index
+            } else if (typeof newState == 'number'){
+
+              this._activateState(this._states[newState]);
+            }
+
+            return this;
+          },
+
+
+          _activateStateNamed: function(stateName){
+            for(var i = 0; i < this._states.length; i++){
+              if( this._states[i].stateName == stateName ){
+                this._activateState( this._states[i] );
+              }
+            }
+          },
+
+          _activateState: function(newState){
+
+            if( newState === this._currentState ){
+
+              // don't touch the dom if it'll just be the same after
+              return;
+
+            } else {
+
+              // swap out elements... if you're into that kind of thing
+              if( this.options.type == 'replace' ){
+                this.button.appendChild(newState.icon);
+                this.button.removeChild(this._currentState.icon);
+              }
+
+              if( newState.title ){
+                this.button.title = newState.title;
+              } else {
+                this.button.removeAttribute('title');
+              }
+
+              // update classes for animations
+              for(var i=0;i<this._states.length;i++){
+                L.DomUtil.removeClass(this._states[i].icon, this._currentState.stateName + '-active');
+                L.DomUtil.addClass(this._states[i].icon, newState.stateName + '-active');
+              }
+
+              // update classes for animations
+              L.DomUtil.removeClass(this.button, this._currentState.stateName + '-active');
+              L.DomUtil.addClass(this.button, newState.stateName + '-active');
+
+              // update the record
+              this._currentState = newState;
+
+            }
+          },
+
+          enable: function(){
+            L.DomUtil.addClass(this.button, 'enabled');
+            L.DomUtil.removeClass(this.button, 'disabled');
+            this.button.setAttribute('aria-hidden', 'false');
+            return this;
+          },
+
+          disable: function(){
+            L.DomUtil.addClass(this.button, 'disabled');
+            L.DomUtil.removeClass(this.button, 'enabled');
+            this.button.setAttribute('aria-hidden', 'true');
+            return this;
+          },
+
+          onAdd: function(map){
+            var bar = L.easyBar([this], {
+              position: this.options.position,
+              leafletClasses: this.options.leafletClasses
+            });
+            this._anonymousBar = bar;
+            this._container = bar.container;
+            return this._anonymousBar.container;
+          },
+
+          removeFrom: function (map) {
+            if (this._map === map)
+              this.remove();
+            return this;
+          },
+
+        });
+
+        L.easyButton = function(/* args will pass automatically */){
+          var args = Array.prototype.concat.apply([L.Control.EasyButton],arguments);
+          return new (Function.prototype.bind.apply(L.Control.EasyButton, args));
+        };
+
+        /*************************
+         *
+         * util functions
+         *
+         *************************/
+
+// constructor for states so only curated
+// states end up getting called
+        function State(template, easyButton){
+
+          this.title = template.title;
+          this.stateName = template.stateName ? template.stateName : 'unnamed-state';
+
+          // build the wrapper
+          this.icon = L.DomUtil.create('span', '');
+
+          L.DomUtil.addClass(this.icon, 'button-state state-' + this.stateName.replace(/(^\s*|\s*$)/g,''));
+          this.icon.innerHTML = buildIcon(template.icon);
+          this.onClick = L.Util.bind(template.onClick?template.onClick:function(){}, easyButton);
+        }
+
+        function buildIcon(ambiguousIconString) {
+
+          var tmpIcon;
+
+          // does this look like html? (i.e. not a class)
+          if( ambiguousIconString.match(/[&;=<>"']/) ){
+
+            // if so, the user should have put in html
+            // so move forward as such
+            tmpIcon = ambiguousIconString;
+
+            // then it wasn't html, so
+            // it's a class list, figure out what kind
+          } else {
+            ambiguousIconString = ambiguousIconString.replace(/(^\s*|\s*$)/g,'');
+            tmpIcon = L.DomUtil.create('span', '');
+
+            if( ambiguousIconString.indexOf('fa-') === 0 ){
+              L.DomUtil.addClass(tmpIcon, 'fa '  + ambiguousIconString)
+            } else if ( ambiguousIconString.indexOf('glyphicon-') === 0 ) {
+              L.DomUtil.addClass(tmpIcon, 'glyphicon ' + ambiguousIconString)
+            } else {
+              L.DomUtil.addClass(tmpIcon, /*rollwithit*/ ambiguousIconString)
+            }
+
+            // make this a string so that it's easy to set innerHTML below
+            tmpIcon = tmpIcon.outerHTML;
+          }
+
+          return tmpIcon;
+        }
+
+      })();
+
       const mapid = Object.keys(settings['leaflet']);
       var loadedMap = settings['leaflet'][mapid[0]]['lMap'];
-
+      console.log(settings['leaflet']);
       let lat = loadedMap._lastCenter.lat;
       let lon = loadedMap._lastCenter.lng;
       // Get language code
@@ -26,26 +405,42 @@
 
       document.getElementById(mapid[0]).innerHTML = "<div id='map' style='width: 100%; height: 100%;' tabindex='0'></div>";
       var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        osmAttribution = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a>',
+        osmAttribution = 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a>',
         osmLayer = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution});
       var map = new L.Map('map', {zoomControl: false, scrollWheelZoom: false, fullscreenControl: false});
       map.setView(new L.LatLng(lat,lon), 12 );
       map.addLayer(osmLayer);
-      L.marker([lat,lon]).addTo(map);
+      L.marker([lat,lon], {}).addTo(map);
       // var validatorsLayer = new OsmJs.Weather.LeafletLayer({lang: 'en'});
       // map.addLayer(validatorsLayer);
+
+      // listeners for disabling buttons
+      map.on('zoomend',function(e){
+        var map = e.target,
+          max = map.getMaxZoom(),
+          min = map.getMinZoom(),
+          current = map.getZoom();
+        if( current < max ){
+          zoomIn.enable() }
+        if( current >= max ){
+          zoomIn.disable() }
+        if( current > min ){
+          zoomOut.enable() }
+        if( current <= min ){
+          zoomOut.disable() }
+      });
+
       var plusUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYJFTodgbZtSwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABoSURBVEjHY2AYBaNg2AJmMvQkMTAwGDAwMHAzMDA8JlYTIxkW/SdHPxO9gm7kWWQNjRNkjB5fMPyXgYEhg1yL1Eh0tCm5FpGSKr/jUz+avOlq0Xco/Y8UTSxkWLQCGk+nR6uKUTC4AQC8oBHyYLAfhwAAAABJRU5ErkJggg=='
       var minusUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYJFgAjZzgQwAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAvSURBVEjHY2AYBaNgFIyCUcDAwMAQzsDA8J8InIPPECZ6uZZpNMJGwSgYBSMAAADZ/wm/p4Wt3gAAAABJRU5ErkJggg=='
-      // var fullScreenUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAABqklEQVR4nO3cMU/CUBSG4RcGEkz837gYIxqZUX8aRBdhEEZxKC5a0d7enkvhfZIuJL095wu0SWkPSJIkSZIknbcRcAUsgV2LbQXcAeOAmi+Ae2DdsuYFMKHKoHOTlsV+32YBNc8y1zwJqJlF5qI3wLDDeofANnPNi6ZFDBIK3yXsc8gWuAQ+Mq/7ZQi8k/8U1Si7Lr9J/zWnu5DZrz3vcP3O5Pr5vQG3xFwMx8CU6gKcq/5Gcp46Utbqgyz9HsOp4ywYdBCDDmLQQQw6iEEHMeggBh3EoIMYdBCDDpIS9Lrms1XbQo5Yln5Tgn6u+ewpYZ2+KNbvmOqvoc1+eyDmVmcpxfsdcLq3RuucW7+SJEmSJEmSJEmSJHXg3B4nC+93TPWy/Hq/TTn9B2iK9HvDz5cbryMOXEixfl9qDvwaceBCsvTrm7N/883ZPjHoIAYdxKCDGHQQgw5i0EEMOohBBzHoIAYdJGfQTceZ9WU2aTE5R0/u6Ods0qJz71I5MvMXy4R9Tk3jDFKCfkzY55A+ziYNmXU6opqf3Ha8cR9nk4YO6pYkSZIkSTpWnzEaQvQ9Q7BGAAAAAElFTkSuQmCC';
+      var fullScreenUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAABqklEQVR4nO3cMU/CUBSG4RcGEkz837gYIxqZUX8aRBdhEEZxKC5a0d7enkvhfZIuJL095wu0SWkPSJIkSZIknbcRcAUsgV2LbQXcAeOAmi+Ae2DdsuYFMKHKoHOTlsV+32YBNc8y1zwJqJlF5qI3wLDDeofANnPNi6ZFDBIK3yXsc8gWuAQ+Mq/7ZQi8k/8U1Si7Lr9J/zWnu5DZrz3vcP3O5Pr5vQG3xFwMx8CU6gKcq/5Gcp46Utbqgyz9HsOp4ywYdBCDDmLQQQw6iEEHMeggBh3EoIMYdBCDDpIS9Lrms1XbQo5Yln5Tgn6u+ewpYZ2+KNbvmOqvoc1+eyDmVmcpxfsdcLq3RuucW7+SJEmSJEmSJEmSJHXg3B4nC+93TPWy/Hq/TTn9B2iK9HvDz5cbryMOXEixfl9qDvwaceBCsvTrm7N/883ZPjHoIAYdxKCDGHQQgw5i0EEMOohBBzHoIAYdJGfQTceZ9WU2aTE5R0/u6Ods0qJz71I5MvMXy4R9Tk3jDFKCfkzY55A+ziYNmXU6opqf3Ha8cR9nk4YO6pYkSZIkSTpWnzEaQvQ9Q7BGAAAAAElFTkSuQmCC';
       var zoomIn = L.easyButton('<img class="zoom-in zoom-btn" src="'+ plusUri +'" alt="'+ titles.zoomInTitle +'"/>',
         function(control, map){map.setZoom(map.getZoom()+1);});
       var zoomOut = L.easyButton('<img class="zoom-out zoom-btn" src="' + minusUri + '" alt="'+ titles.zoomOutTitle +'"/>',
-        function(control, map){map.setZoom(map.getZoom()-1);});
-      // var fullScreen = L.easyButton('<img class="map-full-screen" src="' + fullScreenUri + '" alt="'+ titles.viewFullScreen +'"/>',
-      //   function(control, map){map.toggleFullscreen()});
-      var zoomBar = L.easyBar([ zoomIn, zoomOut ]);
+        function(control, map){map.setZoom(map.getZoom()-1);},{ role:'button'});
+      var fullScreen = L.easyButton('<img class="map-full-screen" src="' + fullScreenUri + '" alt="'+ titles.viewFullScreen +'"/>',
+        function(control, map){map.toggleFullscreen()});
+      var zoomBar = L.easyBar([ zoomIn, zoomOut, fullScreen ]);
       zoomBar.addTo(map);
-
 
       // Define DOM/jQuery elements of Zoom controls
       const zoomInElement = $('.leaflet-control-zoom-in');
