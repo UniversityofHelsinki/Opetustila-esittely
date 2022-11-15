@@ -14,14 +14,14 @@ class SpaceSiteInformationForm extends SiteInformationForm {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    // Retrieve the system.site configuration
+    // Retrieve the system.site configuration.
     $config = $this->config('system.site');
 
-    // Get the original form from the class we are extending
+    // Get the original form from the class we are extending.
     $form = parent::buildForm($form, $form_state);
 
     // Add a textarea to the site information section of the form for our
-    // description
+    // description.
     $form['service_provider'] = [
       '#title' => t('Service Provider settings'),
       '#type' => 'details',
@@ -80,7 +80,7 @@ class SpaceSiteInformationForm extends SiteInformationForm {
       ->save();
 
     // Pass the remaining values off to the original form that we have extended,
-    // so that they are also saved
+    // so that they are also saved.
     parent::submitForm($form, $form_state);
   }
 
