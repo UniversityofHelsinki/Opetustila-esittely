@@ -28,15 +28,13 @@
       // Set titles to the elements
       zoomInElement.attr('aria-label', titles.zoomInTitle);
       zoomInElement.prop('title', titles.zoomInTitle);
-      zoomInElement.removeAttr('role');
 
       zoomOutElement.attr('aria-label', titles.zoomOutTitle);
       zoomOutElement.prop('title', titles.zoomOutTitle);
-      zoomOutElement.removeAttr('role');
 
       viewFullScreenElement.attr('aria-label', titles.viewFullScreen);
       viewFullScreenElement.prop('title', titles.viewFullScreen);
-      viewFullScreenElement.removeAttr('role');
+      viewFullScreenElement.attr('role','button');
     },
   };
 }(jQuery, Drupal));
