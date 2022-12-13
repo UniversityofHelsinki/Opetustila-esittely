@@ -27,6 +27,7 @@ dependencies:
     - system
     - taxonomy
     - toolbar
+    - update
 id: editor
 label: Editor
 weight: 3
@@ -107,3 +108,4 @@ permissions:
   - 'view page revisions'
   - 'view space revisions'
   - 'view the administration theme'
+  - 'view update notifications'
