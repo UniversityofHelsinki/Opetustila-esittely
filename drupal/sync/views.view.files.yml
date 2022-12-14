@@ -233,7 +233,7 @@ display:
           entity_type: file
           entity_field: status
           plugin_id: field
-          label: Status
+          label: Tila
           exclude: false
           alter:
             alter_text: false
@@ -456,8 +456,8 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: 'Seuraava ›'
+            previous: '‹ Edellinen'
           expose:
             items_per_page: false
             items_per_page_label: 'Merkintöjä sivua kohti'
@@ -469,7 +469,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Filter
+          submit_button: Suodatin
           reset_button: false
           reset_button_label: Palauta
           exposed_sorts_label: Lajittele
@@ -594,7 +594,7 @@ display:
           exposed: true
           expose:
             operator_id: status_op
-            label: Status
+            label: Tila
             description: ''
             use_operator: false
             operator: status_op
@@ -991,8 +991,8 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: 'Seuraava ›'
+            previous: '‹ Edellinen'
           expose:
             items_per_page: false
             items_per_page_label: 'Merkintöjä sivua kohti'
@@ -1017,7 +1017,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Kaikki
           title_enable: true
           title: 'File usage information for {{ arguments.fid }}'
           default_argument_type: fixed

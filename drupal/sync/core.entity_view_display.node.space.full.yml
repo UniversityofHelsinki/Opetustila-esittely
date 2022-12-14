@@ -118,7 +118,6 @@ third_party_settings:
           height: 400
           hide_empty_map: true
           disable_wheel: true
-          fullscreen_control: true
           reset_map:
             control: false
             position: topright
@@ -148,6 +147,7 @@ third_party_settings:
               x: ''
               'y': ''
           path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
+          fullscreen_control: true
         ft:
           id: minimal
           settings:

@@ -15,9 +15,6 @@ display:
           expose:
             label: 'Tilan varusteet'
             description: 'Lisää yksi tai useampi varuste painamalla tekstikenttää. Voit rajata varustelistaa kirjoittamalla osan etsimästäsi varusteesta.'
-        search_api_language:
-          expose:
-            description: ''
       title: 'Millaista tilaa tarvitset?'
       header:
         result:
