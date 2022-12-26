@@ -46,7 +46,7 @@
         "wunderio/drupal-ping": "^1.0"
     },
     "require-dev": {
-        "drupal/devel": "^4",
+        "drupal/devel": "^5",
         "drupal/devel_php": "^1.0",
         "drupal/stage_file_proxy": "^1.0@alpha",
         "drupal/upgrade_status": "^3.12"
