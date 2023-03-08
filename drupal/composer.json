@@ -27,16 +27,14 @@
         "drupal/geofield_map": "^2.70",
         "drupal/google_tag": "^1.0",
         "drupal/leaflet": "^2.1",
-        "drupal/libraries": "^3.0@alpha",
         "drupal/menu_multilingual": "^1.0@alpha",
-        "drupal/migrate_plus": "^5",
-        "drupal/migrate_tools": "^5.1",
+        "drupal/migrate_plus": "^6.0",
         "drupal/pathauto": "^1.6",
         "drupal/redirect": "^1.1",
         "drupal/search_api": "^1.20",
         "drupal/search_api_autocomplete": "^1.5",
-        "drupal/simple_sitemap": "^3.1",
-        "drupal/simplei": "^1.0",
+        "drupal/simple_sitemap": "^4.1",
+        "drupal/simplei": "^2.0@beta",
         "drupal/token": "^1.6",
         "drupal/translatable_menu_link_uri": "^2.0",
         "drupal/translation_views": "^1.0",
@@ -46,10 +44,10 @@
         "wunderio/drupal-ping": "^1.0"
     },
     "require-dev": {
-        "drupal/devel": "^4",
+        "drupal/devel": "^5.0",
         "drupal/devel_php": "^1.0",
         "drupal/stage_file_proxy": "^1.0@alpha",
-        "drupal/upgrade_status": "^3.12"
+        "drupal/upgrade_status": "^4.0@alpha"
     },
     "conflict": {"drupal/drupal": "*"},
     "minimum-stability": "dev",
@@ -104,10 +102,14 @@
             },
             "drupal/ds_chains": {
                 "The chained entity is not loaded in the hosts entity language - #3295444": "https://www.drupal.org/files/issues/2022-07-12/load-the-chained-entity-translation-if-available.patch"
+            },
+            "drupal/cookieconsent": {
+                "D10 patch - #3286783": "https://www.drupal.org/files/issues/2022-06-15/cookieconsent.1.x-dev.rector.patch"
             }
         }
     },
     "config": {
+        "process-timeout": 0,
         "platform": {"php": "8.0"},
         "sort-packages": true,
         "allow-plugins": {
