@@ -2743,20 +2743,20 @@
         },
         {
             "name": "drupal/menu_multilingual",
-            "version": "1.0.0-alpha2",
+            "version": "1.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/menu_multilingual.git",
-                "reference": "8.x-1.0-alpha2"
+                "reference": "8.x-1.0-alpha3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/menu_multilingual-8.x-1.0-alpha2.zip",
-                "reference": "8.x-1.0-alpha2",
-                "shasum": "08ffd1fb058f9c51ca373d5ffe29cbdc46fff357"
+                "url": "https://ftp.drupal.org/files/projects/menu_multilingual-8.x-1.0-alpha3.zip",
+                "reference": "8.x-1.0-alpha3",
+                "shasum": "009b1216bdf8efc84b2e8741b46acb974b2ebe96"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^8 || ^9 || ^10"
             },
             "require-dev": {
                 "drupal/menu_block": "^1.5"
@@ -2764,8 +2764,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha2",
-                    "datestamp": "1596229993",
+                    "version": "8.x-1.0-alpha3",
+                    "datestamp": "1659408772",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -2774,7 +2774,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -9598,7 +9598,6 @@
         "drupal/ds_chains": 15,
         "drupal/field_group_link": 5,
         "drupal/libraries": 15,
-        "drupal/menu_multilingual": 15,
         "drupal/stage_file_proxy": 15
     },
     "prefer-stable": true,
