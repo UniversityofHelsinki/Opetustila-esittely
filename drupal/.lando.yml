@@ -23,6 +23,10 @@ tooling:
   npm:
     service: node
     description: Execute npm commands
+  reindex:
+    description: Re-index search indices
+    cmd:
+      - appserver: /app/.lando/reindex.sh
 
 services:
   mailhog:
