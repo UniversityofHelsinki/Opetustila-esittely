@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f79b1746d6ae372506bc76606857392",
+    "content-hash": "bb0bd1ef598bda031dd29726bf5a4038",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8126,20 +8126,20 @@
         },
         {
             "name": "wunderio/drupal-ping",
-            "version": "1.0.2",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wunderio/drupal-ping.git",
-                "reference": "1ba81d31a1527b19cbb115b01388c428e96136c9"
+                "reference": "e35989b02d3eebbc9f362a8222db445c42ed50a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wunderio/drupal-ping/zipball/1ba81d31a1527b19cbb115b01388c428e96136c9",
-                "reference": "1ba81d31a1527b19cbb115b01388c428e96136c9",
+                "url": "https://api.github.com/repos/wunderio/drupal-ping/zipball/e35989b02d3eebbc9f362a8222db445c42ed50a7",
+                "reference": "e35989b02d3eebbc9f362a8222db445c42ed50a7",
                 "shasum": ""
             },
             "require": {
-                "drupal/core": "~8.0 || ~9.0",
+                "drupal/core": "^8 || ^9 || ^10",
                 "koodimonni/composer-dropin-installer": ">=1.0.1"
             },
             "type": "web-dropin",
@@ -8153,6 +8153,18 @@
                     "email": "janne.koponen@wunder.io",
                     "homepage": "https://github.com/tharna",
                     "role": "Developer"
+                },
+                {
+                    "name": "Ragnar Kurm",
+                    "email": "ragnar.kurm@wunder.io",
+                    "homepage": "https://github.com/ragnarkurmwunder",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Juhani Moilanen",
+                    "email": "juhani.moilanen@wunder.io",
+                    "homepage": "https://github.com/Juhani-moilanen",
+                    "role": "Developer"
                 }
             ],
             "description": "Drupal health check endpoint for load balancers",
@@ -8164,9 +8176,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wunderio/drupal-ping/issues",
-                "source": "https://github.com/wunderio/drupal-ping/tree/1.0.2"
+                "source": "https://github.com/wunderio/drupal-ping/tree/2.5.2"
             },
-            "time": "2020-09-11T10:38:01+00:00"
+            "time": "2023-04-24T08:49:43+00:00"
         }
     ],
     "packages-dev": [
