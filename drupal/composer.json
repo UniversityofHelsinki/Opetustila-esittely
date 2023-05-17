@@ -35,6 +35,7 @@
         "drupal/search_api_autocomplete": "^1.5",
         "drupal/simple_sitemap": "^4.1",
         "drupal/simplei": "^2.0@beta",
+        "drupal/stable": "^2.0",
         "drupal/token": "^1.6",
         "drupal/translatable_menu_link_uri": "^2.0",
         "drupal/translation_views": "^1.0@alpha",
