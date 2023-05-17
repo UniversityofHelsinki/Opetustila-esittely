@@ -39,7 +39,7 @@
         "drupal/token": "^1.6",
         "drupal/translatable_menu_link_uri": "^2.0",
         "drupal/translation_views": "^1.0@alpha",
-        "drush/drush": "^10.2",
+        "mglaman/composer-drupal-lenient": "^1.0",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
         "wunderio/drupal-ping": "^2.0"
@@ -106,7 +106,13 @@
             },
             "drupal/cookieconsent": {
                 "D10 patch - #3286783": "https://www.drupal.org/files/issues/2022-06-15/cookieconsent.1.x-dev.rector.patch"
+            },
+            "drupal/translatable_menu_link_uri": {
+                "D10 support": "patches/d10_version_support.patch"
             }
+        },
+        "drupal-lenient": {
+            "allowed-list": ["drupal/cookieconsent", "drupal/translatable_menu_link_uri"]
         }
     },
     "config": {
@@ -117,7 +123,8 @@
             "composer/installers": true,
             "cweagans/composer-patches": true,
             "koodimonni/composer-dropin-installer": true,
-            "drupal/core-composer-scaffold": true
+            "drupal/core-composer-scaffold": true,
+            "mglaman/composer-drupal-lenient": true
         }
     }
 }
