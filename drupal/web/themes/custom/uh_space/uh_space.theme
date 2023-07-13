@@ -274,8 +274,8 @@ function _uh_space_wrap_icon($icon, $icon_name) {
  */
 function _uh_space_load_icon($icon_name) {
   $load_paths = [
-    drupal_get_path('theme', 'uh_space') . "/src/icons",
-    drupal_get_path('theme', 'uh_space') . "/lib/uh_styleguide/icons/src",
+    \Drupal::service('extension.list.theme')->getPath('uh_space') . "/src/icons",
+    \Drupal::service('extension.list.theme')->getPath('uh_space') . "/lib/uh_styleguide/icons/src",
   ];
 
   foreach ($load_paths as $load_path) {
