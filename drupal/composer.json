@@ -101,7 +101,8 @@
         "patches": {
             "drupal/core": {
                 "Referenced entity rendered in wrong language when parent entity does not have translation enabled - #2859202": "https://www.drupal.org/files/issues/2021-11-26/2859202-35.patch",
-                "False recursive rendering errors - #2940605": "https://www.drupal.org/files/issues/2021-09-10/2940605_56.patch"
+                "False recursive rendering errors - #2940605": "https://www.drupal.org/files/issues/2021-09-10/2940605_56.patch",
+                "Cannot assign null to property Drupal\\views\\Plugin\\views\\query\\QueryPluginBase::$offset of type int": "patches/null_offset_fix.patch"
             },
             "drupal/ds_chains": {
                 "The chained entity is not loaded in the hosts entity language - #3295444": "https://www.drupal.org/files/issues/2022-07-12/load-the-chained-entity-translation-if-available.patch"
