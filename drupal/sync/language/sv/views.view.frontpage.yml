@@ -25,6 +25,8 @@ display:
       empty:
         area_text_custom:
           content: 'Inget innehåll för startsidan har skapats ännu.'
+        title:
+          title: 'Welcome to [site:name]'
   feed_1:
     display_title: Innehållsflöde
   page_1:
