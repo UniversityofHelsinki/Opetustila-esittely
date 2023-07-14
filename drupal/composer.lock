@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7304140809a9cc8de1cd14a08694020",
+    "content-hash": "edbce80d84093c3c8b34568f6d5753aa",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2526,27 +2526,27 @@
         },
         {
             "name": "drupal/leaflet",
-            "version": "2.2.12",
+            "version": "10.0.16",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/leaflet.git",
-                "reference": "2.2.12"
+                "reference": "10.0.16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/leaflet-2.2.12.zip",
-                "reference": "2.2.12",
-                "shasum": "26a0435ec5080a3a514ba37789205b3406dcdfab"
+                "url": "https://ftp.drupal.org/files/projects/leaflet-10.0.16.zip",
+                "reference": "10.0.16",
+                "shasum": "5b37163e3b1fde2e247bfa2c95e898f81888f903"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/core": "^9 || ^10",
                 "drupal/geofield": "^1.31"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.12",
-                    "datestamp": "1669197065",
+                    "version": "10.0.16",
+                    "datestamp": "1688332238",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"

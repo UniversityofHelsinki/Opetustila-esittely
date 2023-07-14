@@ -26,7 +26,7 @@
         "drupal/geofield": "^1.34",
         "drupal/geofield_map": "^2.70",
         "drupal/google_tag": "^1.0",
-        "drupal/leaflet": "^2.1",
+        "drupal/leaflet": "^10.0",
         "drupal/menu_multilingual": "^1.0@alpha",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_tools": "^6.0",
