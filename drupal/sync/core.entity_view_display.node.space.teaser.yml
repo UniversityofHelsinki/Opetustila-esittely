@@ -76,3 +76,4 @@ hidden:
   field_room_type: true
   field_street_address: true
   langcode: true
+  search_api_excerpt: true

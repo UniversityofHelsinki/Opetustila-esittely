@@ -36,6 +36,8 @@ display:
             text: |-
               <span class="status">{{ translation_status }}</span>
               {% if translation_outdated  %} <span class="marker">{{ 'outdated'|t }}</span>{% endif %}
+          type_custom_true: ✅
+          type_custom_false: ❌
         translation_changed:
           label: Changed
         translation_operations:

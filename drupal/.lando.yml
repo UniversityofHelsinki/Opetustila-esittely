@@ -1,10 +1,10 @@
 name: tilat
-recipe: drupal8
+recipe: drupal10
 
 config:
   webroot: web
   via: nginx
-  php: '8.0'
+  php: '8.1'
   database: mariadb:10.3
   xdebug: false
   composer_version: 2-latest
@@ -21,8 +21,8 @@ tooling:
   node:
     service: node
   npm:
+    description: "Runs npm commands"
     service: node
-    description: Execute npm commands
 
 services:
   mailhog:
@@ -49,20 +49,13 @@ services:
     overrides:
       environment:
         WKV_SITE_ENV: lando
-        DB_PASS_DRUPAL: drupal8
-        DB_USER_DRUPAL: drupal8
+        DB_PASS_DRUPAL: drupal10
+        DB_USER_DRUPAL: drupal10
         DB_HOST_DRUPAL: database
-        DB_NAME_DRUPAL: drupal8
+        DB_NAME_DRUPAL: drupal10
         DRUSH_OPTIONS_URI: https://tilat.lndo.site
   node:
     type: node
-    build_as_root:
-      - "apt-get update -y"
-      - "apt-get install curl php-cli php-mbstring git unzip -y"
-#    run:
-#      - "cd /app/web/themes/custom/uh_space && npm install"
-#      - "cd /app/web/themes/custom/uh_space && npm rebuild node-sass"
-#      - "cd /app/web/themes/custom/uh_space && npm run build"
 proxy:
   mailhog:
     - mail.lndo.site
@@ -76,4 +69,4 @@ events:
     - appserver: cd /app && composer install
 
 # Lando version when config tested
-version: v3.6.0
+version: v3.11.0

@@ -8,7 +8,7 @@ module:
   big_pipe: 0
   block: 0
   breakpoint: 0
-  ckeditor: 0
+  ckeditor5: 0
   config: 0
   config_filter: 0
   config_ignore: 0
@@ -72,6 +72,7 @@ module:
   uh_space_site: 0
   uh_space_site_information: 0
   update: 0
+  upgrade_status: 0
   user: 0
   views_ui: 0
   ds: 1
@@ -83,7 +84,6 @@ module:
 theme:
   stark: 0
   stable: 0
-  bartik: 0
-  seven: 0
   uh_space: 0
+  claro: 0
 profile: minimal

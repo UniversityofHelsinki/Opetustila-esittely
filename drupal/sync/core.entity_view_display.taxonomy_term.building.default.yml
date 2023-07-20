@@ -213,6 +213,8 @@ content:
     settings:
       responsive_image_style: hero_image
       image_link: ''
+      image_loading:
+        attribute: eager
     third_party_settings:
       ds:
         ds_limit: '1'
@@ -227,9 +229,8 @@ content:
       height: 400
       height_unit: px
       hide_empty_map: true
-      disable_wheel: true
-      fullscreen_control: true
       gesture_handling: false
+      disable_wheel: true
       reset_map:
         control: false
         position: topright
@@ -273,6 +274,7 @@ content:
           zoom: 16
           popup: false
           options: ''
+      fullscreen_control: true
     third_party_settings:
       ds:
         ft:

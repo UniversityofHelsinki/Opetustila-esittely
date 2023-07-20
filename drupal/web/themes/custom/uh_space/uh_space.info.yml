@@ -1,7 +1,7 @@
 name: UH Space
 type: theme
 description: "Theme for the University of Helsinki Spaces"
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 base theme: stable
 regions:
   header: 'Header row 1'

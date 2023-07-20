@@ -78,6 +78,8 @@ content:
     settings:
       responsive_image_style: liftup_image
       image_link: ''
+      image_loading:
+        attribute: eager
     third_party_settings:
       ds:
         ds_limit: '1'
@@ -115,3 +117,4 @@ hidden:
   field_city: true
   field_reservation_instructions: true
   langcode: true
+  search_api_excerpt: true
