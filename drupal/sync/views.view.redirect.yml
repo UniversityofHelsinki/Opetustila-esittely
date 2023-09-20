@@ -247,7 +247,7 @@ display:
         type: basic
         options:
           submit_button: Suodatin
-          reset_button: false
+          reset_button: true
           reset_button_label: Palauta
           exposed_sorts_label: Lajittele
           expose_sort_order: true
