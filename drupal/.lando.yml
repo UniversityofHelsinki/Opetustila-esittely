@@ -8,6 +8,8 @@ config:
   database: mariadb:10.3
   xdebug: false
   composer_version: 2-latest
+  config:
+    vhosts: .lando/nginx.conf
 
 tooling:
   build.sh:
