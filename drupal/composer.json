@@ -100,7 +100,12 @@
             "drush/contrib/{$name}": ["type:drupal-drush"]
         },
         "composer-exit-on-patch-failure": true,
-        "dropin-paths": {"web/": ["type:web-dropin"]},
+        "dropin-paths": {
+            "web/": [
+                "type:web-dropin",
+                "package:wunderio/drupal-ping:_ping.php"
+            ]
+        },
         "patches": {
             "drupal/core": {
                 "Referenced entity rendered in wrong language when parent entity does not have translation enabled - #2859202": "https://www.drupal.org/files/issues/2021-11-26/2859202-35.patch",
