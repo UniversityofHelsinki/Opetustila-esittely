@@ -22,8 +22,8 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  min: !!float 0
-  max: !!float 100
+  min: 0.0
+  max: 100.0
   prefix: ''
   suffix: '% ALV'
 field_type: decimal

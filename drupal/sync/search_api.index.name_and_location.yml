@@ -21,7 +21,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_building
     type: text
-    boost: !!float 2
+    boost: 2.0
     dependencies:
       config:
         - field.storage.node.field_building
@@ -30,7 +30,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_building_id
     type: text
-    boost: !!float 3
+    boost: 3.0
     dependencies:
       config:
         - field.storage.node.field_building_id
@@ -47,7 +47,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_street_address
     type: text
-    boost: !!float 5
+    boost: 5.0
     dependencies:
       config:
         - field.storage.node.field_street_address
@@ -73,7 +73,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: text
-    boost: !!float 13
+    boost: 13.0
     dependencies:
       module:
         - node
@@ -153,13 +153,14 @@ processor_settings:
       preprocess_index: 0
     boosts:
       'entity:node':
-        datasource_boost: !!float 1
+        datasource_boost: 1.0
         bundle_boosts:
-          space: !!float 1
+          space: 1.0
 tracker_settings:
   default:
     indexing_order: lifo
 options:
   cron_limit: 50
   index_directly: true
+  track_changes_in_references: true
 server: opetustilat_drupal

@@ -139,7 +139,7 @@ process:
       - constants/reservation_link_base
       - optime_index
     delimiter: ''
-  'field_reservation_link/title''':
+  "field_reservation_link/title'":
     plugin: default_value
     default_value: 'Optime reservation'
   field_street_address:
