@@ -44,7 +44,7 @@
         "drupal/translatable_menu_link_uri": "^2.1",
         "drupal/translation_views": "^1.0@alpha",
         "drupal/upgrade_status": "^4.0",
-        "drush/drush": "^11.6",
+        "drush/drush": "^12.3",
         "mglaman/composer-drupal-lenient": "^1.0",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
