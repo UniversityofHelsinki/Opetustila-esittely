@@ -144,6 +144,7 @@ switch ($env) {
     $config['config_split.config_split.local']['status'] = TRUE;
     // Sitemap settings override.
     $config['simple_sitemap.settings']['base_url'] = 'https://tilat.lndo.site';
+    $config['migrate_plus.migration.optime_integration']['source']['urls'] = 'https://tilat.lndo.site/modules/custom/migrate_optime_json/data/locations11_example.json';
     break;
 }
 
