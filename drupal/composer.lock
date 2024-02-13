@@ -4848,16 +4848,16 @@
         },
         {
             "name": "mglaman/composer-drupal-lenient",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mglaman/composer-drupal-lenient.git",
-                "reference": "9d9271499d86ceb1431de80f876800fadf10a9e1"
+                "reference": "6f9e03f238403b53c04f26a24dd8777f62135213"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mglaman/composer-drupal-lenient/zipball/9d9271499d86ceb1431de80f876800fadf10a9e1",
-                "reference": "9d9271499d86ceb1431de80f876800fadf10a9e1",
+                "url": "https://api.github.com/repos/mglaman/composer-drupal-lenient/zipball/6f9e03f238403b53c04f26a24dd8777f62135213",
+                "reference": "6f9e03f238403b53c04f26a24dd8777f62135213",
                 "shasum": ""
             },
             "require": {
@@ -4894,7 +4894,7 @@
             ],
             "support": {
                 "issues": "https://github.com/mglaman/composer-drupal-lenient/issues",
-                "source": "https://github.com/mglaman/composer-drupal-lenient/tree/1.0.3"
+                "source": "https://github.com/mglaman/composer-drupal-lenient/tree/1.0.4"
             },
             "funding": [
                 {
@@ -4902,7 +4902,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-21T19:06:37+00:00"
+            "time": "2023-12-07T17:56:20+00:00"
         },
         {
             "name": "mglaman/phpstan-drupal",
