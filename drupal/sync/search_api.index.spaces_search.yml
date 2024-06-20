@@ -374,9 +374,10 @@ processor_settings:
     weights:
       preprocess_query: -49
   entity_status: {  }
+  entity_type: {  }
   hierarchy:
     weights:
-      preprocess_index: -42
+      preprocess_index: -45
     fields:
       field_campus: taxonomy_term-parent
   highlight:
@@ -385,6 +386,7 @@ processor_settings:
     prefix: '<strong>'
     suffix: '</strong>'
     excerpt: true
+    excerpt_always: false
     excerpt_length: 128
     exclude_fields: {  }
     highlight: always
@@ -441,6 +443,7 @@ processor_settings:
       - rendered_item
       - title
     spaces: ''
+    ignored: ._
     overlap_cjk: 1
     minimum_word_size: '3'
   transliteration:
@@ -477,7 +480,7 @@ processor_settings:
       - vid
   type_boost:
     weights:
-      preprocess_index: -43
+      preprocess_index: -45
     boosts:
       'entity:node':
         datasource_boost: 1.0
