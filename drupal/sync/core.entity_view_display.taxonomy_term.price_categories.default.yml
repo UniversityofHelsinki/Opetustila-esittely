@@ -60,16 +60,9 @@ content:
     settings:
       thousand_separator: ''
       decimal_separator: ','
-      scale: 1
+      scale: 0
       prefix_suffix: true
-    third_party_settings:
-      ds:
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
+    third_party_settings: {  }
     weight: 2
     region: content
 hidden:
