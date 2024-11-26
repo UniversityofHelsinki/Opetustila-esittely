@@ -26,7 +26,7 @@
         "drupal/field_group": "^3.2",
         "drupal/field_group_link": "^3.0@RC",
         "drupal/geofield": "^1.34",
-        "drupal/geofield_map": "^2.70",
+        "drupal/geofield_map": "^3.0",
         "drupal/google_tag": "^1.0",
         "drupal/leaflet": "^10.2",
         "drupal/menu_multilingual": "^1.0@alpha",
