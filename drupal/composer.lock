@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "293ea94944be69be6948ac1d08ea675f",
+    "content-hash": "41acd494c8302498a8e4a17856d3dcd0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1905,16 +1905,16 @@
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "10.2.2",
+            "version": "11.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
-                "reference": "97bd91856535a354e9b1b815f0957893e26b6622"
+                "reference": "c99999f9be668cb3b35eb7d89e230ecf7a47871d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/97bd91856535a354e9b1b815f0957893e26b6622",
-                "reference": "97bd91856535a354e9b1b815f0957893e26b6622",
+                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/c99999f9be668cb3b35eb7d89e230ecf7a47871d",
+                "reference": "c99999f9be668cb3b35eb7d89e230ecf7a47871d",
                 "shasum": ""
             },
             "require": {
@@ -1949,9 +1949,9 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.2.2"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.0.1"
             },
-            "time": "2023-11-15T23:23:28+00:00"
+            "time": "2024-05-11T08:22:20+00:00"
         },
         {
             "name": "drupal/core-recommended",
