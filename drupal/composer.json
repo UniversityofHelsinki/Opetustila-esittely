@@ -125,9 +125,6 @@
         "process-timeout": 0,
         "platform": {"php": "8.1"},
         "sort-packages": true,
-        "audit": {
-            "block-insecure": false
-        },
         "allow-plugins": {
             "composer/installers": true,
             "cweagans/composer-patches": true,
