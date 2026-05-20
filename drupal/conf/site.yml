@@ -12,6 +12,11 @@ default:
 
   drupal_version: d8
 
+  # Use the project-local Drush binary to avoid incompatibility with
+  # the system-wide Drush Launcher, which does not support Drush 12+.
+  # See https://github.com/drush-ops/drush-launcher/issues/105
+  drush: vendor/bin/drush
+
   # In development environments we usually want to use symlinks, note the settings.php linking
   link:
     - files: web/sites/default/files
