@@ -1,6 +1,5 @@
 _core:
   default_config_hash: GcMSgi6uAfG5R_FGEsWUVCvRPkNIzPUH2bNVcx6H0JA
-langcode: fi
 enabled_entity_types:
   - user
 punctuation:

@@ -87,7 +87,7 @@ display:
           entity_type: redirect
           entity_field: redirect_source
           plugin_id: field
-          label: From
+          label: Lähettäjä
           exclude: false
           alter:
             alter_text: false
@@ -172,7 +172,7 @@ display:
           entity_type: redirect
           entity_field: created
           plugin_id: date
-          label: Created
+          label: Luotu
           exclude: false
           alter:
             alter_text: false
@@ -230,10 +230,10 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: 'next ›'
-            previous: '‹ previous'
-            first: '« first'
-            last: 'last »'
+            next: 'seuraava ›'
+            previous: '‹ edellinen'
+            first: '« ensimmäinen'
+            last: 'viimeinen »'
           expose:
             items_per_page: false
             items_per_page_label: 'Merkintöjä sivua kohti'
@@ -243,10 +243,11 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
-          submit_button: Suodatin
+          submit_button: Käytä
           reset_button: true
           reset_button_label: Palauta
           exposed_sorts_label: Lajittele
@@ -291,7 +292,7 @@ display:
           exposed: true
           expose:
             operator_id: redirect_source__path_op
-            label: From
+            label: Lähettäjä
             description: ''
             use_operator: false
             operator: redirect_source__path_op
@@ -333,7 +334,7 @@ display:
           exposed: true
           expose:
             operator_id: redirect_redirect__uri_op
-            label: To
+            label: Osoitteeseen
             description: ''
             use_operator: false
             operator: redirect_redirect__uri_op
@@ -405,49 +406,49 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: '300 Multiple Choices'
+                title: '300 Useita valintoja'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '300'
               2:
-                title: '301 Moved Permanently'
+                title: '301 Pysyvästi siirretty'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '301'
               3:
-                title: '302 Found'
+                title: '302 Löydetty'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '302'
               4:
-                title: '303 See Other'
+                title: '303 Kts. toinen'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '303'
               5:
-                title: '304 Not Modified'
+                title: '304 Muuttamaton'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '304'
               6:
-                title: '305 Use Proxy'
+                title: '305 Käytä proxyä'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '305'
               7:
-                title: '307 Temporary Redirect'
+                title: '307 Tilapäinen uudelleenohjaus'
                 operator: '='
                 value:
                   min: ''
@@ -469,7 +470,7 @@ display:
           exposed: true
           expose:
             operator_id: language_op
-            label: 'Original language'
+            label: 'Alkuperäinen kieli'
             description: ''
             use_operator: false
             operator: language_op

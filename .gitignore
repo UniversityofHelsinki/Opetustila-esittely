@@ -25,3 +25,7 @@ Pipfile
 
 # Ignore per-developer private settings file
 drupal/conf/settings.private.php
+
+# database
+*.sql.gz
+*.sql

@@ -1,3 +1,4 @@
+langcode: fi
 id: campus_buildings_view
 label: 'Campus Buildings View'
 ui_limit: 'campus|*'
