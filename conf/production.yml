@@ -43,7 +43,7 @@
       cron:
         name: "Run Drupal cronjobs with drush"
         minute: "*/2"
-        job: "/usr/lib/composer/vendor/bin/drush --root={{ drupal_web_root }} cron"
+        job: "/var/www/{{ domain_name }}/current/vendor/bin/drush --root={{ drupal_web_root }} cron"
         state: "present"
         user: www-admin
       tags: ['cron']
@@ -53,7 +53,7 @@
       cron:
         name: "Run Optime migration"
         minute: "*/45"
-        job: "cd {{ drupal_web_root }}; /usr/lib/composer/vendor/bin/drush mim optime_integration --update"
+        job: "cd {{ drupal_web_root }}; /var/www/{{ domain_name }}/current/vendor/bin/drush mim optime_integration --update"
         state: "present"
         user: www-admin
       tags: ['cron']

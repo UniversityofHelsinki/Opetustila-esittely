@@ -109,7 +109,6 @@ dev:
       - drush: cr
       - drush: cim -y
       - cleanup
-      - shell: chmod -R a-w web
       - shell: sudo systemctl restart nginx php-fpm varnish
         #- shell:
         #- vendor/bin/codecept clean -c web/codeception.yml
@@ -151,7 +150,6 @@ test:
       - drush: cr
       - drush: cim -y
       - cleanup
-      - shell: chmod -R a-w web
       - shell: sudo systemctl restart nginx php-fpm varnish
         #- shell:
         #- vendor/bin/codecept clean -c web/codeception.yml
@@ -193,7 +191,6 @@ production:
       - drush: cr
       - drush: cim -y
       - cleanup
-      - shell: chmod -R a-w web
       - shell: sudo systemctl restart nginx php-fpm varnish
       #- shell: sudo systemctl -H [front2_ip] restart php-fpm nginx
       #- shell: sudo systemctl -H [lb_ip] restart varnish
