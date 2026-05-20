@@ -2,18 +2,18 @@ uuid: d22f9261-09e9-433d-a774-ddfbb71b839a
 langcode: en
 status: true
 dependencies:
+  config:
+    - taxonomy.vocabulary.campus
   module:
-    - ctools
     - taxonomy
 id: campus
 label: Campus
 type: 'canonical_entities:taxonomy_term'
-pattern: '[term:name]'
+pattern: '/[term:name]'
 selection_criteria:
   e9286504-2309-45da-b381-f3fdf6ebc816:
     id: 'entity_bundle:taxonomy_term'
     negate: false
-    uuid: e9286504-2309-45da-b381-f3fdf6ebc816
     context_mapping:
       taxonomy_term: taxonomy_term
     bundles:

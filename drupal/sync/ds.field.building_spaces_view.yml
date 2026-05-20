@@ -1,3 +1,4 @@
+langcode: fi
 id: building_spaces_view
 label: 'Building Spaces View'
 ui_limit: 'building|*'

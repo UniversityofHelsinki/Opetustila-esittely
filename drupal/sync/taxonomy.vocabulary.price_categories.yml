@@ -6,3 +6,4 @@ name: 'Price Categories'
 vid: price_categories
 description: 'Pricing categories of spaces.'
 weight: 0
+new_revision: false

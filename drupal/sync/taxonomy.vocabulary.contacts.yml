@@ -6,3 +6,4 @@ name: 'Contact details'
 vid: contacts
 description: 'Contact details'
 weight: 0
+new_revision: false

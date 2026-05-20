@@ -3,14 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_street_address
     - field.storage.node.field_building
     - field.storage.node.field_building_id
     - field.storage.node.field_campus
+    - field.storage.node.field_street_address
     - search_api.server.opetustilat_drupal
   module:
     - node
-    - search_api
 id: name_and_location
 name: 'Name and location (deprecated)'
 description: 'Separate index for limiting a search a location based on addresses and building names.'

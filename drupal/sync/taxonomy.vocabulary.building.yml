@@ -6,3 +6,4 @@ name: Buildings
 vid: building
 description: 'A building belonging to a campus.'
 weight: 0
+new_revision: false

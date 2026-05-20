@@ -25,7 +25,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'What kind of facility do you need?'
+      title: 'Millaista tilaa tarvitset?'
       fields:
         rendered_item:
           id: rendered_item
@@ -90,8 +90,8 @@ display:
           total_pages: null
           id: 0
           tags:
-            next: Next
-            previous: Previous
+            next: Seuraava
+            previous: Edellinen
           expose:
             items_per_page: false
             items_per_page_label: 'Tulosta per sivu'
@@ -100,10 +100,11 @@ display:
             items_per_page_options_all_label: '- Kaikki -'
             offset: false
             offset_label: Ohita
+          pagination_heading_level: h4
       exposed_form:
         type: input_required
         options:
-          submit_button: Find
+          submit_button: Etsi
           reset_button: false
           reset_button_label: Tyhjennä
           exposed_sorts_label: 'Sort by'
@@ -117,7 +118,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: none
+        type: search_api_none
         options: {  }
       empty: {  }
       sorts:
@@ -163,7 +164,7 @@ display:
           exposed: true
           expose:
             operator_id: field_campus_op
-            label: Location
+            label: Sijainti
             description: ''
             use_operator: false
             operator: field_campus_op
@@ -214,7 +215,7 @@ display:
           exposed: true
           expose:
             operator_id: field_capacity_op
-            label: 'Minimum number of seats'
+            label: 'Paikkoja vähintään'
             description: ''
             use_operator: false
             operator: field_capacity_op
@@ -258,7 +259,7 @@ display:
           exposed: true
           expose:
             operator_id: field_accessibility_op
-            label: Accessibility
+            label: Esteettömyys
             description: ''
             use_operator: false
             operator: field_accessibility_op
@@ -306,8 +307,8 @@ display:
           exposed: true
           expose:
             operator_id: field_equipment_op
-            label: 'Equipment of the facility'
-            description: 'Add one or more equipment by opening the drop-down menu. You can narrow down the list of equipment by starting to write the name'
+            label: 'Tilan varusteet'
+            description: 'Lisää yksi tai useampi varuste painamalla tekstikenttää. Voit rajata varustelistaa kirjoittamalla osan etsimästäsi varusteesta.'
             use_operator: false
             operator: field_equipment_op
             operator_limit_selection: false
@@ -552,7 +553,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: '<h3>@total facilities match your search</h3>'
+          content: '<h3>Ehdoillasi löytyi @total tilaa</h3>'
       footer: {  }
       display_extenders: {  }
     cache_metadata:

@@ -5,9 +5,14 @@ dependencies:
   config:
     - system.menu.footer
   module:
+    - menu_multilingual
     - system
   theme:
     - uh_space
+third_party_settings:
+  menu_multilingual:
+    only_translated_labels: false
+    only_translated_content: false
 id: footerlinksfi
 theme: uh_space
 region: footer
@@ -22,6 +27,4 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-  only_translated_labels: 0
-  only_translated_content: 0
 visibility: {  }

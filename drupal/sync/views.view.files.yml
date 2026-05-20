@@ -8,7 +8,7 @@ dependencies:
 _core:
   default_config_hash: rRWxAX-IQkJ5viACQRovRkC784EyCl9493GU_G23n2Q
 id: files
-label: Files
+label: Tiedostot
 module: file
 description: 'Find and manage files.'
 tag: default
@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Files
+      title: Tiedostot
       fields:
         fid:
           id: fid
@@ -33,7 +33,7 @@ display:
           entity_type: file
           entity_field: fid
           plugin_id: field
-          label: Fid
+          label: FId
           exclude: true
           alter:
             alter_text: false
@@ -66,7 +66,7 @@ display:
           entity_type: file
           entity_field: filename
           plugin_id: field
-          label: Name
+          label: Nimi
           exclude: false
           alter:
             alter_text: false
@@ -129,7 +129,7 @@ display:
           entity_type: file
           entity_field: filemime
           plugin_id: field
-          label: 'MIME type'
+          label: 'MIME tyyppi'
           exclude: false
           alter:
             alter_text: false
@@ -181,7 +181,7 @@ display:
           entity_type: file
           entity_field: filesize
           plugin_id: field
-          label: Size
+          label: Koko
           exclude: false
           alter:
             alter_text: false
@@ -277,8 +277,8 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_false: Temporary
-            format_custom_true: Permanent
+            format_custom_false: Tilapäinen
+            format_custom_true: Pysyvä
         created:
           id: created
           table: file_managed
@@ -289,7 +289,7 @@ display:
           entity_type: file
           entity_field: created
           plugin_id: field
-          label: 'Upload date'
+          label: Latauspäivämäärä
           exclude: false
           alter:
             alter_text: false
@@ -354,7 +354,7 @@ display:
           entity_type: file
           entity_field: changed
           plugin_id: field
-          label: 'Changed date'
+          label: Muutospäivämäärä
           exclude: false
           alter:
             alter_text: false
@@ -417,7 +417,7 @@ display:
           group_type: sum
           admin_label: ''
           plugin_id: numeric
-          label: 'Used in'
+          label: Käytetään
           exclude: false
           alter:
             alter_text: false
@@ -484,6 +484,7 @@ display:
             items_per_page_options_all_label: '- Kaikki -'
             offset: false
             offset_label: Offset
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -508,7 +509,7 @@ display:
           field: area_text_custom
           plugin_id: text_custom
           empty: true
-          content: 'No files available.'
+          content: 'Tiedostoja ei ole saatavilla.'
       sorts: {  }
       arguments: {  }
       filters:
@@ -528,7 +529,7 @@ display:
           exposed: true
           expose:
             operator_id: filemime_op
-            label: Filename
+            label: 'Tiedoston nimi'
             description: ''
             use_operator: false
             operator: filename_op
@@ -570,7 +571,7 @@ display:
           exposed: true
           expose:
             operator_id: filemime_op
-            label: 'MIME type'
+            label: 'MIME tyyppi'
             description: ''
             use_operator: false
             operator: filemime_op
@@ -774,7 +775,7 @@ display:
       path: admin/content/files
       menu:
         type: tab
-        title: Files
+        title: Tiedostot
         description: ''
         weight: 0
         menu_name: admin
@@ -790,11 +791,11 @@ display:
       tags: {  }
   page_2:
     id: page_2
-    display_title: 'File usage'
+    display_title: 'Tiedoston käyttö'
     display_plugin: page
     position: 2
     display_options:
-      title: 'File usage'
+      title: 'Tiedoston käyttö'
       fields:
         entity_label:
           id: entity_label
@@ -804,7 +805,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: entity_label
-          label: Entity
+          label: Entiteetti
           exclude: false
           alter:
             alter_text: false
@@ -854,7 +855,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          label: 'Entity type'
+          label: 'Entiteetin tyyppi'
           exclude: false
           alter:
             alter_text: false
@@ -903,7 +904,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          label: 'Registering module'
+          label: 'Käytön kirjannut moduuli'
           exclude: false
           alter:
             alter_text: false
@@ -952,7 +953,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: numeric
-          label: 'Use count'
+          label: Käyttömäärä
           exclude: false
           alter:
             alter_text: false
@@ -1019,6 +1020,7 @@ display:
             items_per_page_options_all_label: '- Kaikki -'
             offset: false
             offset_label: Offset
+          pagination_heading_level: h4
       empty: {  }
       arguments:
         fid:
@@ -1041,7 +1043,6 @@ display:
           default_argument_type: fixed
           default_argument_options:
             argument: ''
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
