@@ -6,3 +6,4 @@ name: Accessibility
 vid: accessibility
 description: 'Is the space easily accessible for everyone.'
 weight: 0
+new_revision: false

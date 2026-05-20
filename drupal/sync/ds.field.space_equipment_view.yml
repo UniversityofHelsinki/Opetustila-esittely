@@ -1,3 +1,4 @@
+langcode: fi
 id: space_equipment_view
 label: 'Space Equipment View'
 ui_limit: 'space|*'

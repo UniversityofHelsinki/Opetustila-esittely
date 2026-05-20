@@ -5,9 +5,14 @@ dependencies:
   config:
     - system.menu.admin
   module:
+    - menu_multilingual
     - system
   theme:
     - stark
+third_party_settings:
+  menu_multilingual:
+    only_translated_labels: false
+    only_translated_content: false
 _core:
   default_config_hash: DWAB7HaAfAJerAmyT8B2K-6qxicu9n0PcKVpDr--N4c
 id: stark_admin
@@ -18,12 +23,10 @@ provider: null
 plugin: 'system_menu_block:admin'
 settings:
   id: 'system_menu_block:admin'
-  label: Administration
+  label: Ylläpito
   label_display: visible
   provider: system
   level: 1
   depth: 0
   expand_all_items: false
-  only_translated_labels: 0
-  only_translated_content: 0
 visibility: {  }

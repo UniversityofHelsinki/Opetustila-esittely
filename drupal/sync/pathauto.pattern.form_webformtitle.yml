@@ -7,12 +7,11 @@ dependencies:
 id: form_webformtitle
 label: Form->WebformTitle
 type: 'canonical_entities:node'
-pattern: 'form/[node:title]'
+pattern: '/form/[node:title]'
 selection_criteria:
   ed4643b8-cde4-41af-9ab5-f87b66fe935a:
     id: 'entity_bundle:node'
     negate: false
-    uuid: ed4643b8-cde4-41af-9ab5-f87b66fe935a
     context_mapping:
       node: node
     bundles:

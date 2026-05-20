@@ -3,31 +3,30 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.storage.node.body
     - field.storage.node.field_accessibility
     - field.storage.node.field_building
     - field.storage.node.field_building_id
-    - field.storage.taxonomy_term.field_building_id
     - field.storage.node.field_campus
-    - field.storage.taxonomy_term.field_campus
     - field.storage.node.field_capacity
-    - field.storage.taxonomy_term.field_city
     - field.storage.node.field_equipment
-    - field.storage.taxonomy_term.field_equipment_information
     - field.storage.node.field_last_changed_in_optime
     - field.storage.node.field_optime_id
     - field.storage.node.field_price_category
-    - field.storage.taxonomy_term.field_reservation_instructions
     - field.storage.node.field_room_type
-    - field.storage.taxonomy_term.field_street_address
     - field.storage.node.field_street_address
+    - field.storage.taxonomy_term.field_building_id
+    - field.storage.taxonomy_term.field_campus
+    - field.storage.taxonomy_term.field_city
+    - field.storage.taxonomy_term.field_equipment_information
+    - field.storage.taxonomy_term.field_reservation_instructions
+    - field.storage.taxonomy_term.field_street_address
     - field.storage.taxonomy_term.field_vat_rate
     - search_api.server.opetustilat_drupal
-    - core.entity_view_mode.node.full
   module:
     - node
     - taxonomy
-    - search_api
 id: spaces_search
 name: 'Global spaces search'
 description: 'The index is used for the spaces search, the primary function of the site.'

@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Fix 404 pages'
+      title: 'Korjaa 404-sivut'
       fields:
         path:
           id: path
@@ -33,7 +33,7 @@ display:
           entity_type: null
           entity_field: null
           plugin_id: standard
-          label: Path
+          label: Polku
           exclude: false
           alter:
             alter_text: false
@@ -82,7 +82,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: serialized
-          label: Count
+          label: Laskuri
           exclude: false
           alter:
             alter_text: false
@@ -184,7 +184,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: date
-          label: 'Last accessed'
+          label: 'Viimeksi käytetty'
           exclude: false
           alter:
             alter_text: false
@@ -344,6 +344,7 @@ display:
             items_per_page_options_all_label: '- Kaikki -'
             offset: false
             offset_label: Offset
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -390,7 +391,7 @@ display:
           exposed: true
           expose:
             operator_id: path_op
-            label: Path
+            label: Polku
             description: ''
             use_operator: false
             operator: path_op

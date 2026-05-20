@@ -6,3 +6,4 @@ name: Equipment
 vid: equipment
 description: 'Types of equipment available in rooms.'
 weight: 0
+new_revision: false
